@@ -23,13 +23,13 @@
 }
 
 h1 {
-	font-family: 'ButlerStencil-Bold';
-	font-weight: normal;
-	font-style: normal;
+	font-family: 'ButlerStencil-Bold' !important;
+	font-weight: normal !important;
+	font-style: normal !important;
 }
 
 h2,h3,h4,h5,h6 {
-	font-family: 'Butler-Light';
-	font-weight: normal;
-	font-style: normal;
+	font-family: 'Butler-Light' !important;
+	font-weight: normal !important;
+	font-style: normal !important;
 }
