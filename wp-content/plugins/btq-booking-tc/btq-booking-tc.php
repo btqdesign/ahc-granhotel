@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: BTQ Design Booking TC
- * Plugin URI: http://www.btqdesign.com/
+ * Plugin URI: http://btqdesign.com/plugins/btq-booking-tc/
  * Description: Booking TravelClick
  * Version: 0.1.0
- * Author: Saúl Díaz, José A. del Carmen
- * Author URI: https://saul.mx
+ * Author: BTQ Design
+ * Author URI: http://btqdesign.com/
  * Requires at least: 4.9.5
  * Tested up to: 4.9.5
  * 
@@ -14,7 +14,7 @@
  * 
  * @package btq-booking-tc
  * @category Core
- * @author Saúl Díaz
+ * @author BTQ Design
  */
 
 
