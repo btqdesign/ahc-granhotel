@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: Boutique Design Booking TC
+ * Plugin Name: BTQ Design Booking TC
  * Plugin URI: http://www.btqdesign.com/
  * Description: Booking TravelClick
  * Version: 0.1.0
