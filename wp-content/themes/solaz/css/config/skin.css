@@ -21,13 +21,13 @@ p {
   background-color: #fff;
 }
 .footer-v1 {
-  background-color: #3d3935;
+  background-color: #f7f7f7;
 }
 .footer-v1 {
-  color: #858585;
+  color: #000;
 }
 .footer-v1 a {
-  color: #858585;
+  color: #000;
 }
 h1 {
   font-family: Poppins;
@@ -42,22 +42,22 @@ h2 {
 h3 {
   font-family: Poppins;
   color: #000;
-  font-size: 25px;
+  font-size: 20px;
 }
 h4 {
   font-family: Poppins;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
 }
 h5 {
   font-family: Poppins;
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
 }
 h6 {
   font-family: Poppins;
   color: #000;
-  font-size: 14px;
+  font-size: 12px;
 }
 .main-color, a, .hb_room_carousel_container .text_link a, .hb_room_carousel_container .navigation .next, .hb_room_carousel_container .navigation .prev, .hb_room_carousel_container .text_link > a, .footer-v3 .footer_info a:hover, .link-contact a i, .mega-menu li:hover > a, .mega-menu li.current-menu-item > a, .mega-menu li.current-menu-ancestor > a, .rooms .hb_room .title h4 a:hover, .rooms .hb_room .price, .banner-content.banner-type-2 h2, .btn.btn-primary, .header-v2.is-sticky .header-logo:before, .btn.btn-default, body .fancybox-nav span:hover:before, .footer .widget_text .textwidget > p a i, .solaz_get_widget .widget_hb_widget_search .btn_prev:hover, .solaz_get_widget .widget_hb_widget_search .btn_next:hover, .search-block-top .btn-search:hover, #mini-scart a:hover, .load-more > a.btn, .load-more.room-loadmore > a.btn, .load-more.room-loadmore > a.btn::before, .banner-type-5 .banner-desc h2, .footer-v3 .bottom-footer a:hover, .mega-menu ul li.current-menu-item > a, .aio-icon.none, .vc_general.vc_btn3.vc_btn3-style-custom, #hotel-booking-results .hb-search-results > .hb-room .hb-room-name a:hover, .active-sidebar .widget .widget-title:before, .hb_addition_package_extra a.hb_package_toggle:after, .mega-menu .dropdown-menu li a:hover, .main-color h6, .link-contact a:hover, .link-contact a:focus, .banner-content.banner-type-3:hover .btn.btn-primary:hover, .btn_slider_1:hover, .btn-primary.btn_slider_1:hover, .gallery-container .page-title h3:before, .button-group button:hover, .button-group button.is-checked, .widget_categories li.current-cat > a, .widget_product_categories li.current-cat > a, .blog-post-info .read-more > a, .blog-post-info .post-name > a:hover, .widget_search .search-form .btn-search:hover, .widget_recent_entries li a:hover, .widget_recent_comments li a:hover, .blog-item .post_link:hover, .arrows-custom .slick-arrow:hover, .widget_categories li a:hover, .widget_product_categories li a:hover, .links-info .info a, .share-links .lab, .share-links .f-social ul li a:hover, .post-single .blog-info > div i, .post-single .blog-info .info-comment a:hover, .product_archives .title_archive_product h2:before, .product_archives .tabs-fillter .btn-filter li a.active, .product_archives .tabs-fillter .btn-filter li a:hover, .product-content .product-image a.add_to_cart_button:hover, .product-content .product-image a.product_type_grouped:hover, .tagcloud a:hover, .yith-wcwl-add-to-wishlist > div a:hover, .product-content h3 a:hover, a.add_to_wishlist:before, .yith-wcwl-add-to-wishlist > div a:hover, .info .price span, .info .product_meta > span a, .banner-type-5 .banner-desc h2, .coming-timer span, .upb_video-bg .video-controls, .amenities_room .ult-content-box p, .sp-reservation a:hover, .wishlist_table .product-price .amount, .woocommerce .wishlist_table td.product-add-to-cart a, .product-tab .nav-tabs > li.active a, .sticky_post, .woocommerce-pagination .page-numbers > li .current, .woocommerce-pagination .page-numbers > li a:hover, .blog-list .blog-post-info .blog-info > .info a:hover, .blog-list .blog-post-info .blog-info > .info:hover > i, .title-cart:before, .payment_method_paypal label a, .showlogin, .showcoupon, .info .product-share h5, .info .product-share a:hover, .product-tab .nav-tabs > li a:hover, .product-tab .nav-tabs > li a:focus, .quantity .qty-number:hover span, .wishlist_table .product-remove a, .woocommerce-Address-title a, .my_account_orders a, .woocommerce-MyAccount-content a, .woocommerce-MyAccount-navigation li a, .hotel_booking_mini_cart .hb_mini_cart_item .hb_mini_cart_price span, .hb_mini_cart_price_packages .hb_package_title a:hover, .hb_mini_cart_price_packages .hb_package_title a:focus, #hotel-booking-payment .hb_room_type a:hover, #hotel-booking-cart .hb_room_type a:hover {
   color: #c69807;
