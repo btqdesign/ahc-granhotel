@@ -115,3 +115,132 @@ function btq_booking_tc_admin_debug_page() {
 	</div><!-- wrap -->
 <?php
 }
+
+function btq_booking_tc_soap($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
+	
+	$soapHeader = '
+		<soap:Header>
+			<wsa:MessageID>Message01</wsa:MessageID>
+			<wsa:ReplyTo>
+				<wsa:Address>NOT NEEDED FOR SYNC REQUEST</wsa:Address>
+			</wsa:ReplyTo>
+			<wsa:To>answerTo</wsa:To>
+			<wsa:Action>action</wsa:Action>
+			<wsa:From>
+				<SalesChannelInfo ID="AHC" />
+			</wsa:From>
+			<wsse:Security>
+				<wsu:Timestamp>
+					<wsu:Created>2011-12-24T16:05:30+05:30</wsu:Created>
+					<wsu:Expires>2011-12-25T16:12:46+05:30</wsu:Expires>
+				</wsu:Timestamp>
+				<wsse:UsernameToken>
+				<wsse:Username>ADMIN</wsse:Username>
+				<wsse:Password>C0nn3ct0taAp!</wsse:Password>
+				</wsse:UsernameToken>
+			</wsse:Security>
+		</soap:Header>
+	';
+	
+	if ($childrens > 0){
+		$guestCountChildrens = '<GuestCount AgeQualifyingCode="8" Count="'. $childrens .'" />';
+	}
+	else {
+		$guestCountChildrens = '';
+	}
+	
+	if ($typeQuery == 'package'){
+		// Paquete
+		$soapBody = '
+			<soap:Body>
+				<OTA_HotelAvailRQ Version="2.0" AvailRatesOnly="'. $availRatesOnly .'">
+					<POS>
+						<Source>
+							<RequestorID ID="1" Type="1" />
+							<BookingChannel Type="18">
+								<CompanyName Code="AHC" />
+							</BookingChannel>
+						</Source>
+					</POS>
+					<AvailRequestSegments>
+						<AvailRequestSegment ResponseType="FullList">
+							<HotelSearchCriteria AvailableOnlyIndicator="false">
+								<Criterion>
+									<StayDateRange Start="'. $dateRangeStart .'" End="'. $dateRangeEnd .'" />
+									<RatePlanCandidates>
+										<RatePlanCandidate RatePlanType="11">
+											<HotelRefs>
+												<HotelRef HotelCode="'. $hotelCode .'" />
+											</HotelRefs>
+										</RatePlanCandidate>
+									</RatePlanCandidates>
+									<RoomStayCandidates>
+										<RoomStayCandidate Quantity="'. $rooms .'">
+											<GuestCounts>
+												<GuestCount AgeQualifyingCode="10" Count="'. $adults .'" />
+												'. $guestCountChildrens .'
+											</GuestCounts>
+										</RoomStayCandidate>
+									</RoomStayCandidates>
+								</Criterion>
+							</HotelSearchCriteria>
+						</AvailRequestSegment>
+					</AvailRequestSegments>
+				</OTA_HotelAvailRQ>
+			</soap:Body>
+		';
+	}
+	else{
+		// Habitaciones
+		$soapBody = '
+			<soap:Body>
+				<OTA_HotelAvailRQ Version="2.0" AvailRatesOnly="'. $availRatesOnly .'">
+					<POS>
+						<Source>
+							<RequestorID ID="1" Type="1" />
+							<BookingChannel Type="18">
+								<CompanyName Code="AHC" />
+							</BookingChannel>
+						</Source>
+					</POS>
+					<AvailRequestSegments>
+						<AvailRequestSegment ResponseType="PropertyList">
+							<HotelSearchCriteria AvailableOnlyIndicator="true">
+								<Criterion>
+									<StayDateRange Start="'. $dateRangeStart .'" End="'. $dateRangeEnd .'" />
+									<RatePlanCandidates>
+										<RatePlanCandidate>
+											<HotelRefs>
+												<HotelRef HotelCode="'. $hotelCode .'"/>
+											</HotelRefs>
+										</RatePlanCandidate>
+									</RatePlanCandidates>
+									<RoomStayCandidates>
+										<RoomStayCandidate Quantity="'. $rooms .'">
+											<GuestCounts>
+												<GuestCount AgeQualifyingCode="10" Count="'. $adults .'" />
+												'. $guestCountChildrens .'
+											</GuestCounts>
+										</RoomStayCandidate>
+									</RoomStayCandidates>
+								</Criterion>
+							</HotelSearchCriteria>
+							<TPA_Extensions>
+								<InventoryData InventoryDataNeeded="True"/>
+							</TPA_Extensions>                    
+						</AvailRequestSegment>
+					</AvailRequestSegments>
+				</OTA_HotelAvailRQ>
+			</soap:Body>
+		';
+	}
+	    
+	$soapEnvelope = '<?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+        '.$soapHeader.'
+        '.$soapBody.'
+	</soap:Envelope>';
+	
+	return $soapEnvelope;
+	
+}
