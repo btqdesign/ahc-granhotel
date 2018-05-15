@@ -257,9 +257,14 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 }
 
 function btq_booking_tc_soap_query(){
-	//require('lib/nusoap-php7.php');
+	require_once('lib/nusoap.php');
 	
 	$soap = btq_booking_tc_soap_query_string('131328', '2018-10-01', '2018-10-02');
 	
-	echo htmlentities($soap['envelope']);
+	$client = new nusoap_client($soap['wsaTo'], FALSE);
+	$client->decode_utf8 = TRUE;
+
+	$result = $client->call($soap['wsaTo'], $soap['envelope']);
+	
+	echo var_export($result, TRUE);
 }
