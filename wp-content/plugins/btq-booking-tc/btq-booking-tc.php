@@ -256,10 +256,10 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	
 }
 
-function btq_booking_tc_soap_query() {
-	require('lib/nusoap-php7.php');
+function btq_booking_tc_soap_query(){
+	//require('lib/nusoap-php7.php');
 	
-	$soap = btq_booking_tc_soap_query_string('131328', '2018-10-01' '2018-10-02');
+	$soap = btq_booking_tc_soap_query_string('131328', '2018-10-01', '2018-10-02');
 	
 	echo htmlentities($soap['envelope']);
 }
