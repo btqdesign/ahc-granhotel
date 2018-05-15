@@ -261,7 +261,8 @@ function btq_booking_tc_soap_query(){
 	
 	$soap = btq_booking_tc_soap_query_string('131328', '2018-10-01', '2018-10-02');
 	
-	$client = new nusoap_client($soap['wsaTo'], FALSE);
+	$client = new nusoap_client($soap['wsaTo'], 'wsdl');
+	$client->soap_defencoding = 'UTF-8';
 	$client->decode_utf8 = TRUE;
 
 	$result = $client->call($soap['envelope'], $soap['wsaTo']);
