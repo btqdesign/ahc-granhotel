@@ -93,11 +93,6 @@ function btq_booking_tc_admin_settings_page() {
 			</table>
 			<?php submit_button(); ?>
 		</form>
-		<pre>
-		<?php
-			btq_booking_tc_soap_query();
-		?>
-		</pre>
 	</div><!-- wrap -->
 <?php
 }
@@ -117,6 +112,11 @@ function btq_booking_tc_admin_debug_page() {
 			</table>
 			<?php submit_button(); ?>
 		</form>
+		<pre style="background-color: white;">
+		<?php
+			btq_booking_tc_soap_query();
+		?>
+		</pre>
 	</div><!-- wrap -->
 <?php
 }
