@@ -93,6 +93,11 @@ function btq_booking_tc_admin_settings_page() {
 			</table>
 			<?php submit_button(); ?>
 		</form>
+		<pre>
+		<?php
+			btq_booking_tc_soap_query();
+		?>
+		</pre>
 	</div><!-- wrap -->
 <?php
 }
@@ -116,31 +121,7 @@ function btq_booking_tc_admin_debug_page() {
 <?php
 }
 
-function btq_booking_tc_soap($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
-	
-	$soapHeader = '
-		<soap:Header>
-			<wsa:MessageID>Message01</wsa:MessageID>
-			<wsa:ReplyTo>
-				<wsa:Address>NOT NEEDED FOR SYNC REQUEST</wsa:Address>
-			</wsa:ReplyTo>
-			<wsa:To>answerTo</wsa:To>
-			<wsa:Action>action</wsa:Action>
-			<wsa:From>
-				<SalesChannelInfo ID="AHC" />
-			</wsa:From>
-			<wsse:Security>
-				<wsu:Timestamp>
-					<wsu:Created>2011-12-24T16:05:30+05:30</wsu:Created>
-					<wsu:Expires>2011-12-25T16:12:46+05:30</wsu:Expires>
-				</wsu:Timestamp>
-				<wsse:UsernameToken>
-				<wsse:Username>ADMIN</wsse:Username>
-				<wsse:Password>C0nn3ct0taAp!</wsse:Password>
-				</wsse:UsernameToken>
-			</wsse:Security>
-		</soap:Header>
-	';
+function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
 	
 	if ($childrens > 0){
 		$guestCountChildrens = '<GuestCount AgeQualifyingCode="8" Count="'. $childrens .'" />';
@@ -151,6 +132,9 @@ function btq_booking_tc_soap($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQu
 	
 	if ($typeQuery == 'package'){
 		// Paquete
+		$wsaTo = 'https://ota2.ihotelier.com/OTA_Seamless/services/FullDataService';
+		$wsaAction = 'FULL';
+		
 		$soapBody = '
 			<soap:Body>
 				<OTA_HotelAvailRQ Version="2.0" AvailRatesOnly="'. $availRatesOnly .'">
@@ -192,6 +176,9 @@ function btq_booking_tc_soap($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQu
 	}
 	else{
 		// Habitaciones
+		$wsaTo = 'https://ota2.ihotelier.com/OTA_Seamless/services/PropertyAvailabilityService';
+		$wsaAction = 'PALS';
+		
 		$soapBody = '
 			<soap:Body>
 				<OTA_HotelAvailRQ Version="2.0" AvailRatesOnly="'. $availRatesOnly .'">
@@ -234,6 +221,30 @@ function btq_booking_tc_soap($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQu
 			</soap:Body>
 		';
 	}
+	
+	$soapHeader = '
+		<soap:Header>
+			<wsa:MessageID>Message01</wsa:MessageID>
+			<wsa:ReplyTo>
+				<wsa:Address>NOT NEEDED FOR SYNC REQUEST</wsa:Address>
+			</wsa:ReplyTo>
+			<wsa:To>'. $wsaTo .'</wsa:To>
+			<wsa:Action>'. $wsaAction .'</wsa:Action>
+			<wsa:From>
+				<SalesChannelInfo ID="AHC" />
+			</wsa:From>
+			<wsse:Security>
+				<wsu:Timestamp>
+					<wsu:Created>2011-12-24T16:05:30+05:30</wsu:Created>
+					<wsu:Expires>2011-12-25T16:12:46+05:30</wsu:Expires>
+				</wsu:Timestamp>
+				<wsse:UsernameToken>
+				<wsse:Username>ADMIN</wsse:Username>
+				<wsse:Password>C0nn3ct0taAp!</wsse:Password>
+				</wsse:UsernameToken>
+			</wsse:Security>
+		</soap:Header>
+	';
 	    
 	$soapEnvelope = '<?xml version="1.0" encoding="utf-8"?>
     <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -241,6 +252,14 @@ function btq_booking_tc_soap($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQu
         '.$soapBody.'
 	</soap:Envelope>';
 	
-	return $soapEnvelope;
+	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
+}
+
+function btq_booking_tc_soap_query() {
+	require('lib/nusoap-php7.php');
+	
+	$soap = btq_booking_tc_soap_query_string('131328', '2018-10-01' '2018-10-02');
+	
+	echo htmlentities($soap['envelope']);
 }
