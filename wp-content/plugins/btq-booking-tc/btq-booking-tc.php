@@ -247,7 +247,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 }
 
 function btq_booking_tc_soap_query(){
-	//require_once('lib/nusoap.php');
+	require_once('lib/nusoap.php');
 	
 	$soap = btq_booking_tc_soap_query_string('131328', '2018-08-14', '2018-08-15');
 	
