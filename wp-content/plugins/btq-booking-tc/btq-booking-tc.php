@@ -279,8 +279,7 @@ function btq_booking_tc_grid_get_images($path) {
 	
 	foreach ($files as $file) {
 		if (!is_dir($path . DIRECTORY_SEPARATOR . $file)){
-			//if (preg_match('/^.*\.(jpg|jpeg|png|gif)$/', $file)) 
-			array_push($images, $file);
+			if (preg_match('/^.*\.(jpg|jpeg|png|gif)$/', $file) !== FALSE) array_push($images, $file);
 		}
 	}
 	
