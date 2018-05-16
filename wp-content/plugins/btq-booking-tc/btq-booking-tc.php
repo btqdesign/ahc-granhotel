@@ -254,6 +254,8 @@ function btq_booking_tc_soap_query(){
 	echo htmlentities($soap['envelope'])."\n\n";
 	
 	$client = new nusoap_client($soap['wsaTo']);
+	$client->soap_defencoding = 'UTF-8';
+	$client->decode_utf8 = FALSE;
 	$result = $client->send($soap['envelope'], $soap['wsaTo'], '');
 	
 	echo var_export($result, TRUE);
