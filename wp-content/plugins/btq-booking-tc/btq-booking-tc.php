@@ -101,6 +101,7 @@ function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
 		<h1>Debug TravelClick</h1>
+		<!--
 		<form method="post" action="options.php">
 			<?php settings_fields( 'btq-booking-tc-settings' ); ?>
 			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
@@ -112,6 +113,7 @@ function btq_booking_tc_admin_debug_page() {
 			</table>
 			<?php submit_button(); ?>
 		</form>
+		-->
 		<pre style="background-color: white;">
 		<?php
 			btq_booking_tc_grid();
