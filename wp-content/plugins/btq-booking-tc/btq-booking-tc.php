@@ -97,32 +97,6 @@ function btq_booking_tc_admin_settings_page() {
 <?php
 }
 
-function btq_booking_tc_admin_debug_page() {
-?>
-	<div class="wrap">
-		<h1>Debug TravelClick</h1>
-		<!--
-		<form method="post" action="options.php">
-			<?php settings_fields( 'btq-booking-tc-settings' ); ?>
-			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
-			<table class="form-table">
-				<tr valign="top">
-					<th scope="row"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></th>
-					<td><textarea name="hotel_soap" type="textarea" cols="" rows=""><?php echo esc_attr( get_option('hotel_soap') ); ?></textarea></td>
-				</tr>
-			</table>
-			<?php submit_button(); ?>
-		</form>
-		-->
-		<pre style="background-color: white;">
-		<?php
-			btq_booking_tc_grid();
-		?>
-		</pre>
-	</div><!-- wrap -->
-<?php
-}
-
 function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
 	
 	if ($typeQuery == 'package'){
@@ -258,19 +232,274 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 	$client->decode_utf8 = FALSE;
 	$result = $client->send($soap['envelope'], $soap['wsaTo'], '');
 	
-	return $result;
-}
-
-function btq_booking_tc_grid(){
-	$response = btq_booking_tc_soap_query('1313281', '2018-09-11', '2018-09-12');
-	
 	// Captura de errores
-	if (isset($response['Errors'])) {
-		$errors = $response['Errors'];
-		error_log('Error Code: '. $errors['Error']['!Code'] ."\n". $errors['Error']['!ShortText']);
+	if (isset($result['Errors'])) {
+		$errors = $result['Errors'];
+		error_log('Error Code: '. $errors['Error']['!Code'] .' - '. $errors['Error']['!ShortText']);
 		return;
 	}
 	
-	$debug = var_export($result, TRUE);
-	echo htmlentities($debug);
+	return $result;
+}
+
+function btq_booking_tc_admin_debug_page() {
+?>
+	<div class="wrap">
+		<h1>Debug TravelClick</h1>
+		<!--
+		<form method="post" action="options.php">
+			<?php settings_fields( 'btq-booking-tc-settings' ); ?>
+			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
+			<table class="form-table">
+				<tr valign="top">
+					<th scope="row"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></th>
+					<td><textarea name="hotel_soap" type="textarea" cols="" rows=""><?php echo esc_attr( get_option('hotel_soap') ); ?></textarea></td>
+				</tr>
+			</table>
+			<?php submit_button(); ?>
+		</form>
+		-->
+		<pre style="background-color: white;">
+		<?php
+			//btq_booking_tc_grid();
+			
+			echo __FILE__;
+			//$uri_images = 'wp-content/plugins/btq-booking-tc/assets/images';
+			//$images = btq_booking_tc_grid_get_images($uri_images);
+		?>
+		</pre>
+	</div><!-- wrap -->
+<?php
+}
+
+function btq_booking_tc_grid_get_images($path) {
+	$files = scandir($path);
+	$images = array();
+	
+	foreach ($files as $file) {
+		if (!is_dir("$path/$file")){
+			if (preg_match('/^.*\.(jpg|jpeg|png|gif)$/', $file)) array_push($images, $file);
+		}
+	}
+	
+	return $images;
+}
+
+function btq_booking_tc_grid_rooms(){
+	$response = btq_booking_tc_soap_query('131328', '2018-09-11', '2018-09-12');
+	
+	//$debug = var_export($response, TRUE);
+	//echo htmlentities($debug);
+	
+	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	
+	$arrayRoomType = array();
+	foreach($RoomType as $RoomTypeElement){
+		$arrayRoomType[] = $RoomTypeElement;
+	}
+	
+	
+	$RoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
+	
+	$arrayRoomRate = array();
+	foreach($RoomRate as $RoomRateElement){
+		$arrayRoomRate[] = $RoomRateElement;
+	}
+	
+	$uri_images = 'wp-content/plugins/btq-booking-tc/assets/images';
+	
+	$i = 0;
+	foreach($arrayRoomType as $elementRoomType){
+		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
+		$path_images = "$pathImageWP/$roomTypeCode";
+		$images = get_images($path_images);
+		?>
+			<div class="col-xs-12 col-lg-12" style="border-top:1px solid #d1d1d1;">     
+			    <div class="row">
+			      <div class="col-xs-12 col-md-4 col-lg-4">
+			          <!--all gallery-->
+			          <div class="gallery"> 
+			            <div id="control-item" class="control-operator">
+			
+			              <?php 
+			                $count_img = 1;
+			                foreach ($images as $im) {
+			                ?>
+			                  <div id="item-<?php echo $count_img; ?>" class="control-operator"></div>
+			                <?php
+			                  $count_img++;
+			                }
+			              ?>
+			            </div>
+			            <!--<a href="#popup" class="viewMore">More +</a> -->
+			            <!--gallery-->
+			            <div class="gallery autoplay items-<?php echo count($images); ?>">
+			
+			            <?php
+			              $count_img = 1;
+			              foreach ($images as $im) {
+			                $rutaImagen = "/$pathImageWP/" . $roomTypeCode . "/" . $im ;
+			            ?>
+			              
+			                <figure class="item custom-controls">
+			                  <div class="superfluous">
+			                    <img src="<?php echo $rutaImagen?>" alt="" class="img-responsive"/> 
+			                  </div>
+			                </figure>
+			                <?php
+			                  $count_img++;
+			                }
+			              ?>
+			
+			            <div class="controls"> 
+			              <?php 
+			                $count_img = 1;
+			                foreach ($images as $im) {                       
+			                ?>
+			                  <a class="control-item" href="#item-<?php echo $count_img; ?>">&#8226;</a> 
+			                <?php
+			                  $count_img++;
+			                }
+			              ?>
+			            </div>
+			          <!--gallery--> 
+			          </div>
+			          <!--all gallery-->
+			        </div>
+			      </div>
+			      <div class="col-xs-12 col-md-8 col-lg-8">
+			        <div class="col-xs-12 col-md-7 col-lg-7">
+			          <h3 style="font-family: latoreg!important; padding-top:20px;"><?php echo $elementRoomType['!RoomTypeName'] ?></h3>
+			          <h4 style="font-family: latoreg!important; padding-left: 30px;"></h4>
+			          <div style="width: 40px; height: 1px; background: #beab80; display: block; margin:15px 0; text-align: left;"></div>
+			          <span class="descripRoom"><?php echo $elementRoomType['RoomDescription']['Text']['!Text'] ?></span>
+			          <div class="col-lg-12">
+			          <?php
+			            $amenities = $elementRoomType['Amenities']['Amenity'];
+			            $countAmenities = count($amenities);
+			            
+			            for ($j = 0; $j < $countAmenities; $j++) { 
+			                $amenity = $amenities[$j]['!RoomAmenity'];
+			
+			                try {
+			                    if (isset($iconos[$amenities[$j]['!ExistsCode']])){
+			                        $icono = $iconos[$amenities[$j]['!ExistsCode']];
+			                    
+			                        if ($amenity != null) { ?>
+			                            <div class="icons" style="display: inline-block; text-align:center; padding:10px;">
+			                            <img src="/<?php echo $pathImageWP; ?>/iconos/<?php echo $icono; ?>" width="30" alt="" class="text-center"/>
+			                            <br/>
+			                            <span class="titleIcon text-center"><?php echo $amenity; ?></span>
+			                            </div>
+			                        <?php
+			                        }
+			                    }
+			
+			                } catch (Exception $e) {
+			                    echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+			                }
+			            } ?> 
+			    
+			            <hr style="border-color:#beab80;"/>
+			    
+			            <button type="button" id="ubtn-6182" class="ubtn ult-adjust-bottom-margin ult-responsive ubtn-normal ubtn-no-hover-bg  none  ubtn-sep-icon ubtn-sep-icon-at-left  ubtn-left  ubtn-only-icon buttomLike  tooltip-5a4b1adca7ea8 ubtn-tooltip left"
+			              data-toggle="tooltip" data-placement="left" title="" data-hover="" data-border-color="" data-bg="" data-hover-bg=""
+			              data-border-hover="" data-shadow-hover="" data-shadow-click="none" data-shadow="" data-shd-shadow="" data-ultimate-target="#ubtn-6182"
+			              data-responsive-json-new="{&quot;font-size&quot;:&quot;&quot;,&quot;line-height&quot;:&quot;&quot;}" style="font-weight:normal;border:none;color: #c69907;"
+			              data-original-title="Me gusta">
+			                <img src="/<?php echo $pathImageWP; ?>/iconos/icon_like.png" alt="Like" width="25" height="25">
+			              <span class="ubtn-hover" style="background-color:"></span>
+			              <span class="ubtn-data ubtn-text "></span>
+			            </button>
+			    
+			            <button type="button" id="ubtn-8548" class="ubtn ult-adjust-bottom-margin ult-responsive ubtn-normal ubtn-no-hover-bg  none  ubtn-sep-icon ubtn-sep-icon-at-left  ubtn-left  ubtn-only-icon buttomLike  tooltip-5a4b2077c6fd9 ubtn-tooltip right"
+			              data-toggle="tooltip" data-placement="right" title="" data-hover="" data-border-color="" data-bg="" data-hover-bg=""
+			              data-border-hover="" data-shadow-hover="" data-shadow-click="none" data-shadow="" data-shd-shadow="" data-ultimate-target="#ubtn-8548"
+			              data-responsive-json-new="{&quot;font-size&quot;:&quot;&quot;,&quot;line-height&quot;:&quot;&quot;}" style="font-weight:normal;border:none;color: #c69907;"
+			              data-original-title="Mi favorito">
+			              <img src="/<?php echo $pathImageWP; ?>/iconos/icon_heart_uns.png" alt="Favorite" width="25" height="25">
+			              <span class="ubtn-hover" style="background-color:"></span>
+			              <span class="ubtn-data ubtn-text "></span>
+			            </button>
+			    
+			          </div>
+			        </div>
+			        <div class="col-xs-12 col-md-5 col-lg-5">
+			          <div style="background:#C9C9C9; padding: 10px; overflow:hidden;">
+							<?php
+								$rate_room = array();
+								for ($j = 0; $j < count($arrayRoomRate); $j++) {
+									//if ($i > 0)
+									//	$index = $last_index + ($j + 1);
+									//else
+									//	$index = $i + $j;
+									if(isset($arrayRoomRate[$j]['!RoomTypeCode'])) {
+										if($arrayRoomRate[$j]['!RoomTypeCode'] == $roomTypeCode)
+											array_push($rate_room, $arrayRoomRate[$j]);
+									}
+								}
+								
+								// Debug
+								//echo '<h2>rate_room</h2><pre>' . var_export($rate_room, TRUE) . '</pre>';
+								//return;
+								
+								$last_index = $index;
+								
+								for ($l = 0; $l < count($rate_room); $l++) {
+									?>
+									<div class="col-xs-12 col-lg-12" style="padding:0px!important;">
+									
+									    <div class="col-xs-12 col-lg-6" style="font-size:.75em; line-height:1.5em; padding:0px!important;">
+									        <input type="radio" class="ratePlanID" name="bestRate" value="bestRate" id="<?php echo "r_" . $rate_room[$l]['!RatePlanCode'] . '_' . $roomTypeCode; ?>"> <?php echo $rate_room[$l]['!RatePlanName']; ?>
+									    </div>
+									    
+									    <div class="col-xs-12 col-lg-6" style="text-align:right; padding:0px!important;">
+									      <span style="text-decoration:line-through; font-size:.75em!important;color:#666666">$ <?php echo $currency . " " . (($lang == "es")?($rate_room[$l]['Total']['!AmountAfterTax']+$rate_room[$l]['Total']['!Discount']):$rate_room[$l]['Total']['!GrossAmountBeforeTax']) ?></span><br/>
+									      <span style="font-size:.93em!important;">$ <?php echo $currency . " " . (($lang == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></span>
+									    </div>
+									    
+									</div>
+									<?php
+									
+									if ($precio == 0) { /* Inicializa el valor de precio*/
+										$precio = ($lang == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
+									} 
+									else {
+										if ($precio > $rate_room[$l]['Total']['!AmountAfterTax']) /* Valida que sea el precio menor*/
+											$precio = $rate_room[$l]['Total']['!AmountAfterTax'];
+									}
+								}
+							?>      
+			            <div class="col-xs-12 col-lg-12" style="padding:0px!important;"><hr/></div>
+			            <div class="col-xs-12 col-lg-12" style="max-width: 200px!important; padding:0px!important;">
+			                <div class="col-xs-12 col-lg-12" style="padding:0px!important;">
+			              <h3 style="font-weight: 100!important;">
+			                <span style="font-family: latoreg;"><?php echo $currency . " " . $precio; ?>&nbsp;</span>
+			                <span style="font-family: bulterstencillight; font-size: 14px;">/<?php echo $noche; ?></span>
+			              </h3>
+			              </div>
+			            </div>
+			          </div>
+			          <!-- 
+			          <div style="width: 100%; height: 50px; display: block;"></div>
+			          <div><ul><li><a href="" class="cp_id_1c036" style="color:#3C3C3B;"><?php echo $compare; ?></a></li></ul></div> 
+			          <div style="width: 100%; height: 50px; display: block;"></div>-->
+			          <div>
+			            <a id="room<?php echo $roomTypeCode?>" href="https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($startDate), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($endDate), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>" 
+			            target="_blank" class="btn-group btn btn-primary"
+			            data-hover="" data-border-color="" data-bg="#c69907" data-hover-bg="" data-border-hover="" data-shadow-hover=""
+			            data-shadow-click="none" data-shadow="" data-shd-shadow="" data-ultimate-target="#ubtn-7197" data-responsive-json-new="{&quot;font-size&quot;:&quot;&quot;,&quot;line-height&quot;:&quot;&quot;}"
+			            style="font-weight:normal;border:none;background: #c69907;color: #ffffff;width:100%;">
+			            <span class="ubtn-hover" style="background-color:"></span>
+			            <span class="ubtn-data ubtn-text "><?php echo $reserva; ?></span>
+			            </a>
+			          </div>
+			        </div>
+			      </div>
+			    </div>
+			</div>
+		<?php
+		$i++;
+		$precio = 0;
+	} // foreach($arrayRoomType as $elementRoomType)
 }
