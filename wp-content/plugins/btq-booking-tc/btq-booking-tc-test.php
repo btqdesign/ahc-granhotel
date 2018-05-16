@@ -2,7 +2,9 @@
 	require_once('../../../wp-load.php');
 	
 	$js_dir = 'assets/js';
-	$css_dir = 'assets/js';
+	$css_dir = 'assets/css';
+	$datepicker_js_dir = 'assets/datepicker/js';
+	$datepicker_css_dir = 'assets/datepicker/css';
 	$images_dir = 'assets/images/habitacion';
 	$iconos_dir = 'assets/images/iconos';
 ?><!DOCTYPE html>
@@ -14,9 +16,9 @@
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'bootstrap.min.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ); ?>"></script>
-	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'bootstrap-datepicker.min.js', __FILE__ ); ?>" charset="utf-8"></script>
+	<script src="<?php echo plugins_url( $datepicker_js_dir . DIRECTORY_SEPARATOR . 'bootstrap-datepicker.min.js', __FILE__ ); ?>" charset="utf-8"></script>
 	<link rel="stylesheet" href="<?php echo plugins_url( $css_dir . DIRECTORY_SEPARATOR . 'bootstrap.min.css', __FILE__ ); ?>">
-	<link rel="stylesheet" href="<?php echo plugins_url( $css_dir . DIRECTORY_SEPARATOR . 'bootstrap-datepicker.css', __FILE__ ); ?>">
+	<link rel="stylesheet" href="<?php echo plugins_url( $datepicker_css_dir . DIRECTORY_SEPARATOR . 'bootstrap-datepicker.css', __FILE__ ); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( $css_dir . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ); ?>">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	
