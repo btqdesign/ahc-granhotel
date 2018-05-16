@@ -253,8 +253,8 @@ function btq_booking_tc_soap_query(){
 	
 	echo htmlentities($soap['envelope'])."\n\n";
 	
-	$client = new nusoap_client($soap['wsaTo']);
+	$client = new nusoap_client($soap['wsaTo'], FALSE);
 	$result = $client->send($soap['envelope'], $soap['wsaTo'], '');
 	
-	echo htmlentities(var_export($result, TRUE));
+	echo htmlentities(var_export($client, TRUE));
 }
