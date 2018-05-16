@@ -260,7 +260,7 @@ function btq_booking_tc_soap_query(){
 	$client->soap_defencoding = 'UTF-8';
 	$client->decode_utf8 = TRUE;
 
-	$result = $client->call($soap['wsaTo'], $soap['envelope']);
+	$result = $client->call($soap['envelope'],$soap['wsaTo']);
 	
 	echo var_export($result, TRUE);
 }
