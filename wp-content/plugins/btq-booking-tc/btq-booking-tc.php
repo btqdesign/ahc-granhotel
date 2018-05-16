@@ -264,9 +264,10 @@ function btq_booking_tc_admin_debug_page() {
 			//btq_booking_tc_grid();
 			
 			$path_images = plugin_dir_path( __FILE__ ) . 'assets/images/340132';
-			//echo $uri_images;
-			$images = btq_booking_tc_grid_get_images($path_images);
-			echo var_export($images, TRUE);
+			$url_image = plugins_url( 'assets/images/340132/wordpress.png', __FILE__ )
+			echo $url_image;
+			//$images = btq_booking_tc_grid_get_images($path_images);
+			//echo var_export($images, TRUE);
 		?>
 		</pre>
 	</div><!-- wrap -->
@@ -307,7 +308,7 @@ function btq_booking_tc_grid_rooms(){
 		$arrayRoomRate[] = $RoomRateElement;
 	}
 	
-	$uri_images = 'wp-content/plugins/btq-booking-tc/assets/images';
+	$path_images = plugin_dir_path( __FILE__ ) . 'assets/images/340132';
 	
 	$i = 0;
 	foreach($arrayRoomType as $elementRoomType){
