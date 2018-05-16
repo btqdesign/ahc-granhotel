@@ -160,7 +160,7 @@
 					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
 					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-03.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-01.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-05.pngg', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-05.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
