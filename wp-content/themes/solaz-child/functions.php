@@ -10,5 +10,7 @@ add_action( 'wp_enqueue_scripts', 'solaz_child_scripts' );
 add_filter('final_output', function($output) {
     // Soporte HTTPS
     $output = str_replace('http:', 'https:', $output);
+    $output = str_replace('https://schemas.xmlsoap.org', 'http://schemas.xmlsoap.org', $output);
+    $output = str_replace('https://docs.oasisopen.org', 'http://docs.oasisopen.org', $output);
     return $output;
 });
