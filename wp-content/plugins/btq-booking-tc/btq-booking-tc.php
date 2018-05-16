@@ -263,11 +263,19 @@ function btq_booking_tc_admin_debug_page() {
 		<?php
 			//btq_booking_tc_grid();
 			
-			$path_images = plugin_dir_path( __FILE__ ) . 'assets/images/340132';
-			$url_image = plugins_url( 'assets/images/340132/wordpress.png', __FILE__ );
-			echo $url_image;
-			//$images = btq_booking_tc_grid_get_images($path_images);
-			//echo var_export($images, TRUE);
+			$images_dir = 'assets/images/340132';
+			
+			$images_path = plugin_dir_path( __FILE__ ) . $images_dir;
+			//$image_url = plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'wordpress.png', __FILE__ );
+			echo $images_path . "\n";
+			
+			$images = btq_booking_tc_grid_get_images($images_path);
+			echo var_export($images, TRUE) . "\n\n";
+			
+			foreach($images as $image_name){
+				$image_url = plugins_url( $images_dir . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+				echo $image_url . "\n";
+			}
 		?>
 		</pre>
 	</div><!-- wrap -->
