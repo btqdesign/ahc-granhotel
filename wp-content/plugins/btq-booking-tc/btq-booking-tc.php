@@ -256,11 +256,11 @@ function btq_booking_tc_soap_query(){
 	
 	echo htmlentities($soap['envelope'])."\n\n";
 	
-	$client = new nusoap_client($soap['wsaTo'], FALSE);
-	$client->soap_defencoding = 'UTF-8';
-	$client->decode_utf8 = TRUE;
+	$client = new nusoap_client($soap['wsaTo']);
+	//$client->soap_defencoding = 'UTF-8';
+	//$client->decode_utf8 = TRUE;
 
-	$result = $client->call($soap['envelope'],$soap['wsaTo']);
+	$result = $client->call($soap['wsaTo'], $soap['envelope']);
 	
 	echo var_export($result, TRUE);
 }
