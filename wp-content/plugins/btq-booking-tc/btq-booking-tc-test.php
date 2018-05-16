@@ -1,4 +1,6 @@
 <?php
+	require_once('../../../wp-load.php');
+	
 	$js_dir = 'assets/js';
 	$css_dir = 'assets/js';
 	$images_dir = 'assets/images/habitacion';
