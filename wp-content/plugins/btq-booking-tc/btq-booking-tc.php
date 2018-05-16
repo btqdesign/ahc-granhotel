@@ -262,7 +262,14 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 }
 
 function btq_booking_tc_grid(){
-	$result = btq_booking_tc_soap_query('131328', '2018-09-11', '2018-09-12');
+	$response = btq_booking_tc_soap_query('1313281', '2018-09-11', '2018-09-12');
+	
+	// Captura de errores
+	if (isset($response['Errors'])) {
+		$errors = $response['Errors'];
+		error_log('Error Code: '. $errors['Error']['!Code'] ."\n". $errors['Error']['!ShortText']);
+		return;
+	}
 	
 	$debug = var_export($result, TRUE);
 	echo htmlentities($debug);
