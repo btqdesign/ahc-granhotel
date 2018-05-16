@@ -109,7 +109,7 @@
 			</section>
 
 
-
+			<!-- OK -->
 			<section class="row">
 				<hr class="linea"/>
 				<article class="col-md-5">
@@ -184,7 +184,9 @@
 				</article>
 
 
-			</section><hr class="lineaabajo" />
+			</section>
+			
+			<hr class="lineaabajo" />
 			
 				
 		</div>
