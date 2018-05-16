@@ -263,7 +263,7 @@ function btq_booking_tc_admin_debug_page() {
 		<?php
 			//btq_booking_tc_grid();
 			
-			echo __FILE__;
+			echo __DIR__;
 			//$uri_images = 'wp-content/plugins/btq-booking-tc/assets/images';
 			//$images = btq_booking_tc_grid_get_images($uri_images);
 		?>
