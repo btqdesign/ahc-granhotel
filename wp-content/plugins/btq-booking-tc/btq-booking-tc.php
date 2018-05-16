@@ -164,8 +164,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					</AvailRequestSegment>
 				</AvailRequestSegments>
 			</OTA_HotelAvailRQ>
-		</soap:Body>
-		';
+		</soap:Body>';
 	}
 	else{
 		// Habitaciones
@@ -211,8 +210,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					</AvailRequestSegment>
 				</AvailRequestSegments>
 			</OTA_HotelAvailRQ>
-		</soap:Body>
-		';
+		</soap:Body>';
 	}
 	
 	$soapHeader = '
@@ -236,8 +234,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					<wsse:Password>C0nn3ct0taAp!</wsse:Password>
 				</wsse:UsernameToken>
 			</wsse:Security>
-		</soap:Header>
-	';
+		</soap:Header>';
 	    
 	$soapEnvelope = '<?xml version="1.0" encoding="utf-8"?>
     <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsse="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasisopen.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
@@ -257,10 +254,10 @@ function btq_booking_tc_soap_query(){
 	echo htmlentities($soap['envelope'])."\n\n";
 	
 	$client = new nusoap_client($soap['wsaTo']);
-	//$client->soap_defencoding = 'UTF-8';
-	//$client->decode_utf8 = TRUE;
+	$client->soap_defencoding = 'ISO-8859-1';
+	$client->decode_utf8 = TRUE;
 
-	//$result = $client->call($soap['wsaTo'], $soap['envelope']);
+	$result = $client->send($soap['envelope'], $soap['wsaTo'], '');
 	
 	echo var_export($client, TRUE);
 }
