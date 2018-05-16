@@ -263,9 +263,10 @@ function btq_booking_tc_admin_debug_page() {
 		<?php
 			//btq_booking_tc_grid();
 			
-			$uri_images = plugin_dir_path( __FILE__ ) . 'assets/images';
-			echo $uri_images;
-			//$images = btq_booking_tc_grid_get_images($uri_images);
+			$path_images = plugin_dir_path( __FILE__ ) . 'assets/images/340132';
+			//echo $uri_images;
+			$images = btq_booking_tc_grid_get_images($path_images);
+			echo var_export($images, TRUE);
 		?>
 		</pre>
 	</div><!-- wrap -->
