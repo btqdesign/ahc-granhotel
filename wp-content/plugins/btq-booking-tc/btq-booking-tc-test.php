@@ -62,9 +62,9 @@
 
 				<article class="col-md-4">
 
-					  <input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
+					  <input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada" type="date">
 
-					  <input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
+					  <input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida" type="date">			
 
 					  <div class="clearfix visible-xs-block"></div>	
 				</article>
