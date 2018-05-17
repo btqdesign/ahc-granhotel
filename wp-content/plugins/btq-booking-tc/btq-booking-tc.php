@@ -324,7 +324,7 @@ function btq_booking_tc_grid_rooms(){
 	$i = 0;
 	foreach($arrayRoomType as $elementRoomType){
 		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
-		$images_path = plugin_dir_path( __FILE__ ) . $images_dir . $roomTypeCode;
+		$images_dir = plugin_dir_path( __FILE__ ) . $images_dir . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
 		?>
 		
@@ -554,6 +554,7 @@ function btq_booking_tc_grid_rooms(){
 } // function btq_booking_tc_grid_rooms()
 
 function btq_booking_tc_grid_form() {
+	$iconos_dir = 'assets/images/iconos';
 	?>
 	<hr class="linea"/>
 	
