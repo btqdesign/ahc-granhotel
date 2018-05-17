@@ -352,7 +352,7 @@ function btq_booking_tc_grid_rooms(){
 				  <?php
 				  $count_img = 1;
 				  foreach ($images as $image_name) {
-				    $image_url = plugins_url( $images_dir . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+				    $image_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
 				    ?> 
 				    <div class="item active">
 				      <img src="<?php echo $image_url; ?>" alt="Habitaciones">
