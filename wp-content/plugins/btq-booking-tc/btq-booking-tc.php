@@ -352,7 +352,7 @@ function btq_booking_tc_grid_rooms(){
 				  <?php
 				  $count_img = 1;
 				  foreach ($images as $image_name) {
-				    $image_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+				    $image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
 				    ?> 
 				    <div class="item active">
 				      <img src="<?php echo $image_url; ?>" alt="Habitaciones">
@@ -387,7 +387,7 @@ function btq_booking_tc_grid_rooms(){
 					try {
 						if (isset($iconos[$amenities[$j]['!ExistsCode']])){
 							$icono = $iconos[$amenities[$j]['!ExistsCode']];
-							$image_icono_url = plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . $icono, __FILE__ );
+							$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . $icono, __FILE__ );
 							if ($amenity != null) { 
 								?>
 								<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="icono" width="60" height="50">
@@ -401,8 +401,8 @@ function btq_booking_tc_grid_rooms(){
 				}
 				?>				
 				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
-				  <input type="image" src="<?php echo plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
-				  <input type="image" src="<?php echo plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
+				  <input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
+				  <input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
 			</article>
 			
 			<article class="col-md-3">
