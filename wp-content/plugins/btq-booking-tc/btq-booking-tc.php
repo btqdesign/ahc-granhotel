@@ -319,12 +319,12 @@ function btq_booking_tc_grid_rooms(){
 		$arrayRoomRate[] = $RoomRateElement;
 	}
 	
-	$images_dir = 'assets/images/';
+	$images_path = 'assets/images/';
 	
 	$i = 0;
 	foreach($arrayRoomType as $elementRoomType){
 		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
-		$images_dir = plugin_dir_path( __FILE__ ) . $images_dir . $roomTypeCode;
+		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
 		?>
 		
