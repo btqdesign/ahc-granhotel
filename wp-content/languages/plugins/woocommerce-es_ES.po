@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-04-28 19:25:29+0000\n"
+"PO-Revision-Date: 2018-05-16 11:03:08+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -6656,12 +6656,6 @@ msgstr "Lista de reembolsos."
 msgid "Line taxes."
 msgstr "Impuestos de la línea."
 
-#: includes/api/class-wc-rest-product-categories-controller.php:201
-#: includes/api/v1/class-wc-rest-product-attribute-terms-controller.php:225
-#: includes/api/v1/class-wc-rest-product-categories-controller.php:256
-msgid "Menu order, used to custom sort the resource."
-msgstr "Orden del menú, utilizado para aplicar un orden personalizado al recurso."
-
 #: includes/api/class-wc-rest-orders-controller.php:815
 #: includes/api/v1/class-wc-rest-orders-controller.php:925
 msgid "Parent order ID."
@@ -7353,12 +7347,6 @@ msgstr "Datos de la imagen de la variación."
 msgid "List of grouped products ID."
 msgstr "Lista de identificadores de productos agrupados."
 
-#: includes/api/class-wc-rest-product-variations-controller.php:922
-#: includes/api/class-wc-rest-products-controller.php:2003
-#: includes/api/v1/class-wc-rest-products-controller.php:2561
-msgid "Menu order, used to custom sort products."
-msgstr "Orden del menú, utilizado para ordenar los productos de manera personalizada."
-
 #: includes/api/class-wc-rest-products-controller.php:2054
 #: includes/api/v1/class-wc-rest-products-controller.php:2586
 msgid "Limit result set to products assigned a specific status."
@@ -7520,10 +7508,44 @@ msgstr "Total de impuesto."
 msgid "Tax subtotal."
 msgstr "Subtotal de impuestos."
 
+#: includes/api/class-wc-rest-coupons-controller.php:504
+#: includes/api/class-wc-rest-customers-controller.php:351
+#: includes/api/class-wc-rest-order-refunds-controller.php:402
+#: includes/api/class-wc-rest-order-refunds-controller.php:526
+#: includes/api/class-wc-rest-orders-controller.php:1126
+#: includes/api/class-wc-rest-orders-controller.php:1238
+#: includes/api/class-wc-rest-orders-controller.php:1329
+#: includes/api/class-wc-rest-orders-controller.php:1415
+#: includes/api/class-wc-rest-orders-controller.php:1513
+#: includes/api/class-wc-rest-orders-controller.php:1571
+#: includes/api/class-wc-rest-product-variations-controller.php:940
+#: includes/api/class-wc-rest-products-controller.php:2021
+#: includes/api/v1/class-wc-rest-order-refunds-controller.php:483
+#: includes/api/v1/class-wc-rest-orders-controller.php:1314
+msgid "Meta key."
+msgstr "Clave meta."
+
 #: includes/api/v1/class-wc-rest-order-refunds-controller.php:489
 #: includes/api/v1/class-wc-rest-orders-controller.php:1320
 msgid "Meta label."
 msgstr "Etiqueta meta."
+
+#: includes/api/class-wc-rest-coupons-controller.php:509
+#: includes/api/class-wc-rest-customers-controller.php:356
+#: includes/api/class-wc-rest-order-refunds-controller.php:407
+#: includes/api/class-wc-rest-order-refunds-controller.php:532
+#: includes/api/class-wc-rest-orders-controller.php:1131
+#: includes/api/class-wc-rest-orders-controller.php:1243
+#: includes/api/class-wc-rest-orders-controller.php:1334
+#: includes/api/class-wc-rest-orders-controller.php:1420
+#: includes/api/class-wc-rest-orders-controller.php:1518
+#: includes/api/class-wc-rest-orders-controller.php:1576
+#: includes/api/class-wc-rest-product-variations-controller.php:945
+#: includes/api/class-wc-rest-products-controller.php:2026
+#: includes/api/v1/class-wc-rest-order-refunds-controller.php:495
+#: includes/api/v1/class-wc-rest-orders-controller.php:1326
+msgid "Meta value."
+msgstr "Valor meta."
 
 #: includes/api/class-wc-rest-orders-controller.php:1657
 #: includes/api/v1/class-wc-rest-order-refunds-controller.php:522
@@ -7565,40 +7587,6 @@ msgstr "La cantidad de producto es requerida."
 #: includes/api/legacy/v3/class-wc-api-orders.php:1007
 msgid "Cannot create line item, try again."
 msgstr "No se puede crear la línea del artículo, inténtalo de nuevo."
-
-#: includes/api/class-wc-rest-coupons-controller.php:504
-#: includes/api/class-wc-rest-customers-controller.php:351
-#: includes/api/class-wc-rest-order-refunds-controller.php:402
-#: includes/api/class-wc-rest-order-refunds-controller.php:526
-#: includes/api/class-wc-rest-orders-controller.php:1126
-#: includes/api/class-wc-rest-orders-controller.php:1238
-#: includes/api/class-wc-rest-orders-controller.php:1329
-#: includes/api/class-wc-rest-orders-controller.php:1415
-#: includes/api/class-wc-rest-orders-controller.php:1513
-#: includes/api/class-wc-rest-orders-controller.php:1571
-#: includes/api/class-wc-rest-product-variations-controller.php:940
-#: includes/api/class-wc-rest-products-controller.php:2021
-#: includes/api/v1/class-wc-rest-order-refunds-controller.php:483
-#: includes/api/v1/class-wc-rest-orders-controller.php:1314
-msgid "Meta key."
-msgstr "Clave meta."
-
-#: includes/api/class-wc-rest-coupons-controller.php:509
-#: includes/api/class-wc-rest-customers-controller.php:356
-#: includes/api/class-wc-rest-order-refunds-controller.php:407
-#: includes/api/class-wc-rest-order-refunds-controller.php:532
-#: includes/api/class-wc-rest-orders-controller.php:1131
-#: includes/api/class-wc-rest-orders-controller.php:1243
-#: includes/api/class-wc-rest-orders-controller.php:1334
-#: includes/api/class-wc-rest-orders-controller.php:1420
-#: includes/api/class-wc-rest-orders-controller.php:1518
-#: includes/api/class-wc-rest-orders-controller.php:1576
-#: includes/api/class-wc-rest-product-variations-controller.php:945
-#: includes/api/class-wc-rest-products-controller.php:2026
-#: includes/api/v1/class-wc-rest-order-refunds-controller.php:495
-#: includes/api/v1/class-wc-rest-orders-controller.php:1326
-msgid "Meta value."
-msgstr "Valor meta."
 
 #: includes/api/legacy/v2/class-wc-api-orders.php:1036
 #: includes/api/legacy/v3/class-wc-api-orders.php:1083
@@ -7783,6 +7771,18 @@ msgstr "URL externa del producto. Solo para productos externos."
 #: includes/api/v1/class-wc-rest-products-controller.php:2317
 msgid "End date of sale price."
 msgstr "Fecha final del precio de oferta."
+
+#: includes/api/class-wc-rest-product-categories-controller.php:201
+#: includes/api/v1/class-wc-rest-product-attribute-terms-controller.php:225
+#: includes/api/v1/class-wc-rest-product-categories-controller.php:256
+msgid "Menu order, used to custom sort the resource."
+msgstr "Orden en el menú, utilizado para aplicar un orden personalizado al recurso."
+
+#: includes/api/class-wc-rest-product-variations-controller.php:922
+#: includes/api/class-wc-rest-products-controller.php:2003
+#: includes/api/v1/class-wc-rest-products-controller.php:2561
+msgid "Menu order, used to custom sort products."
+msgstr "Orden en el menú, utilizado para ordenar los productos de manera personalizada."
 
 #: includes/admin/views/html-notice-updating.php:12
 msgid "Your database is being updated in the background."
@@ -8279,17 +8279,6 @@ msgstr "Razón del reembolso."
 msgid "Line items data."
 msgstr "Datos de los artículos de la línea."
 
-#: includes/api/class-wc-rest-customer-downloads-controller.php:103
-#: includes/api/class-wc-rest-order-refunds-controller.php:429
-#: includes/api/class-wc-rest-orders-controller.php:1152
-#: includes/api/class-wc-rest-products-controller.php:1437
-#: includes/api/v1/class-wc-rest-order-refunds-controller.php:380
-#: includes/api/v1/class-wc-rest-orders-controller.php:1218
-#: includes/api/v1/class-wc-rest-products-controller.php:1740
-#: includes/api/v1/class-wc-rest-report-top-sellers-controller.php:152
-msgid "Product name."
-msgstr "Nombre del producto."
-
 #: includes/api/class-wc-rest-order-refunds-controller.php:423
 #: includes/api/class-wc-rest-orders-controller.php:1146
 #: includes/api/class-wc-rest-orders-controller.php:1274
@@ -8304,6 +8293,17 @@ msgstr "Nombre del producto."
 #: includes/api/v1/class-wc-rest-orders-controller.php:1529
 msgid "Item ID."
 msgstr "ID del artículo."
+
+#: includes/api/class-wc-rest-customer-downloads-controller.php:103
+#: includes/api/class-wc-rest-order-refunds-controller.php:429
+#: includes/api/class-wc-rest-orders-controller.php:1152
+#: includes/api/class-wc-rest-products-controller.php:1437
+#: includes/api/v1/class-wc-rest-order-refunds-controller.php:380
+#: includes/api/v1/class-wc-rest-orders-controller.php:1218
+#: includes/api/v1/class-wc-rest-products-controller.php:1740
+#: includes/api/v1/class-wc-rest-report-top-sellers-controller.php:152
+msgid "Product name."
+msgstr "Nombre del producto."
 
 #: includes/api/class-wc-rest-customers-controller.php:249
 #: includes/api/class-wc-rest-orders-controller.php:1003
@@ -8897,6 +8897,22 @@ msgstr "Lo siento, no puedes listar los recursos."
 msgid "Sorry, you are not allowed to create resources."
 msgstr "Lo sentimos, no tienes permiso para crear recursos."
 
+#: includes/abstracts/abstract-wc-rest-crud-controller.php:56
+#: includes/abstracts/abstract-wc-rest-posts-controller.php:83
+#: includes/abstracts/abstract-wc-rest-terms-controller.php:164
+#: includes/api/class-wc-rest-payment-gateways-controller.php:96
+#: includes/api/class-wc-rest-shipping-methods-controller.php:90
+#: includes/api/class-wc-rest-system-status-tools-controller.php:90
+#: includes/api/v1/class-wc-rest-customers-controller.php:166
+#: includes/api/v1/class-wc-rest-order-notes-controller.php:152
+#: includes/api/v1/class-wc-rest-product-attributes-controller.php:159
+#: includes/api/v1/class-wc-rest-product-reviews-controller.php:150
+#: includes/api/v1/class-wc-rest-taxes-controller.php:143
+#: includes/api/v1/class-wc-rest-webhook-deliveries-controller.php:105
+#: includes/api/v1/class-wc-rest-webhooks-controller.php:159
+msgid "Sorry, you cannot view this resource."
+msgstr "Lo sentimos, no puedes ver este recurso."
+
 #: includes/abstracts/abstract-wc-rest-crud-controller.php:72
 #: includes/abstracts/abstract-wc-rest-posts-controller.php:99
 #: includes/abstracts/abstract-wc-rest-shipping-zones-controller.php:103
@@ -8931,21 +8947,14 @@ msgstr "No se puede crear %s existente."
 msgid "ID is invalid."
 msgstr "ID no es válido."
 
-#: includes/abstracts/abstract-wc-rest-crud-controller.php:56
-#: includes/abstracts/abstract-wc-rest-posts-controller.php:83
-#: includes/abstracts/abstract-wc-rest-terms-controller.php:164
-#: includes/api/class-wc-rest-payment-gateways-controller.php:96
-#: includes/api/class-wc-rest-shipping-methods-controller.php:90
-#: includes/api/class-wc-rest-system-status-tools-controller.php:90
-#: includes/api/v1/class-wc-rest-customers-controller.php:166
-#: includes/api/v1/class-wc-rest-order-notes-controller.php:152
-#: includes/api/v1/class-wc-rest-product-attributes-controller.php:159
-#: includes/api/v1/class-wc-rest-product-reviews-controller.php:150
-#: includes/api/v1/class-wc-rest-taxes-controller.php:143
-#: includes/api/v1/class-wc-rest-webhook-deliveries-controller.php:105
-#: includes/api/v1/class-wc-rest-webhooks-controller.php:159
-msgid "Sorry, you cannot view this resource."
-msgstr "Lo sentimos, no puedes ver este recurso."
+#. translators: %s: post type
+#: includes/abstracts/abstract-wc-rest-crud-controller.php:419
+#: includes/abstracts/abstract-wc-rest-posts-controller.php:434
+#: includes/api/class-wc-rest-product-variations-controller.php:483
+#: includes/api/class-wc-rest-products-controller.php:1338
+#: includes/api/v1/class-wc-rest-products-controller.php:1656
+msgid "Sorry, you are not allowed to delete %s."
+msgstr "Lo sentimos, no tienes permiso para eliminar %s."
 
 #: includes/abstracts/abstract-wc-rest-crud-controller.php:88
 #: includes/abstracts/abstract-wc-rest-posts-controller.php:115
@@ -8959,15 +8968,6 @@ msgstr "Lo sentimos, no puedes ver este recurso."
 #: includes/api/v1/class-wc-rest-webhooks-controller.php:189
 msgid "Sorry, you are not allowed to delete this resource."
 msgstr "Lo sentimos, no tienes permiso para eliminar este recurso."
-
-#. translators: %s: post type
-#: includes/abstracts/abstract-wc-rest-crud-controller.php:419
-#: includes/abstracts/abstract-wc-rest-posts-controller.php:434
-#: includes/api/class-wc-rest-product-variations-controller.php:483
-#: includes/api/class-wc-rest-products-controller.php:1338
-#: includes/api/v1/class-wc-rest-products-controller.php:1656
-msgid "Sorry, you are not allowed to delete %s."
-msgstr "Lo sentimos, no tienes permiso para eliminar %s."
 
 #. translators: %s: post type
 #: includes/abstracts/abstract-wc-rest-crud-controller.php:433
@@ -9051,19 +9051,6 @@ msgstr "Ordenar el conjunto por el atributo del objeto."
 msgid "Use WP Query arguments to modify the response; private query vars require appropriate authorization."
 msgstr "Usar parámetros de WP Query para modificar la respuesta. Las variables de consulta privadas necesitan la autorización correspondiente."
 
-#: includes/abstracts/abstract-wc-rest-terms-controller.php:92
-#: includes/api/class-wc-rest-order-refunds-controller.php:114
-#: includes/api/v1/class-wc-rest-customers-controller.php:104
-#: includes/api/v1/class-wc-rest-order-notes-controller.php:105
-#: includes/api/v1/class-wc-rest-order-refunds-controller.php:107
-#: includes/api/v1/class-wc-rest-product-attribute-terms-controller.php:104
-#: includes/api/v1/class-wc-rest-product-attributes-controller.php:101
-#: includes/api/v1/class-wc-rest-tax-classes-controller.php:74
-#: includes/api/v1/class-wc-rest-taxes-controller.php:88
-#: includes/api/v1/class-wc-rest-webhooks-controller.php:104
-msgid "Required to be true, as resource does not support trashing."
-msgstr "Tiene que ser verdadero, ya que el recurso no soporta ser movido a la papelera."
-
 #: includes/api/v1/class-wc-rest-product-attributes-controller.php:141
 msgid "Sorry, you cannot create new resource."
 msgstr "Lo sentimos, no puedes crear un nuevo recurso."
@@ -9077,6 +9064,19 @@ msgstr "Lo sentimos, no puedes actualizar el recurso."
 #: includes/abstracts/abstract-wc-rest-terms-controller.php:492
 msgid "Can not set resource parent, taxonomy is not hierarchical."
 msgstr "No se puede establecer el padre del recurso, la taxonomía no es jerárquica."
+
+#: includes/abstracts/abstract-wc-rest-terms-controller.php:92
+#: includes/api/class-wc-rest-order-refunds-controller.php:114
+#: includes/api/v1/class-wc-rest-customers-controller.php:104
+#: includes/api/v1/class-wc-rest-order-notes-controller.php:105
+#: includes/api/v1/class-wc-rest-order-refunds-controller.php:107
+#: includes/api/v1/class-wc-rest-product-attribute-terms-controller.php:104
+#: includes/api/v1/class-wc-rest-product-attributes-controller.php:101
+#: includes/api/v1/class-wc-rest-tax-classes-controller.php:74
+#: includes/api/v1/class-wc-rest-taxes-controller.php:88
+#: includes/api/v1/class-wc-rest-webhooks-controller.php:104
+msgid "Required to be true, as resource does not support trashing."
+msgstr "Tiene que ser verdadero, ya que el recurso no soporta ser movido a la papelera."
 
 #: includes/abstracts/abstract-wc-rest-terms-controller.php:554
 #: includes/api/v1/class-wc-rest-product-attributes-controller.php:357
@@ -9182,6 +9182,22 @@ msgstr "Pagos por transferencia bancaria"
 msgid "Parent resource does not exist."
 msgstr "El padre del recurso no existe."
 
+#: includes/abstracts/abstract-wc-rest-shipping-zones-controller.php:49
+#: includes/abstracts/abstract-wc-rest-terms-controller.php:247
+#: includes/api/class-wc-rest-payment-gateways-controller.php:142
+#: includes/api/class-wc-rest-payment-gateways-controller.php:159
+#: includes/api/class-wc-rest-shipping-methods-controller.php:122
+#: includes/api/class-wc-rest-shipping-zone-methods-controller.php:119
+#: includes/api/class-wc-rest-shipping-zone-methods-controller.php:213
+#: includes/api/class-wc-rest-shipping-zone-methods-controller.php:267
+#: includes/api/v1/class-wc-rest-customer-downloads-controller.php:70
+#: includes/api/v1/class-wc-rest-product-attributes-controller.php:155
+#: includes/api/v1/class-wc-rest-product-attributes-controller.php:173
+#: includes/api/v1/class-wc-rest-product-attributes-controller.php:191
+#: includes/api/v1/class-wc-rest-product-attributes-controller.php:551
+msgid "Resource does not exist."
+msgstr "El recurso no existe."
+
 #: includes/abstracts/abstract-wc-rest-terms-controller.php:238
 msgid "Taxonomy does not exist."
 msgstr "La taxonomía no existe."
@@ -9203,22 +9219,6 @@ msgstr "Limitar resultados a los que tengan IDs superiores específicos."
 #: includes/api/v1/class-wc-rest-products-controller.php:1639
 msgid "Invalid post ID."
 msgstr "ID de entrada no válido."
-
-#: includes/abstracts/abstract-wc-rest-shipping-zones-controller.php:49
-#: includes/abstracts/abstract-wc-rest-terms-controller.php:247
-#: includes/api/class-wc-rest-payment-gateways-controller.php:142
-#: includes/api/class-wc-rest-payment-gateways-controller.php:159
-#: includes/api/class-wc-rest-shipping-methods-controller.php:122
-#: includes/api/class-wc-rest-shipping-zone-methods-controller.php:119
-#: includes/api/class-wc-rest-shipping-zone-methods-controller.php:213
-#: includes/api/class-wc-rest-shipping-zone-methods-controller.php:267
-#: includes/api/v1/class-wc-rest-customer-downloads-controller.php:70
-#: includes/api/v1/class-wc-rest-product-attributes-controller.php:155
-#: includes/api/v1/class-wc-rest-product-attributes-controller.php:173
-#: includes/api/v1/class-wc-rest-product-attributes-controller.php:191
-#: includes/api/v1/class-wc-rest-product-attributes-controller.php:551
-msgid "Resource does not exist."
-msgstr "El recurso no existe."
 
 #: includes/abstracts/abstract-wc-rest-crud-controller.php:138
 #: includes/abstracts/abstract-wc-rest-crud-controller.php:233
@@ -13991,6 +13991,10 @@ msgstr "No tienes permisos para ver el contador de cupones"
 msgid "Run the updater"
 msgstr "Ejecuta el actualizador"
 
+#: includes/admin/views/html-admin-page-status-report.php:167
+msgid "Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits."
+msgstr "Suhosin es un sistema de protección avanzado para instalaciones de PHP. Fue diseñado para proteger tus servidores, por un lado frente a diversos problemas bien conocidos en aplicaciones PHP y, por otro lado, frente a potenciales vulnerabilidades desconocidas dentro de estas aplicaciones o el propio núcleo de PHP. Si está activado en tu servidor, Suhosin puede que necesite configurarse para aumentar sus límites de envío de datos."
+
 #: includes/admin/views/html-admin-page-status-report.php:214
 msgid "Your server does not have fsockopen or cURL enabled - PayPal IPN and other scripts which communicate with other servers will not work. Contact your hosting provider."
 msgstr "Tu servidor no tiene habilitado fsockopen o CURL - PayPal IPN y otras secuencias de comandos que se comunican con otros servidores no funcionará. Ponte en contacto con tu proveedor de alojamiento."
@@ -13998,10 +14002,6 @@ msgstr "Tu servidor no tiene habilitado fsockopen o CURL - PayPal IPN y otras se
 #: includes/admin/views/html-admin-page-status-report.php:73
 msgid "The version of WordPress installed on your site."
 msgstr "La versión de WordPress instalada en tu sitio."
-
-#: includes/admin/views/html-admin-page-status-report.php:167
-msgid "Suhosin is an advanced protection system for PHP installations. It was designed to protect your servers on the one hand against a number of well known problems in PHP applications and on the other hand against potential unknown vulnerabilities within these applications or the PHP core itself. If enabled on your server, Suhosin may need to be configured to increase its data submission limits."
-msgstr "Suhosin es un sistema de protección avanzado para instalaciones de PHP. Fue diseñado para proteger tus servidores, por un lado frente a diversos problemas bien conocidos en aplicaciones PHP y, por otro lado, frente a potenciales vulnerabilidades desconocidas dentro de estas aplicaciones o el propio núcleo de PHP. Si está activado en tu servidor, Suhosin puede que necesite configurarse para aumentar sus límites de envío de datos."
 
 #: includes/admin/views/html-admin-page-status-report.php:152
 msgid "The amount of time (in seconds) that your site will spend on a single operation before timing out (to avoid server lockups)"
@@ -14145,6 +14145,10 @@ msgstr "Leer más sobre Storefront"
 msgid "Learn more about templates"
 msgstr "Aprende más sobre las plantillas"
 
+#: includes/admin/views/html-notice-template-check.php:15
+msgid "<strong>Your theme (%1$s) contains outdated copies of some WooCommerce template files.</strong> These files may need updating to ensure they are compatible with the current version of WooCommerce. You can see which files are affected from the <a href=\"%2$s\">system status page</a>. If in doubt, check with the author of the theme."
+msgstr "<strong>Tu tema (%1$s) contiene copias no actualizadas de algunos archivos de plantilla WooCommerce.</strong> Estos archivos necesitan modificarse para que sean compatibles con la versión actual de WooCommerce. Puedes ver qué archivos se han visto afectados en la <a href=\"%2$s\">página del estado del sistema</a>. En caso de duda, consulta con el autor del tema."
+
 #: includes/admin/views/html-notice-install.php:13
 msgid "Skip setup"
 msgstr "Saltar configuración"
@@ -14185,10 +14189,6 @@ msgstr "Mi cuenta"
 msgctxt "Page setting"
 msgid "Shop base"
 msgstr "Base de la tienda"
-
-#: includes/admin/views/html-notice-template-check.php:15
-msgid "<strong>Your theme (%1$s) contains outdated copies of some WooCommerce template files.</strong> These files may need updating to ensure they are compatible with the current version of WooCommerce. You can see which files are affected from the <a href=\"%2$s\">system status page</a>. If in doubt, check with the author of the theme."
-msgstr "<strong>Tu tema (%1$s) contiene copias no actualizadas de algunos archivos de plantilla WooCommerce.</strong> Estos archivos necesitan modificarse para que sean compatibles con la versión actual de WooCommerce. Puedes ver qué archivos se han visto afectados en la <a href=\"%2$s\">página del estado del sistema</a>. En caso de duda, consulta con el autor del tema."
 
 #: includes/admin/views/html-admin-page-status-report.php:559
 msgid "WC pages"
@@ -15799,11 +15799,6 @@ msgstr "Estado del inventario"
 msgid "Enter an optional note to send the customer after purchase."
 msgstr "Introduce una nota opcional para enviar al cliente después de la compra."
 
-#: includes/admin/importers/mappings/generic.php:21
-#: includes/admin/meta-boxes/views/html-product-data-advanced.php:25
-msgid "Menu order"
-msgstr "Orden del menú"
-
 #: includes/admin/meta-boxes/views/html-product-data-variations.php:26
 msgid "Default Form Values"
 msgstr "Valores por defecto del formulario"
@@ -16396,6 +16391,11 @@ msgstr "Nombre de usuario"
 #: includes/admin/meta-boxes/views/html-variation-admin.php:182
 msgid "If managing stock, this controls whether or not backorders are allowed. If enabled, stock quantity can go below 0."
 msgstr "Si gestionas el inventario, esto controla si se permitirán reservas o no. Si se activa, el inventario puede ser menos que 0."
+
+#: includes/admin/importers/mappings/generic.php:21
+#: includes/admin/meta-boxes/views/html-product-data-advanced.php:25
+msgid "Menu order"
+msgstr "Orden en el menú"
 
 #: includes/wc-product-functions.php:836
 msgid "Allow"
@@ -18304,10 +18304,6 @@ msgstr "Introduce un valor inferior al precio normal."
 msgid "Enter a value"
 msgstr "Introduce un valor"
 
-#: includes/admin/class-wc-admin-assets.php:218
-msgid "Variation menu order (determines position in the list of variations)"
-msgstr "Orden del menú Variación (determina la posición en la lista de variaciones)"
-
 #: includes/admin/class-wc-admin-assets.php:219
 msgid "Enter a value (fixed or %)"
 msgstr "Introduce un valor  (absoluto o en %)"
@@ -19331,6 +19327,10 @@ msgstr "Introduce la base personalizada que se usará. Debes añadir una base o 
 #: includes/admin/class-wc-admin-help.php:94
 msgid "Official theme"
 msgstr "Tema oficial"
+
+#: includes/admin/class-wc-admin-assets.php:218
+msgid "Variation menu order (determines position in the list of variations)"
+msgstr "Orden del menú de la variación (determina la posición en la lista de variaciones)"
 
 #: i18n/states/PH.php:20
 msgid "Albay"

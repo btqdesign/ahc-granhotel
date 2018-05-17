@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-05-01 11:04:58+0000\n"
+"PO-Revision-Date: 2018-05-15 14:44:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,36 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
+
+#. translators: %1$s expands to the requested indexable type. %2$s expands to
+#. the request id
+#: admin/services/class-indexable.php:40
+msgid "Object %1$s with id %2$s not found"
+msgstr "El objeto %1$s con id %2$s no se ha encontrado"
+
+#. translators: %1$s expands to the requested indexable type
+#: admin/services/class-indexable.php:28
+msgid "Unknown type %1$s"
+msgstr "Tipo desconocido %1$s"
+
+#: admin/config-ui/fields/class-field-mailchimp-signup.php:41
+msgid "Includes a free MyYoast account which gives you access to our free SEO for Beginners course!"
+msgstr "¡Incluye una cuenta gratuita MyYoast que te da acceso a nuestro curso gratuito SEO para principiantes!"
+
+#. translators: %1$s expands Yoast, %2$s expands to an opening anchor tag, %3$s
+#. expands to a closing anchor tag.
+#: admin/config-ui/fields/class-field-mailchimp-signup.php:31
+msgid "%1$s respects the GDPR. Read our %2$sprivacy policy%3$s on what happens with your personal information."
+msgstr "%1$s respeta el RGPD. Lee nuestra %2$spolítica de privacidad%3$s acerca de lo que sucede con tu información personal."
+
+#. translators: %1$s expands to Yoast SEO for WordPress, %2$s expands to Yoast
+#: admin/config-ui/fields/class-field-mailchimp-signup.php:24
+msgid "Sign up for our newsletter if you would like to keep up-to-date about %1$s, other cool plugins by %2$s, and interesting news and tips from the world of SEO."
+msgstr "Únete para nuestra newsletter si quieres estar al día sobre %1$s, otros plugins interesantes de %2$s, y noticias interesantes y consejos del mundo del SEO."
+
+#: admin/banner/class-admin-banner-sidebar.php:331
+msgid "Get the FREE SEO for beginners training course and learn the SEO basics to make your site rank higher."
+msgstr "Consigue el curso gratuito SEO para principiantes y aprende las técnicas básicas de SEO para conseguir posicionar tu sitio."
 
 #. translators: %1$s expands to 'Yoast SEO Premium'.
 #: admin/config-ui/components/class-component-configuration-choices.php:67
@@ -474,7 +504,7 @@ msgstr "Ver el mapa del sitio XML."
 #. translators: %1$s expands to Yoast SEO
 #: admin/views/tabs/dashboard/dashboard.php:16
 msgid "See who contributed to %1$s."
-msgstr "Ve quién ha contribuido con %1$s."
+msgstr "Mira quién ha contribuido a %1$s."
 
 #: admin/views/class-view-utils.php:49
 msgid "Help on this search results setting"
@@ -1086,7 +1116,7 @@ msgstr "Esta información se usará en la ficha de Google Knowledge Graph, el gr
 msgid "Does your site represent a person or company?"
 msgstr "¿Tu sitio representa a una persona o a una empresa?"
 
-#: admin/config-ui/class-configuration-page.php:131
+#: admin/config-ui/class-configuration-page.php:135
 msgid "Close wizard"
 msgstr "Cerrar asistente"
 
@@ -1125,7 +1155,7 @@ msgstr "Activa"
 #. translators: %1$s expands to "Yoast".
 #: admin/class-yoast-form.php:192
 msgid "%1s recommendations for you"
-msgstr "%1s recomendaciones para tí"
+msgstr "Recomendaciones de %1s para ti"
 
 #: admin/class-meta-columns.php:231
 msgid "All Readability Scores"
@@ -1141,7 +1171,7 @@ msgstr "Filtrar por puntuación de legibilidad"
 msgid "You are not receiving updates or support! Fix this problem by adding this site and enabling %1$s for it in %2$s."
 msgstr "¡No estás recibiendo actualizaciones ni soporte! Soluciona este problema añadiendo este sitio y activando %1$s en %2$s."
 
-#: admin/class-admin.php:363 vendor/yoast/whip/src/facades/wordpress.php:29
+#: admin/class-admin.php:362 vendor/yoast/whip/src/facades/wordpress.php:29
 msgid "Remind me again in 4 weeks."
 msgstr "Recuérdamelo de nuevo en 4 semanas."
 
@@ -1345,7 +1375,7 @@ msgstr "%1$sVista previa de medios sociales%2$s: Facebook y Twitter"
 msgid "Scroll to see the preview content."
 msgstr "Navega para ver la vista previa del contenido."
 
-#: languages/yoast-components.php:84
+#: languages/yoast-components.php:44
 msgid "Enter authorization code here..."
 msgstr "Introduce aquí el código de autorización…"
 
@@ -1358,15 +1388,6 @@ msgstr "Contenido esencial"
 #: admin/config-ui/fields/class-field-success-message.php:21
 msgid "%1$s will now take care of all the needed technical optimization of your site. To really improve your site's performance in the search results, it's important to start creating content that ranks well for keywords you care about. Check out this video in which we explain how to use the %1$s metabox when you edit posts or pages."
 msgstr "%1$s ahora se ocupará de toda la optimización técnica necesaria para tu sitio. Para mejorar de verdad el rendimiento de tu sitio en los resultados de búsqueda es importante empezar a crear contenido que puntúe bien por las palabras que te interesen. Revisa este vídeo en el que explicamos como usar la caja meta %1$s cuando editas entradas y páginas."
-
-#. translators: %s expands to Yoast SEO.
-#: admin/config-ui/fields/class-field-mailchimp-signup.php:27
-msgid "Your %1$s plugin is now set up. SEO, however, is subject to constant change. Sign up for our newsletter if you would like to keep up-to-date regarding %1$s, other plugins by Yoast and important news in the world of SEO."
-msgstr "Tu plugin %1$s está configurado. El SEO, sin embargo, está sujeto a cambios constantes. Suscríbete a nuestro boletín si quieres estar al día sobre %1$s, otros plugins de Yoast y noticias importantes del mundo del SEO."
-
-#: admin/config-ui/fields/class-field-mailchimp-signup.php:22
-msgid "Stay up-to-date"
-msgstr "Mantente al día"
 
 #. translators: %1$s resolves to Local SEO
 #: admin/config-ui/components/class-component-suggestions.php:76
@@ -1446,11 +1467,11 @@ msgstr "Boletín"
 
 #. translators: %1$s resolves to Yoast SEO, %2$s resolves to the starting tag
 #. of the link to the wizard, %3$s resolves to the closing link tag
-#: admin/config-ui/class-configuration-page.php:229
+#: admin/config-ui/class-configuration-page.php:233
 msgid "We have detected that you have not finished this wizard yet, so we recommend you to %2$sstart the configuration wizard to configure %1$s%3$s."
 msgstr "Hemos detectado que no has completado aún este asistente, así que te recomendamos que %2$sinicies el asistente de configuración para configurar %1$s%3$s."
 
-#: admin/config-ui/class-configuration-page.php:225
+#: admin/config-ui/class-configuration-page.php:229
 msgid "The configuration wizard helps you to easily configure your site to have the optimal SEO settings."
 msgstr "El asistente de configuración te ayudar a configurar con facilidad tu sitio para conseguir los ajustes SEO óptimos."
 
@@ -1891,7 +1912,7 @@ msgstr "Vista previa del slug:"
 
 #: languages/yoast-seo-js.php:377
 msgid "SEO title preview:"
-msgstr "Vista previa del titulo SEO:"
+msgstr "Vista previa del título SEO:"
 
 #: languages/yoast-seo-js.php:371
 msgid "Close snippet editor"
@@ -2006,101 +2027,61 @@ msgstr "Tu frase clave tiene más de 10 palabras, una frase clave debe ser más 
 msgid "ok"
 msgstr "ok"
 
-#: languages/yoast-components.php:124
+#: languages/yoast-components.php:81
 msgid "Choose an image"
 msgstr "Elige una imagen"
 
-#: languages/yoast-components.php:120
+#: languages/yoast-components.php:77
 msgid "Remove the image"
 msgstr "Quita la imagen"
 
-#: languages/yoast-components.php:117
+#: languages/yoast-components.php:74
 msgid "company logo image preview"
 msgstr "vista previa de la imagen de logotipo de la empresa"
 
-#: languages/yoast-components.php:114
+#: languages/yoast-components.php:71
 msgid "Choose image"
 msgstr "Elige la imagen"
 
-#: languages/yoast-components.php:111
+#: languages/yoast-components.php:68
 msgid "MailChimp signup failed:"
 msgstr "El registro en Mailchimp ha fallado:"
 
-#: languages/yoast-components.php:108
+#: languages/yoast-components.php:65
 msgid "Sign Up!"
 msgstr "¡Regístrate!"
 
-#: languages/yoast-components.php:105
-msgid "Name"
-msgstr "Nombre"
-
-#: languages/yoast-components.php:99
+#: languages/yoast-components.php:59
 msgid "There is an error with the request."
 msgstr "Ocurrió un error en la petición."
 
-#: languages/yoast-components.php:93
+#: languages/yoast-components.php:53
 msgid "Select profile"
 msgstr "Elige perfil"
 
-#: languages/yoast-components.php:90
+#: languages/yoast-components.php:50
 msgid "Choose a profile"
 msgstr "Elige un perfil"
 
-#: languages/yoast-components.php:78
+#: languages/yoast-components.php:38
 msgid "Reauthenticate with Google"
 msgstr "Volver a identificar con Google"
 
-#: languages/yoast-components.php:75
+#: languages/yoast-components.php:35
 msgid "To allow %s to fetch your Google Search Console information, please enter your Google Authorization Code. Clicking the button below will open a new window."
 msgstr "Para permitir que %s obtenga tu información de la consola de búsqueda de Google, por favor, introduce tu código de autorización de Google. Al hacer clic en el botón de abajo se abrirá una nueva ventana. "
 
-#: languages/yoast-components.php:69
-msgid "Search Result Preview"
-msgstr "Vista previa del resultado de búsqueda"
-
-#: languages/yoast-components.php:66
-msgid "URL preview: "
-msgstr "Vista previa de la URL:"
-
-#: languages/yoast-components.php:63 languages/yoast-seo-js.php:401
+#: languages/yoast-seo-js.php:401
 msgid "Please provide a meta description by editing the snippet below."
 msgstr "Por favor introduce una meta description editando el snippet de abajo."
 
-#: languages/yoast-components.php:60 languages/yoast-seo-js.php:359
+#: languages/yoast-seo-js.php:359
 msgid "Edit snippet"
 msgstr "Editar snippet"
 
-#: languages/yoast-components.php:57
-msgid "Search Result Form"
-msgstr "Formulario de resultado de búsqueda"
-
-#: languages/yoast-components.php:54 languages/yoast-seo-js.php:386
+#: languages/yoast-seo-js.php:386
 msgid "You can click on each element in the preview to jump to the Snippet Editor."
 msgstr "Puedes hacer clic en cualquier elemento de la vista previa para ir al editor del snippet."
-
-#: languages/yoast-components.php:50
-msgid "SEO title preview: "
-msgstr "Vista previa del título SEO:"
-
-#: languages/yoast-components.php:46
-msgid "This is an example title - edit by clicking here"
-msgstr "Este es un título de ejemplo - edítalo haciendo clic aquí"
-
-#: languages/yoast-components.php:42
-msgid "Slug preview: "
-msgstr "Vista previa del slug:"
-
-#: languages/yoast-components.php:39
-msgid "Meta description preview: "
-msgstr "Vista previa de la meta description:"
-
-#: languages/yoast-components.php:35
-msgid "Please provide a meta description by editing it here."
-msgstr "Por favor, facilita una meta description editándola aquí."
-
-#: languages/yoast-components.php:32
-msgid "Close search result form"
-msgstr "Cerrar formulario de resultado de búsqueda"
 
 #: languages/yoast-components.php:26
 msgid "A problem occurred when saving the current step, {{link}}please file a bug report{{/link}} describing what step you are on and which changes you want to make (if any)."
@@ -2172,7 +2153,7 @@ msgid "Take the %1$s course and become a certified %2$s expert!"
 msgstr "¡Haz el curso %1$s y conviértete en un experto certificado en %2$s!"
 
 #. translators: %s expands to Yoast SEO.
-#: admin/config-ui/class-configuration-page.php:108
+#: admin/config-ui/class-configuration-page.php:112
 msgid "%s &rsaquo; Configuration Wizard"
 msgstr "%s &rsaquo; Asistente de configuración"
 
@@ -2671,7 +2652,7 @@ msgid "Content optimization"
 msgstr "Optimización de contenido"
 
 #: admin/google_search_console/views/gsc-display.php:56
-#: languages/yoast-components.php:87
+#: languages/yoast-components.php:47
 msgid "Enter your Google Authorization Code and press the Authenticate button."
 msgstr "Introduce tu código de autorización de Google y pulsa el botón Autorizar."
 
@@ -2856,7 +2837,6 @@ msgid "No results found."
 msgstr "No se han encontrado resultados."
 
 #: admin/menu/class-admin-menu.php:48 admin/pages/dashboard.php:39
-#: inc/wpseo-non-ajax-functions.php:265
 msgid "Dashboard"
 msgstr "Escritorio"
 
@@ -3135,28 +3115,28 @@ msgstr "Equipo Yoast"
 msgid "The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more."
 msgstr "La primera verdadera solución SEO todo en uno para WordPress, incluyendo análisis de contenido de páginas, mapas del sitio en XML y mucho más."
 
-#. #-#-#-#-#  wordpress-seo-code.pot (Yoast SEO 7.4.2)  #-#-#-#-#
+#. #-#-#-#-#  wordpress-seo-code.pot (Yoast SEO 7.5.1)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: admin/capabilities/class-capability-manager-integration.php:68
 msgid "Yoast SEO"
 msgstr "Yoast SEO"
 
-#: wp-seo-main.php:520
+#: wp-seo-main.php:524
 msgid "Activation failed:"
 msgstr "Ha fallado la activación:"
 
-#: wp-seo-main.php:510
+#: wp-seo-main.php:514
 msgid "The filter extension seem to be unavailable. Please ask your web host to enable it."
 msgstr "La extensión filtro parece no estar disponible. Por favor, pide a tu proveedor de alojamiento web que la habilite."
 
 #. translators: %1$s expands to Yoast SEO, %2$s / %3$s: links to the
 #. installation manual in the Readme for the Yoast SEO code repository on
 #. GitHub
-#: wp-seo-main.php:486
+#: wp-seo-main.php:490
 msgid "The %1$s plugin installation is incomplete. Please refer to %2$sinstallation instructions%3$s."
 msgstr "La instalación del plugin %1$s no se ha completado. Por favor, consulta las %2$sinstrucciones de instalación%3$s."
 
-#: wp-seo-main.php:464
+#: wp-seo-main.php:468
 msgid "The Standard PHP Library (SPL) extension seem to be unavailable. Please ask your web host to enable it."
 msgstr "La extensión de librería estándar PHP (SPL) parece no estar disponible. Por favor, pide a tu proveedor de hosting que la active. "
 
@@ -3581,7 +3561,7 @@ msgstr "El nombre del sitio"
 
 #: inc/class-wpseo-replace-vars.php:1121
 msgid "Replaced with the title of the parent page of the current page"
-msgstr "Reemplazado con el titulo de la página superior de la página actual"
+msgstr "Reemplazado con el título de la página superior de la página actual"
 
 #: inc/class-wpseo-replace-vars.php:1120
 msgid "Replaced with the title of the post/page"
@@ -4094,7 +4074,7 @@ msgstr "Puedes determinar el título y la descripción para la página de inicio
 
 #: admin/views/tabs/metas/general/homepage.php:27
 msgid "Homepage &amp; Front page"
-msgstr "Portada &amp; Página de inicio"
+msgstr "Portada y página de inicio"
 
 #: admin/views/class-view-utils.php:90 admin/views/tabs/metas/archives.php:91
 #: admin/views/tabs/metas/archives.php:123
@@ -4113,7 +4093,7 @@ msgstr "Plantilla del title"
 #: admin/config-ui/fields/class-field-separator.php:19
 #: admin/views/tabs/metas/general/title-separator.php:18
 msgid "Title Separator"
-msgstr "Separador de titulo"
+msgstr "Separador de título"
 
 #. translators: %1$s expands to Yoast SEO
 #: admin/views/tabs/metas/general/force-rewrite-title.php:18
@@ -4158,7 +4138,7 @@ msgstr "¡Optimiza tus vídeos para verlos en los resultados de búsqueda y cons
 #. translators: %1$s expands to Yoast SEO
 #: admin/class-plugin-availability.php:36 admin/views/licenses.php:30
 msgid "The premium version of %1$s with more features & support."
-msgstr "La version premium de %1$s con mas características y soporte."
+msgstr "La versión premium de %1$s, con más características y soporte."
 
 #: admin/views/tabs/metas/general/knowledge-graph.php:41
 msgid "Your name"
@@ -4228,7 +4208,7 @@ msgid "Save Profile"
 msgstr "Guardar perfil"
 
 #: admin/google_search_console/views/gsc-display.php:91
-#: languages/yoast-components.php:96
+#: languages/yoast-components.php:56
 msgid "There were no profiles found"
 msgstr "No se encontraron perfiles"
 
@@ -4245,12 +4225,12 @@ msgid "Reauthenticate with Google "
 msgstr "Volver a autorizar con Google"
 
 #: admin/google_search_console/views/gsc-display.php:60
-#: languages/yoast-components.php:81
+#: languages/yoast-components.php:41
 msgid "Authenticate"
 msgstr "Autorizar"
 
 #: admin/google_search_console/views/gsc-display.php:54
-#: languages/yoast-components.php:72
+#: languages/yoast-components.php:32
 msgid "Get Google Authorization Code"
 msgstr "Obtener el código de autorización de Google"
 
@@ -4319,7 +4299,7 @@ msgstr "Crear redirección"
 #: admin/google_search_console/class-gsc-table.php:137
 #: admin/google_search_console/class-gsc-table.php:210
 msgid "Mark as fixed"
-msgstr "Marcar como solucionado."
+msgstr "Marcar como solucionado"
 
 #: admin/google_search_console/class-gsc-table.php:108
 msgid "Response code"
@@ -4327,7 +4307,7 @@ msgstr "Código de respuesta"
 
 #: admin/google_search_console/class-gsc-table.php:107
 msgid "First detected"
-msgstr "Primer detectado"
+msgstr "Detectado por primera vez"
 
 #: admin/google_search_console/class-gsc-table.php:106
 msgid "Last crawled"
@@ -4432,11 +4412,11 @@ msgid "Upload Image"
 msgstr "Subir imagen"
 
 #. translators: %1$s expands to Yoast SEO Premium
-#: admin/banner/class-admin-banner-sidebar.php:342
+#: admin/banner/class-admin-banner-sidebar.php:352
 msgid "Upgrade to %1$s &raquo;"
 msgstr "Actualizar a %1$s &raquo;"
 
-#: admin/banner/class-admin-banner-sidebar.php:336
+#: admin/banner/class-admin-banner-sidebar.php:346
 msgid "Remove these ads?"
 msgstr "¿Eliminar estos anuncios?"
 
@@ -4473,7 +4453,7 @@ msgstr "Otro"
 msgid "Archives"
 msgstr "Archivos"
 
-#: languages/yoast-components.php:102
+#: languages/yoast-components.php:62
 msgid "Email"
 msgstr "Correo"
 
@@ -5055,42 +5035,42 @@ msgstr "Editar archivos"
 msgid "MultiSite Settings"
 msgstr "Ajustes multisitio"
 
-#: admin/class-admin.php:560 admin/class-admin.php:561 admin/pages/metas.php:76
+#: admin/class-admin.php:559 admin/class-admin.php:560 admin/pages/metas.php:76
 msgid "Advanced Variables"
 msgstr "Variables avanzadas"
 
-#: admin/class-admin.php:552 admin/class-admin.php:553 admin/pages/metas.php:70
+#: admin/class-admin.php:551 admin/class-admin.php:552 admin/pages/metas.php:70
 msgid "Basic Variables"
 msgstr "Variables básicas"
 
-#: admin/class-admin.php:545 admin/pages/metas.php:65
+#: admin/class-admin.php:544 admin/pages/metas.php:65
 msgid "Note that not all variables can be used in every template."
 msgstr "Ten en cuenta que no todas las variables pueden usarse en cada plantilla."
 
 #. translators: %1$s expands to Yoast SEO.
-#: admin/class-admin.php:542
+#: admin/class-admin.php:541
 msgid "The title &amp; metas settings for %1$s are made up of variables that are replaced by specific values from the page when the page is displayed. The tabs on the left explain the available variables."
 msgstr "Los ajustes de título y metas de %1$s están creadas con variables que son reemplazadas por valores específicos de la página cuando la página se muestra. Las pestañas de la izquierda explican las variables disponibles. "
 
-#: admin/class-admin.php:538 admin/class-admin.php:539 admin/pages/metas.php:42
+#: admin/class-admin.php:537 admin/class-admin.php:538 admin/pages/metas.php:42
 #: admin/pages/metas.php:63
 msgid "Template explanation"
 msgstr "Explicación de la plantilla"
 
-#: admin/class-admin.php:532
+#: admin/class-admin.php:531
 msgid "Why Google won't display the right page title"
 msgstr "Por qué Google no muestra el título correcto de la página"
 
-#: admin/class-admin.php:531
+#: admin/class-admin.php:530
 msgid "Title optimization"
 msgstr "Optimización del título"
 
-#: admin/class-admin.php:530
+#: admin/class-admin.php:529
 msgid "For more information:"
-msgstr "Para mas información:"
+msgstr "Para más información:"
 
 #: admin/menu/class-admin-menu.php:119 admin/menu/class-admin-menu.php:212
-#: admin/pages/metas.php:20
+#: admin/pages/metas.php:20 inc/wpseo-non-ajax-functions.php:265
 msgid "General"
 msgstr "General"
 
