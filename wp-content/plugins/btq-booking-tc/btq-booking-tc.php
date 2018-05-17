@@ -634,3 +634,19 @@ function btq_booking_tc_grid_form() {
 	</section>
 	<?php
 }
+
+add_action( 'vc_before_init', 'btq_booking_tc_grid_VC' );
+function btq_booking_tc_grid_VC() {
+	vc_map(array(
+		'name'     => __( 'BTQ Booking', 'btq-booking-tc' ),
+		'base'     => 'btq-booking-tc-grid',
+		'class'    => '',
+		'category' => __( 'Content', 'btq-booking-tc'),
+	));
+}
+
+add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
+function btq_booking_tc_grid_shortcode() {
+	btq_booking_tc_grid_form();
+	btq_booking_tc_grid_rooms();
+}
