@@ -325,7 +325,7 @@ function btq_booking_tc_grid_rooms(){
 	foreach($arrayRoomType as $elementRoomType){
 		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
 		$images_path = plugin_dir_path( __FILE__ ) . $images_dir . $roomTypeCode;
-		$images = btq_booking_tc_grid_get_images($images_path);
+		$images = btq_booking_tc_grid_get_images($images_dir);
 		?>
 		
 		<section class="row">
