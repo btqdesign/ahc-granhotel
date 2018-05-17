@@ -33,13 +33,13 @@
 		<hr class="linea"/>	
 		
 			<section class="row">
+				
 				<article class="col-md-5">
 					<h5>Selecciona un PAQUETE o HABITACIÓN</h5>
 				</article>
-				<article class="col-md-7">
-					<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element1">
-					<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
-				</article>
+
+				<article class="col-md-7">  </article>
+
 			</section>
 
 			<hr class="linea" />
@@ -48,20 +48,29 @@
 				
 				<article class="col-md-5">
 				<button class="button col-xs-12 col-md-4">Habitaciones</button>
+
 				<div class="clearfix visible-xs-block"></div>
+
 				<button class="button col-xs-12 col-md-3">Paquetes</button>
+
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-5"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="20" height="22" id="element1">Mejor Calificadas</button>
+
+				<button class="button col-xs-12 col-md-5"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+
+				<div class="clearfix visible-xs-block"></div>
 				</article>
 
-				<article class="col-md-5">
+				<article class="col-md-4">
 
-					  <input class="buttonpick col-xs-6" id="entrada" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar1.png', __FILE__ ); ?>" width="30" height="30" placeholder="Fecha de entrada">
+					  <input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
 
 					  <input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
 
 					  <div class="clearfix visible-xs-block"></div>	
+				</article>
 
+
+				<article class="col-md-1">
 						<select class="buttonpick2 col-xs-6">
 										<option value="1">1 Adulto</option>
 										<option value="2">2 Adultos</option>
@@ -74,7 +83,7 @@
 										<option value="9">9 Adultos</option>
 						</select>
 
-									<select class="buttonpick3 col-xs-6">
+									<select class="buttonpick2 col-xs-6">
 										
 										
 										<option value="0">0 Niños</option>
@@ -89,6 +98,7 @@
 										<option value="9">9 Niños</option>
 									</select>
 
+
 				</article>
 
 				<article class="col-md-2">
@@ -102,7 +112,12 @@
 			<hr class="linea"/>
 
 			<section class="row">
-				<article class="col-md-5"></article>
+
+				<article class="col-md-5">
+					<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
+					<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
+				</article>
+
 				<article class="col-md-7">
 					<p class="recordatorio">*Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)</p>
 				</article>

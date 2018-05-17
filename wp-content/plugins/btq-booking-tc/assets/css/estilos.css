@@ -1,16 +1,15 @@
-
-				.button {
+.button {
 				    background-color: white;
 				    border: none;
 				    color: black;
-				    padding: 15px 20px;
+				    padding: 16px 10px;
 				    text-align: center;
 				    text-decoration: none;
 				    display: inline-block;
 				    font-size: 16px;
 				    margin: 4px 0px;
 				    cursor: pointer;
-				    border: 2px solid #989898;
+				    border: 1px;
 				    -webkit-transition-duration: 0.4s; /* Safari */
    					transition-duration: 0.4s;
 				}
@@ -22,7 +21,7 @@
 				    background-color: #C5992D;
 				    border: none;
 				    color: white;
-				    padding: 15px 20px;
+				    padding: 15px 10px;
 				    text-align: center;
 				    text-decoration: none;
 				    display: inline-block;
@@ -49,21 +48,20 @@
 				}
 
 				.buttonpick {
-				    background-color: white;
+				    background-color:#E6E7E8;
 				    border: none;
 				    color: black;
-				    width: 95%;
 				    padding: 15px 0px;
 				    text-align: center;
 				    text-decoration: none;
 				    display: inline-block;
 				    font-size: 16px;
-				    margin: 4px 0px;
+				    margin-top: 6px;
 				    cursor: pointer;
-				    border: 2px solid #989898;
+				    border: 1px;
 				    -webkit-transition-duration: 0.4s; /* Safari */
    					transition-duration: 0.4s;
-   					max-width: 140px;
+   					min-width: 120px;
 
 				}
 				.buttonpick:hover {
@@ -71,24 +69,22 @@
 			    color: white;
 				}
 
-
-
 				.buttonpickk {
-				    background-color: white;
+				    background-color:#E6E7E8;
 				    border: none;
 				    color: black;
-				    width: 95%;
 				    padding: 15px 0px;
 				    text-align: center;
 				    text-decoration: none;
 				    display: inline-block;
 				    font-size: 16px;
-				    margin: 4px 0px;
+				    margin-top: 6px;
+				    margin-right: 0px;
 				    cursor: pointer;
-				    border: 2px solid #989898;
+				    border: 1px;
 				    -webkit-transition-duration: 0.4s; /* Safari */
    					transition-duration: 0.4s;
-   					max-width: 126px;
+   					min-width: 90px;
 
 				}
 				.buttonpickk:hover {
@@ -96,48 +92,28 @@
 			    color: white;
 				}
 
+
 				.buttonpick2 {
-				    background-color: white;
+				    background-color:#E6E7E8;
 				    border: none;
 				    color: black;
-				    padding: 15px 32px;
-				    text-align: center;
+				    padding: 15px 40px;
 				    text-decoration: none;
 				    display: inline-block;
 				    font-size: 16px;
-				    margin: 4px 0px;
+				    margin-top: 9px;
+				    margin-bottom: 0px;
+				    margin-right: 0px;
+				    margin-left: 0px;
 				    cursor: pointer;
-				    border: 2px solid #989898;
+				    border: 1px;
 				    -webkit-transition-duration: 0.4s; /* Safari */
    					transition-duration: 0.4s;
-   					max-width: 97px;
+   					min-width: 91px;
    			
 
 				}
 				.buttonpick2:hover {
-			    background-color: #D4C394;
-			    color: white;
-				}
-
-				.buttonpick3 {
-				    background-color: white;
-				    border: none;
-				    color: black;
-				    padding: 15px 40px;
-				    text-align: center;
-				    text-decoration: none;
-				    display: inline-block;
-				    font-size: 16px;
-				    margin: 4px 0px;
-				    cursor: pointer;
-				    border: 2px solid #989898;
-				    -webkit-transition-duration: 0.4s; /* Safari */
-   					transition-duration: 0.4s;
-   					max-width: 85px;
-   			
-
-				}
-				.buttonpick3:hover {
 			    background-color: #D4C394;
 			    color: white;
 				}
@@ -157,9 +133,14 @@
 				}
 
 				#element1 {
-					float:left;
+					position: left;
+					position: relative;
 				}
 
+				#element2 {
+					float:left;
+					margin-top: 8px;
+				}
 				.titulo{
 					margin-top: 8px;
 				}
@@ -173,13 +154,19 @@
 				.recordatorio{
 					font-size: 13.4px;
 					align-content: center;
-					padding-top: 10px;
+					padding-top: 16px;
 				}
 
 				.hosp{
-					padding-top: 8px;
+					padding-top: 9px;
 					padding-bottom: 4px;
 				}
+				
+
+
+
+
+
 
 
 
