@@ -134,8 +134,6 @@
 					    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 					    <li data-target="#myCarousel" data-slide-to="1"></li>
 					    <li data-target="#myCarousel" data-slide-to="2"></li>
-					    <li data-target="#myCarousel" data-slide-to="3"></li>
-					    <li data-target="#myCarousel" data-slide-to="4"></li>
 					  </ol>
 
 					  <!-- Wrapper for slides -->
@@ -148,12 +146,6 @@
 					    </div>
 					    <div class="item">
 					      <img src="<?php echo plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'sencilla3.png', __FILE__ ); ?>" alt="Habitaciones">
-					    </div>
-					    <div class="item">
-					      <img src="<?php echo plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'sencilla4.png', __FILE__ ); ?>" alt="Habitaciones">
-					    </div>
-					    <div class="item">
-					      <img src="<?php echo plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'sencilla5.png', __FILE__ ); ?>" alt="Habitaciones">
 					    </div>
 					  </div>
 
