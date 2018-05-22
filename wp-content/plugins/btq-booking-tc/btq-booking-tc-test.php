@@ -50,15 +50,15 @@
 			<section class="row">
 				
 				<article class="col-md-5">
-				<button class="button col-xs-12 col-md-4 style="background-color:#C9B891"">Habitaciones</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Habitaciones</button>
 
 				<div class="clearfix visible-xs-block"></div>
 
-				<button class="button col-xs-12 col-md-3 style="background-color:#C9B891"">Paquetes</button>
+				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891">Paquetes</button>
 
 				<div class="clearfix visible-xs-block"></div>
 
-				<button class="button col-xs-12 col-md-5 style="background-color:#C9B891""><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
 
 				<div class="clearfix visible-xs-block"></div>
 				</article>
