@@ -1,4 +1,4 @@
-.button {
+			    .button {
 				    background-color: white;
 				    border: none;
 				    color: black;
@@ -163,12 +163,12 @@
 				}
 				
 
+				aside{
 
-
-
-
-
-
-
-
-
+					margin-top: 0px;
+					margin-left: 0px;
+					margin-right: 0px;
+					margin-bottom: 0px;
+					padding-top: 0px;
+					float:left; 
+				}

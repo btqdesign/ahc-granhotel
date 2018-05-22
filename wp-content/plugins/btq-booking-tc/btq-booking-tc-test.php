@@ -12,7 +12,10 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Hotel</title>
-	
+
+		<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'bootstrap.min.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ); ?>"></script>
@@ -47,15 +50,15 @@
 			<section class="row">
 				
 				<article class="col-md-5">
-				<button class="button col-xs-12 col-md-4">Habitaciones</button>
+				<button class="button col-xs-12 col-md-4 style="background-color:#C9B891"">Habitaciones</button>
 
 				<div class="clearfix visible-xs-block"></div>
 
-				<button class="button col-xs-12 col-md-3">Paquetes</button>
+				<button class="button col-xs-12 col-md-3 style="background-color:#C9B891"">Paquetes</button>
 
 				<div class="clearfix visible-xs-block"></div>
 
-				<button class="button col-xs-12 col-md-5"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-5 style="background-color:#C9B891""><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
 
 				<div class="clearfix visible-xs-block"></div>
 				</article>
@@ -161,19 +164,26 @@
 					</div>
 
 				</article>
+
 				<article class="col-md-4">
+
+
 					<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
-					<p>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado...</p>
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-03.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-01.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-05.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-					<img class="iconoshabitacion" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
+					<a href="#" id="vermas">Ver más</a>
+					<aside id="mostrar" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
+
+
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-03.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-01.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-05.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
+					<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 					<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
 					  <input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 					  <input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
