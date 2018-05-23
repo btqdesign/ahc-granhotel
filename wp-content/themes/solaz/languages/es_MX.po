@@ -11,7 +11,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 2.0.7\n"
 "Last-Translator: \n"
-"Language: es_ES\n"
+"Language: es_MX\n"
 
 #: 404.php:35
 msgid "404 page"
@@ -2201,7 +2201,7 @@ msgstr "Mostrar selector de idioma WPML"
 
 #: inc/admin/settings/settings.php:140
 msgid "Show wpml language switcher instead of view switcher menu."
-msgstr "Mostrar WPML Language Switcher en lugar de ver el menú Switcher."
+msgstr ""
 
 #: inc/admin/settings/settings.php:140
 msgid "Compatible with WPML plugins."
