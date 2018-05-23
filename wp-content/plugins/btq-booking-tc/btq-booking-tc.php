@@ -357,7 +357,7 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 		break;
 	}
 	
-	$response = btq_booking_tc_soap_query('131328', '2018-09-11', '2018-09-12');
+	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
 	
 	//$debug = var_export($response, TRUE);
 	//echo htmlentities($debug);
