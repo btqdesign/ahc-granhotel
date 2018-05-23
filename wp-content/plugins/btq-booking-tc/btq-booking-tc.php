@@ -701,6 +701,9 @@ function btq_booking_tc_grid_VC() {
 
 add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
 function btq_booking_tc_grid_shortcode() {
+	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+		echo '<p>Language code: ' . ICL_LANGUAGE_CODE . '</p>';
+	}
 	?>
 	<div class="container">
     <?php
