@@ -643,6 +643,7 @@ function btq_booking_tc_grid_VC() {
 		'base'     => 'btq-booking-tc-grid',
 		'class'    => '',
 		'category' => __( 'Content', 'btq-booking-tc'),
+		'icon'     => plugins_url( 'assets/images/iconos' . DIRECTORY_SEPARATOR . 'btqdesign-logo.png', __FILE__ );
 	));
 }
 
