@@ -348,7 +348,7 @@ function btq_booking_tc_grid_rooms(){
 				  }
 				  ?>
 				  </ol>
-
+				  
 				  <!-- Wrapper for slides -->
 				  <div class="carousel-inner">
 				  <?php
