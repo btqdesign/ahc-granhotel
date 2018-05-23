@@ -340,8 +340,9 @@ function btq_booking_tc_grid_rooms(){
 			      <?php 
 				  $count_img = 0;
 				  foreach ($images as $im) {
+					$class_active = ($count_img == 0) ? ' class="active"' : '';
 				    ?>
-				    <li data-target="#myCarousel" data-slide-to="<?php echo $count_img; ?>"></li>
+				    <li data-target="#myCarousel" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
 				    <?php
 				    $count_img++;
 				  }
@@ -354,8 +355,9 @@ function btq_booking_tc_grid_rooms(){
 				  $count_img = 1;
 				  foreach ($images as $image_name) {
 				    $image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+				    $class_active = ($count_img == 1) ? ' active' : '';
 				    ?> 
-				    <div class="item active">
+				    <div class="item<?php echo $class_active?>">
 				      <img src="<?php echo $image_url; ?>" alt="Habitaciones">
 				    </div>
 				    <?php
