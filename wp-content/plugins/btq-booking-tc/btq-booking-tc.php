@@ -245,6 +245,7 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
 	
+	
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
 	?>
@@ -252,13 +253,38 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 		<tr><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
+		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
 		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
 		$roomTypeName = $elementRoomType['!RoomTypeName'];
 		?><tr><td><?php echo $roomTypeCode; ?></td><td><?php echo htmlentities($roomTypeName); ?></td></tr><?php
 	}
 	?>
 	</table>
+	<pre>
+		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
+	</pre>
 	<?php
+	
+	
+	
+	/*
+	for ($i = 0; $i < count($amenities); $i++;){
+		$amenities[$i]['!RoomAmenity'];
+	}
+	
+	?>
+	<table>
+		<tr><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
+	<?php
+	foreach($amenities as $elementAmenities){
+		$roomTypeCode = $elementAmenities['!RoomTypeCode'];
+		$roomTypeName = $elementAmenities['!RoomTypeName'];
+		?><tr><td><?php echo $roomTypeCode; ?></td><td><?php echo htmlentities($roomTypeName); ?></td></tr><?php
+	}
+	?>
+	</table>
+	<?php
+	*/
 }
 
 function btq_booking_tc_admin_debug_page() {
