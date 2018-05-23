@@ -559,83 +559,98 @@ function btq_booking_tc_grid_rooms(){
 function btq_booking_tc_grid_form() {
 	$iconos_dir = 'assets/images/iconos';
 	?>
-	<hr class="linea"/>
-	
-	<section class="row">
-		<article class="col-md-5">
-			<h5>Selecciona un PAQUETE o HABITACIÓN</h5>
-		</article>
-		<article class="col-md-7">
-			<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element1">
-			<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
-		</article>
-	</section>
-
-	<hr class="linea" />
-
-	<section class="row">
+	<hr class="linea"/>	
 		
-		<article class="col-md-5">
-		<button class="button col-xs-12 col-md-4">Habitaciones</button>
-		<div class="clearfix visible-xs-block"></div>
-		<button class="button col-xs-12 col-md-3">Paquetes</button>
-		<div class="clearfix visible-xs-block"></div>
-		<button class="button col-xs-12 col-md-5"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="20" height="22" id="element1">Mejor Calificadas</button>
-		</article>
+			<section class="row">
+				
+				<article class="col-md-5">
+					<h5>Selecciona un PAQUETE o HABITACIÓN</h5>
+				</article>
 
-		<article class="col-md-5">
+				<article class="col-md-7">  </article>
 
-			  <input class="buttonpick col-xs-6" id="entrada" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar1.png', __FILE__ ); ?>" width="30" height="30" placeholder="Fecha de entrada">
+			</section>
 
-			  <input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
+			<hr class="linea" />
 
-			  <div class="clearfix visible-xs-block"></div>	
+			<section class="row">
+				
+				<article class="col-md-5">
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Habitaciones</button>
 
-				<select class="buttonpick2 col-xs-6">
-								<option value="1">1 Adulto</option>
-								<option value="2">2 Adultos</option>
-								<option value="3">3 Adultos</option>
-								<option value="4">4 Adultos</option>
-								<option value="5">5 Adultos</option>
-								<option value="6">6 Adultos</option>
-								<option value="7">7 Adultos</option>
-								<option value="8">8 Adultos</option>
-								<option value="9">9 Adultos</option>
-				</select>
+				<div class="clearfix visible-xs-block"></div>
 
-							<select class="buttonpick3 col-xs-6">
-								
-								
-								<option value="0">0 Niños</option>
-								<option value="1">1 Niño</option>
-								<option value="2">2 Niños</option>
-								<option value="3">3 Niños</option>
-								<option value="4">4 Niños</option>
-								<option value="5">5 Niños</option>
-								<option value="6">6 Niños</option>
-								<option value="7">7 Niños</option>
-								<option value="8">8 Niños</option>
-								<option value="9">9 Niños</option>
-							</select>
+				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891">Paquetes</button>
 
-		</article>
+				<div class="clearfix visible-xs-block"></div>
 
-		<article class="col-md-2">
-			
-			<button class="buttonbus col-xs-12">BUSCAR</button>
+				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
 
-		</article>
+				<div class="clearfix visible-xs-block"></div>
+				</article>
 
-	</section>
+				<article class="col-md-4">
 
-	<hr class="linea"/>
+					  <input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
 
-	<section class="row">
-		<article class="col-md-5"></article>
-		<article class="col-md-7">
-			<p class="recordatorio">*Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)</p>
-		</article>
-	</section>
+					  <input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
+
+					  <div class="clearfix visible-xs-block"></div>	
+				</article>
+
+
+				<article class="col-md-1">
+						<select class="buttonpick2 col-xs-6">
+										<option value="1">1 Adulto</option>
+										<option value="2">2 Adultos</option>
+										<option value="3">3 Adultos</option>
+										<option value="4">4 Adultos</option>
+										<option value="5">5 Adultos</option>
+										<option value="6">6 Adultos</option>
+										<option value="7">7 Adultos</option>
+										<option value="8">8 Adultos</option>
+										<option value="9">9 Adultos</option>
+						</select>
+
+									<select class="buttonpick2 col-xs-6">
+										
+										
+										<option value="0">0 Niños</option>
+										<option value="1">1 Niño</option>
+										<option value="2">2 Niños</option>
+										<option value="3">3 Niños</option>
+										<option value="4">4 Niños</option>
+										<option value="5">5 Niños</option>
+										<option value="6">6 Niños</option>
+										<option value="7">7 Niños</option>
+										<option value="8">8 Niños</option>
+										<option value="9">9 Niños</option>
+									</select>
+
+
+				</article>
+
+				<article class="col-md-2">
+					
+					<button class="buttonbus col-xs-12">BUSCAR</button>
+
+				</article>
+
+			</section>
+
+			<hr class="linea"/>
+
+			<section class="row">
+
+				<article class="col-md-5">
+					<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
+					<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
+				</article>
+
+				<article class="col-md-7">
+					<p class="recordatorio">*Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)</p>
+				</article>
+			</section>
 	<?php
 }
 
