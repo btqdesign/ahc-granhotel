@@ -269,7 +269,7 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 		$amenities[] = array(
 			'!RoomAmenity' => $amenities[$i]['!RoomAmenity'],
 			'!ExistsCode'  => $amenities[$i]['!ExistsCode']
-		)
+		);
 	}
 	
 	$amenities = array_unique($amenities);
