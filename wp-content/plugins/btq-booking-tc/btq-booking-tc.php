@@ -334,47 +334,47 @@ function btq_booking_tc_grid_rooms(){
 			<hr class="linea"/>
 			
 			<article class="col-md-5">
-					<div id="myCarousel" class="carousel slide" data-ride="carousel">
-				  <!-- Indicators -->
-				  <ol class="carousel-indicators">
-			      <?php 
-				  $count_img = 0;
-				  foreach ($images as $im) {
+				<div id="btq-carousel-<?php echo $roomTypeCode; ?>" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					<?php 
+					$count_img = 0;
+					foreach ($images as $im) {
 					$class_active = ($count_img == 0) ? ' class="active"' : '';
-				    ?>
-				    <li data-target="#myCarousel" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
-				    <?php
-				    $count_img++;
-				  }
-				  ?>
-				  </ol>
-				  
-				  <!-- Wrapper for slides -->
-				  <div class="carousel-inner">
-				  <?php
-				  $count_img = 1;
-				  foreach ($images as $image_name) {
-				    $image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
-				    $class_active = ($count_img == 1) ? ' active' : '';
-				    ?> 
-				    <div class="item<?php echo $class_active?>">
-				      <img src="<?php echo $image_url; ?>" alt="Habitaciones">
-				    </div>
-				    <?php
-				    $count_img++;
-				  }
-				  ?>
-				  </div>
+					?>
+						<li data-target="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
+					<?php
+					$count_img++;
+					}
+					?>
+					</ol>
+					
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+					<?php
+					$count_img = 1;
+					foreach ($images as $image_name) {
+					$image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+					$class_active = ($count_img == 1) ? ' active' : '';
+					?> 
+						<div class="item<?php echo $class_active?>">
+							<img src="<?php echo $image_url; ?>" alt="Habitaciones">
+						</div>
+					<?php
+					$count_img++;
+					}
+					?>
+					</div>
 
-				  <!-- Left and right controls -->
-				  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-				    <span class="glyphicon glyphicon-chevron-left"></span>
-				    <span class="sr-only">Anterior</span>
-				  </a>
-				  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-				    <span class="glyphicon glyphicon-chevron-right"></span>
-				    <span class="sr-only">Siguiente</span>
-				  </a>
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only">Anterior</span>
+					</a>
+					<a class="right carousel-control" href="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only">Siguiente</span>
+					</a>
 				</div>
 			</article>
 			
@@ -404,8 +404,8 @@ function btq_booking_tc_grid_rooms(){
 				}
 				?>				
 				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
-				  <input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
-				  <input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
+				<input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
+				<input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
 			</article>
 			
 			<article class="col-md-3">
