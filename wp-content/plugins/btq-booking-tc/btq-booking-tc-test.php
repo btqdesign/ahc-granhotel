@@ -13,7 +13,7 @@
 	<meta charset="UTF-8">
 	<title>Hotel</title>
 
-	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery-migrate-1.2.1.min.js', __FILE__ ); ?>"></script>
 	
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'bootstrap.min.js', __FILE__ ); ?>"></script>
