@@ -265,7 +265,7 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	*/ ?>
 	<?php
 	
-	for ($i = 0; $i < count($amenities); $i++;){
+	for ($i = 0; $i < count($amenities); $i++){
 		$amenities[] = array(
 			'!RoomAmenity' => $amenities[$i]['!RoomAmenity'],
 			'!ExistsCode'  => $amenities[$i]['!ExistsCode']
