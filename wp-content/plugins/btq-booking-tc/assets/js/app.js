@@ -29,6 +29,7 @@
 				        function(e){ 
 				            jQuery('#mostrar').slideDown();
 				            jQuery(this).text('');
+				            e.preventDefault();
 				            
 				        }, // Separamos las dos funciones con una coma
 				      
@@ -36,6 +37,7 @@
 				        function(e){ 
 				            jQuery('#mostrar').slideUp();
 				            jQuery(this).text('Ver mas');
+				            e.preventDefault();
 				            
 				        }
 				  
