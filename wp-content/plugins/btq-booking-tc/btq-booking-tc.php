@@ -636,6 +636,12 @@ function btq_booking_tc_grid_form() {
 	<?php
 }
 
+add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts' );
+function btq_booking_tc_grid_scripts() {
+    wp_enqueue_style( 'btq-booking-tc-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ) );
+    wp_enqueue_script( 'btq-booking-tc-grid', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array(), '1.0.0', true );
+}
+
 add_action( 'vc_before_init', 'btq_booking_tc_grid_VC' );
 function btq_booking_tc_grid_VC() {
 	vc_map(array(
