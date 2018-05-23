@@ -299,6 +299,7 @@ function btq_booking_tc_grid_get_images($path) {
 }
 
 function btq_booking_tc_grid_rooms(){
+	
 	$response = btq_booking_tc_soap_query('131328', '2018-09-11', '2018-09-12');
 	
 	//$debug = var_export($response, TRUE);
@@ -655,6 +656,8 @@ function btq_booking_tc_grid_VC() {
 
 add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
 function btq_booking_tc_grid_shortcode() {
+	?><div class="container"><?php
 	btq_booking_tc_grid_form();
 	btq_booking_tc_grid_rooms();
+	?></div><?php
 }
