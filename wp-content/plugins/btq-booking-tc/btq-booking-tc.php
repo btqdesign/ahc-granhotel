@@ -258,16 +258,18 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	}
 	?>
 	</table>
-	
+	<?php /*
 	<pre>
 		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
 	</pre>
-	
+	*/ ?>
 	<?php
-	/*
+	
 	for ($i = 0; $i < count($RoomAmenities); $i++){
-		if (!isset($amenities[$RoomAmenities[$i]['!ExistsCode']])){
-			$amenities[$RoomAmenities[$i]['!ExistsCode']] = $RoomAmenities[$i]['!RoomAmenity'];
+		foreach($RoomAmenities[$i] as $RoomAmenitie){
+			if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
+				$amenities[$RoomAmenitie['!ExistsCode']] = $RoomAmenitie['!RoomAmenity'];
+			}
 		}
 	}
 	
@@ -283,7 +285,6 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	?>
 	</table>
 	<?php
-	*/
 }
 
 function btq_booking_tc_admin_debug_page() {
