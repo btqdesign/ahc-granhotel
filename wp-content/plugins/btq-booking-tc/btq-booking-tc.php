@@ -242,6 +242,25 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 	return $result;
 }
 
+function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
+	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
+	
+	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	
+	?>
+	<table>
+		<tr><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
+	<?php
+	foreach($RoomType as $elementRoomType){
+		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
+		$roomTypeName = $elementRoomType['!RoomTypeName'];
+		?><tr><td><?php echo $roomTypeCode; ?></td><td><?php echo htmlentities($roomTypeName); ?></td></tr><?php
+	}
+	?>
+	</table>
+	<?php
+}
+
 function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
@@ -260,7 +279,8 @@ function btq_booking_tc_admin_debug_page() {
 		</form>
 		-->
 		<div style="background-color: white;">
-			<?php btq_booking_tc_grid_rooms(); ?>
+			<?php btq_booking_tc_admin_debug_rooms('95698'); ?>
+			<?php btq_booking_tc_admin_debug_rooms('131328'); ?>
 		</div>
 		<pre style="background-color: white;">
 		<?php
