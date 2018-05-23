@@ -636,7 +636,7 @@ function btq_booking_tc_grid_form() {
 	<?php
 }
 
-add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts' );
+add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 20 );
 function btq_booking_tc_grid_scripts() {
     wp_enqueue_style( 'btq-booking-tc-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ), 'solaz-child-style','1.0.0');
     wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array(), '1.0.0');
