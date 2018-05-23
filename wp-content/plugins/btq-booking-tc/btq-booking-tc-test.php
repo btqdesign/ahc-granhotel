@@ -13,12 +13,13 @@
 	<meta charset="UTF-8">
 	<title>Hotel</title>
 
-	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery-migrate-1.2.1.min.js', __FILE__ ); ?>"></script>
-	
+		
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'bootstrap.min.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ); ?>"></script>
 	<script src="<?php echo plugins_url( $datepicker_js_dir . DIRECTORY_SEPARATOR . 'bootstrap-datepicker.min.js', __FILE__ ); ?>" charset="utf-8"></script>
+	<script src="<?php echo plugins_url( $js_dir . DIRECTORY_SEPARATOR . 'jquery-migrate-1.2.1.min.js', __FILE__ ); ?>"></script>
+
 	<link rel="stylesheet" href="<?php echo plugins_url( $css_dir . DIRECTORY_SEPARATOR . 'bootstrap.min.css', __FILE__ ); ?>">
 	<link rel="stylesheet" href="<?php echo plugins_url( $datepicker_css_dir . DIRECTORY_SEPARATOR . 'bootstrap-datepicker.css', __FILE__ ); ?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo plugins_url( $css_dir . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ); ?>">
@@ -142,9 +143,12 @@
 			</article>
 		
 			<article class="col-md-4">
+
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
+
 				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
 				<a href="#" id="vermas">Ver más</a>
+
 				<aside id="mostrar" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
 				
 				
