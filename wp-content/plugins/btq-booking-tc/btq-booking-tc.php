@@ -351,9 +351,11 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 	switch($language){
 		case 'es':
 			$hotelCode = '131328';
+			$currency  = 'MXN';
 		break;
 		case 'en':
 			$hotelCode = '95698';
+			$currency  = 'USD';
 		break;
 	}
 	
@@ -479,12 +481,12 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 										
 				for ($l = 0; $l < count($rate_room); $l++) {
 					?>
-					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($lang == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></p>
+					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></p>
 					<p><?php echo $rate_room[$l]['!RatePlanName']; ?></p>
 					<?php
 					if ($precio == 0) { 
 						/* Inicializa el valor de precio*/
-						$precio = ($lang == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
+						$precio = ($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
 					} 
 					else {
 						if ($precio > $rate_room[$l]['Total']['!AmountAfterTax']){ /* Valida que sea el precio menor*/
@@ -581,12 +583,12 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 		for ($l = 0; $l < count($rate_room); $l++) {
 			?>
 			<input type="radio" class="ratePlanID" name="bestRate" value="bestRate" id="<?php echo "r_" . $rate_room[$l]['!RatePlanCode'] . '_' . $roomTypeCode; ?>"> <?php echo $rate_room[$l]['!RatePlanName']; ?>
-			<span style="text-decoration:line-through; font-size:.75em!important;color:#666666">$ <?php echo $currency . " " . (($lang == "es")?($rate_room[$l]['Total']['!AmountAfterTax']+$rate_room[$l]['Total']['!Discount']):$rate_room[$l]['Total']['!GrossAmountBeforeTax']) ?></span><br/>
-			<span style="font-size:.93em!important;">$ <?php echo $currency . " " . (($lang == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></span>
+			<span style="text-decoration:line-through; font-size:.75em!important;color:#666666">$ <?php echo $currency . " " . (($language == "es")?($rate_room[$l]['Total']['!AmountAfterTax']+$rate_room[$l]['Total']['!Discount']):$rate_room[$l]['Total']['!GrossAmountBeforeTax']) ?></span><br/>
+			<span style="font-size:.93em!important;">$ <?php echo $currency . " " . (($language == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></span>
 			<?php
 			if ($precio == 0) { 
 				//Inicializa el valor de precio
-				$precio = ($lang == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
+				$precio = ($language == "es")?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
 			} 
 			else {
 				if ($precio > $rate_room[$l]['Total']['!AmountAfterTax']){ // Valida que sea el precio menor
