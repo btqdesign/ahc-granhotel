@@ -109,7 +109,7 @@
 		
 		<!-- OK -->
 		<section class="row">
-			<hr class="linea"/>
+			
 			
 			<article class="col-md-5">
 				<div id="btq-carousel-00000" class="carousel slide" data-ride="carousel">
