@@ -1,7 +1,7 @@
 
-				$(function(){
+				jQuery(function(){
 
-				$('#entrada').datepicker({
+				jQuery('#entrada').datepicker({
 						 format: "dd/mm/yyyy",
 						 maxViewMode: 3,
 						 language: "es",
@@ -9,7 +9,7 @@
 						 todayHighlight: true
 						});
 
-				$('#salida').datepicker({
+				jQuery('#salida').datepicker({
 						 format: "dd/mm/yyyy",
 						 maxViewMode: 3,
 						 language: "es",
@@ -21,21 +21,21 @@
 				})
 						
 
-				    $(document).ready(function(){ 
+				    jQuery(document).ready(function(){ 
   
-				    $('#vermas').toggle( 
+				    jQuery('#vermas').toggle( 
 				  
 				        // Primer click
 				        function(e){ 
-				            $('#mostrar').slideDown();
-				            $(this).text('');
+				            jQuery('#mostrar').slideDown();
+				            jQuery(this).text('');
 				            e.preventDefault();
 				        }, // Separamos las dos funciones con una coma
 				      
 				        // Segundo click
 				        function(e){ 
-				            $('#mostrar').slideUp();
-				            $(this).text('Ver mas');
+				            jQuery('#mostrar').slideUp();
+				            jQuery(this).text('Ver mas');
 				            e.preventDefault();
 				        }
 				  
