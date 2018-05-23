@@ -245,6 +245,8 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
 	
+	$RoomAmenities = array();
+	$amenities = array();
 	
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
