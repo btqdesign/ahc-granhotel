@@ -104,6 +104,7 @@
 			<article class="col-md-7">
 				<p class="recordatorio">*Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)</p>
 			</article>
+			<hr class="linea"/>
 		</section>
 		
 		
