@@ -249,7 +249,7 @@ function btq_booking_tc_admin_debug_rooms() {
 	
 	?>
 	<table>
-		<th><td>Código de habitación</td><td>Nombre de la habitación</td></th>
+		<tr><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
