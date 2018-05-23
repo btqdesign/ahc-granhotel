@@ -622,7 +622,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 		
 		<section class="row">
 			<article class="col-md-5">
-				<h5>Selecciona un PAQUETE o HABITACIÓN</h5>
+				<h5><?php _e('Select a PACKAGE or ROOM','btq-booking-tc'); ?></h5>
 			</article>
 			<article class="col-md-7">&nbsp;</article>
 		</section>
@@ -631,49 +631,49 @@ function btq_booking_tc_grid_form($language = 'es') {
 
 		<section class="row">
 			<article class="col-md-5">
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Habitaciones</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891">Paquetes</button>
+				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;<?php _e('Top Rated','btq-booking-tc'); ?></button>
 				<div class="clearfix visible-xs-block"></div>
 			</article>
 			
 			<article class="col-md-4">
-				<input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
-				<input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
+				<input class="buttonpick col-xs-6" id="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
+				<input class="buttonpickk col-xs-6" id="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
 				<div class="clearfix visible-xs-block"></div>	
 			</article>
 			
 			<article class="col-md-1">
 				<select class="buttonpick2 col-xs-6">
-					<option value="1">1 Adulto</option>
-					<option value="2">2 Adultos</option>
-					<option value="3">3 Adultos</option>
-					<option value="4">4 Adultos</option>
-					<option value="5">5 Adultos</option>
-					<option value="6">6 Adultos</option>
-					<option value="7">7 Adultos</option>
-					<option value="8">8 Adultos</option>
-					<option value="9">9 Adultos</option>
+					<option value="1"><?php _e('1 Adult','btq-booking-tc'); ?></option>
+					<option value="2"><?php _e('2 Adults','btq-booking-tc'); ?></option>
+					<option value="3"><?php _e('3 Adults','btq-booking-tc'); ?></option>
+					<option value="4"><?php _e('4 Adults','btq-booking-tc'); ?></option>
+					<option value="5"><?php _e('5 Adults','btq-booking-tc'); ?></option>
+					<option value="6"><?php _e('6 Adults','btq-booking-tc'); ?></option>
+					<option value="7"><?php _e('7 Adults','btq-booking-tc'); ?></option>
+					<option value="8"><?php _e('8 Adults','btq-booking-tc'); ?></option>
+					<option value="9"><?php _e('9 Adults','btq-booking-tc'); ?></option>
 				</select>
 				
 				<select class="buttonpick2 col-xs-6">				
-					<option value="0">0 Niños</option>
-					<option value="1">1 Niño</option>
-					<option value="2">2 Niños</option>
-					<option value="3">3 Niños</option>
-					<option value="4">4 Niños</option>
-					<option value="5">5 Niños</option>
-					<option value="6">6 Niños</option>
-					<option value="7">7 Niños</option>
-					<option value="8">8 Niños</option>
-					<option value="9">9 Niños</option>
+					<option value="0"><?php _e('Without children','btq-booking-tc'); ?></option>
+					<option value="1"><?php _e('1 Children','btq-booking-tc'); ?></option>
+					<option value="2"><?php _e('2 Children','btq-booking-tc'); ?></option>
+					<option value="3"><?php _e('3 Children','btq-booking-tc'); ?></option>
+					<option value="4"><?php _e('4 Children','btq-booking-tc'); ?></option>
+					<option value="5"><?php _e('5 Children','btq-booking-tc'); ?></option>
+					<option value="6"><?php _e('6 Children','btq-booking-tc'); ?></option>
+					<option value="7"><?php _e('7 Children','btq-booking-tc'); ?></option>
+					<option value="8"><?php _e('8 Children','btq-booking-tc'); ?></option>
+					<option value="9"><?php _e('9 Children','btq-booking-tc'); ?></option>
 				</select>
 			</article>
 			
 			<article class="col-md-2">					
-				<button class="buttonbus col-xs-12">BUSCAR</button>
+				<button class="buttonbus col-xs-12"><?php _e('SEARCH','btq-booking-tc'); ?></button>
 			</article>
 		</section>
 
@@ -682,12 +682,13 @@ function btq_booking_tc_grid_form($language = 'es') {
 		<section class="row">
 			<article class="col-md-5">
 				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
-				<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
+				<h5 class="hosp">&nbsp;&nbsp;&nbsp;<?php _e('Check your dates-rate to stay','btq-booking-tc'); ?></h5>
 			</article>
 
 			<article class="col-md-7">
-				<p class="recordatorio">*Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)</p>
+				<p class="recordatorio">*<?php _e('Remember that having an advance reservation will always be a better option (rates shown at 90 days)','btq-booking-tc'); ?></p>
 			</article>
+			<hr class="linea"/>
 		</section>
 	<?php
 }
