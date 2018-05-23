@@ -266,20 +266,19 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	<?php
 	
 	for ($i = 0; $i < count($amenities); $i++){
-		$amenities[] = array(
-			'!RoomAmenity' => $amenities[$i]['!RoomAmenity'],
-			'!ExistsCode'  => $amenities[$i]['!ExistsCode']
-		);
+		if (!isset($amenities[$amenities[$i]['!ExistsCode']])){
+			$amenities[$amenities[$i]['!ExistsCode']] = $amenities[$i]['!RoomAmenity'];
+		}
 	}
 	
-	$amenities = array_unique($amenities);
+	//$amenitiesUnique = array_unique($amenities);
 	
 	?>
 	<table>
 		<tr><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
 	<?php
-	foreach($amenities as $elementAmenities){
-		?><tr><td><?php echo $elementAmenities['!RoomAmenity']; ?></td><td><?php echo htmlentities($elementAmenities['!ExistsCode']); ?></td></tr><?php
+	foreach($amenities as $amenitieCode => $amenitieName){
+		?><tr><td><?php echo $amenitieCode; ?></td><td><?php echo htmlentities($amenitieName); ?></td></tr><?php
 	}
 	?>
 	</table>
