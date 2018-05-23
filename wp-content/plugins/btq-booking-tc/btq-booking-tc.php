@@ -656,8 +656,13 @@ function btq_booking_tc_grid_VC() {
 
 add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
 function btq_booking_tc_grid_shortcode() {
-	?><div class="container"><?php
+	?>
+	<div class="container">
+    <?php
 	btq_booking_tc_grid_form();
 	btq_booking_tc_grid_rooms();
-	?></div><?php
+	?>
+	</div>
+	
+	<?php
 }
