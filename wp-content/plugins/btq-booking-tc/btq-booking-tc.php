@@ -254,37 +254,36 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
-		$roomTypeName = $elementRoomType['!RoomTypeName'];
-		?><tr><td><?php echo $roomTypeCode; ?></td><td><?php echo htmlentities($roomTypeName); ?></td></tr><?php
+		?><tr><td><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
 	}
 	?>
 	</table>
+	<?php /*
 	<pre>
 		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
 	</pre>
+	*/ ?>
 	<?php
 	
-	
-	
-	/*
 	for ($i = 0; $i < count($amenities); $i++;){
-		$amenities[$i]['!RoomAmenity'];
+		$amenities[] = array(
+			'!RoomAmenity' => $amenities[$i]['!RoomAmenity'],
+			'!ExistsCode'  => $amenities[$i]['!ExistsCode']
+		)
 	}
+	
+	$amenities = array_unique($amenities);
 	
 	?>
 	<table>
 		<tr><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
 	<?php
 	foreach($amenities as $elementAmenities){
-		$roomTypeCode = $elementAmenities['!RoomTypeCode'];
-		$roomTypeName = $elementAmenities['!RoomTypeName'];
-		?><tr><td><?php echo $roomTypeCode; ?></td><td><?php echo htmlentities($roomTypeName); ?></td></tr><?php
+		?><tr><td><?php echo $elementAmenities['!RoomAmenity']; ?></td><td><?php echo htmlentities($elementAmenities['!ExistsCode']); ?></td></tr><?php
 	}
 	?>
 	</table>
 	<?php
-	*/
 }
 
 function btq_booking_tc_admin_debug_page() {
