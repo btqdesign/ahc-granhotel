@@ -346,7 +346,16 @@ function btq_booking_tc_grid_get_images($path) {
 	return $images;
 }
 
-function btq_booking_tc_grid_rooms(){
+function btq_booking_tc_grid_rooms($language = 'es'){
+	
+	switch($language){
+		case 'es':
+			$hotelCode = '131328';
+		break;
+		case 'en':
+			$hotelCode = '95698';
+		break;
+	}
 	
 	$response = btq_booking_tc_soap_query('131328', '2018-09-11', '2018-09-12');
 	
@@ -605,7 +614,7 @@ function btq_booking_tc_grid_rooms(){
 	} // foreach($arrayRoomType as $elementRoomType)
 } // function btq_booking_tc_grid_rooms()
 
-function btq_booking_tc_grid_form() {
+function btq_booking_tc_grid_form($language = 'es') {
 	$iconos_dir = 'assets/images/iconos';
 	?>
 		<hr class="linea"/>	
@@ -702,13 +711,16 @@ function btq_booking_tc_grid_VC() {
 add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
 function btq_booking_tc_grid_shortcode() {
 	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		echo '<p>Language code: ' . ICL_LANGUAGE_CODE . '</p>';
+		$language = ICL_LANGUAGE_CODE;
+	}
+	else {
+		$language = 'es';
 	}
 	?>
 	<div class="container">
     <?php
-	btq_booking_tc_grid_form();
-	btq_booking_tc_grid_rooms();
+	btq_booking_tc_grid_form($language);
+	btq_booking_tc_grid_rooms($language);
 	?>
 	</div>
 	
