@@ -717,6 +717,7 @@ function btq_booking_tc_grid_shortcode() {
 	}
 	?>
 	<div class="container">
+		<p>Código de idioma: <?php echo $language; ?></p>
     <?php
 	btq_booking_tc_grid_form($language);
 	btq_booking_tc_grid_rooms($language);
