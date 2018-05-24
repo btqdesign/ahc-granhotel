@@ -732,5 +732,5 @@ function btq_booking_tc_grid_shortcode() {
 		<?php
 		$out = ob_get_clean();
 	}
-	return $out;
+	echo $out;
 }
