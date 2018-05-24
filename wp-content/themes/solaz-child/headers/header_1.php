@@ -108,7 +108,7 @@ $solaz_settings = solaz_check_theme_options();
 	        	<?php if(isset($solaz_settings['header_location']) && $solaz_settings['header_location'] !=''):?>
 	        		<div class="link-contact display-inline-b">
 	        			<?php if(isset($solaz_settings['header_location_url']) && $solaz_settings['header_location_url'] !=''):?>
-	        				<a href="<?php echo esc_url($solaz_settings['header_location_url']);?>"><i class="pe-7s-map-marker"></i>
+	        				<a href="<?php echo esc_url($solaz_settings['header_location_url']);?>">
 	        			<?php endif;?>
 	        			<?php echo esc_html($solaz_settings['header_location']);?>
 	        			<?php if(isset($solaz_settings['header_location_url']) && $solaz_settings['header_location_url'] !=''):?>
@@ -118,7 +118,7 @@ $solaz_settings = solaz_check_theme_options();
 	        	<?php endif;?>
 	        	<?php if(isset($solaz_settings['header_phone']) && $solaz_settings['header_phone'] !=''):?>
 	        		<div class="link-contact display-inline-b">
-	        			<a href="callto:<?php echo preg_replace('/[^A-Za-z0-9]/', '', $solaz_settings['header_phone']); ?>"><i class="pe-7s-call"></i></a>
+	        			<a href="callto:<?php echo preg_replace('/[^A-Za-z0-9]/', '', $solaz_settings['header_phone']); ?>"></a>
 	        			<?php if(isset($solaz_settings['header_phone_text']) && $solaz_settings['header_phone_text'] != ''){
 							echo esc_html($solaz_settings['header_phone_text']);
 	        			}?>
@@ -129,7 +129,7 @@ $solaz_settings = solaz_check_theme_options();
 	        	<?php if(isset($solaz_settings['header_gallery']) && $solaz_settings['header_gallery'] !=''):?>
 	        		<div class="link-contact display-inline-b">
 	        			<?php if(isset($solaz_settings['header_gallery_url']) && $solaz_settings['header_gallery_url'] !=''):?>
-	        				<a href="<?php echo esc_url($solaz_settings['header_gallery_url']);?>"><i class="pe-7s-photo"></i>
+	        				<a href="<?php echo esc_url($solaz_settings['header_gallery_url']);?>">
 	        			<?php endif;?>
 	        			<?php echo esc_html($solaz_settings['header_gallery']);?>
 	        			<?php if(isset($solaz_settings['header_gallery_url']) && $solaz_settings['header_gallery_url'] !=''):?>
