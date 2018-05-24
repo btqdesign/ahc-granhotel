@@ -102,7 +102,7 @@ $solaz_settings = solaz_check_theme_options();
 	        <div class="header-bottom">
 	        	<?php if(isset($solaz_settings['header_email']) && $solaz_settings['header_email'] !=''):?>
 	        		<div class="link-contact display-inline-b">
-	        			<a href="mailto:<?php echo $solaz_settings['header_email'];?>"><i class="pe-7s-mail"></i> <?php echo esc_html($solaz_settings['header_email']);?></a>
+	        			<a href="mailto:<?php echo $solaz_settings['header_email'];?>"><?php echo esc_html($solaz_settings['header_email']);?></a>
 	        		</div>
 	        	<?php endif;?>
 	        	<?php if(isset($solaz_settings['header_location']) && $solaz_settings['header_location'] !=''):?>
