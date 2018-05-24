@@ -19,9 +19,8 @@
 
 
 // Exit if accessed directly
-if (!defined('ABSPATH')) {
-    exit;
-}
+defined('ABSPATH') or die('No script kiddies please!');
+
 
 /*
 // Register settings using the Settings API 
@@ -712,6 +711,7 @@ function btq_booking_tc_grid_VC() {
 
 add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
 function btq_booking_tc_grid_shortcode() {
+	$out = '';
 	if ( !is_admin() ) {
 		if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
 			$language = ICL_LANGUAGE_CODE;
@@ -719,6 +719,8 @@ function btq_booking_tc_grid_shortcode() {
 		else {
 			$language = 'es';
 		}
+		
+		ob_start();
 		?>
 		<div class="container">
 			<p>Código de idioma: <?php echo $language; ?></p>
@@ -728,5 +730,7 @@ function btq_booking_tc_grid_shortcode() {
 		?>
 		</div>
 		<?php
+		$out = ob_get_clean();
 	}
+	return $out;
 }
