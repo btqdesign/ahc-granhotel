@@ -47,33 +47,4 @@
 				  
 				});
 
-
-
-
-				   jQuery(document).ready(function(){ 
-  
-				    jQuery('#vermas1').toggle( 
-				  
-				        // Primer click
-				        function(e){ 
-				            jQuery('#mostrar1').slideDown();
-				            jQuery(this).text('');
-				            e.preventDefault();
-				            
-				            
-				        }, 
-				      
-				        // Segundo click
-				        function(e){ 
-				            jQuery('#mostrar1').slideUp();
-				            jQuery(this).text('Ver mas');
-				            e.preventDefault();
-
-				            
-				        }
-				  
-				    );
-				  
-				});
-						
 					
