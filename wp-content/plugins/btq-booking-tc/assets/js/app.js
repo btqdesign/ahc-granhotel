@@ -47,4 +47,34 @@
 				  
 				});
 
+
+
+
+
+				   jQuery(document).ready(function(){ 
+  
+				    jQuery('#vermas1').toggle( 
+				  
+				        // Primer click
+				        function(a){ 
+				            jQuery('#mostrar1').slideDown();
+				            jQuery(this).text('');
+				            a.preventDefault();
+				            
+				            
+				        }, 
+				      
+				        // Segundo click
+				        function(a){ 
+				            jQuery('#mostrar1').slideUp();
+				            jQuery(this).text('Ver mas');
+				            a.preventDefault();
+
+				            
+				        }
+				  
+				    );
+				  
+				});
+
 					
