@@ -21,22 +21,51 @@
 				})
 						
 
-				    jQuery(document).ready(function(){ 
+				   jQuery(document).ready(function(){ 
   
-				    jQuery('#vermas #vermas1').toggle( 
+				    jQuery('#vermas').toggle( 
 				  
 				        // Primer click
 				        function(e){ 
-				            jQuery('#mostrar #mostrar1').slideDown();
+				            jQuery('#mostrar').slideDown();
 				            jQuery(this).text('');
 				            e.preventDefault();
 				            
 				            
-				        }, // Separamos las dos funciones con una coma
+				        }, 
 				      
 				        // Segundo click
 				        function(e){ 
-				            jQuery('#mostrar #mostrar1').slideUp();
+				            jQuery('#mostrar').slideUp();
+				            jQuery(this).text('Ver mas');
+				            e.preventDefault();
+
+				            
+				        }
+				  
+				    );
+				  
+				});
+
+
+
+
+				   jQuery(document).ready(function(){ 
+  
+				    jQuery('#vermas1').toggle( 
+				  
+				        // Primer click
+				        function(e){ 
+				            jQuery('#mostrar1').slideDown();
+				            jQuery(this).text('');
+				            e.preventDefault();
+				            
+				            
+				        }, 
+				      
+				        // Segundo click
+				        function(e){ 
+				            jQuery('#mostrar1').slideUp();
 				            jQuery(this).text('Ver mas');
 				            e.preventDefault();
 
