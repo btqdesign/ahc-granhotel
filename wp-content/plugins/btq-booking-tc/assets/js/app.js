@@ -20,6 +20,31 @@
 
 				})
 						
+						 jQuery(document).ready(function(){ 
+						  
+										    jQuery('#vermas1').toggle( 
+										  
+										        // Primer click
+										        function(h){ 
+										            jQuery('#mostrar1').slideDown();
+										            jQuery(this).text('');
+										            h.preventDefault();
+										            
+										            
+										        }, 
+										      
+										        // Segundo click
+										        function(h){ 
+										            jQuery('#mostrar1').slideUp();
+										            jQuery(this).text('Ver mas');
+										            h.preventDefault();
+
+										            
+										        }
+										  
+										    );
+										  
+										});
 
 				   jQuery(document).ready(function(){ 
   
@@ -49,32 +74,7 @@
 
 
 
-				   jQuery(document).ready(function(){ 
-  
-				    jQuery('#vermas1').toggle( 
 				  
-				        // Primer click
-				        function(h){ 
-				            jQuery('#mostrar1').slideDown();
-				            jQuery(this).text('');
-				            h.preventDefault();
-				            
-				            
-				        }, 
-				      
-				        // Segundo click
-				        function(h){ 
-				            jQuery('#mostrar1').slideUp();
-				            jQuery(this).text('Ver mas');
-				            h.preventDefault();
-
-				            
-				        }
-				  
-				    );
-				  
-				});
-
 
 
 				   
