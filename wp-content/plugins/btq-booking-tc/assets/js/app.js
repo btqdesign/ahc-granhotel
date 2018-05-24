@@ -30,6 +30,7 @@
 				            jQuery('#mostrar').slideDown();
 				            jQuery(this).text('');
 				            e.preventDefault();
+				            .off();
 				            
 				        }, // Separamos las dos funciones con una coma
 				      
@@ -38,6 +39,7 @@
 				            jQuery('#mostrar').slideUp();
 				            jQuery(this).text('Ver mas');
 				            e.preventDefault();
+				            .off();
 				            
 				        }
 				  

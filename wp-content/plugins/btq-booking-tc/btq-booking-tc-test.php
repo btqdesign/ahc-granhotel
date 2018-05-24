@@ -155,7 +155,7 @@
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
 
 				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
-				<a id="vermas">Ver más</a>
+				<a href="#" id="vermas">Ver más</a>
 
 				<aside id="mostrar" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
 				
