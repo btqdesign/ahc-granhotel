@@ -23,7 +23,7 @@
 
 				    jQuery(document).ready(function(){ 
   
-				    jQuery('#vermas').toggle( 
+				    jQuery('#vermas #vermas1').toggle( 
 				  
 				        // Primer click
 				        function(e){ 
