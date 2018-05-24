@@ -307,7 +307,7 @@
 			</article>
 		
 			<article class="col-md-4">
-
+				
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
 
 				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
