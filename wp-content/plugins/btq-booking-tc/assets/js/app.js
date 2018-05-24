@@ -48,34 +48,33 @@
 				  
 				});
 
+				jQuery(document).ready(function(){ 
+  
+				    jQuery('#vermas1').toggle( 
+				  
+				        // Primer click
+				        function(z){ 
+				            jQuery('#mostrar1').slideDown();
+				            jQuery(this).text('');
+				            z.preventDefault();
+				            
+				            
+				        }, 
+				      
+				        // Segundo click
+				        function(z){ 
+				            jQuery('#mostrar1').slideUp();
+				            jQuery(this).text('Ver mas');
+				            z.preventDefault();
 
-				   jQuery(document).ready(function(){ 
-						  
-				    jQuery('#vermas1').toggle( 	  
-										        // Primer click
-						
-						 function(h){ 
-							
-						Query('#mostrar1').slideDown();
-						jQuery(this).text('');
-						h.preventDefault();				
-							}, 
-										      
-										        // Segundo click
-							
-							function(h){ 
-							jQuery('#mostrar1').slideUp();
-							jQuery(this).text('Ver mas');
-							h.preventDefault();
+				            
+				        }
+				  
+				    );
+				  
+				});
 
-										            
-						
-						 }
-										  
-		
-		 );
-										  
-	});
+				  
 
 
 
