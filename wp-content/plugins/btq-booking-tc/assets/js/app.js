@@ -74,6 +74,59 @@
 				  
 				});
 
+				jQuery(document).ready(function(){ 
+  
+				    jQuery('#vermas2').toggle( 
+				  
+				        // Primer click
+				        function(x){ 
+				            jQuery('#mostrar2').slideDown();
+				            jQuery(this).text('');
+				            x.preventDefault();
+				            
+				            
+				        }, 
+				      
+				        // Segundo click
+				        function(x){ 
+				            jQuery('#mostrar2').slideUp();
+				            jQuery(this).text('Ver mas');
+				            x.preventDefault();
+
+				            
+				        }
+				  
+				    );
+				  
+				});
+
+
+				jQuery(document).ready(function(){ 
+  
+				    jQuery('#vermas3').toggle( 
+				  
+				        // Primer click
+				        function(y){ 
+				            jQuery('#mostrar3').slideDown();
+				            jQuery(this).text('');
+				            y.preventDefault();
+				            
+				            
+				        }, 
+				      
+				        // Segundo click
+				        function(y){ 
+				            jQuery('#mostrar3').slideUp();
+				            jQuery(this).text('Ver mas');
+				            y.preventDefault();
+
+				            
+				        }
+				  
+				    );
+				  
+				});
+
 				  
 
 
