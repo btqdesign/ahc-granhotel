@@ -27,19 +27,19 @@
 				  
 				        // Primer click
 				        function(e){ 
-				            jQuery('#mostrar').slideDown();
+				            jQuery('#mostrar #mostrar1').slideDown();
 				            jQuery(this).text('');
 				            e.preventDefault();
-				            .off();
+				            
 				            
 				        }, // Separamos las dos funciones con una coma
 				      
 				        // Segundo click
 				        function(e){ 
-				            jQuery('#mostrar').slideUp();
+				            jQuery('#mostrar #mostrar1').slideUp();
 				            jQuery(this).text('Ver mas');
 				            e.preventDefault();
-				            .off();
+
 				            
 				        }
 				  
