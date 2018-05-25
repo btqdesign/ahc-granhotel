@@ -504,6 +504,7 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 			<article class="col-md-4">
 				<h3 class="titulo"><?php echo $elementRoomType['!RoomTypeName'] ?></h3>
 				<p><?php echo $elementRoomType['RoomDescription']['Text']['!Text'] ?></p>
+				
 				<?php
 				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
 					if ( isset( $RoomAmenitie['!ExistsCode'] ) ){
@@ -521,31 +522,8 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 						} 
 					}
 				}
-				
-				
-				/*
-				$amenities = $elementRoomType['Amenities']['Amenity'];
-				$countAmenities = count($amenities);
-					            
-				for ($j = 0; $j < $countAmenities; $j++) { 
-					$amenity = $amenities[$j]['!RoomAmenity'];
-					try {
-						if (isset($iconos[$amenities[$j]['!ExistsCode']])){
-							$amenityCode = $iconos[$amenities[$j]['!ExistsCode']];
-							$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . btq_booking_tc_amenity_icon_name($amenityCode), __FILE__ );
-							if ($amenity != null) { 
-								?>
-								<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="icono" width="50" height="50">
-								<?php
-							}
-						}
-					} 
-					catch (Exception $e) {
-						echo 'Excepción capturada: ',  $e->getMessage(), "\n";
-					}
-				}
-				*/
-				?>				
+				?>
+							
 				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
 				<input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
 				<input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
