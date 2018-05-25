@@ -9,8 +9,9 @@
  * @version 1.6
  */
 
-if ( !defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+/**
+ * Prevent loading this file directly
+ */
+defined( 'ABSPATH' ) || exit();
 
 hb_get_template_part( 'archive', 'room' );

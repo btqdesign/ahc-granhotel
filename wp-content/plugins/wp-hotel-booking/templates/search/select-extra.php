@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying select room extra after select room.
  *

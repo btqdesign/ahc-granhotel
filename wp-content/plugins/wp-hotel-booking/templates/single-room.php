@@ -9,9 +9,11 @@
  * @version 1.6
  */
 
-if ( !defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
-}
+/**
+ * Prevent loading this file directly
+ */
+defined( 'ABSPATH' ) || exit();
+
 get_header(); ?>
 
 <?php
@@ -25,13 +27,11 @@ do_action( 'hotel_booking_before_main_content' );
 
 	<?php hb_get_template_part( 'content', 'single-room' ); ?>
 
-<?php endwhile; // end of the loop. ?>
+<?php endwhile; ?>
 
 <?php
 /**
  * hotel_booking_after_main_content hook
- *
- * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action( 'hotel_booking_after_main_content' );
 ?>

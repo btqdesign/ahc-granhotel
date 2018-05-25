@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying search room form.
  *
@@ -7,7 +6,7 @@
  *
  * @author  ThimPress, leehld
  * @package WP-Hotel-Booking/Templates
- * @version 1.9.5
+ * @version 1.9.6
  */
 
 /**
@@ -29,10 +28,11 @@ $uniqid         = uniqid();
 	if ( $args && isset( $args['atts'] ) ) {
 		$atts = $args['atts'];
 	}
-	if ( ! isset( $atts['show_title'] ) || strtolower( $atts['show_title'] ) === 'true' ):
-		?>
+
+	if ( ! isset( $atts['show_title'] ) || strtolower( $atts['show_title'] ) === 'true' ) { ?>
         <h3><?php _e( 'Search your room', 'wp-hotel-booking' ); ?></h3>
-	<?php endif; ?>
+	<?php } ?>
+
     <form name="hb-search-form" action="<?php echo hb_get_url(); ?>"
           class="hb-search-form-<?php echo esc_attr( $uniqid ) ?>">
         <ul class="hb-form-table">
@@ -93,6 +93,8 @@ $uniqid         = uniqid();
         </ul>
 		<?php wp_nonce_field( 'hb_search_nonce_action', 'nonce' ); ?>
         <input type="hidden" name="hotel-booking" value="results"/>
+        <input type="hidden" name="widget-search"
+               value="<?php echo isset( $atts['widget_search'] ) ? $atts['widget_search'] : false; ?>"/>
         <input type="hidden" name="action" value="hotel_booking_parse_search_params"/>
         <p class="hb-submit">
             <button type="submit"><?php _e( 'Check Availability', 'wp-hotel-booking' ); ?></button>

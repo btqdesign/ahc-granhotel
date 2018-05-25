@@ -61,7 +61,7 @@ if ( !function_exists( 'hb_process_web_hooks' ) ) {
 		}
 		if ( $web_hooks_processed ) {
 			do_action( 'hb_web_hooks_processed' );
-			wp_die( __( 'TP Hotel Booking webhook process Complete', 'wp-hotel-booking' ), __( 'TP Hotel Booking webhook process Complete', 'wp-hotel-booking' ), array( 'response' => 200 ) );
+			wp_die( __( 'WP Hotel Booking webhook process Complete', 'wp-hotel-booking' ), __( 'WP Hotel Booking webhook process Complete', 'wp-hotel-booking' ), array( 'response' => 200 ) );
 		}
 	}
 }

@@ -1,14 +1,28 @@
 <?php
+/**
+ * The template for displaying search room item loop.
+ *
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/search/loop.php.
+ *
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit();
-}
+/**
+ * Prevent loading this file directly
+ */
+defined( 'ABSPATH' ) || exit();
 
 global $hb_settings;
+/**
+ * @var $hb_settings WPHB_Settings
+ */
 $gallery         = $room->gallery;
 $featured        = $gallery ? array_shift( $gallery ) : false;
 $single_purchase = get_option( 'tp_hotel_booking_single_purchase' );
 ?>
+
 <li class="hb-room clearfix">
 
     <form name="hb-search-results"
@@ -90,7 +104,8 @@ $single_purchase = get_option( 'tp_hotel_booking_single_purchase' );
 
 		<?php do_action( 'hotel_booking_loop_after_item', $room->post->ID ); ?>
     </form>
-	<?php if ( ( isset( $atts['gallery'] ) && $atts['gallery'] === 'true' ) || $hb_settings->get( 'enable_gallery_lightbox' ) ): ?>
+
+	<?php if ( ( isset( $atts['gallery'] ) && $atts['gallery'] === 'true' ) || $hb_settings->get( 'enable_gallery_lightbox' ) ) { ?>
 		<?php hb_get_template( 'loop/gallery-lightbox.php', array( 'room' => $room ) ) ?>
-	<?php endif; ?>
+	<?php } ?>
 </li>

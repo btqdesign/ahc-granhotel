@@ -344,7 +344,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		
 		<section class="row">
 			<article class="col-md-5">
-				<h5>Selecciona un PAQUETE o HABITACIÓN</h5>
+				<h5 class="hosp">Selecciona un PAQUETE o HABITACIÓN</h5>
 			</article>
 			<article class="col-md-7">&nbsp;</article>
 		</section>
@@ -357,7 +357,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<div class="clearfix visible-xs-block"></div>
 				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891">Paquetes</button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
 				<div class="clearfix visible-xs-block"></div>
 			</article>
 			
@@ -404,7 +404,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		<section class="row">
 			<article class="col-md-5">
 				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
-				<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
+				<h5 class="hosp2">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
 			</article>
 
 			<article class="col-md-7">
@@ -413,6 +413,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			<hr class="linea"/>
 		</section>
 		
+                        <hr class="linea" />   
+
 		
 		<!-- OK -->
 		<section class="row">
@@ -485,11 +487,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
+
+
+                    <hr class="lineaabajo" />   
 
 
 		<!-- OK -->
@@ -563,11 +568,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
+
+
+                    <hr class="lineaabajo" />   
 
 
 		<!-- OK -->
@@ -641,11 +649,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
+
+
+                    <hr class="lineaabajo" />   
 
 
 		<!-- OK -->
@@ -719,7 +730,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
