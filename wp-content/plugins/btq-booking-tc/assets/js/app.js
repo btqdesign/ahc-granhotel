@@ -92,41 +92,37 @@ jQuery(document).ready(function(){
 	
 	jQuery('#btq-bookin-tc-button-search').click(function() {
 		//$("#wait").css("display", "block");
+		jQuery('#btq-bookin-tc-button-search').disabled = true;
 		console.log('btq-bookin-tc-button-search click');
-		/*
-		ini = moment($("#bookIn").datepicker("getDate")).format('YYYY/MM/DD');
-		out = moment($("#bookOut").datepicker("getDate")).format('YYYY/MM/DD');
-		console.log('+++ ini: ' + ini + ' +++ out: ' + out);
-		lang = window.location.pathname == "/" ? "en" : "es";
-		console.log("idioma: ", lang, "ini: ", ini, "out: ", out, "lang: ", lang, "new ini:", $("#bookIn").val(), "new fin: ", $("#bookOut").val());
-		$(".preloader").css("display", "block");
-		$.post(
-		    ajaxurl, 
+		jQuery(".preloader").css("display", "block");
+		jQuery.post(
+		    '/wp-admin/admin-ajax.php', 
 		    {
 				'action' : 'grid_gran_hotel_ajax',
 				'data' : {
-						bookIn : ini.replace(/\//g, "-"), 
-						bookOut : out.replace(/\//g, "-"),
-						adultsAmount : $("#adults").val(),
-						childrenAmount : $("#children").val(),
-						roomAmount : $("#roomsAmount").val(),
-						lang: lang
+						bookIn : '2018-05-25', 
+						bookOut : '2018-05-26',
+						adultsAmount : 1,
+						childrenAmount : 2,
+						roomAmount : 1
 					}
 		    }, 
 		    function(response) {
 				console.log("Respnse:\n\n");
 				console.log(response);
 				console.log("fin");
-				$('#grid-gran-hotel-print').html(response);
-				$(".preloader").css("display", "none");
+				//jQuery('#grid-gran-hotel-print').html(response);
+				jQuery(".preloader").css("display", "none");
 		    }
 		)
 		.done(function() {
-			$(".preloader").css("display", "none");
+			jQuery(".preloader").css("display", "none");
 		})
 		.fail(function() {
-			$(".preloader").css("display", "none");
+			jQuery(".preloader").css("display", "none");
 		});
-		*/
 	});
+	
+	
+	
 });

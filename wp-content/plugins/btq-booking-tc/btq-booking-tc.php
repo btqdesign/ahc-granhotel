@@ -700,23 +700,5 @@ add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
 	$post_array = array($_POST);
-	$bookIn_dt = $post_array[0]["data"]["bookIn"]; 
-	$bookOut_dt = $post_array[0]["data"]["bookOut"]; 
-	$adultsAmount = $post_array[0]["data"]["adultsAmount"]; 
-	$childrenAmount = $post_array[0]["data"]["childrenAmount"];
-	$roomAmount = $post_array[0]["data"]["roomAmount"];
-	$lang = $post_array[0]["data"]["lang"];
-	
-	$dateIni = new DateTime($bookIn_dt);
-	$dateFin = new DateTime($bookOut_dt);
-	$diff = $dateIni->diff($dateFin);
-	// will output 2 days
-	$nights = $diff->days;
-	//echo "$bookIn_dt, $bookOut_dt, $adultsAmount, $childrenAmount, $roomAmount";
-	//return;
-	ob_start();
-	grid_gran_hotel_print2($bookIn_dt, $bookOut_dt, $adultsAmount, $childrenAmount, $roomAmount, $nights, null, 1, $lang);
-	$out = ob_get_clean();
-	$out = iconv("ISO-8859-1", "UTF-8", $out);
-	echo $out;
+	echo json_encode($post_array);
 }
