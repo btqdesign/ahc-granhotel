@@ -615,7 +615,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 				</select>
 				
 				<select class="buttonpick2 col-xs-6">				
-					<option value="0"><?php _e('Without children','btq-booking-tc'); ?></option>
+					<option value="0"><?php _e('0 Children','btq-booking-tc'); ?></option>
 					<option value="1"><?php _e('1 Children','btq-booking-tc'); ?></option>
 					<option value="2"><?php _e('2 Children','btq-booking-tc'); ?></option>
 					<option value="3"><?php _e('3 Children','btq-booking-tc'); ?></option>
