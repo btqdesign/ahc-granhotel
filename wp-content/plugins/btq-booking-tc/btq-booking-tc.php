@@ -710,7 +710,5 @@ function btq_booking_tc_grid_ajax() {
 		$language = 'es';
 	}
 	
-	<?php
 	btq_booking_tc_grid_rooms($language);
-	?>
 }
