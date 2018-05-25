@@ -93,14 +93,14 @@
 				}
 
 
-				.buttonpick2 {
+				select#buttonpick2 {
 				    background-color:#E6E7E8;
 				    border: none;
 				    color: black;
 				    padding: 15px 40px;
 				    text-decoration: none;
 				    display: inline-block;
-				    font-size: 16px;
+				    font-size: 12px;
 				    margin-top: 9px;
 				    margin-bottom: 0px;
 				    margin-right: 0px;
@@ -113,7 +113,7 @@
    			
 
 				}
-				.buttonpick2:hover {
+				select#buttonpick2:hover {
 			    background-color: #D4C394;
 			    color: white;
 				}
