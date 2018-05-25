@@ -478,7 +478,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+				<hr class="linea" style="border-color:#C9B891;" style="border:2px;" />
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
@@ -487,14 +487,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linealetras"/>
+				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
 
 
-                    <hr class="lineaabajo" />   
+                    <hr class="linea" />   
 
 
 		<!-- OK -->
@@ -559,7 +559,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+				<hr class="linea" style="border-color:#C9B891;" style="border:2px;" />
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
@@ -568,14 +568,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linealetras"/>
+				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
 
 
-                    <hr class="lineaabajo" />   
+                    <hr class="linea" />   
 
 
 		<!-- OK -->
@@ -640,7 +640,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+				<hr class="linea" style="border-color:#C9B891;" style="border:2px;" />
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
@@ -649,14 +649,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linealetras"/>
+				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
 
 
-                    <hr class="lineaabajo" />   
+                    <hr class="linea" />   
 
 
 		<!-- OK -->
@@ -721,7 +721,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-02.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
-				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+				<hr class="linea" style="border-color:#C9B891;" style="border:2px;" />
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
@@ -730,13 +730,13 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linealetras"/>
+				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
 		
-		<hr class="lineaabajo" />	
+		<hr class="linea" />	
 	</div>
 	
 	
