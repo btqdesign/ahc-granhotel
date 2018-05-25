@@ -525,8 +525,8 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 				?>
 							
 				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
-				<input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
-				<input type="image" src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Submit" width="25" height="25">
+				<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
+				<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
 			</article>
 			
 			<article class="col-md-3">
