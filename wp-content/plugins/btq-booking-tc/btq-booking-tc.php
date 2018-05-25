@@ -593,7 +593,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 				<div class="clearfix visible-xs-block"></div>
 			</article>
 			
-			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_blank" method="post">
+			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
 			
 			<article class="col-md-4">
 				<input class="buttonpick col-xs-6" id="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
@@ -630,6 +630,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 			
 			<article class="col-md-2">					
 				<button class="buttonbus col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+				<!-- <input class="buttonbus col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search" type="button" value="<?php _e('SEARCH','btq-booking-tc'); ?> →"> -->
 			</article>
 			
 			</form>
