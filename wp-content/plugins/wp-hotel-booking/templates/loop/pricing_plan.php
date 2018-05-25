@@ -1,15 +1,18 @@
 <?php
 /**
- * Pricing Plan
+ * The template for displaying loop room pricing plan in archive room page.
  *
- * @author        ThimPress
- * @package       wp-hotel-booking/templates
- * @version       1.1.4
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/loop/pricing_plan.php.
+ *
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit();
-}
+/**
+ * Prevent loading this file directly
+ */
+defined( 'ABSPATH' ) || exit();
 
 $week_names = hb_date_names();
 $plans      = hb_room_get_pricing_plans( get_the_ID() );
@@ -17,9 +20,7 @@ $date_order = hb_start_of_week_order();
 ?>
 
 <?php foreach ( $plans as $plan ) { ?>
-
 	<?php if ( ! ( $plan->start && $plan->end ) ) { ?>
-
         <h4 class="hb_room_pricing_plan_data">
 			<?php _e( 'Regular plan', 'wp-hotel-booking' ); ?>
         </h4>
@@ -44,14 +45,11 @@ $date_order = hb_start_of_week_order();
             </tr>
             </tbody>
         </table>
-
-	<?php }
-} ?>
+	<?php } ?>
+<?php } ?>
 
 <?php foreach ( $plans as $plan ) { ?>
-
 	<?php if ( ( $plan->start && $plan->end ) ) { ?>
-
         <h4 class="hb_room_pricing_plan_data">
 			<?php printf( '%1$s', date_i18n( hb_get_date_format(), strtotime( $plan->start ) ) ) ?>
             <span><?php _e( 'to', 'wp-hotel-booking' ) ?></span>
@@ -78,6 +76,5 @@ $date_order = hb_start_of_week_order();
             </tr>
             </tbody>
         </table>
-
-	<?php }
-} ?>
+	<?php } ?>
+<?php } ?>

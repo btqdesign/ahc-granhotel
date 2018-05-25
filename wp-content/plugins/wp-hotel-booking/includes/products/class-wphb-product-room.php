@@ -423,7 +423,10 @@ class WPHB_Product_Room_Base extends WPHB_Product_Abstract {
 		return $this->_plans;
 	}
 
-	function get_related_rooms() {
+	/**
+	 * @return WP_Query
+	 */
+	public function get_related_rooms() {
 		$room_types          = get_the_terms( $this->post->ID, 'hb_room_type' );
 		$room_capacity       = (int) get_post_meta( $this->post->ID, '_hb_room_capacity', true );
 		$max_adults_per_room = get_term_meta( $room_capacity, 'hb_max_number_of_adults', true );

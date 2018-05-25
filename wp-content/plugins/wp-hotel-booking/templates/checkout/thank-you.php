@@ -24,9 +24,7 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 
 <?php if ( $booking_id && get_post_type( $booking_id ) == 'hb_booking' ) {
 	$booking = WPHB_Booking::instance( $booking_id );
-
 	if ( $booking->booking_key === $key ) {
-
 		$rooms = hb_get_order_items( $booking_id );
 		?>
         <div class="hb-message message">
@@ -117,8 +115,12 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 						<?php printf( '%s', hb_format_price( hb_booking_total( $booking->id ), hb_get_currency_symbol( $booking->currency ) ) ) ?>
                     </td>
                 </tr>
+
 				<?php
 				global $hb_settings;
+				/**
+				 * @var $hb_settings WPHB_Settings
+				 */
 				$advance_payment  = $booking->advance_payment;
 				$advance_settings = $booking->advance_payment_setting;
 				if ( ! $advance_settings ) {

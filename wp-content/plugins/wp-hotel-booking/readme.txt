@@ -77,6 +77,13 @@ Yes.
 
 == Changelog ==
 
+= 1.9.6.1 =
++ Fix search room process
+
+= 1.9.6 =
++ Update search room process
++ Update search form template
+
 = 1.9.5 =
 - Update booking checkin checkout same day
 - Update admin filter booking

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The template for displaying search room page.
  *
@@ -7,7 +6,7 @@
  *
  * @author  ThimPress, leehld
  * @package WP-Hotel-Booking/Templates
- * @version 1.9.5
+ * @version 1.9.6
  */
 
 /**
@@ -15,7 +14,7 @@
  */
 defined( 'ABSPATH' ) || exit;
 
-if ( hb_get_request( 'page' ) == 'select-room-extra' ) {
+if ( hb_get_request( 'page' ) == 'select-room-extra' && ! ( isset( $atts['widget_search'] ) && $atts['widget_search'] ) ) {
 
 	hb_get_template( 'search/select-extra.php' );
 

@@ -10,12 +10,13 @@
  * @version 1.6
  */
 
-if ( !defined( 'ABSPATH' ) ) {
-	exit();
-}
-?>
+/**
+ * Prevent loading this file directly
+ */
+defined( 'ABSPATH' ) || exit(); ?>
+
 <div id="hotel-booking-confirm">
-    Confirm
+	<?php _e( 'Confirm', 'wp-hotel-booking' ); ?>
     <form name="hb-search-form">
         <input type="hidden" name="hotel-booking" value="complete">
         <p>

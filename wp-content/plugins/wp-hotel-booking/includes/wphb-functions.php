@@ -1276,55 +1276,6 @@ if ( ! function_exists( 'hb_search_rooms' ) ) {
 			);
 		}
 
-//		echo '<pre>';
-//		var_dump($query);
-//		echo '</pre>';
-//		die();
-
-//		echo '<pre>';
-//		var_dump( $data );
-//		echo '</pre>';
-//		die();
-
-
-//		$not = $wpdb->prepare( "
-//			(
-//				SELECT COALESCE( SUM( meta.meta_value ), 0 ) FROM {$wpdb->hotel_booking_order_itemmeta} AS meta
-//					LEFT JOIN {$wpdb->hotel_booking_order_items} AS order_item ON order_item.order_item_id = meta.hotel_booking_order_item_id AND meta.meta_key = %s
-//					LEFT JOIN {$wpdb->hotel_booking_order_itemmeta} AS itemmeta ON order_item.order_item_id = itemmeta.hotel_booking_order_item_id AND itemmeta.meta_key = %s
-//					LEFT JOIN {$wpdb->hotel_booking_order_itemmeta} AS checkin ON order_item.order_item_id = checkin.hotel_booking_order_item_id AND checkin.meta_key = %s
-//					LEFT JOIN {$wpdb->hotel_booking_order_itemmeta} AS checkout ON order_item.order_item_id = checkout.hotel_booking_order_item_id AND checkout.meta_key = %s
-//					LEFT JOIN {$wpdb->posts} AS booking ON booking.ID = order_item.order_id
-//				WHERE
-//						itemmeta.meta_value = rooms.ID
-//					AND (
-//							( checkin.meta_value >= %d AND checkin.meta_value < %d )
-//						OR 	( checkout.meta_value > %d AND checkout.meta_value <= %d )
-//						OR 	( checkin.meta_value <= %d AND checkout.meta_value > %d )
-//					)
-//					AND booking.post_type = %s
-//					AND booking.post_status IN ( %s, %s, %s )
-//			)
-//		", 'qty', 'product_id', 'check_in_date', 'check_out_date', $check_in_date_to_time, $check_out_date_to_time, $check_in_date_to_time, $check_out_date_to_time, $check_in_date_to_time, $check_out_date_to_time, 'hb_booking', 'hb-completed', 'hb-processing', 'hb-pending'
-//		);
-//
-//		$query = $wpdb->prepare( "
-//			SELECT rooms.*, ( number.meta_value - {$not} ) AS available_rooms FROM $wpdb->posts AS rooms
-//                                LEFT JOIN {$wpdb->postmeta} AS number ON rooms.ID = number.post_id AND number.meta_key = %s
-//				LEFT JOIN {$wpdb->postmeta} AS pm1 ON pm1.post_id = rooms.ID AND pm1.meta_key = %s
-//				LEFT JOIN {$wpdb->termmeta} AS term_cap ON term_cap.term_id = pm1.meta_value AND term_cap.meta_key = %s
-//				LEFT JOIN {$wpdb->postmeta} AS pm2 ON pm2.post_id = rooms.ID AND pm2.meta_key = %s
-//			WHERE
-//				rooms.post_type = %s
-//				AND rooms.post_status = %s
-//				AND term_cap.meta_value >= %d
-//				AND pm2.meta_value >= %d
-//			GROUP BY rooms.post_name
-//			HAVING available_rooms > 0
-//			ORDER BY term_cap.meta_value ASC
-//		", '_hb_num_of_rooms', '_hb_room_capacity', 'hb_max_number_of_adults', '_hb_max_child_per_room', 'hb_room', 'publish', $adults, $max_child );
-
-
 		$query = apply_filters( 'hb_search_query', $query, array(
 			'check_in'  => $check_in_date_to_time,
 			'check_out' => $check_out_date_to_time,
@@ -1332,36 +1283,28 @@ if ( ! function_exists( 'hb_search_rooms' ) ) {
 			'child'     => $max_child
 		) );
 
-		$search = ( $query );
+		if ( $query ) {
+			if ( is_array( $query ) ) {
+				foreach ( $query as $k => $p ) {
+					if ( $p[0] ) {
+						$room                        = WPHB_Room::instance( $p[0], array(
+							'check_in_date'  => date( 'm/d/Y', $check_in_date_to_time ),
+							'check_out_date' => date( 'm/d/Y', $check_out_date_to_time ),
+							'quantity'       => 1
+						) );
+						$room->post->available_rooms = (int) $p[0]->available_rooms;
 
-//		echo '<pre>';
-//		var_dump( $search );
-//		echo '</pre>';
-//		die();
-//		if ( $search = $wpdb->get_results( $query ) ) {
-		foreach ( $search as $k => $p ) {
+						$room = apply_filters( 'hotel_booking_query_search_parser', $room );
 
-//			echo '<pre>';
-//			var_dump( $p[0]);
-//			echo '</pre>';
-//			die();
-
-			$room                        = WPHB_Room::instance( $p[0], array(
-				'check_in_date'  => date( 'm/d/Y', $check_in_date_to_time ),
-				'check_out_date' => date( 'm/d/Y', $check_out_date_to_time ),
-				'quantity'       => 1
-			) );
-			$room->post->available_rooms = (int) $p[0]->available_rooms;
-
-			$room = apply_filters( 'hotel_booking_query_search_parser', $room );
-
-			if ( $room && $room->post->available_rooms > 0 ) {
-				$results[ $k ] = $room;
+						if ( $room && $room->post->available_rooms > 0 ) {
+							$results[ $k ] = $room;
+						}
+					}
+				}
 			}
 		}
-//		}
 
-		if ( WP_Hotel_Booking::instance()->cart->cart_contents && $search ) {
+		if ( WP_Hotel_Booking::instance()->cart->cart_contents && $query ) {
 			$selected_id = array();
 			foreach ( WP_Hotel_Booking::instance()->cart->cart_contents as $k => $cart ) {
 				$selected_id[ $cart->product_id ] = $cart->quantity;
@@ -1374,7 +1317,7 @@ if ( ! function_exists( 'hb_search_rooms' ) ) {
 					if (
 						( $in < $check_in_date_to_time && $check_out_date_to_time < $out ) || ( $in < $check_in_date_to_time && $check_out_date_to_time < $out )
 					) {
-						$total                                = $search[ $k ]->available_rooms;
+						$total                                = $query[ $k ]->available_rooms;
 						$results[ $k ]->post->available_rooms = (int) $total - (int) $selected_id[ $room->post->ID ];
 					}
 				}

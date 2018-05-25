@@ -1012,3 +1012,7 @@ th.column-room_type {
     -o-transition: background-position .1s linear;
     transition: background-position .1s linear;
 }
+
+.wp-hotel-booking_page_tp_hotel_booking_settings .settings-updated{
+    margin: 15px 0 -10px !important;
+}
