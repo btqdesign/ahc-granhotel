@@ -101,14 +101,14 @@ jQuery(document).ready(function(){
 		jQuery.post(
 		    '/wp-admin/admin-ajax.php', 
 		    {
-				'action' : 'grid_gran_hotel_ajax',
+				'action' : 'btq_booking_tc_grid',
 				'data' : {
-						bookIn : '2018-05-25', 
-						bookOut : '2018-05-26',
-						adultsAmount : 1,
-						childrenAmount : 2,
-						roomAmount : 1
-					}
+					bookIn : '2018-05-25', 
+					bookOut : '2018-05-26',
+					adultsAmount : 1,
+					childrenAmount : 2,
+					roomAmount : 1
+				}
 		    }, 
 		    function(response) {
 				console.log("Respnse:\n\n");
