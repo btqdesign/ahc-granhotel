@@ -489,6 +489,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<p>Con mas beneficios</p>
 				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
+                <br>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
@@ -570,6 +571,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<p>Con mas beneficios</p>
 				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
+                <br>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
@@ -651,6 +653,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<p>Con mas beneficios</p>
 				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
+                <br>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
@@ -732,6 +735,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<p>Con mas beneficios</p>
 				<hr class="linea"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
+                <br>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
