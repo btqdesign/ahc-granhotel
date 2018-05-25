@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 	
 	
 	
-	jQuery('btq-booking-tc-datepicker-form').submit(false);
+	jQuery('#btq-booking-tc-datepicker-form').submit(false);
 	
 	jQuery('#btq-bookin-tc-button-search').click(function() {
 		jQuery("#wait").css("display", "block");
