@@ -502,10 +502,11 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 				<p><?php echo $elementRoomType['RoomDescription']['Text']['!Text'] ?></p>
 				<?php
 				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
-					if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
+					if ( isset( $RoomAmenitie['!ExistsCode'] ) ){
 						//$RoomAmenitie['!ExistsCode'], $RoomAmenitie['!RoomAmenity'];
-						$amenityCode = $RoomAmenitie['!ExistsCode'];
-						$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . btq_booking_tc_amenity_icon_name($amenityCode), __FILE__ );
+						$amenityCode     = $RoomAmenitie['!ExistsCode'];
+						$amenityFileName = btq_booking_tc_amenity_icon_name($amenityCode);
+						$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . $amenityFileName, __FILE__ );
 						?>
 						<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="icono" width="50" height="50">
 						<?php
