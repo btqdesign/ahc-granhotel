@@ -136,6 +136,7 @@
 				}
 				.titulo{
 					margin-top: 8px;
+					margin-bottom: 15px;
 				}
 				
 				.iconoshabitacion{
@@ -157,8 +158,18 @@
 					margin-bottom: 4px;
 				}
 				
+				.mostrar{
+					margin-bottom: 15px;
+				}
 
-
+				.grisfondo{
+					background-color:#E6E7E8;
+				}
+				.precio{
+					align-content: center;
+					text-align: center;
+					margin-top: 8px;
+				}
 				aside{
 
 					margin-top: 0px;
