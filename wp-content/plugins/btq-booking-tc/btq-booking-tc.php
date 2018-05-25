@@ -593,6 +593,8 @@ function btq_booking_tc_grid_form($language = 'es') {
 				<div class="clearfix visible-xs-block"></div>
 			</article>
 			
+			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_blank" method="post">
+			
 			<article class="col-md-4">
 				<input class="buttonpick col-xs-6" id="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
 				<input class="buttonpickk col-xs-6" id="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
@@ -627,8 +629,10 @@ function btq_booking_tc_grid_form($language = 'es') {
 			</article>
 			
 			<article class="col-md-2">					
-				<button class="buttonbus col-xs-12"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+				<button class="buttonbus col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
 			</article>
+			
+			</form>
 		</section>
 
 		<hr class="linea"/>
@@ -676,14 +680,42 @@ function btq_booking_tc_grid_shortcode() {
 	ob_start();
 	?>
 	<div class="container">
-		<p>Código de idioma: <?php echo $language; ?></p>
     <?php
 	btq_booking_tc_grid_form($language);
-	btq_booking_tc_grid_rooms($language);
 	?>
+	<div id="btq-booking-grid">
+		<?php
+		btq_booking_tc_grid_rooms($language);
+		?>
+	</div>
 	</div>
 	<?php
 	$out = ob_get_clean();
 	
 	return $out;
+}
+
+add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
+add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
+function btq_booking_tc_grid_ajax() {
+	$post_array = array($_POST);
+	$bookIn_dt = $post_array[0]["data"]["bookIn"]; 
+	$bookOut_dt = $post_array[0]["data"]["bookOut"]; 
+	$adultsAmount = $post_array[0]["data"]["adultsAmount"]; 
+	$childrenAmount = $post_array[0]["data"]["childrenAmount"];
+	$roomAmount = $post_array[0]["data"]["roomAmount"];
+	$lang = $post_array[0]["data"]["lang"];
+	
+	$dateIni = new DateTime($bookIn_dt);
+	$dateFin = new DateTime($bookOut_dt);
+	$diff = $dateIni->diff($dateFin);
+	// will output 2 days
+	$nights = $diff->days;
+	//echo "$bookIn_dt, $bookOut_dt, $adultsAmount, $childrenAmount, $roomAmount";
+	//return;
+	ob_start();
+	grid_gran_hotel_print2($bookIn_dt, $bookOut_dt, $adultsAmount, $childrenAmount, $roomAmount, $nights, null, 1, $lang);
+	$out = ob_get_clean();
+	$out = iconv("ISO-8859-1", "UTF-8", $out);
+	echo $out;
 }
