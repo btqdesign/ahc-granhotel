@@ -1,4 +1,4 @@
-			    .button {
+			    .button#button {
 				    background-color: white;
 				    border: none;
 				    color: black;
@@ -13,7 +13,7 @@
 				    -webkit-transition-duration: 0.4s; /* Safari */
    					transition-duration: 0.4s;
 				}
-				.button:hover {
+				.button#button:hover {
 			    background-color: #D4C394;
 			    color: white;
 				}
