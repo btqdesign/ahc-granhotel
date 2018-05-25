@@ -485,7 +485,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
@@ -563,7 +563,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
@@ -641,7 +641,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
@@ -719,7 +719,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
-				<hr class="linea"/>
+				<hr class="linealetras"/>
 				<h3 align="center">$MXN 2,733.03   /noche</h3>
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
