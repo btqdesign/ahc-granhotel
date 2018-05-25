@@ -357,7 +357,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<div class="clearfix visible-xs-block"></div>
 				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891">Paquetes</button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="18.5" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
 				<div class="clearfix visible-xs-block"></div>
 			</article>
 			
