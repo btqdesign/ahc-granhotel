@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-05-23 18:28:52+0000\n"
+"PO-Revision-Date: 2018-05-24 06:53:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,10 +201,6 @@ msgstr "Cumplir con cualquier obligación legal que tengamos, como cálculos de 
 msgid "Set up your account for our store"
 msgstr "Configurar tu cuenta para nuestra tienda"
 
-#: includes/class-wc-privacy.php:90
-msgid "Respond to your requests, including refunds and complaints"
-msgstr "Responder a tus peticiones, incluidos reembolsos y reclamaciones"
-
 #: includes/class-wc-privacy.php:89
 msgid "Send you information about your account and order"
 msgstr "Enviarte información sobre tu cuenta y pedido"
@@ -212,6 +208,10 @@ msgstr "Enviarte información sobre tu cuenta y pedido"
 #: includes/class-wc-privacy.php:87
 msgid "When you purchase from us, we’ll ask you to provide information including your name, billing address, shipping address, email address, phone number, credit card/payment details and optional account information like username and password. We’ll use this information for purposes, such as, to:"
 msgstr "Cuando nos compras algo te pedimos que facilites información que incluye tu nombre, dirección de facturación, dirección de envío, dirección de correo electrónico, número de teléfono, detalles de la tarjeta de crédito/pago e información adicional opcional como el nombre de usuario y la contraseña. Usaremos esta información para propósitos como:"
+
+#: includes/class-wc-privacy.php:90
+msgid "Respond to your requests, including refunds and complaints"
+msgstr "Responder a tus solicitudes, incluidos reembolsos y reclamaciones"
 
 #: includes/class-wc-privacy.php:85
 msgid "Note: you may want to further detail your cookie policy, and link to that section from here."
@@ -806,10 +806,6 @@ msgstr "Eliminar el acceso a las descargas"
 msgid "Personal data retention"
 msgstr "Retención de datos personales"
 
-#: includes/admin/settings/class-wc-settings-accounts.php:93
-msgid "Account erasure requests"
-msgstr "Peticiones de borrado de cuenta"
-
 #: includes/admin/settings/class-wc-settings-accounts.php:166
 msgid "Inactive accounts are those which have not logged in, or placed an order, for the specified duration. They will be deleted. Any orders will be converted into guest orders."
 msgstr "Cuentas inactivas son las que no han accedido, o realizado algún pedido, durante una duración especificada. Se borrarán. Cualquier pedido se convertirá en pedido de invitado."
@@ -835,6 +831,10 @@ msgstr "Al gestionar una <a href=\"%s\">solicitud de borrado de cuenta</a>, ¿de
 #: includes/admin/settings/class-wc-settings-accounts.php:160
 msgid "Choose how long to retain personal data when it's no longer needed for processing. Leave the following options blank to retain this data indefinitely."
 msgstr "Elige cuánto tiempo tiempo conservar los datos personales cuando ya no sea necesario procesarlos. Deja las siguientes opciones en blanco para conservar estos datos indefinidamente."
+
+#: includes/admin/settings/class-wc-settings-accounts.php:93
+msgid "Account erasure requests"
+msgstr "Solicitudes de borrado de cuenta"
 
 #: includes/admin/class-wc-admin-setup-wizard.php:2174
 msgid "View &amp; Customize"
@@ -10172,20 +10172,6 @@ msgstr "Cantidad del inventario"
 msgid "Are you sure you wish to delete this note? This action cannot be undone."
 msgstr "¿Estás seguro que deseas eliminar esta nota? Esta acción no se puede deshacer."
 
-#. translators: %s: items limit
-#: includes/abstracts/abstract-wc-rest-controller.php:103
-#: includes/api/legacy/v2/class-wc-api-coupons.php:529
-#: includes/api/legacy/v2/class-wc-api-customers.php:792
-#: includes/api/legacy/v2/class-wc-api-orders.php:1789
-#: includes/api/legacy/v2/class-wc-api-products.php:2306
-#: includes/api/legacy/v3/class-wc-api-coupons.php:529
-#: includes/api/legacy/v3/class-wc-api-customers.php:782
-#: includes/api/legacy/v3/class-wc-api-orders.php:1836
-#: includes/api/legacy/v3/class-wc-api-products.php:3119
-#: includes/api/legacy/v3/class-wc-api-taxes.php:465
-msgid "Unable to accept more than %s items for this request."
-msgstr "No se pueden aceptar más de %s artículos para esta petición."
-
 #: includes/abstracts/abstract-wc-rest-controller.php:388
 msgid "List of created resources."
 msgstr "Lista de recursos creados."
@@ -10575,6 +10561,20 @@ msgstr "El recurso no existe."
 #: includes/admin/class-wc-admin-setup-wizard.php:1276
 msgid "Accept payments via PayPal using account balance or credit card."
 msgstr "Acepta pagos con PayPal utilizando saldo de la cuenta o una tarjeta de crédito."
+
+#. translators: %s: items limit
+#: includes/abstracts/abstract-wc-rest-controller.php:103
+#: includes/api/legacy/v2/class-wc-api-coupons.php:529
+#: includes/api/legacy/v2/class-wc-api-customers.php:792
+#: includes/api/legacy/v2/class-wc-api-orders.php:1789
+#: includes/api/legacy/v2/class-wc-api-products.php:2306
+#: includes/api/legacy/v3/class-wc-api-coupons.php:529
+#: includes/api/legacy/v3/class-wc-api-customers.php:782
+#: includes/api/legacy/v3/class-wc-api-orders.php:1836
+#: includes/api/legacy/v3/class-wc-api-products.php:3119
+#: includes/api/legacy/v3/class-wc-api-taxes.php:465
+msgid "Unable to accept more than %s items for this request."
+msgstr "No se pueden aceptar más de %s artículos para esta petición."
 
 #: i18n/countries.php:259
 msgid "Samoa"

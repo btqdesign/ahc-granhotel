@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-05-15 14:44:48+0000\n"
+"PO-Revision-Date: 2018-05-24 11:49:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,7 +68,7 @@ msgstr "si no puedes actualizar tu PHP por ti mismo puedes enviar un correo elec
 #. compatibility with newer PHP versions;
 #: admin/class-unsupported-php-message.php:50
 msgid "For any questions you may have about updating your PHP version, WordPress %1$shas a great page with instructions here%2$s. We recommend going up to version %3$s. Not all plugins may be ready for PHP 7 though, so %4$swe wrote an article on how to test them before you update here%2$s."
-msgstr "PPara cualquier cuestión que puedas tener sobre actualizar tu versión de PHP, WordPress %1$stiene aquí una fantástica página con instrucciones%2$s. Te recomendamos pasar a la versión %3$s. De todos modos, puede que no todos los plugins estén preparados para PHP 7, así que %4$shemos escrito aquí un artículo sobre cómo probarlos antes de actualizar%2$s."
+msgstr "Para cualquier pregunta que puedas tener sobre la actualización de tu versión de PHP, WordPress %1$stiene aquí una fantástica página con instrucciones%2$s. Te recomendamos subir a la versión %3$s. Sin embargo, puede que no todos los plugins estén listos para PHP 7, así que %4$shemos escrito aquí un artículo sobre cómo probarlos antes de actualizar%2$s."
 
 #: admin/class-unsupported-php-message.php:46
 msgid "How?"
@@ -1201,7 +1201,7 @@ msgstr "Descubre por qué deberías actualizar a %s &raquo;"
 
 #: admin/class-premium-upsell-admin-block.php:73
 msgid "Go premium!"
-msgstr "¡Ve al premium!"
+msgstr "¡Hazte premium!"
 
 #. translators: %s expands to "Yoast SEO Premium".
 #: admin/class-premium-upsell-admin-block.php:60
@@ -2271,7 +2271,7 @@ msgstr "Vistas previas sociales"
 #: admin/metabox/class-metabox.php:470
 #: admin/taxonomy/class-taxonomy-metabox.php:290
 msgid "Optimize a single post for up to 5 keywords."
-msgstr "Optimiza una entrada en hasta 5 palabras clave"
+msgstr "Optimiza una publicación con hasta 5 palabras clave."
 
 #: admin/metabox/class-metabox.php:468
 #: admin/taxonomy/class-taxonomy-metabox.php:288
@@ -2463,7 +2463,7 @@ msgstr "Extensiones de %1$s"
 
 #: admin/views/licenses.php:216
 msgid "Comes with our 30-day no questions asked money back guarantee"
-msgstr "Con nuestra garantía de devolución del dinero de 30 días sin preguntas"
+msgstr "Incluye nuestra garantía de reembolso de 30 días sin preguntas"
 
 #. translators: Text between %1$s and %2$s will only be shown to screen
 #. readers. %3$s expands to the product name.
@@ -2499,7 +2499,7 @@ msgstr "Vistas previas sociales"
 
 #: admin/views/licenses.php:174
 msgid "optimize a single post for up to 5 keywords."
-msgstr "optimiza una entrada en hasta 5 palabras clave."
+msgstr "optimiza una publicación con hasta 5 palabras clave."
 
 #: admin/metabox/class-metabox.php:469
 #: admin/taxonomy/class-taxonomy-metabox.php:289 admin/views/licenses.php:173
@@ -2552,7 +2552,7 @@ msgstr "Crea mapas del sitio XML de noticias"
 
 #: admin/views/licenses.php:66
 msgid "Immediately pings Google on the publication of a new post"
-msgstr "Envía pings an Google inmediatamente, cada vez que se publique una nueva entrada"
+msgstr "Hace inmediatamente pings a Google cada vez que se publica una nueva entrada"
 
 #: admin/views/licenses.php:65
 msgid "Optimize your site for Google News"
@@ -3278,7 +3278,7 @@ msgstr "Esta usando WordPress en un idioma que aún no está disponible. Nos enc
 
 #: vendor/yoast/i18n-module/src/i18n-module.php:228
 msgid "You're using WordPress in %1$s. While %2$s has been translated to %1$s for %3$d%%, it's not been shipped with the plugin yet. You can help! Register at %4$s to help complete the translation to %1$s!"
-msgstr "Está usando WordPress en  %1$s. Mientras que %2$s ha sido traducido al %1$s un %3$d%%, aún no ha sido añadido al plugin. ¡Puedes ayudar!. Regístrate en %4$s para ayudar a completar la traducción al %1$s!"
+msgstr "Estás usando WordPress en %1$s. Mientras que %2$s ha sido traducido al %1$s en un %3$d%%, aún no ha sido añadido al plugin. ¡Puedes ayudar! Regístrate en %4$s para ayudar a completar la traducción al %1$s!"
 
 #: vendor/yoast/i18n-module/src/i18n-module.php:226
 msgid "As you can see, there is a translation of this plugin in %1$s. This translation is currently %3$d%% complete. We need your help to make it complete and to fix any errors. Please register at %4$s to help complete the translation to %1$s!"
@@ -4065,12 +4065,12 @@ msgstr "Apunta:"
 #. translators: 1: link open tag; 2: link close tag.
 #: admin/views/tabs/metas/general/homepage.php:40
 msgid "You can determine the title and description for the blog page by %1$sediting the blog page itself &raquo;%2$s"
-msgstr "Puedes determinar el título y la descripción para la página de blog %1$seditando la misma página del blog &raquo;%2$s"
+msgstr "Puedes determinar el título y la descripción de la página del blog %1$seditando la propia página del blog &raquo;%2$s"
 
 #. translators: 1: link open tag; 2: link close tag.
 #: admin/views/tabs/metas/general/homepage.php:31
 msgid "You can determine the title and description for the front page by %1$sediting the front page itself &raquo;%2$s"
-msgstr "Puedes determinar el título y la descripción para la página de inicio %1$seditando la propia página de inicio &raquo;%2$s"
+msgstr "Puedes determinar el título y la descripción de la página de inicio %1$seditando la propia página de inicio &raquo;%2$s"
 
 #: admin/views/tabs/metas/general/homepage.php:27
 msgid "Homepage &amp; Front page"
@@ -4290,7 +4290,7 @@ msgstr "Buscar"
 #. translators: 1: link open tag; 2: link close tag.
 #: admin/google_search_console/class-gsc.php:97
 msgid "Don't miss your crawl errors: %1$sconnect with Google Search Console here%2$s."
-msgstr "No te pierdas errores de rastreo: %1$sconecta aqui con la consola de Google Search%2$s."
+msgstr "No te pierdas los errores de rastreo: %1$sconecta aquí con Google Search Console%2$s."
 
 #: admin/google_search_console/class-gsc-table.php:206
 msgid "Create redirect"
@@ -4414,11 +4414,11 @@ msgstr "Subir imagen"
 #. translators: %1$s expands to Yoast SEO Premium
 #: admin/banner/class-admin-banner-sidebar.php:352
 msgid "Upgrade to %1$s &raquo;"
-msgstr "Actualizar a %1$s &raquo;"
+msgstr "Actualiza a %1$s &raquo;"
 
 #: admin/banner/class-admin-banner-sidebar.php:346
 msgid "Remove these ads?"
-msgstr "¿Eliminar estos anuncios?"
+msgstr "¿Quieres eliminar estos anuncios?"
 
 #. translators: %s is the plugin name
 #: admin/class-yoast-dashboard-widget.php:59
