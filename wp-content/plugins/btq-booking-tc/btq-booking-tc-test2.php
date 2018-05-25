@@ -492,6 +492,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		</section>
 
 
+                    <hr class="lineaabajo" />   
+
+
 		<!-- OK -->
 		<section class="row">
 			
@@ -570,6 +573,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		</section>
 
 
+                    <hr class="lineaabajo" />   
+
+
 		<!-- OK -->
 		<section class="row">
 			
@@ -646,6 +652,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<button class="buttonreserv">Reservar Ahora  </button>
 			</article>
 		</section>
+
+
+                    <hr class="lineaabajo" />   
 
 
 		<!-- OK -->
