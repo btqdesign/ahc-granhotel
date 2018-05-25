@@ -36,7 +36,7 @@
 				    background-color: #C5992D;
 				    border: none;
 				    color: white;
-				    padding: 8px 70px;
+				    padding: 15px 70px;
 				    text-align: center;
 				    text-decoration: none;
 				    display: inline-block;
@@ -45,7 +45,7 @@
 				    cursor: pointer;
 				    border: 2px solid #C5992D;
 				    align-content: center;
-				    width: 100%;
+				    width: 100% !important;
 				}
 
 				.buttonpick {
@@ -135,7 +135,7 @@
 					margin-top: 8px;
 				}
 				.titulo{
-					margin-top: 8px;
+					margin-top: 25px;
 					margin-bottom: 15px;
 				}
 				
