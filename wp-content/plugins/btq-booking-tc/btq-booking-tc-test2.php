@@ -483,7 +483,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
 		
-			<article class="col-md-3">
+			<article class="col-md-3 grisfondo">
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
@@ -564,7 +564,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
 		
-			<article class="col-md-3">
+			<article class="col-md-3 grisfondo">
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
@@ -645,7 +645,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
 		
-			<article class="col-md-3">
+			<article class="col-md-3 grisfondo">
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
@@ -726,7 +726,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
 		
-			<article class="col-md-3">
+			<article class="col-md-3 grisfondo">
 				<br>
 				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
 				<p>Con mas beneficios</p>
