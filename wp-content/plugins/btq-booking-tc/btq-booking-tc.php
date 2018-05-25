@@ -241,6 +241,67 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 	return $result;
 }
 
+function btq_booking_tc_amenity_icon_name($amenityCode) {
+	$amenitiesArray = array(
+		'10'       => 'english_air_conditioned.png',
+		'12'       => 'english_alarm_clock.png',
+		//'codigo' => 'english_amenidades.png',
+		//'codigo' => 'english_banera.png',
+		//'codigo' => 'english_cafe_de_cortesia.png',
+		//'codigo' => 'english_cambio_de_divisas.png',
+		'51'       => 'english_coffeemaker.png',
+		//'codigo' => 'english_cortesia_nocturna.png',
+		'128312'   => 'english_courtesy_sweet_in-the-room.png',
+		'59'       => 'english_crib.png',
+		//'codigo' => 'english_desayuno_americano_1.png',
+		'69'       => 'english_double_bed.png',
+		//'codigo' => 'english_escritorio.png',
+		'89'       => 'english_fire_alarm_with_light.png',
+		'151'      => 'english_free_newspaper.png',
+		'59240'    => 'english_free_wifi.png',
+		'119'      => 'english_king_bed.png',
+		'128'      => 'english_large_suite.png',
+		//'codigo' => 'english_llamadas_locales_en_cortesia.png',
+		//'codigo' => 'english_menu_almuadas.png',
+		//'codigo' => 'english_recamaras_tematicas.png',
+		//'codigo' => 'english_regadera_de_mano.png',
+		'139963'   => 'english_room_zocalo_view.png',
+		'128315'   => 'english_safe_deposit_box.png',
+		'128317'   => 'english_selection_of_cushions.png',
+		'210'      => 'english_sitting_area.png',
+		'217'      => 'english_sofa_bed.png',
+		//'codigo' => 'english_telefono_en_el_bañol.png',
+		//'codigo' => 'english_television_con_cable.png',
+		'128311'   => 'english_welcome_drink.png',
+		'54080'    => 'spanish_aire_acondicionado.png',
+		'54200'    => 'spanish_amenidades.png',
+		'54181'    => 'spanish_banera.png',
+		'128319'   => 'spanish_bebida_de_bienvenida.png',
+		'54234'    => 'spanish_cafe_de_cortesia.png',
+		'54191'    => 'spanish_cafetera.png',
+		'54216'    => 'spanish_caja_de_seguridad.png',
+		'59204'    => 'spanish_cama_king_size.png',
+		'54214'    => 'spanish_cambio_de_divisas.png',
+		'59201'    => 'spanish_cortesia_nocturna.png',
+		'54192'    => 'spanish_cunas.png',
+		'128320'   => 'spanish_desayuno_americano_1.png',
+		'59205'    => 'spanish_dos_camas.png',
+		'54211'    => 'spanish_escritorio.png',
+		'54210'    => 'spanish_estancia.png',
+		'139964'   => 'spanish_habitacion_con_vista_zocalo.png',
+		'54225'    => 'spanish_habitacion_nupcial.png',
+		'59207'    => 'spanish_llamadas_locales_en_cortesia.png',
+		'128321'   => 'spanish_menu_almuadas.png',
+		'54223'    => 'spanish_recamaras_tematicas.png',
+		'54207'    => 'spanish_regadera_de_mano.png',
+		'59203'    => 'spanish_telefono_en_el_bañol.png',
+		'54190'    => 'spanish_television_con_cable.png',
+		'59242'    => 'spanish_wifi_en_cortesia.png'
+	);
+	return $amenitiesArray[$amenitieCode];
+}
+
+
 function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
 	
@@ -447,11 +508,11 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 					$amenity = $amenities[$j]['!RoomAmenity'];
 					try {
 						if (isset($iconos[$amenities[$j]['!ExistsCode']])){
-							$icono = $iconos[$amenities[$j]['!ExistsCode']];
-							$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . $icono, __FILE__ );
+							$amenityCode = $iconos[$amenities[$j]['!ExistsCode']];
+							$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . btq_booking_tc_amenity_icon_name($amenityCode), __FILE__ );
 							if ($amenity != null) { 
 								?>
-								<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="icono" width="60" height="50">
+								<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="icono" width="50" height="50">
 								<?php
 							}
 						}
