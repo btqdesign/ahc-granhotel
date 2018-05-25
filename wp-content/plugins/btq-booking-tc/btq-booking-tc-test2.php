@@ -413,6 +413,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			<hr class="linea"/>
 		</section>
 		
+                        <hr class="lineaabajo" />   
+
 		
 		<!-- OK -->
 		<section class="row">
