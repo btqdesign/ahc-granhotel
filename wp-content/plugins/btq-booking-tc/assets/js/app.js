@@ -90,10 +90,12 @@ jQuery(document).ready(function(){
 	
 	
 	
+	jQuery('btq-booking-tc-datepicker-form').submit(function(e){ e.preventDefault(); });
+	
 	jQuery('#btq-bookin-tc-button-search').click(function() {
 		jQuery("#wait").css("display", "block");
 		//jQuery('#btq-bookin-tc-button-search').disabled = true;
-		jQuery('btq-booking-tc-datepicker-form').submit(function(e){ e.preventDefault(); });
+		
 		console.log('btq-bookin-tc-button-search click');
 		jQuery(".preloader").css("display", "block");
 		jQuery.post(
