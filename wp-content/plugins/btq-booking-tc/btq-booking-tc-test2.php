@@ -404,7 +404,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		<section class="row">
 			<article class="col-md-5">
 				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
-				<h5 class="hosp">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
+				<h5 class="hosp2">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
 			</article>
 
 			<article class="col-md-7">
