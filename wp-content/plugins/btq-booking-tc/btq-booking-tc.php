@@ -633,6 +633,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 			</article>
 			
 			</form>
+			
 		</section>
 
 		<hr class="linea"/>
