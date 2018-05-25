@@ -508,7 +508,7 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 						$amenityFileName = btq_booking_tc_amenity_icon_name($amenityCode);
 						$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . $amenityFileName, __FILE__ );
 						?>
-						<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="icono" width="50" height="50">
+						<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="<?php echo $RoomAmenitie['!RoomAmenity']; ?>" width="50" height="50">
 						<?php
 					}
 				}
