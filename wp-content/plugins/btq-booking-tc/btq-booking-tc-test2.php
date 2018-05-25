@@ -344,7 +344,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		
 		<section class="row">
 			<article class="col-md-5">
-				<h5>Selecciona un PAQUETE o HABITACIÓN</h5>
+				<h5 class="hosp">Selecciona un PAQUETE o HABITACIÓN</h5>
 			</article>
 			<article class="col-md-7">&nbsp;</article>
 		</section>
