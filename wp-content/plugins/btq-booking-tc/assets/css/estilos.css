@@ -2,7 +2,7 @@
 				    background-color: white;
 				    border: none;
 				    color: black;
-				    max-width: 56px;
+				    max-height: 56px;
 				    padding: 16px 10px;
 				    text-align: center;
 				    text-decoration: none;
@@ -52,6 +52,7 @@
 				    background-color:#E6E7E8;
 				    border: none;
 				    color: black;
+				    height: 56px;
 				    padding: 15px 0px;
 				    text-align: center;
 				    text-decoration: none;
