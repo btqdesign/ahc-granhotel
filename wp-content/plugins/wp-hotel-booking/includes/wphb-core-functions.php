@@ -231,3 +231,18 @@ if ( !function_exists( 'hb_notice_remove_hotel_booking' ) ) {
         </div>
 	<?php }
 }
+
+if ( ! function_exists( 'hb_extra_types' ) ) {
+	/**
+	 * @return array|mixed
+	 */
+	function hb_extra_types() {
+		$types = apply_filters( 'hb_extra_type', array(
+				'trip'   => __( 'Trip', 'wp-hotel-booking' ),
+				'number' => __( 'Number', 'wp-hotel-booking' )
+			)
+		);
+
+		return is_array( $types ) ? $types : array();
+	}
+}

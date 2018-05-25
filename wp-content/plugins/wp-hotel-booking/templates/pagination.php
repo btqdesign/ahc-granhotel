@@ -1,12 +1,13 @@
 <?php
+
 /**
- * Pagination - Show numbered pagination for catalog pages
+ * The template for displaying archive room pagination.
  *
- * Override this template by copying it to yourtheme/tp-hotel-booking/pagination.php
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/pagination.php.
  *
- * @author        ThimPress
- * @package       wp-hotel-booking/templates
- * @version       1.6
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
  */
 
 

@@ -1,12 +1,12 @@
 <?php
 /**
- * The Template for displaying all single products
+ * The template for displaying single room page.
  *
- * Override this template by copying it to yourtheme/tp-hotel-booking/single-room.php
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/single-room.php.
  *
- * @author        ThimPress
- * @package       wp-hotel-booking/templates
- * @version       1.6
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
  */
 
 if ( !defined( 'ABSPATH' ) ) {

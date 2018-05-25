@@ -1,25 +1,26 @@
 <?php
+
 /**
- * Display single room reviews (comments)
+ * The template for displaying room reviews (comment).
  *
- * Override this template by copying it to yourtheme/tp-hotel-booking/single-room-reviews.php
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/single-room-reviews.php.
  *
- * @author        ThimPress
- * @package       wp-hotel-booking/templates
- * @version       1.6
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
  */
+
 if ( !defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
-
 
 global $hb_room;
 global $hb_settings;
 
 if ( !comments_open() ) {
 	return;
-}
-?>
+} ?>
+
 <div id="reviews">
     <div id="comments">
         <h2>

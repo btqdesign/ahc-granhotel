@@ -1,12 +1,13 @@
 <?php
+
 /**
- * Message - Show plugin messages
+ * The template for displaying message for user.
  *
- * Override this template by copying it to yourtheme/tp-hotel-booking/messages.php
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/message.php.
  *
- * @author        ThimPress
- * @package       wp-hotel-booking/templates
- * @version       1.6
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
  */
 
 if ( !defined( 'ABSPATH' ) ) {

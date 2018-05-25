@@ -26,11 +26,11 @@ class HB_Extra_Field {
 	 */
 	function meta_fields( $fields ) {
 		$fields[] = array(
-			'name'       => 'room_extra',
-			'label'      => __( 'Addition Package', 'wp-hotel-booking' ),
-			'type'       => 'multiple',
-			'options'    => $this->extra_fields(),
-			'filter'     => array( $this, 'meta_value' ),
+			'name'    => 'room_extra',
+			'label'   => __( 'Addition Package', 'wp-hotel-booking' ),
+			'type'    => 'multiple',
+			'options' => $this->extra_fields(),
+			'filter'  => array( $this, 'meta_value' ),
 		);
 
 		return $fields;
@@ -41,11 +41,14 @@ class HB_Extra_Field {
 		$options = array();
 		$extras  = $hb_extra_settings->get_extra();
 		foreach ( $extras as $key => $ex ) {
-			$opt        = new stdClass();
-			$opt->text  = $ex->post_title;
-			$opt->value = $ex->ID;
-			$options[]  = $opt;
+			if ( $ex->post_status == 'publish' && apply_filters( 'hb_filter_extra_option', true, $ex ) ) {
+				$opt        = new stdClass();
+				$opt->text  = $ex->post_title;
+				$opt->value = $ex->ID;
+				$options[]  = $opt;
+			}
 		}
+
 		return $options;
 	}
 
@@ -61,22 +64,22 @@ class HB_Extra_Field {
 	}
 
 	function admin_booking_room_details( $booking_params, $search_key, $room_id ) {
-		if ( !isset( $booking_params[$search_key] ) ||
-			!isset( $booking_params[$search_key][$room_id] ) ||
-			!isset( $booking_params[$search_key][$room_id]['extra_packages_details'] )
+		if ( ! isset( $booking_params[ $search_key ] ) ||
+		     ! isset( $booking_params[ $search_key ][ $room_id ] ) ||
+		     ! isset( $booking_params[ $search_key ][ $room_id ]['extra_packages_details'] )
 		) {
 			return;
 		}
 
-		$packages = $booking_params[$search_key][$room_id]['extra_packages_details'];
+		$packages = $booking_params[ $search_key ][ $room_id ]['extra_packages_details'];
 		?>
-		<ul>
+        <ul>
 			<?php foreach ( $packages as $id => $package ): ?>
-				<li>
-					<small><?php printf( '%s (x%s)', $package['package_title'], $package['package_quantity'] ) ?></small>
-				</li>
+                <li>
+                    <small><?php printf( '%s (x%s)', $package['package_title'], $package['package_quantity'] ) ?></small>
+                </li>
 			<?php endforeach ?>
-		</ul>
+        </ul>
 		<?php
 	}
 

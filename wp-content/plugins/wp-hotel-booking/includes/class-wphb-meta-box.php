@@ -187,7 +187,7 @@ class WPHB_Meta_Box {
 				}
 			}
 
-			if ( ! $_POST[ $this->_args['meta_key_prefix'] . 'room_extra' ] ) {
+			if ( ! isset( $_POST[ $this->_args['meta_key_prefix'] . 'room_extra' ] ) || ! $_POST[ $this->_args['meta_key_prefix'] . 'room_extra' ] ) {
 				update_post_meta( $post_id, $this->_args['meta_key_prefix'] . 'room_extra', '' );
 			}
 		}

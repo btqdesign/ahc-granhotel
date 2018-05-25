@@ -41,6 +41,7 @@ class HB_Room_Extra extends WPHB_Room {
 				$ext->respondent_name = $package->respondent_name;
 				$ext->price           = hb_format_price( $ext->amount_singular );
 				$ext->selected       = get_post_meta( $post_id, 'tp_hb_extra_room_selected', true );
+				$ext->required        = $package->required;
 				$results[ $post_id ] = $ext;
 			}
 

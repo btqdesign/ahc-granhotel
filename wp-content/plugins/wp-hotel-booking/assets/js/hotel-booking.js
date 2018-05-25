@@ -20,7 +20,7 @@
     }
 
     function isInteger(a) {
-        return Number(a) || ( a % 1 === 0 );
+        return Number(a) || (a % 1 === 0);
     }
 
     function isEmail(email) {
@@ -373,6 +373,7 @@
         init: function () {
             this.add_to_cart();
             this.remove_cart();
+            this.add_extra_to_cart();
         },
         hb_add_to_cart_callback: function (data, callback) {
             var mini_cart = $('.hotel_booking_mini_cart');
@@ -531,7 +532,7 @@
                             // update woo cart when add room to cart
                             $('body').trigger('hb_added_item_to_cart');
                             // add message successfully
-                            if (typeof code.redirect !== 'undefined') {
+                            if (typeof code.redirect !== 'undefined' && code.redirect) {
                                 window.location.href = code.redirect;
                             }
                         } else {
@@ -542,8 +543,9 @@
                             HB_Booking_Cart.hb_add_to_cart_callback(code);
                         }
                         button.removeClass('hb_loading');
+
                         if (_form.find('.hb_search_add_to_cart').length) {
-                            if (!$('.hb_search_add_to_cart').find('.hb_view_cart').length) {
+                            if (!_form.find('.hb_search_add_to_cart .hb_view_cart').length) {
                                 button.after('<a href="' + hotel_booking_i18n.cart_url + '" class="hb_button hb_view_cart">' + hotel_booking_i18n.view_cart + '</a>');
                             }
                         }
@@ -557,6 +559,23 @@
                 return false;
             });
             // });
+        },
+        add_extra_to_cart: function () {
+            $(document).on('submit', 'form.hb-select-extra-results', function (event) {
+                event.preventDefault();
+                var data = $(this).serializeArray();
+
+                $.ajax({
+                    url: hotel_settings.ajax,
+                    type: 'POST',
+                    data: data,
+                    dataType: 'html',
+                    success: function (code) {
+                        code = parseJSON(code);
+                        window.location.href = code.redirect;
+                    }
+                });
+            });
         },
         remove_cart: function () {
             // var updateOrderButton
@@ -771,7 +790,7 @@
                     time = new Date(time);
                     data.push({
                         name: 'hb_' + input.name,
-                        value: time.getTime() / 1000 - ( time.getTimezoneOffset() * 60 )
+                        value: time.getTime() / 1000 - (time.getTimezoneOffset() * 60)
                     })
                 }
             }
@@ -1023,4 +1042,4 @@
         }, 400);
     }
 
-})(( jQuery ));
+})((jQuery));

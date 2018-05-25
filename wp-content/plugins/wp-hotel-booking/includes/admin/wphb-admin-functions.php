@@ -34,6 +34,7 @@ if ( ! function_exists( 'hb_admin_i18n' ) ) {
 			'select_user'                   => __( 'Enter user login.', 'wp-hotel-booking' ),
 			'select_room'                   => __( 'Enter room name.', 'wp-hotel-booking' ),
 			'select_coupon'                 => __( 'Enter coupon code.', 'wp-hotel-booking' ),
+			'search_booking'                => __( 'Search booking by username, user email', 'wp-hotel-booking' )
 		);
 
 		return apply_filters( 'hb_admin_i18n', $i18n );
@@ -315,6 +316,7 @@ if ( ! function_exists( 'hb_manage_booking_column' ) ) {
 						);
 					}
 				}
+
 				// end display paid
 				do_action( 'hb_manage_booing_column_total', $post_id, $total, $total_with_currency );
 				break;
@@ -451,28 +453,28 @@ if ( ! function_exists( 'hb_admin_js_template' ) ) {
                     <div class="hb-room-gallery">
                         <ul>
                             <# jQuery.each(data.gallery, function(){ var attachment = this; #>
-                                <li class="attachment">
-                                    <div class="attachment-preview">
-                                        <div class="thumbnail">
-                                            <div class="centered">
-                                                <img src="{{attachment.src}}" alt="">
-                                                <input type="hidden" name="hb-gallery[{{data.id}}][gallery][]"
-                                                       value="{{attachment.id}}"/>
-                                            </div>
+                            <li class="attachment">
+                                <div class="attachment-preview">
+                                    <div class="thumbnail">
+                                        <div class="centered">
+                                            <img src="{{attachment.src}}" alt="">
+                                            <input type="hidden" name="hb-gallery[{{data.id}}][gallery][]"
+                                                   value="{{attachment.id}}"/>
                                         </div>
                                     </div>
-                                    <a class="dashicons dashicons-trash"
-                                       title="<?php _e( 'Remove this image', 'wp-hotel-booking' ); ?>"></a>
-                                </li>
-                                <# }); #>
-                                    <li class="attachment add-new">
-                                        <div class="attachment-preview">
-                                            <div class="thumbnail">
-                                                <div class="dashicons-plus dashicons">
-                                                </div>
-                                            </div>
+                                </div>
+                                <a class="dashicons dashicons-trash"
+                                   title="<?php _e( 'Remove this image', 'wp-hotel-booking' ); ?>"></a>
+                            </li>
+                            <# }); #>
+                            <li class="attachment add-new">
+                                <div class="attachment-preview">
+                                    <div class="thumbnail">
+                                        <div class="dashicons-plus dashicons">
                                         </div>
-                                    </li>
+                                    </div>
+                                </div>
+                            </li>
                         </ul>
                     </div>
                     <input type="hidden" name="hb-gallery[{{data.id}}][id]" value="{{data.id}}"/>

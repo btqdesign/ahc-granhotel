@@ -38,14 +38,14 @@ class WPHB_Admin_Menu {
 		 */
 		$addon_menus = apply_filters( 'hotel_booking_addon_menus', array() );
 		if ( $addon_menus ) {
-			$menu_items[] = array(
-				'tp_hotel_booking',
-				__( 'Addition Packages', 'wp-hotel-booking' ),
-				__( 'Addition Packages', 'wp-hotel-booking' ),
-				'manage_hb_booking',
-				'tp_hotel_booking_other_settings',
-				array( $this, 'other_settings' )
-			);
+//			$menu_items[] = array(
+//				'tp_hotel_booking',
+//				__( 'Addition Packages', 'wp-hotel-booking' ),
+//				__( 'Addition Packages', 'wp-hotel-booking' ),
+//				'manage_hb_booking',
+//				'tp_hotel_booking_other_settings',
+//				array( $this, 'other_settings' )
+//			);
 		}
 
 		$menu_items['settings'] = array(

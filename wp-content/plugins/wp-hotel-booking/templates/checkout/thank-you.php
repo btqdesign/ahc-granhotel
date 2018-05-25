@@ -1,14 +1,12 @@
 <?php
-
 /**
  * The template for displaying booking thank you page.
  *
  * This template can be overridden by copying it to yourtheme/wp-hotel-booking/checkout/thank-you.php.
  *
- * @version     2.0
- * @package     WP_Hotel_Booking/Templates
- * @category    Templates
- * @author      Thimpress, leehld
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.9.5
  */
 
 /**
@@ -119,6 +117,22 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 						<?php printf( '%s', hb_format_price( hb_booking_total( $booking->id ), hb_get_currency_symbol( $booking->currency ) ) ) ?>
                     </td>
                 </tr>
+				<?php
+				global $hb_settings;
+				$advance_payment  = $booking->advance_payment;
+				$advance_settings = $booking->advance_payment_setting;
+				if ( ! $advance_settings ) {
+					$advance_settings = $hb_settings->get( 'advance_payment', 50 );
+				}
+
+				if ( floatval( hb_booking_total( $booking->id ) ) !== floatval( $advance_payment ) ) { ?>
+                    <tr>
+                        <td colspan="4"><?php _e( 'Advance Payment', 'wp-hotel-booking' ) ?></td>
+                        <td>
+							<?php printf( '%s', hb_format_price( $advance_payment, hb_get_currency_symbol( $booking->currency ) ) ) ?>
+                        </td>
+                    </tr>
+				<?php } ?>
                 </tbody>
             </table>
         </div>
@@ -130,57 +144,57 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 
                     <li>
                         <label for="_hb_customer_title"><?php echo __( 'Title:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_title ); ?>
+						<?php echo esc_html( $booking->customer_title ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_first_name"><?php echo __( 'First Name:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_first_name ); ?>
+						<?php echo esc_html( $booking->customer_first_name ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_last_name"><?php echo __( 'Last Name:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_last_name ); ?>
+						<?php echo esc_html( $booking->customer_last_name ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_address"><?php echo __( 'Address:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_address ); ?>
+						<?php echo esc_html( $booking->customer_address ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_city"><?php echo __( 'City:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_city ); ?>
+						<?php echo esc_html( $booking->customer_city ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_state"><?php echo __( 'State:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_state ); ?>
+						<?php echo esc_html( $booking->customer_state ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_postal_code"><?php echo __( 'Postal Code:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_postal_code ); ?>
+						<?php echo esc_html( $booking->customer_postal_code ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_country"><?php echo __( 'Country:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_country ); ?>
+						<?php echo esc_html( $booking->customer_country ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_phone"><?php echo __( 'Phone:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_phone ); ?>
+						<?php echo esc_html( $booking->customer_phone ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_email"><?php echo __( 'Email:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_email ); ?>
+						<?php echo esc_html( $booking->customer_email ); ?>
                     </li>
 
                     <li>
                         <label for="_hb_customer_fax"><?php echo __( 'Fax:', 'wp-hotel-booking' ); ?></label>
-		                <?php echo esc_html( $booking->customer_tax ); ?>
+						<?php echo esc_html( $booking->customer_tax ); ?>
                     </li>
 
                 </ul>
@@ -191,16 +205,16 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 				<?php echo esc_html( $booking->post->post_content ); ?>
             </div>
 
-	        <?php if ( ( ! $booking->method || $booking->method == 'offline-payment' ) ) {
-		        $option = get_option( 'tp_hotel_booking_offline-payment' );
-		        if ( isset( $option['instruction'] ) && $option['instruction'] ) {
-			        ?>
+			<?php if ( ( ! $booking->method || $booking->method == 'offline-payment' ) ) {
+				$option = get_option( 'tp_hotel_booking_offline-payment' );
+				if ( isset( $option['instruction'] ) && $option['instruction'] ) {
+					?>
                     <div id="instruction">
                         <h3><?php echo __( 'Payment Instruction', 'wp-hotel-booking' ); ?></h3>
-				        <?php echo $option['instruction']; ?>
+						<?php echo $option['instruction']; ?>
                     </div>
-		        <?php }
-	        } ?>
+				<?php }
+			} ?>
 
         </div>
 	<?php } else { ?>

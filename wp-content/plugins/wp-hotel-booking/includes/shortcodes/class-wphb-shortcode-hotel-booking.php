@@ -41,7 +41,7 @@ class WPHB_Shortcode_Hotel_Booking extends WPHB_Shortcodes {
 
 		$page = hb_get_request( 'hotel-booking' );
 
-		$template      = 'search/search.php';
+		$template      = 'search/search-page.php';
 		$template_args = array();
 
 		// find the url for form action
@@ -81,7 +81,7 @@ class WPHB_Shortcode_Hotel_Booking extends WPHB_Shortcodes {
 				);
 				break;
 			default:
-				$template = 'search/search.php';
+				$template = 'search/search-page.php';
 				break;
 		}
 		$template = apply_filters( 'hotel_booking_shortcode_template', $template );

@@ -1,12 +1,13 @@
 <?php
+
 /**
- * The template for displaying room content in the archive-room.php template
+ * The template for displaying content archive room.
  *
- * Override this template by copying it to yourtheme/tp-hotel-booking/content-room.php
+ * This template can be overridden by copying it to yourtheme/wp-hotel-booking/content-room.php.
  *
- * @author        ThimPress
- * @package       wp-hotel-booking/templates
- * @version       1.6
+ * @author  ThimPress, leehld
+ * @package WP-Hotel-Booking/Templates
+ * @version 1.6
  */
 
 if ( !defined( 'ABSPATH' ) ) {

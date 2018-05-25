@@ -76,6 +76,13 @@ if ( ! class_exists( 'WPHB_Admin_Setting_General' ) ) {
 					'default' => 1,
 				),
 				array(
+					'type'    => 'checkbox',
+					'id'      => 'tp_hotel_booking_custom_process',
+					'title'   => __( 'Custom Process', 'wp-hotel-booking' ),
+					'desc'    => __( 'Choose extra options after select room in search page', 'wp-hotel-booking' ),
+					'default' => 1,
+				),
+				array(
 					'type'    => 'select',
 					'id'      => 'tp_hotel_booking_currency',
 					'title'   => __( 'Currency', 'wp-hotel-booking' ),

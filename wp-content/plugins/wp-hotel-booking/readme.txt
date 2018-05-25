@@ -3,7 +3,7 @@ Contributors: thimpress, leehld
 Donate link: https://thimpress.com/
 Tags: hotel, booking, hotel booking, reservation, reservations
 Requires at least: 4.2
-Tested up to: 4.9.5
+Tested up to: 4.9.6
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -76,6 +76,13 @@ Yes.
 7. System settings
 
 == Changelog ==
+
+= 1.9.5 =
+- Update booking checkin checkout same day
+- Update admin filter booking
+- Add custom booking process option
+- Restructure extra option
+- GDPR compliance
 
 = 1.9.4 =
 - Update email booking details
