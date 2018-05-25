@@ -646,7 +646,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 			
 			<article class="col-md-1">
 				<select class="buttonpick2 col-xs-6">
-					<option value="1"><?php _e('1 Adult','btq-booking-tc'); ?></option>
+					<option value="1"><?php _e('1 Adult', 'btq-booking-tc'); ?></option>
 					<option value="2"><?php _e('2 Adults','btq-booking-tc'); ?></option>
 					<option value="3"><?php _e('3 Adults','btq-booking-tc'); ?></option>
 					<option value="4"><?php _e('4 Adults','btq-booking-tc'); ?></option>
