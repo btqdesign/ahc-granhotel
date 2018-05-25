@@ -657,6 +657,7 @@ add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
 function btq_booking_tc_grid_scripts() {
     wp_enqueue_style( 'btq-booking-tc-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ), 'solaz-child-style','1.0.0');
     wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array(), '1.0.0');
+    wp_enqueue_script( 'moment', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment.min.js', __FILE__ ), array(), '2.21.0', true);
 }
 
 add_action( 'vc_before_init', 'btq_booking_tc_grid_VC' );
@@ -701,5 +702,15 @@ add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
 	$post_array = array($_POST);
-	echo json_encode($post_array);
+	
+	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+		$language = ICL_LANGUAGE_CODE;
+	}
+	else {
+		$language = 'es';
+	}
+	
+	<?php
+	btq_booking_tc_grid_rooms($language);
+	?>
 }

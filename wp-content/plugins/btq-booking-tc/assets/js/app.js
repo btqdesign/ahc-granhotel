@@ -103,8 +103,8 @@ jQuery(document).ready(function(){
 		    {
 				'action' : 'btq_booking_tc_grid',
 				'data' : {
-					bookIn : '2018-05-25', 
-					bookOut : '2018-05-26',
+					bookIn : '2018-09-25', 
+					bookOut : '2018-09-26',
 					adultsAmount : 1,
 					childrenAmount : 2,
 					roomAmount : 1
@@ -113,8 +113,7 @@ jQuery(document).ready(function(){
 		    function(response) {
 				console.log("Respnse:\n\n");
 				console.log(response);
-				console.log("fin");
-				//jQuery('#grid-gran-hotel-print').html(response);
+				jQuery('#btq-booking-grid').html(response);
 				jQuery(".preloader").css("display", "none");
 		    }
 		)
