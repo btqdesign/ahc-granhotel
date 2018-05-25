@@ -16,13 +16,12 @@ Text Domain:  solaz-child
 	background-color: #f2f2f2;
 }
 
-@media (min-width: 768px) {
-	.btq-book-now ul li {
-		display: none;
-	}
+.btq-book-now ul li {
+	display: none;
 }
-@media (max-width: 767px)
+@media (max-width:768px){
 	.btq-book-now ul li {
+		display: inline-block;
 		background-color: #C5992D;
 	    border: none;
 	    color: white;
