@@ -136,7 +136,7 @@
 				}
 				.titulo{
 					margin-top: 8px;
-					margin-bottom: 20px;
+					margin-bottom: 15px;
 				}
 				
 				.iconoshabitacion{
@@ -158,7 +158,9 @@
 					margin-bottom: 4px;
 				}
 				
-
+				.mostrar{
+					margin-bottom: 15px;
+				}
 
 				aside{
 
