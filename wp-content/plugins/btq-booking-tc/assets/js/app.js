@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 	
 	
 	
-	$('#btq-bookin-tc-button-search').click(function() {
+	jQuery('#btq-bookin-tc-button-search').click(function() {
 		//$("#wait").css("display", "block");
 		console.log('btq-bookin-tc-button-search click');
 		/*
