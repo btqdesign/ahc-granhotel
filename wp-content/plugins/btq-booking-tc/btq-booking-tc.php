@@ -299,10 +299,10 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 		'59242'    => 'spanish_wifi_en_cortesia.png'
 	);
 	
-	if (!isset($amenitiesArray[$amenitieCode]))
+	if (!isset($amenitiesArray[$amenityCode]))
 		return FALSE;
 	
-	return $amenitiesArray[$amenitieCode];
+	return $amenitiesArray[$amenityCode];
 }
 
 
