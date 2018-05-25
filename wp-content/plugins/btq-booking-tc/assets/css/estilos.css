@@ -1,4 +1,4 @@
-			    .button#button {
+			    .button {
 				    background-color: white;
 				    border: none;
 				    color: black;
@@ -13,7 +13,7 @@
 				    -webkit-transition-duration: 0.4s; /* Safari */
    					transition-duration: 0.4s;
 				}
-				.button#button:hover {
+				.button:hover {
 			    background-color: #D4C394;
 			    color: white;
 				}
@@ -93,14 +93,15 @@
 				}
 
 
-				select#buttonpick2 {
+				.buttonpick2 {
 				    background-color:#E6E7E8;
 				    border: none;
 				    color: black;
-				    padding: 15px 40px;
+				    height: 30px;
+				    padding: 13px 20px;
 				    text-decoration: none;
 				    display: inline-block;
-				    font-size: 12px;
+				    font-size: 16px;
 				    margin-top: 9px;
 				    margin-bottom: 0px;
 				    margin-right: 0px;
@@ -113,7 +114,7 @@
    			
 
 				}
-				select#buttonpick2:hover {
+				.buttonpick2:hover {
 			    background-color: #D4C394;
 			    color: white;
 				}
