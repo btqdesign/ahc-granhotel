@@ -294,7 +294,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 		'128321'   => 'spanish_menu_almuadas.png',
 		'54223'    => 'spanish_recamaras_tematicas.png',
 		'54207'    => 'spanish_regadera_de_mano.png',
-		'59203'    => 'spanish_telefono_en_el_bañol.png',
+		'59203'    => 'spanish_telefono_en_el_banol.png',
 		'54190'    => 'spanish_television_con_cable.png',
 		'59242'    => 'spanish_wifi_en_cortesia.png'
 	);
