@@ -166,8 +166,9 @@
 					background-color:#E6E7E8;
 				}
 				.precio{
-
 					align-content: center;
+					text-align: center;
+					margin-top: 8px;
 				}
 				aside{
 
