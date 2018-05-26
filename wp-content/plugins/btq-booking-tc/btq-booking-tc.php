@@ -596,13 +596,13 @@ function btq_booking_tc_grid_form($language = 'es') {
 			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
 			
 			<article class="col-md-4">
-				<input class="buttonpick col-xs-6" id="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
-				<input class="buttonpickk col-xs-6" id="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
+				<input class="buttonpick col-xs-6" id="entrada" name="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
+				<input class="buttonpickk col-xs-6" id="salida" name="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
 				<div class="clearfix visible-xs-block"></div>	
 			</article>
 			
 			<article class="col-md-1">
-				<select class="buttonpick2 col-xs-6">
+				<select class="buttonpick2 col-xs-6" id="adultos" name="adultos">
 					<option value="1"><?php _e('1 Adult', 'btq-booking-tc'); ?></option>
 					<option value="2"><?php _e('2 Adults','btq-booking-tc'); ?></option>
 					<option value="3"><?php _e('3 Adults','btq-booking-tc'); ?></option>
@@ -614,7 +614,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 					<option value="9"><?php _e('9 Adults','btq-booking-tc'); ?></option>
 				</select>
 				
-				<select class="buttonpick2 col-xs-6">				
+				<select class="buttonpick2 col-xs-6" id="ninos" name="ninos">				
 					<option value="0"><?php _e('0 Children','btq-booking-tc'); ?></option>
 					<option value="1"><?php _e('1 Children','btq-booking-tc'); ?></option>
 					<option value="2"><?php _e('2 Children','btq-booking-tc'); ?></option>

@@ -103,10 +103,10 @@ jQuery(document).ready(function(){
 		    {
 				'action' : 'btq_booking_tc_grid',
 				'data' : {
-					bookIn : '2018-09-25', 
-					bookOut : '2018-09-26',
-					adultsAmount : 1,
-					childrenAmount : 2,
+					entrada : moment(jQuery("#entrada").datepicker("getDate")).format('YYYY/MM/DD'), 
+					salida  : moment( jQuery("#salida").datepicker("getDate")).format('YYYY/MM/DD'),
+					adultos : jQuery("#adultos").val(),
+					ninos   : jQuery("#ninos").val(),
 					roomAmount : 1
 				}
 		    }, 
