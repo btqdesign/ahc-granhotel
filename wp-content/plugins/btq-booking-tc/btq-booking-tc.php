@@ -712,5 +712,5 @@ function btq_booking_tc_grid_ajax() {
 		$language = 'es';
 	}
 	
-	btq_booking_tc_grid_rooms($language);
+	btq_booking_tc_grid_rooms($language, $post_array['entrada'], $post_array['salida'], 'rooms', 1, $post_array['adultos'], $post_array['ninos']);
 }
