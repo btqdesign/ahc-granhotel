@@ -36,6 +36,16 @@ function wpdocs_my_page_capability( $capability ) {
 add_filter( 'option_page_capability_my-options-group', 'wpdocs_my_page_capability' );
 */
 
+function btq_booking_tc_log($filename, $string = ''){
+	$log_dir = plugin_dir_path( __FILE__ ) . 'log' ;
+	
+	if (!file_exists($log_dir)) {
+		mkdir($log_dir, 0755);
+	}
+	
+	file_put_contents($log_dir . DIRECTORY_SEPARATOR . $filename . date('_Y-m-d_U'). '.log', $string);
+}
+
 add_action( 'admin_menu', 'btq_booking_tc_admin_menu' );
 function btq_booking_tc_admin_menu() {
     add_menu_page(
@@ -217,7 +227,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
         '.$soapBody.'
 	</soap:Envelope>';
 	
-	error_log($soapEnvelope);
+	btq_booking_tc_log('soapenvelope', $soapEnvelope);
 	
 	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
