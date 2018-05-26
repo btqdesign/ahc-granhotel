@@ -103,8 +103,8 @@ jQuery(document).ready(function(){
 		    {
 				'action' : 'btq_booking_tc_grid',
 				'data' : {
-					entrada : moment(jQuery("#entrada").datepicker("getDate")).format('YYYY/MM/DD'), 
-					salida  : moment( jQuery("#salida").datepicker("getDate")).format('YYYY/MM/DD'),
+					entrada : moment(jQuery("#entrada").datepicker("getDate")).format('YYYY-MM-DD'), 
+					salida  : moment( jQuery("#salida").datepicker("getDate")).format('YYYY-MM-DD'),
 					adultos : jQuery("#adultos").val(),
 					ninos   : jQuery("#ninos").val(),
 					roomAmount : 1
