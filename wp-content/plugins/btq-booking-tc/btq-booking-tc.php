@@ -688,7 +688,7 @@ function btq_booking_tc_grid_shortcode() {
 	?>
 	<div id="btq-booking-grid">
 		<?php
-		btq_booking_tc_grid_rooms($language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*90) ));
+		btq_booking_tc_grid_rooms($language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*90) )) );
 		?>
 	</div>
 	</div>
