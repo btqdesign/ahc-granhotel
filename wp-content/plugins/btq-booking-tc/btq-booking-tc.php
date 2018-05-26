@@ -410,7 +410,7 @@ function btq_booking_tc_grid_get_images($path) {
 	return $images;
 }
 
-function btq_booking_tc_grid_rooms($language = 'es'){
+function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
 		case 'es':
@@ -423,7 +423,7 @@ function btq_booking_tc_grid_rooms($language = 'es'){
 		break;
 	}
 	
-	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
+	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true');
 	
 	//$debug = var_export($response, TRUE);
 	//echo htmlentities($debug);
@@ -688,7 +688,7 @@ function btq_booking_tc_grid_shortcode() {
 	?>
 	<div id="btq-booking-grid">
 		<?php
-		btq_booking_tc_grid_rooms($language);
+		btq_booking_tc_grid_rooms($language, date('Y-m-d', ( time() + (60*60*24*90) ), date('Y-m-d', ( time() + (60*60*24*90) ));
 		?>
 	</div>
 	</div>
