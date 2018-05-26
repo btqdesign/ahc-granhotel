@@ -702,8 +702,8 @@ add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
 	$post_array = array($_POST);
-	
-	error_log(json_encode($post_array));
+	$post_json  = json_encode($post_array);
+	error_log($post_json);
 	
 	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
 		$language = ICL_LANGUAGE_CODE;
