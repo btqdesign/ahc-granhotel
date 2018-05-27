@@ -363,13 +363,13 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		</section>
 		
 		<section class="row">
-			<article class="col-md-2">
+			<article class="col-md-4">
 				<input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
 				<input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
 				<div class="clearfix visible-xs-block"></div>	
 			</article>
 			
-			<article class="col-md-2">
+			<article class="col-md-4">
 				<select class="buttonpick2 col-xs-6">
 					<option value="1">1 Adulto</option>
 					<option value="2">2 Adultos</option>
