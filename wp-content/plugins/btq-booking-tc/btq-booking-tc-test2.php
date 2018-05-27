@@ -344,7 +344,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		
 		<section class="row">
 			<article class="col-md-5">
-				<h5 class="hosp">Selecciona un PAQUETE o HABITACIÓN</h5>
+				<h5 class="hosp"><?php _e('Select a PACKAGE or ROOM','btq-booking-tc'); ?></h5>
 			</article>
 			<article class="col-md-7">&nbsp;</article>
 		</section>
@@ -353,66 +353,53 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 		<section class="row">
 			<article class="col-md-12">
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Habitaciones</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Paquetes</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1"><?php _e('Top Rated','btq-booking-tc'); ?></button>
 				<div class="clearfix visible-xs-block"></div>
 			</article>
 		</section>
 		
 		<section class="row">
+			
+			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
+				
 			<article class="col-md-4">
-				<input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
-				<input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
+				<input class="buttonpick col-xs-6" id="entrada" name="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
+				<input class="buttonpickk col-xs-6" id="salida" name="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
 				<div class="clearfix visible-xs-block"></div>	
 			</article>
 			
 			<article class="col-md-4">
-				<select class="buttonpick2 col-xs-6">
-					<option value="1">1 Adulto</option>
-					<option value="2">2 Adultos</option>
-					<option value="3">3 Adultos</option>
-					<option value="4">4 Adultos</option>
-					<option value="5">5 Adultos</option>
-					<option value="6">6 Adultos</option>
-					<option value="7">7 Adultos</option>
-					<option value="8">8 Adultos</option>
-					<option value="9">9 Adultos</option>
+				<select class="buttonpick2 col-xs-6" id="adultos" name="adultos">
+					<?php for ($i = 1; $i <= 9; $i ++) { ?>
+					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+					<?php } ?>
 				</select>
 				
-				<select class="buttonpick2 col-xs-6">				
-					<option value="0">0 Niños</option>
-					<option value="1">1 Niño</option>
-					<option value="2">2 Niños</option>
-					<option value="3">3 Niños</option>
-					<option value="4">4 Niños</option>
-					<option value="5">5 Niños</option>
-					<option value="6">6 Niños</option>
-					<option value="7">7 Niños</option>
-					<option value="8">8 Niños</option>
-					<option value="9">9 Niños</option>
+				<select class="buttonpick2 col-xs-6" id="ninos" name="ninos">
+					<?php for ($i = 0; $i <= 9; $i ++) { ?>
+					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
+					<?php } ?>
 				</select>
 			</article>
 			
 			<article class="col-md-2">
-				<select class="buttonpick2 col-xs-12">				
-					<option value="1">1 Habitación</option>
-					<option value="2">2 Habitación</option>
-					<option value="3">3 Habitación</option>
-					<option value="4">4 Habitación</option>
-					<option value="5">5 Habitación</option>
-					<option value="6">6 Habitación</option>
-					<option value="7">7 Habitación</option>
-					<option value="8">8 Habitación</option>
-					<option value="9">9 Habitación</option>
+				<select class="buttonpick2 col-xs-12" id="habitaciones" name="habitaciones">
+					<?php for ($i = 1; $i <= 9; $i ++) { ?>
+					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
+					<?php } ?>
 				</select>
 			</article>
 			
 			<article class="col-md-2">					
-				<button class="buttonbus col-xs-12">BUSCAR</button>
+				<button class="buttonbus col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
 			</article>
+			
+			</form>
+			
 		</section>
 
 		<hr class="linea"/>
@@ -420,11 +407,11 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		<section class="row">
 			<article class="col-md-5">
 				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
-				<h5 class="hosp2">&nbsp;&nbsp;&nbsp;Consulta tus fechas-tarifa para hospedarte</h5>
+				<h5 class="hosp2">&nbsp;&nbsp;&nbsp;<?php _e('Check your dates-rate to stay','btq-booking-tc'); ?></h5>
 			</article>
 
 			<article class="col-md-7">
-				<p class="recordatorio">*Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)</p>
+				<p class="recordatorio"><?php _e('* Remember that having an advance reservation will always be a better option (rates shown at 90 days)','btq-booking-tc'); ?></p>
 			</article>
 			<hr class="linea"/>
 		</section>
