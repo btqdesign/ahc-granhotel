@@ -367,9 +367,15 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
 				
 			<article class="col-md-4">
-				<input class="buttonpick col-xs-6" id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
-				<input class="buttonpickk col-xs-6" id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">			
-				<div class="clearfix visible-xs-block"></div>	
+				<div class="row">
+					<div class="col-xs-6">
+						<input class="buttonpick" id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+					</div>
+					<div class="col-xs-6">
+						<input class="buttonpickk" id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">			
+					</div>
+					<!--<div class="clearfix visible-xs-block"></div>-->
+				</div>
 			</article>
 			
 			<article class="col-md-4">
