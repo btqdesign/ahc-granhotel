@@ -718,16 +718,19 @@ function btq_booking_tc_grid_ajax() {
 	//$post_log = var_export($_POST, TRUE);
 	//btq_booking_tc_log('ajax-post', $post_log);
 	
-	$post_log = var_export($post_array, TRUE);
-	
-	btq_booking_tc_log('ajax-post', $post_log);
-	
-	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$language = ICL_LANGUAGE_CODE;
+	if (isset($_POST['data'])){
+		$post_data = $_POST['data'];
+		
+		if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+			$language = ICL_LANGUAGE_CODE;
+		}
+		else {
+			$language = 'es';
+		}
+		
+		btq_booking_tc_grid_rooms($language, $post_data['entrada'], $post_data['salida'], 'rooms', 1, $post_data['adultos'], $post_data['ninos']);
 	}
 	else {
-		$language = 'es';
+		echo '';
 	}
-	
-	btq_booking_tc_grid_rooms($language, $post_array['entrada'], $post_array['salida'], 'rooms', 1, $post_array['adultos'], $post_array['ninos']);
 }
