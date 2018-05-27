@@ -366,19 +366,19 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			
 			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
 				
-			<article class="col-md-4">
+			<article class="col-xs-12 col-md-4">
 				<div class="row">
 					<div class="col-xs-6">
-						<input class="buttonpick" id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+						<input style="max-width: 100%; box-sizing: border-box;" class="buttonpick" id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
 					</div>
 					<div class="col-xs-6">
-						<input class="buttonpickk" id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">			
+						<input style="max-width: 100%; box-sizing: border-box;" class="buttonpickk" id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">			
 					</div>
 					<!--<div class="clearfix visible-xs-block"></div>-->
 				</div>
 			</article>
 			
-			<article class="col-md-4">
+			<article class="col-xs-12 col-md-4">
 				<select class="buttonpick2 col-xs-6" id="adultos" name="adultos">
 					<?php for ($i = 1; $i <= 9; $i ++) { ?>
 					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
