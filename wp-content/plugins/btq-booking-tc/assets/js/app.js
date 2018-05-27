@@ -1,17 +1,17 @@
 jQuery(document).ready(function(){ 
 
 	jQuery('#entrada').datepicker({
-		format: "dd/mm/yyyy",
+		dateFormat: 'dd/mm/yyyy',
 		maxViewMode: 3,
-		language: "es",
+		language: 'es',
 		autoclose: true,
 		todayHighlight: true
 	});
 	
 	jQuery('#salida').datepicker({
-		format: "dd/mm/yyyy",
+		dateFormat: 'dd/mm/yyyy',
 		maxViewMode: 3,
-		language: "es",
+		language: 'es',
 		autoclose: true,
 		todayHighlight: true
 	});
