@@ -1,7 +1,7 @@
 jQuery(document).ready(function(){ 
 
 	jQuery('#entrada').datepicker({
-		dateFormat: 'dd/mm/yyyy',
+		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
 		language: 'es',
 		autoclose: true,
@@ -9,7 +9,7 @@ jQuery(document).ready(function(){
 	});
 	
 	jQuery('#salida').datepicker({
-		dateFormat: 'dd/mm/yyyy',
+		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
 		language: 'es',
 		autoclose: true,
