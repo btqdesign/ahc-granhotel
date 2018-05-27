@@ -227,7 +227,8 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
         '.$soapBody.'
 	</soap:Envelope>';
 	
-	btq_booking_tc_log('soapenvelope', $soapEnvelope);
+	// Debug Log
+	//btq_booking_tc_log('soapenvelope', $soapEnvelope);
 	
 	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
@@ -713,7 +714,9 @@ function btq_booking_tc_grid_shortcode() {
 add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
-	$post_array = $_POST;
+	// Debug Log
+	//$post_log = var_export($_POST, TRUE);
+	//btq_booking_tc_log('ajax-post', $post_log);
 	
 	$post_log = var_export($post_array, TRUE);
 	
