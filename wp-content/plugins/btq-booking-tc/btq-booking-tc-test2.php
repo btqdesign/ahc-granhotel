@@ -352,22 +352,24 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		<hr class="linea" />
 
 		<section class="row">
-			<article class="col-md-5">
+			<article class="col-md-12">
 				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Habitaciones</button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891">Paquetes</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891">Paquetes</button>
 				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
+				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1">&nbsp;&nbsp;Mejor Calificadas</button>
 				<div class="clearfix visible-xs-block"></div>
 			</article>
-			
-			<article class="col-md-4">
+		</section>
+		
+		<section class="row">
+			<article class="col-md-2">
 				<input class="buttonpick col-xs-6" id="entrada" placeholder="Fecha de entrada">
 				<input class="buttonpickk col-xs-6" id="salida" placeholder="Fecha de salida">			
 				<div class="clearfix visible-xs-block"></div>	
 			</article>
 			
-			<article class="col-md-1">
+			<article class="col-md-2">
 				<select class="buttonpick2 col-xs-6">
 					<option value="1">1 Adulto</option>
 					<option value="2">2 Adultos</option>
@@ -391,6 +393,20 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 					<option value="7">7 Niños</option>
 					<option value="8">8 Niños</option>
 					<option value="9">9 Niños</option>
+				</select>
+			</article>
+			
+			<article class="col-md-2">
+				<select class="buttonpick2 col-xs-12">				
+					<option value="1">1 Habitación</option>
+					<option value="2">2 Habitación</option>
+					<option value="3">3 Habitación</option>
+					<option value="4">4 Habitación</option>
+					<option value="5">5 Habitación</option>
+					<option value="6">6 Habitación</option>
+					<option value="7">7 Habitación</option>
+					<option value="8">8 Habitación</option>
+					<option value="9">9 Habitación</option>
 				</select>
 			</article>
 			
