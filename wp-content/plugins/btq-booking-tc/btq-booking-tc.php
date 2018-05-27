@@ -609,7 +609,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
 			
 			<article class="col-md-4">
-				<input class="col-xs-6" id="entrada" name="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
+				<input class="col-xs-6 hb_input_date_check hasDatepicker" id="check_in_date" name="check_in_date" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
 				<input class="col-xs-6" id="salida" name="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
 				<div class="clearfix visible-xs-block"></div>	
 			</article>
