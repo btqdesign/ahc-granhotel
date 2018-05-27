@@ -379,17 +379,22 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			</article>
 			
 			<article class="col-xs-12 col-md-4">
-				<select class="buttonpick2 col-xs-6" id="adultos" name="adultos">
-					<?php for ($i = 1; $i <= 9; $i ++) { ?>
-					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
-					<?php } ?>
-				</select>
-				
-				<select class="buttonpick2 col-xs-6" id="ninos" name="ninos">
-					<?php for ($i = 0; $i <= 9; $i ++) { ?>
-					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
-					<?php } ?>
-				</select>
+				<div class="row">
+					<div class="col-xs-6">
+						<select style="max-width: 100%; box-sizing: border-box;" class="buttonpick2" id="adultos" name="adultos">
+							<?php for ($i = 1; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+							<?php } ?>
+						</select>
+					</div>
+					<div class="col-xs-6">
+						<select style="max-width: 100%; box-sizing: border-box;" class="buttonpick2" id="ninos" name="ninos">
+							<?php for ($i = 0; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</div>
 			</article>
 			
 			<article class="col-md-2">
