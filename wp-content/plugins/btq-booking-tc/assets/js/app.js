@@ -24,8 +24,8 @@ jQuery(document).ready(function(){
 
 
 			$(document).ready(function() {
-			    $(".vermas").click(function() {
-			        $(this).parent().nextAll('.recorrido').first().toggle('slow');
+			    $(".toggle-trigger").click(function() {
+			        $(this).parent().nextAll('.toggle-wrap').first().toggle('slow');
 			    });
 			});
 
