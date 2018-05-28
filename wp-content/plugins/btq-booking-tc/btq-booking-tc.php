@@ -597,8 +597,6 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 						if($arrayRoomRate[$j]['!RoomTypeCode'] == $roomTypeCode) array_push($rate_room, $arrayRoomRate[$j]);
 					}
 				}
-				
-				$last_index = $index;
 										
 				for ($l = 0; $l < count($rate_room); $l++) {
 					?>
@@ -794,8 +792,6 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 						if($arrayRoomRate[$j]['!RoomTypeCode'] == $roomTypeCode) array_push($rate_room, $arrayRoomRate[$j]);
 					}
 				}
-				
-				$last_index = $index;
 										
 				for ($l = 0; $l < count($rate_room); $l++) {
 					?>
