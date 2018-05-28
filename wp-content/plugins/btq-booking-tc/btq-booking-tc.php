@@ -744,8 +744,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			</article>
 			
 			<article class="col-md-4">
-				<h3 class="titulo"><?php echo $elementRatePlan['!RoomTypeName'] ?></h3>
-				<p><?php echo $elementRatePlan['RoomDescription']['Text']['!Text'] ?></p>
+				<h3 class="titulo"><?php echo $elementRatePlan['!RatePlanName'] ?></h3>
+				<p><?php echo $elementRatePlan['RatePlanDescription']['Text']['!Text'] ?></p>
 				
 				<?php
 				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
