@@ -786,26 +786,19 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			
 			<article class="col-md-3">
 				<br>
-				<?php
-				$rate_room = array();
-				for ($j = 0; $j < count($arrayRoomRate); $j++) {
-					if(isset($arrayRoomRate[$j]['!RoomTypeCode'])) {
-						if($arrayRoomRate[$j]['!RoomTypeCode'] == $roomTypeCode) array_push($rate_room, $arrayRoomRate[$j]);
-					}
-				}
-										
-				for ($l = 0; $l < count($rate_room); $l++) {
+				<?php					
+				foreach($roomRate as $roomRatePrice) {
 					?>
-					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></p>
-					<p><?php echo $rate_room[$l]['!RatePlanName']; ?></p>
+					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$roomRatePrice['Total']['!AmountAfterTax']:$roomRatePrice['Total']['!AmountBeforeTax']); ?></p>
+					<p><?php echo $roomRatePrice['!RatePlanName']; ?></p>
 					<?php
 					if ($precio == 0) { 
 						/* Inicializa el valor de precio*/
-						$precio = ($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
+						$precio = ($language == 'es')?$roomRatePrice['Total']['!AmountAfterTax']:$roomRatePrice['Total']['!AmountBeforeTax'];
 					} 
 					else {
-						if ($precio > $rate_room[$l]['Total']['!AmountAfterTax']){ /* Valida que sea el precio menor*/
-							$precio = $rate_room[$l]['Total']['!AmountAfterTax'];
+						if ($precio > $roomRatePrice['Total']['!AmountAfterTax']){ /* Valida que sea el precio menor*/
+							$precio = $roomRatePrice['Total']['!AmountAfterTax'];
 						}
 					}
 				}
