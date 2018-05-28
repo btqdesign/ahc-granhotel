@@ -358,7 +358,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<button id="btq-btn-packages" name="btq-btn-rooms" class="btn btq-btn"><?php _e('Packages','btq-booking-tc'); ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>"><?php _e('Top Rated','btq-booking-tc'); ?></button>
+				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><?php _e('Top Rated','btq-booking-tc'); ?></button>
 			</div>
 		</section>
 		
