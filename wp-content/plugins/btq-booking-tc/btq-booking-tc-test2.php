@@ -365,58 +365,58 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		<section class="row">
 			
 			<form name="btq-booking-tc-datepicker-form" id="btq-booking-tc-datepicker-form" action="" target="_self" method="post">
+					
+				<article class="col-xs-12 col-md-4">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<input class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<input class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">
+							</div>		
+						</div>
+					</div>
+				</article>
 				
-			<article class="col-xs-12 col-md-4">
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="form-group">
-							<input id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+				<article class="col-xs-12 col-md-4">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<select class="btq-select" id="btq-num-adults" name="btq-num-adults">
+									<?php for ($i = 1; $i <= 9; $i ++) { ?>
+									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<select class="btq-select" id="btq-num-children" name="btq-num-children">
+									<?php for ($i = 0; $i <= 9; $i ++) { ?>
+									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
+									<?php } ?>
+								</select>
+							</div>
 						</div>
 					</div>
-					<div class="col-xs-6">
-						<div class="form-group">
-							<input id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">
-						</div>		
+				</article>
+				
+				<article class="col-xs-12 col-md-2">
+					<div class="form-group">
+						<select class="btq-select" id="btq-num-rooms" name="btq-num-rooms">
+							<?php for ($i = 1; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
+							<?php } ?>
+						</select>
 					</div>
-				</div>
-			</article>
-			
-			<article class="col-xs-12 col-md-4">
-				<div class="row">
-					<div class="col-xs-6">
-						<div class="form-group">
-							<select id="adultos" name="adultos">
-								<?php for ($i = 1; $i <= 9; $i ++) { ?>
-								<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
-								<?php } ?>
-							</select>
-						</div>
-					</div>
-					<div class="col-xs-6">
-						<div class="form-group">
-							<select id="ninos" name="ninos">
-								<?php for ($i = 0; $i <= 9; $i ++) { ?>
-								<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
-								<?php } ?>
-							</select>
-						</div>
-					</div>
-				</div>
-			</article>
-			
-			<article class="col-xs-12 col-md-2">
-				<div class="form-group">
-					<select id="habitaciones" name="habitaciones">
-						<?php for ($i = 1; $i <= 9; $i ++) { ?>
-						<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
-						<?php } ?>
-					</select>
-				</div>
-			</article>
-			
-			<article class="col-xs-12 col-md-2">					
-				<button class="btn btn-default" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
-			</article>
+				</article>
+				
+				<article class="col-xs-12 col-md-2">					
+					<button class="btn btn-default btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+				</article>
 			
 			</form>
 			
