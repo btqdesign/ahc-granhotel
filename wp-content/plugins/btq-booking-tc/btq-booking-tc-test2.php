@@ -489,10 +489,11 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
 
-				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
-				<a href="#" id="vermas">Ver más</a>
+				<div>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
+                <a class="vermas">Ver más</a></div>
 
-				<aside id="mostrar" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
+                <div class="texto_recorrido" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW
+                </div>
 				
 				
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
@@ -586,10 +587,11 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
 
-				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
-				<a href="#1" id="vermas1">Ver más</a>
+				<div>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
+                <a class="vermas">Ver más</a></div>
 
-				<aside id="mostrar1" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
+                <div class="texto_recorrido" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW
+                </div>
 				
 				
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
@@ -683,10 +685,11 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
 
-				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
-				<a href="#2" id="vermas2">Ver más</a>
+				<div>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
+                <a class="vermas">Ver más</a></div>
 
-				<aside id="mostrar2" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
+                <div class="texto_recorrido" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW
+                </div>
 				
 				
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
@@ -779,12 +782,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 				<h3 class="titulo">Habitacion de Lujo King No Reembolsable</h3>
 
-				<aside>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
-				<a href="#3" id="vermas3">Ver más</a>
+				<div>La habitación de Lujo King No Reembolsable cuenta con una cama King size y vista a la calle 16 de septiembre. Televisor LCD de 50 pulgadas con control remoto y canales de cable, aire acondicionado, 
+                <a class="vermas">Ver más</a></div>
 
-				<aside id="mostrar3" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW</aside></aside> 
-				
-				
+                <div class="texto_recorrido" style="display:none">mini bar, sala de bano privada con regadera y bañera, espejo de vanidad, amenidades, secadora de cabello, cafetera y kit de cafe, closet, caja de seguridad, plancha y mesa de planchado, escritorio de trabajo, conexion wi-fi y alambrica a internet, llave electronica y telefono con linea directa. PREPAGO: SE LE COBRARÁ UN PREPAGO DEL PRECIO TOTAL EN CUALQUIER MOMENTO, CANCELACIÓN: SE LE COBRARÁ EL PRECIO TOTAL SI CANCELA SU RESERVA O SI ES NO SHOW
+                </div>
+
+
+
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-03.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-01.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
