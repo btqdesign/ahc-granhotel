@@ -598,7 +598,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 
 		<section class="row">
 			<div class="col-xs-12 col-md-4">
-				<button class="btn btq-btn" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
+				<button class="btn btn-default btq-btn" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
 				<button class="btn btq-btn" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
