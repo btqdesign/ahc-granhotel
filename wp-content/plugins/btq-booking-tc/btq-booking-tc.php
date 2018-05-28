@@ -723,8 +723,8 @@ add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
 	// Debug Log
-	//$post_log = var_export($_POST, TRUE);
-	//btq_booking_tc_log('ajax-post', $post_log);
+	$post_log = var_export($_POST, TRUE);
+	btq_booking_tc_log('ajax-post', $post_log);
 	
 	if (isset($_POST['data'])){
 		$post_data = $_POST['data'];
