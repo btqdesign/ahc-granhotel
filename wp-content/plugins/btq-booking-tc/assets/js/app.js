@@ -1,14 +1,3 @@
-new Request.HTML({
-    url: '/echo/html/',
-    data: {
-        html: "<p>Text echoed back to request</p>" + "<script type='text/javascript'>$('target').highlight();<\/script>",
-        delay: 3
-    },
-    method: 'post',
-    update: 'target'
-}).send();
-
-
 
 jQuery(document).ready(function(){ 
 
