@@ -703,6 +703,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		$RatePlanCode = $elementRatePlan['!RatePlanCode'];
 		$roomRate = $arrayRoomRate[$RatePlanCode];
 		$roomTypeCode = $roomRate['!RoomTypeCode'];
+		$roomType = $arrayRoomType[$roomTypeCode];
 		
 		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
@@ -760,7 +761,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 				<p><?php echo $elementRatePlan['RatePlanDescription']['Text']['!Text'] ?></p>
 				
 				<?php
-				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
+				foreach($roomType['Amenities']['Amenity'] as $RoomAmenitie){
 					if ( isset( $RoomAmenitie['!ExistsCode'] ) ){
 						//$RoomAmenitie['!ExistsCode'], $RoomAmenitie['!RoomAmenity'];
 						$amenityCode     = $RoomAmenitie['!ExistsCode'];
