@@ -340,6 +340,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 	<div class="container">
 		
+		<!--- FROM --->
 		<hr class="linea"/>	
 		
 		<section class="row">
@@ -439,12 +440,12 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			<hr class="linea"/>
 		</section>
 		
-                        <hr class="linea" />   
+        <hr class="linea" />
+        <!--- FROM --->   
 
 		
-		<!-- OK -->
+		<!--- GRID --->
 		<section class="row">
-			
 			
 			<article class="col-md-5">
 				<div id="btq-carousel-00000" class="carousel slide" data-ride="carousel">
@@ -766,7 +767,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			</article>
 		</section>
 		
-		<hr class="linea" />	
+		<hr class="linea" />
+		<!--- GRID --->
+		
 	</div>
 	
 	
