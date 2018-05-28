@@ -343,10 +343,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		<hr class="linea"/>	
 		
 		<section class="row">
-			<article class="col-md-5">
+			<article class="col-md-12">
 				<h5 class="hosp"><?php _e('Select a PACKAGE or ROOM','btq-booking-tc'); ?></h5>
 			</article>
-			<article class="col-md-7">&nbsp;</article>
 		</section>
 
 		<hr class="linea" />
@@ -365,7 +364,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		
 		<section class="row">
 			
-			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
+			<form name="btq-booking-tc-datepicker-form" id="btq-booking-tc-datepicker-form" action="" target="_self" method="post">
 				
 			<article class="col-xs-12 col-md-4">
 				<div class="row">
