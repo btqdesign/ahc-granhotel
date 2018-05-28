@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){ 
 
-	jQuery('#tq-date-start').datepicker({
+	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
 		language: 'es',
@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 		todayHighlight: true
 	});
 	
-	jQuery('#tq-date-end').datepicker({
+	jQuery('#btq-date-end').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
 		language: 'es',
