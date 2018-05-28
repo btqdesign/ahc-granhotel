@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
 	
 		$(function(){ 
 		  $('.vermas').click( function() {
-		    $(this).children("div").toggle();
+		    $(this).children('.texto_recorrido').toggle();
 		  });
 		});
 
