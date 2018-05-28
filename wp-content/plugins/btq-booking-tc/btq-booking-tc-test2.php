@@ -418,7 +418,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				
 				<article class="col-xs-12 col-md-2">	
 					<input type="hidden" id="btq-type-query" name="btq-type-query" value="rooms">				
-					<button class="btn btn-default btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+					<button class="btn btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
 				</article>
 			
 			</form>
@@ -516,7 +516,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<hr class="linea"/>
 				<h3 class="precio">$MXN 2,733.03   /noche</h3>
                 <br>
-				<button class="buttonreserv">Reservar Ahora  </button>
+				<button class="buttonreserv">Reservar Ahora</button>
 			</article>
 		</section>
 

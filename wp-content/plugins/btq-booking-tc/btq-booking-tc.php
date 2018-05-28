@@ -664,7 +664,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 				
 				<article class="col-xs-12 col-md-2">	
 					<input type="hidden" id="btq-type-query" name="btq-type-query" value="rooms">				
-					<button class="btn btn-default btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+					<button class="btn btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
 				</article>
 			
 			</form>
