@@ -22,13 +22,12 @@ jQuery(document).ready(function(){
 		jQuery(document).ready(function () {
 	    jQuery('.texto_recorrido').hide();
 	    jQuery('.vermas').click(function () {
-	        // .parent() selects the A tag, .next() selects the P tag
+	        
 	        jQuery(this).parent().next().slideToggle(200);
+	        jQuery(this).text('');
 	    });
 	    jQuery('.texto_recorrido').slideUp(200);
 	});
-
-
 
 	
 	
