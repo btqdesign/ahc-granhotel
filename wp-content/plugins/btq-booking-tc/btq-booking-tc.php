@@ -649,11 +649,11 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	$response_log = var_export($response, TRUE);
 	btq_booking_tc_log('grid_packages', $response_log);
 	
-	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	$RatePlan = $response['RoomStays']['RoomStay']['RatePlans']['RatePlan'];
 	
-	$arrayRoomType = array();
-	foreach($RoomType as $RoomTypeElement){
-		$arrayRoomType[] = $RoomTypeElement;
+	$arrayRatePlan = array();
+	foreach($RatePlan as $$RatePlanElement){
+		$arrayRatePlan[] = $RatePlanElement;
 	}
 	
 	
@@ -661,14 +661,37 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	
 	$arrayRoomRate = array();
 	foreach($RoomRate as $RoomRateElement){
-		$arrayRoomRate[] = $RoomRateElement;
+		if ($RoomRateElement['!RatePlanType'] == 'Package'){
+			$arrayRoomRate[$RoomRateElement['!RatePlanCode']] = $RoomRateElement;
+		}
 	}
+	
+	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	
+	$arrayRoomTypeAll = array();
+	foreach($RoomType as $RoomTypeElement){
+		$arrayRoomTypeAll[$RoomTypeElement] = $RoomTypeElement;
+	}
+	
+	$arrayRoomType = array();
+	foreach($arrayRoomTypeAll as $arrayRoomTypeAllElement){
+		foreach($arrayRoomRate as $arrayRoomRateElement){
+			if($arrayRoomTypeAllElement['!RoomTypeCode'] == $arrayRoomRateElement['!RoomTypeCode']){
+				$arrayRoomType[$arrayRoomTypeAllElement['!RoomTypeCode']] = $arrayRoomTypeAllElement;
+			}
+		}
+	}
+	
 	
 	$images_path = 'assets/images/';
 	
 	$i = 0;
-	foreach($arrayRoomType as $elementRoomType){
-		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
+	foreach($arrayRatePlan as $elementRatePlan){
+		
+		$RatePlanCode = $elementRatePlan['!RatePlanCode'];
+		$roomRate = $arrayRoomRate[$RatePlanCode];
+		$roomTypeCode = $roomRate['!RoomTypeCode'];
+		
 		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
 		?>
@@ -676,7 +699,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		<section class="row">
 			
 			<article class="col-md-5">
-				<div id="btq-carousel-<?php echo $roomTypeCode; ?>" class="carousel slide" data-ride="carousel">
+				<div id="btq-carousel-<?php echo $RatePlanCode; ?>" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					<?php 
@@ -684,7 +707,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 					foreach ($images as $im) {
 					$class_active = ($count_img == 0) ? ' class="active"' : '';
 					?>
-						<li data-target="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
+						<li data-target="#btq-carousel-<?php echo $RatePlanCode; ?>" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
 					<?php
 					$count_img++;
 					}
@@ -709,11 +732,11 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 					</div>
 
 					<!-- Left and right controls -->
-					<a class="left carousel-control" href="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide="prev">
+					<a class="left carousel-control" href="#btq-carousel-<?php echo $RatePlanCode; ?>" data-slide="prev">
 						<span class="glyphicon glyphicon-chevron-left"></span>
 						<span class="sr-only">Anterior</span>
 					</a>
-					<a class="right carousel-control" href="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide="next">
+					<a class="right carousel-control" href="#btq-carousel-<?php echo $RatePlanCode; ?>" data-slide="next">
 						<span class="glyphicon glyphicon-chevron-right"></span>
 						<span class="sr-only">Siguiente</span>
 					</a>
@@ -721,8 +744,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			</article>
 			
 			<article class="col-md-4">
-				<h3 class="titulo"><?php echo $elementRoomType['!RoomTypeName'] ?></h3>
-				<p><?php echo $elementRoomType['RoomDescription']['Text']['!Text'] ?></p>
+				<h3 class="titulo"><?php echo $elementRatePlan['!RoomTypeName'] ?></h3>
+				<p><?php echo $elementRatePlan['RoomDescription']['Text']['!Text'] ?></p>
 				
 				<?php
 				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
@@ -787,7 +810,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		<?php
 		$i++;
 		$precio = 0;
-	} // foreach($arrayRoomType as $elementRoomType)
+	} // foreach($arrayRoomType as $elementRatePlan)
 } // function btq_booking_tc_grid_packages()
 
 function btq_booking_tc_grid_form($language = 'es') {
