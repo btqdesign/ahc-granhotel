@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 	
 	
 	
-	jQuery('#btq-bookin-tc-button-search').click(function() {
+	jQuery('#btq-search').click(function() {
 		jQuery("#wait").css("display", "block");
 		
 		jQuery(".preloader").css("display", "block");
