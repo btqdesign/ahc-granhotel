@@ -108,7 +108,7 @@ function btq_booking_tc_admin_settings_page() {
 
 function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
 	
-	if ($typeQuery == 'package'){
+	if ($typeQuery == 'packages'){
 		// Paquete
 		$wsaTo = 'https://ota2.ihotelier.com/OTA_Seamless/services/FullDataService';
 		$wsaAction = 'FULL';
@@ -748,7 +748,7 @@ function btq_booking_tc_grid_ajax() {
 		if ($post_data['btq_type_query'] == 'rooms'){
 			btq_booking_tc_grid_rooms($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
 		}
-		elseif ($post_data['btq_type_query'] == 'package'){
+		elseif ($post_data['btq_type_query'] == 'packages'){
 			echo '';
 		}
 		else {

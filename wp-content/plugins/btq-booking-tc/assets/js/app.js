@@ -132,17 +132,23 @@ jQuery(document).ready(function(){
 		jQuery('#btq-btn-rooms').addClass('btn-default');
 		jQuery('#btq-btn-packages').removeClass('btn-default');
 		jQuery('#btq-btn-top').removeClass('btn-default');
+		
+		jQuery('#btq-type-query').val('rooms');
 	});
 	
 	jQuery('#btq-btn-packages').click(function() {
 		jQuery('#btq-btn-rooms').removeClass('btn-default');
 		jQuery('#btq-btn-packages').addClass('btn-default');
 		jQuery('#btq-btn-top').removeClass('btn-default');
+		
+		jQuery('#btq-type-query').val('packages');
 	});
 	
 	jQuery('#btq-btn-top').click(function() {
 		jQuery('#btq-btn-rooms').removeClass('btn-default');
 		jQuery('#btq-btn-packages').removeClass('btn-default');
 		jQuery('#btq-btn-top').addClass('btn-default');
+		
+		jQuery('#btq-type-query').val('rooms');
 	});
 });
