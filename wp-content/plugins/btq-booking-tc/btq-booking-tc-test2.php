@@ -706,7 +706,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		
             <article class="col-md-3 grisfondo">
 
-                <form style="overflow: auto; width: 100%; height: 170px;">
+                <form>
                 <label class="radio-inline">
                   <input type="radio" name="optradio">$MXN 2,733.03
                 </label>
