@@ -511,8 +511,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 		
 			<article class="col-md-3 grisfondo">
 
-                <form>
-                    <iframe src="/default.asp" width="32%" height="100%" scrolling="yes">
+                <form style="    overflow: auto;">
                 <label class="radio-inline">
                   <input type="radio" name="optradio">$MXN 2,733.03
                 </label>
@@ -528,7 +527,6 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                 </label>
                 <p>Mejor tarifa garantizada</p>
                 <p>Con mas beneficios</p>
-            </iframe>
                 </form>
 				<br>
 				<hr class="linea"/>
