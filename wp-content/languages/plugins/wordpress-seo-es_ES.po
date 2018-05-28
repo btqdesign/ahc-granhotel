@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-05-24 11:49:24+0000\n"
+"PO-Revision-Date: 2018-05-27 06:59:13+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -194,7 +194,7 @@ msgstr "Entradas que no deberían mostrarse en los resultados de búsqueda"
 #. closing strong tag
 #: admin/statistics/class-statistics-service.php:203
 msgid "Posts with the SEO score: %1$sgood%2$s"
-msgstr "Entradas con puntuación SEO: %1$sbuena%2$s"
+msgstr "Entradas con puntuación SEO: %1$sBuena%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag
@@ -987,7 +987,7 @@ msgstr "Entradas %1$ssin%2$s palabra clave objetivo"
 
 #: admin/statistics/class-statistics-service.php:65
 msgid "Hey, your SEO is doing pretty well! Check out the stats:"
-msgstr "Eh, ¡tu SEO está funcionando bastante bien! Echa un vistazo a las estadísticas:"
+msgstr "¡Eh, tu SEO está funcionando bastante bien! Echa un vistazo a las estadísticas:"
 
 #: admin/statistics/class-statistics-service.php:61
 msgid "You don't have any published posts, your SEO scores will appear here once you make your first post!"
@@ -2552,7 +2552,7 @@ msgstr "Crea mapas del sitio XML de noticias"
 
 #: admin/views/licenses.php:66
 msgid "Immediately pings Google on the publication of a new post"
-msgstr "Hace inmediatamente pings a Google cada vez que se publica una nueva entrada"
+msgstr "Hace inmediatamente ping a Google cada vez que se publica una nueva entrada"
 
 #: admin/views/licenses.php:65
 msgid "Optimize your site for Google News"
@@ -3019,7 +3019,7 @@ msgstr "Analizar el sitio completo"
 
 #: admin/class-yoast-dashboard-widget.php:127
 msgid "Fetch the current status"
-msgstr "Ver el estado actual."
+msgstr "Consultar el estado actual"
 
 #. translators: %1$s: opens a link to a related knowledge base article, %2$s:
 #. expands to Yoast SEO, %3$s: closes the link, %4$s: expands to Ryte.
@@ -4423,7 +4423,7 @@ msgstr "¿Quieres eliminar estos anuncios?"
 #. translators: %s is the plugin name
 #: admin/class-yoast-dashboard-widget.php:59
 msgid "%s Posts Overview"
-msgstr "%s Información General de Entradas"
+msgstr "Información general de entradas de %s"
 
 #: admin/taxonomy/class-taxonomy-settings-fields.php:42
 msgid "The Breadcrumbs Title is used in the breadcrumbs where this taxonomy appears."
