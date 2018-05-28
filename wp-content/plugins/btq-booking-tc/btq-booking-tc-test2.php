@@ -606,15 +606,30 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
 		
-			<article class="col-md-3 grisfondo">
-				<br>
-				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
-				<p>Con mas beneficios</p>
-				<hr class="linea"/>
-				<h3 class="precio">$MXN 2,733.03   /noche</h3>
+			 <article class="col-md-3 grisfondo">
+
+                <form style="overflow: auto; width: 100%; height: 170px;">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
+                </label>
+                <p>Mejor tarifa garantizada</p>
+                <p>Con mas beneficios</p>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
+                </label>
+                <p>Mejor tarifa garantizada</p>
+                <p>Con mas beneficios</p>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
+                </label>
+                <p>Mejor tarifa garantizada</p>
+                <p>Con mas beneficios</p>
+                </form>
+                <hr class="linea"/>
+                <h3 class="precio">$MXN 2,733.03   /noche</h3>
                 <br>
-				<button class="buttonreserv">Reservar Ahora  </button>
-			</article>
+                <button class="buttonreserv">Reservar Ahora</button>
+            </article>
 		</section>
 
 
@@ -688,15 +703,30 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				<input type="image" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_c.png', __FILE__ ); ?>" alt="Submit" width="30" height="30">
 			</article>
 		
-			<article class="col-md-3 grisfondo">
-				<br>
-				<input type="checkbox"> Mejor tarifa garantizada <p>$MXN 2,733.03</p>
-				<p>Con mas beneficios</p>
-				<hr class="linea"/>
-				<h3 class="precio">$MXN 2,733.03   /noche</h3>
+            <article class="col-md-3 grisfondo">
+
+                <form style="overflow: auto; width: 100%; height: 170px;">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
+                </label>
+                <p>Mejor tarifa garantizada</p>
+                <p>Con mas beneficios</p>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
+                </label>
+                <p>Mejor tarifa garantizada</p>
+                <p>Con mas beneficios</p>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
+                </label>
+                <p>Mejor tarifa garantizada</p>
+                <p>Con mas beneficios</p>
+                </form>
+                <hr class="linea"/>
+                <h3 class="precio">$MXN 2,733.03   /noche</h3>
                 <br>
-				<button class="buttonreserv">Reservar Ahora  </button>
-			</article>
+                <button class="buttonreserv">Reservar Ahora</button>
+            </article>
 		</section>
 
 
