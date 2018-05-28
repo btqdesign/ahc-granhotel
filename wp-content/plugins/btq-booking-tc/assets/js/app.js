@@ -89,12 +89,9 @@ jQuery(document).ready(function(){
 	);
 	
 	
-	jQuery('#btq-booking-tc-form').submit(false);
-	
+		
 	jQuery('#btq-search').click(function() {
 		console.log('#btq-search click function');
-		
-		jQuery('#btq-booking-tc-form').submit(function(e){ e.preventDefault(); });
 		
 		jQuery("#wait").css("display", "block");
 		
