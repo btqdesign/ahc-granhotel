@@ -647,10 +647,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	$response_log = var_export($response, TRUE);
 	btq_booking_tc_log('grid_packages', $response_log);
 	
-	$RatePlan = $response['RoomStays']['RoomStay']['RatePlans']['RatePlan'];
+	$ResponseRatePlan = $response['RoomStays']['RoomStay']['RatePlans']['RatePlan'];
 	
 	$arrayRatePlan = array();
-	foreach($RatePlan as $RatePlanElement){
+	foreach($ResponseRatePlan as $RatePlanElement){
 		if ($RatePlanElement['!RatePlanType'] == 'Package'){
 			$arrayRatePlan[] = $RatePlanElement;
 		}
@@ -661,10 +661,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	btq_booking_tc_log('grid_packages_rate_plan', $response_log);
 	
 	
-	$RoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
+	$ResponseRoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
 	
 	$arrayRoomRate = array();
-	foreach($RoomRate as $RoomRateElement){
+	foreach($ResponseRoomRate as $RoomRateElement){
 		if ($RoomRateElement['!RatePlanType'] == 'Package'){
 			$arrayRoomRate[$RoomRateElement['!RatePlanCode']] = $RoomRateElement;
 		}
@@ -674,10 +674,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	$response_log = var_export($arrayRoomRate, TRUE);
 	btq_booking_tc_log('grid_packages_room_rate', $response_log);
 	
-	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	$ResponseRoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
 	$arrayRoomTypeAll = array();
-	foreach($RoomType as $RoomTypeElement){
+	foreach($ResponseRoomType as $RoomTypeElement){
 		$arrayRoomTypeAll[$RoomTypeElement] = $RoomTypeElement;
 	}
 	
