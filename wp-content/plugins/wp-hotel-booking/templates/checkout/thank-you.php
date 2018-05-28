@@ -6,7 +6,7 @@
  *
  * @author  ThimPress, leehld
  * @package WP-Hotel-Booking/Templates
- * @version 1.9.5
+ * @version 1.9.7
  */
 
 /**
@@ -60,9 +60,10 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 
 				<?php foreach ( $rooms as $k => $room ) { ?>
 
+					<?php $room_id = apply_filters( 'hotel-booking-order-room-id', hb_get_order_item_meta( $room->order_item_id, 'product_id', true ) ); ?>
                     <tr>
                         <td>
-							<?php printf( '<a href="%s">%s</a>', get_permalink( hb_get_order_item_meta( $room->order_item_id, 'product_id', true ) ), $room->order_item_name ) ?>
+							<?php printf( '<a href="%s">%s</a>', get_permalink( $room_id ), get_the_title( $room_id ) ) ?>
                         </td>
                         <td>
 							<?php printf( '%s - %s', date_i18n( hb_get_date_format(), hb_get_order_item_meta( $room->order_item_id, 'check_in_date', true ) ), date_i18n( hb_get_date_format(), hb_get_order_item_meta( $room->order_item_id, 'check_out_date', true ) ) ) ?>
@@ -80,11 +81,12 @@ $key        = isset( $_GET['key'] ) ? $_GET['key'] : '';
 
 					<?php $packages = hb_get_order_items( $booking->id, 'sub_item', $room->order_item_id ); ?>
 					<?php if ( $packages ) { ?>
-						<?php foreach ( $packages as $package ) { ?>
-							<?php $extra = hotel_booking_get_product_class( hb_get_order_item_meta( $package->order_item_id, 'product_id', true ) ); ?>
-                            <tr data-order-parent="<?php echo esc_attr( $room->order_item_id ); ?>">
+						<?php foreach ( $packages as $package ) {
+							$extra_id = apply_filters( 'hotel-booking-order-extra-id', hb_get_order_item_meta( $package->order_item_id, 'product_id', true ) );
+							$extra    = hotel_booking_get_product_class( $extra_id ); ?>
+                            <tr data-order-parent="<?php echo $extra_id; ?>">
                                 <td colspan="3">
-									<?php echo esc_html( $package->order_item_name ); ?>
+									<?php echo get_the_title( $extra_id ); ?>
                                 </td>
                                 <td>
 									<?php echo esc_html( hb_get_order_item_meta( $package->order_item_id, 'qty', true ) ); ?>

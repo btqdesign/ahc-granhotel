@@ -77,6 +77,12 @@ Yes.
 
 == Changelog ==
 
+= 1.9.7 =
++ Update compatible with WPML
+
+= 1.9.6.2 =
++ Update search room process
+
 = 1.9.6.1 =
 + Fix search room process
 

@@ -374,13 +374,14 @@ class HB_Extra_Cart {
 
 		$html = array();
 		foreach ( $packages as $k => $package ) {
-			$extra = hotel_booking_get_product_class( hb_get_order_item_meta( $package->order_item_id, 'product_id', true ) );
+			$extra_id = apply_filters( 'hotel-booking-order-extra-id', hb_get_order_item_meta( $package->order_item_id, 'product_id', true ) );
+			$extra    = hotel_booking_get_product_class( $extra_id );
 			// $extra->respondent === 'number'
 			$html[] = '<tr data-order-parent="' . esc_attr( $room->order_item_id ) . '">';
 
-			$html[] = sprintf( '<td class="center"><input type="checkbox" name="book_item[]" value="%s" /></td>', $package->order_item_id );
+			$html[] = sprintf( '<td class="center"><input type="checkbox" name="book_item[]" value="%s" /></td>', $extra_id );
 
-			$html[] = sprintf( '<td class="name" colspan="3">%s</td>', $package->order_item_name );
+			$html[] = sprintf( '<td class="name" colspan="3">%s</td>', get_the_title( $extra_id ) );
 
 			$html[] = sprintf( '<td class="qty">%s</td>', hb_get_order_item_meta( $package->order_item_id, 'qty', true ) );
 

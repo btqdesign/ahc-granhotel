@@ -36,7 +36,7 @@ class WPHB_Settings {
 	function __construct( $new_prefix = null, $default = array() ) {
 
 		add_action( 'admin_init', array( $this, 'update_settings' ) );
-		add_action( 'admin_init', array( $this, 'admin_notice' ) );
+//		add_action( 'admin_init', array( $this, 'admin_notice' ) );
 
 		if ( $new_prefix ) {
 			$this->_option_prefix = $new_prefix;

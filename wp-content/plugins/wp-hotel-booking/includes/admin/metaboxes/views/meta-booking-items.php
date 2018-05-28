@@ -51,12 +51,14 @@ $rooms      = hb_get_order_items( $post->ID );
 		<?php foreach ( $rooms as $k => $room ) : ?>
 			<?php do_action( 'hotel_booking_before_room_item', $room, $hb_booking ); ?>
 
+			<?php $room_id = apply_filters( 'hotel-booking-order-room-id', hb_get_order_item_meta( $room->order_item_id, 'product_id', true ) ); ?>
+
             <tr>
                 <td class="center">
                     <input type="checkbox" name="book_item[]" value="<?php echo esc_attr( $room->order_item_id ) ?>"/>
                 </td>
                 <td class="name left">
-					<?php printf( '<a href="%s">%s</a>', get_edit_post_link( hb_get_order_item_meta( $room->order_item_id, 'product_id', true ) ), $room->order_item_name ) ?>
+					<?php printf( '<a href="%s">%s</a>', get_edit_post_link( $room_id ), get_the_title( $room_id ) ) ?>
                 </td>
                 <td class="checkin_checkout center">
 					<?php printf( '%s - %s', date_i18n( hb_get_date_format(), hb_get_order_item_meta( $room->order_item_id, 'check_in_date', true ) ), date_i18n( hb_get_date_format(), hb_get_order_item_meta( $room->order_item_id, 'check_out_date', true ) ) ) ?>
