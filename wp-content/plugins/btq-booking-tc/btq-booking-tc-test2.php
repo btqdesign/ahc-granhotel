@@ -705,8 +705,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			</article>
 		
             <article class="col-md-3 grisfondo">
-
-                <for              <input type="radio" name="optradio">$MXN 2,733.03
+                <form>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
                 </label>
                 <p>Mejor tarifa garantizada</p>
                 <p>Con mas beneficios</p>
@@ -800,8 +801,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			</article>
 		
             <article class="col-md-3 grisfondo">
-
-                <for              <input type="radio" name="optradio">$MXN 2,733.03
+                <form>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio">$MXN 2,733.03
                 </label>
                 <p>Mejor tarifa garantizada</p>
                 <p>Con mas beneficios</p>
