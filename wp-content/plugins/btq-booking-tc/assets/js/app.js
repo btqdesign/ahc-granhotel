@@ -19,16 +19,11 @@ jQuery(document).ready(function(){
 	
 	
 	
-	
-	
-	
-
-
-			$(document).ready(function() {
-			    $(".toggle-trigger").click(function() {
-			        $(this).parent().nextAll('.toggle-wrap').first().toggle('slow');
-			    });
-			});
+		$(function(){ 
+		  $('.vermas').click( function() {
+		    $(this).children("div").toggle();
+		  });
+		});
 
 
 
