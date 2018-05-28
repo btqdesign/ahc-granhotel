@@ -90,6 +90,8 @@ jQuery(document).ready(function(){
 	
 	
 	
+	jQuery('#btq-booking-tc-form').submit(false);
+	
 	jQuery('#btq-bookin-tc-button-search').click(function() {
 		jQuery("#wait").css("display", "block");
 		
