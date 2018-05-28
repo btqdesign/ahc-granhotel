@@ -653,7 +653,9 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	
 	$arrayRatePlan = array();
 	foreach($RatePlan as $RatePlanElement){
-		$arrayRatePlan[] = $RatePlanElement;
+		if ($RatePlanElement['!RatePlanType'] == 'Package'){
+			$arrayRatePlan[] = $RatePlanElement;
+		}
 	}
 	
 	// Debug Log
