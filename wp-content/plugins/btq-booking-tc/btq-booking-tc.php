@@ -652,7 +652,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	$RatePlan = $response['RoomStays']['RoomStay']['RatePlans']['RatePlan'];
 	
 	$arrayRatePlan = array();
-	foreach($RatePlan as $$RatePlanElement){
+	foreach($RatePlan as $RatePlanElement){
 		$arrayRatePlan[] = $RatePlanElement;
 	}
 	
