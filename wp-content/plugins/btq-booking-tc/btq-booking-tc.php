@@ -583,6 +583,166 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	} // foreach($arrayRoomType as $elementRoomType)
 } // function btq_booking_tc_grid_rooms()
 
+function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
+	
+	switch($language){
+		case 'es':
+			$hotelCode = '131328';
+			$currency  = 'MXN';
+		break;
+		case 'en':
+			$hotelCode = '95698';
+			$currency  = 'USD';
+		break;
+	}
+	
+	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
+	
+	// Debug Log
+	$response_log = var_export($response, TRUE);
+	btq_booking_tc_log('grid_rooms', $response_log);
+	
+	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	
+	$arrayRoomType = array();
+	foreach($RoomType as $RoomTypeElement){
+		$arrayRoomType[] = $RoomTypeElement;
+	}
+	
+	
+	$RoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
+	
+	$arrayRoomRate = array();
+	foreach($RoomRate as $RoomRateElement){
+		$arrayRoomRate[] = $RoomRateElement;
+	}
+	
+	$images_path = 'assets/images/';
+	
+	$i = 0;
+	foreach($arrayRoomType as $elementRoomType){
+		$roomTypeCode = $elementRoomType['!RoomTypeCode'];
+		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
+		$images = btq_booking_tc_grid_get_images($images_dir);
+		?>
+		
+		<section class="row">
+			
+			<article class="col-md-5">
+				<div id="btq-carousel-<?php echo $roomTypeCode; ?>" class="carousel slide" data-ride="carousel">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					<?php 
+					$count_img = 0;
+					foreach ($images as $im) {
+					$class_active = ($count_img == 0) ? ' class="active"' : '';
+					?>
+						<li data-target="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
+					<?php
+					$count_img++;
+					}
+					?>
+					</ol>
+					
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+					<?php
+					$count_img = 1;
+					foreach ($images as $image_name) {
+					$image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+					$class_active = ($count_img == 1) ? ' active' : '';
+					?> 
+						<div class="item<?php echo $class_active?>">
+							<img src="<?php echo $image_url; ?>" alt="Habitaciones">
+						</div>
+					<?php
+					$count_img++;
+					}
+					?>
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						<span class="sr-only">Anterior</span>
+					</a>
+					<a class="right carousel-control" href="#btq-carousel-<?php echo $roomTypeCode; ?>" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+						<span class="sr-only">Siguiente</span>
+					</a>
+				</div>
+			</article>
+			
+			<article class="col-md-4">
+				<h3 class="titulo"><?php echo $elementRoomType['!RoomTypeName'] ?></h3>
+				<p><?php echo $elementRoomType['RoomDescription']['Text']['!Text'] ?></p>
+				
+				<?php
+				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
+					if ( isset( $RoomAmenitie['!ExistsCode'] ) ){
+						//$RoomAmenitie['!ExistsCode'], $RoomAmenitie['!RoomAmenity'];
+						$amenityCode     = $RoomAmenitie['!ExistsCode'];
+						$amenityFileName = btq_booking_tc_amenity_icon_name($amenityCode);
+						if (!empty($amenityFileName)) {
+							$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . $amenityFileName, __FILE__ );
+							?>
+							<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="<?php echo htmlentities($RoomAmenitie['!RoomAmenity']); ?>" title="<?php echo htmlentities($RoomAmenitie['!RoomAmenity']); ?>" width="40" height="40">
+							<?php
+						}
+						else {
+							error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+						} 
+					}
+				}
+				?>
+							
+				<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+				<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
+				<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
+			</article>
+			
+			<article class="col-md-3">
+				<br>
+				<?php
+				$rate_room = array();
+				for ($j = 0; $j < count($arrayRoomRate); $j++) {
+					if(isset($arrayRoomRate[$j]['!RoomTypeCode'])) {
+						if($arrayRoomRate[$j]['!RoomTypeCode'] == $roomTypeCode) array_push($rate_room, $arrayRoomRate[$j]);
+					}
+				}
+				
+				$last_index = $index;
+										
+				for ($l = 0; $l < count($rate_room); $l++) {
+					?>
+					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?></p>
+					<p><?php echo $rate_room[$l]['!RatePlanName']; ?></p>
+					<?php
+					if ($precio == 0) { 
+						/* Inicializa el valor de precio*/
+						$precio = ($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
+					} 
+					else {
+						if ($precio > $rate_room[$l]['Total']['!AmountAfterTax']){ /* Valida que sea el precio menor*/
+							$precio = $rate_room[$l]['Total']['!AmountAfterTax'];
+						}
+					}
+				}
+				?>
+				<hr class="linea"/>
+				<h3 align="center">$<?php echo $currency . " " . $precio; ?>/noche</h3>
+				<button type="button" class="buttonreserv" onclick="location.href='https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($startDate), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($endDate), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>'">Reservar Ahora</button>
+			</article>
+			
+		</section>
+		
+		<hr class="lineaabajo" />
+		<?php
+		$i++;
+		$precio = 0;
+	} // foreach($arrayRoomType as $elementRoomType)
+} // function btq_booking_tc_grid_packages()
+
 function btq_booking_tc_grid_form($language = 'es') {
 	$iconos_dir = 'assets/images/iconos';
 	?>
@@ -749,7 +909,7 @@ function btq_booking_tc_grid_ajax() {
 			btq_booking_tc_grid_rooms($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
 		}
 		elseif ($post_data['btq_type_query'] == 'packages'){
-			echo '';
+			btq_booking_tc_grid_packages($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
 		}
 		else {
 			echo '';
