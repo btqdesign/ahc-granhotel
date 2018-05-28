@@ -366,6 +366,53 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	<?php
 }
 
+function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
+	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12', 'packages');
+	
+	$RoomAmenities = array();
+	$amenities = array();
+	
+	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	
+	?>
+	<table>
+		<tr><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
+	<?php
+	foreach($RoomType as $elementRoomType){
+		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
+		?><tr><td><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+	}
+	?>
+	</table>
+	<?php /*
+	<pre>
+		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
+	</pre>
+	*/ ?>
+	<?php
+	
+	for ($i = 0; $i < count($RoomAmenities); $i++){
+		foreach($RoomAmenities[$i] as $RoomAmenitie){
+			if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
+				$amenities[$RoomAmenitie['!ExistsCode']] = $RoomAmenitie['!RoomAmenity'];
+			}
+		}
+	}
+	
+	//$amenitiesUnique = array_unique($amenities);
+	
+	?>
+	<table>
+		<tr><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
+	<?php
+	foreach($amenities as $amenitieCode => $amenitieName){
+		?><tr><td><?php echo $amenitieCode; ?></td><td><?php echo htmlentities($amenitieName); ?></td></tr><?php
+	}
+	?>
+	</table>
+	<?php
+}
+
 function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
@@ -600,7 +647,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	
 	// Debug Log
 	$response_log = var_export($response, TRUE);
-	btq_booking_tc_log('grid_rooms', $response_log);
+	btq_booking_tc_log('grid_packages', $response_log);
 	
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
