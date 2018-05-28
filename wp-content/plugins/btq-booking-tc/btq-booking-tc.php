@@ -228,7 +228,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	</soap:Envelope>';
 	
 	// Debug Log
-	//btq_booking_tc_log('soapenvelope', $soapEnvelope);
+	btq_booking_tc_log('soapenvelope', $soapEnvelope);
 	
 	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
@@ -438,8 +438,9 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	
 	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true');
 	
-	//$debug = var_export($response, TRUE);
-	//echo htmlentities($debug);
+	// Debug Log
+	$response_log = var_export($response, TRUE);
+	btq_booking_tc_log('grid_rooms', $response_log);
 	
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
@@ -726,7 +727,15 @@ function btq_booking_tc_grid_ajax() {
 	$post_log = var_export($_POST, TRUE);
 	btq_booking_tc_log('ajax-post', $post_log);
 	
-	if (isset($_POST['data'])){
+	if (isset(
+		$_POST['data'],
+		$_POST['data']['btq_date_start'],
+		$_POST['data']['btq_date_end'],
+		$_POST['data']['btq_type_query'],
+		$_POST['data']['btq_num_rooms'],
+		$_POST['data']['btq_num_adults'],
+		$_POST['data']['btq_num_children']
+	)){
 		$post_data = $_POST['data'];
 		
 		if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
@@ -736,7 +745,15 @@ function btq_booking_tc_grid_ajax() {
 			$language = 'es';
 		}
 		
-		btq_booking_tc_grid_rooms($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
+		if ($post_data['btq_type_query'] == 'rooms'){
+			btq_booking_tc_grid_rooms($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
+		}
+		elseif ($post_data['btq_type_query'] == 'package'){
+			echo '';
+		}
+		else {
+			echo '';
+		}
 	}
 	else {
 		echo '';
