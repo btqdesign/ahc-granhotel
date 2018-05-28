@@ -237,7 +237,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
 	require_once('lib/nusoap.php');
 	
-	$soap = btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true');
+	$soap = btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
 	
 	$client = new nusoap_client($soap['wsaTo']);
 	$client->soap_defencoding = 'UTF-8';
@@ -436,7 +436,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 		break;
 	}
 	
-	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true');
+	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
 	
 	// Debug Log
 	$response_log = var_export($response, TRUE);
