@@ -705,6 +705,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		$roomTypeCode = $roomRate['!RoomTypeCode'];
 		$roomType = $arrayRoomType[$roomTypeCode];
 		
+		// Debug Log
+		$response_log = var_export($roomRate, TRUE);
+		btq_booking_tc_log('grid_packages_for_room_rate', $response_log);
+		
 		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
 		?>
