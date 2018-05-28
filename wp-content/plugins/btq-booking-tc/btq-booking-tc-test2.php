@@ -368,37 +368,45 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				
 			<article class="col-xs-12 col-md-4">
 				<div class="row">
-					<div class="col-xs-6 form-group">
-						<input class="buttonpick" id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+					<div class="col-xs-6">
+						<div class="form-group">
+							<input id="entrada" name="entrada" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+						</div>
 					</div>
-					<div class="col-xs-6 form-group">
-						<input class="buttonpickk" id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">			
+					<div class="col-xs-6">
+						<div class="form-group">
+							<input id="salida" name="salida" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">
+						</div>		
 					</div>
 				</div>
 			</article>
 			
 			<article class="col-xs-12 col-md-4">
 				<div class="row">
-					<div class="col-xs-6 form-group">
-						<select style="max-width: 100%; box-sizing: border-box;" class="buttonpick2" id="adultos" name="adultos">
-							<?php for ($i = 1; $i <= 9; $i ++) { ?>
-							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
-							<?php } ?>
-						</select>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<select id="adultos" name="adultos">
+								<?php for ($i = 1; $i <= 9; $i ++) { ?>
+								<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+								<?php } ?>
+							</select>
+						</div>
 					</div>
-					<div class="col-xs-6 form-group">
-						<select class="form-control buttonpick2" id="ninos" name="ninos">
-							<?php for ($i = 0; $i <= 9; $i ++) { ?>
-							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
-							<?php } ?>
-						</select>
+					<div class="col-xs-6">
+						<div class="form-group">
+							<select id="ninos" name="ninos">
+								<?php for ($i = 0; $i <= 9; $i ++) { ?>
+								<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
+								<?php } ?>
+							</select>
+						</div>
 					</div>
 				</div>
 			</article>
 			
 			<article class="col-xs-12 col-md-2">
 				<div class="form-group">
-					<select style="width:100%" class="buttonpick2" id="habitaciones" name="habitaciones">
+					<select id="habitaciones" name="habitaciones">
 						<?php for ($i = 1; $i <= 9; $i ++) { ?>
 						<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
 						<?php } ?>
