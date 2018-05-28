@@ -353,12 +353,15 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 		<section class="row">
 			<article class="col-md-12">
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
-				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
-				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1"><?php _e('Top Rated','btq-booking-tc'); ?></button>
-				<div class="clearfix visible-xs-block"></div>
+				<div class="col-xs-12 col-md-4">
+					<button class="btn" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<button class="btn" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
+				</div>
+				<div class="col-xs-12 col-md-4">
+					<button class="btn" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1"><?php _e('Top Rated','btq-booking-tc'); ?></button>
+				</div>
 			</article>
 		</section>
 		
@@ -378,6 +381,14 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 				</div>
 			</article>
 			
+			https://getbootstrap.com/docs/3.3/css/#forms
+			<div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+  
+			
 			<article class="col-xs-12 col-md-4">
 				<div class="row">
 					<div class="col-xs-6">
@@ -388,25 +399,27 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 						</select>
 					</div>
 					<div class="col-xs-6">
-						<select style="max-width: 100%; box-sizing: border-box;" class="buttonpick2" id="ninos" name="ninos">
+						<div class="form-group">
+						<select class="form-control buttonpick2" id="ninos" name="ninos">
 							<?php for ($i = 0; $i <= 9; $i ++) { ?>
 							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
 							<?php } ?>
 						</select>
+						</div>
 					</div>
 				</div>
 			</article>
 			
-			<article class="col-md-2">
-				<select class="buttonpick2 col-xs-12" id="habitaciones" name="habitaciones">
+			<article class="col-xs-12 col-md-2">
+				<select style="width:100%" class="buttonpick2" id="habitaciones" name="habitaciones">
 					<?php for ($i = 1; $i <= 9; $i ++) { ?>
 					<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
 					<?php } ?>
 				</select>
 			</article>
 			
-			<article class="col-md-2">					
-				<button class="buttonbus col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+			<article class="col-xs-12 col-md-2">					
+				<button class="btn-block buttonbus" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
 			</article>
 			
 			</form>

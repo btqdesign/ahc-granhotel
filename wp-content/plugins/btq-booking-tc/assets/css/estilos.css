@@ -1,3 +1,4 @@
+			    /*
 			    .button {
 				    background-color: white;
 				    border: none;
@@ -11,14 +12,14 @@
 				    margin: 4px 0px;
 				    cursor: pointer;
 				    border: 1px;
-				    -webkit-transition-duration: 0.4s; /* Safari */
+				    -webkit-transition-duration: 0.4s;
    					transition-duration: 0.4s;
 				}
 				.button:hover {
 			    background-color: #D4C394;
 			    color: white;
 				}
-				/*
+				
 				.buttonbus {
 				    background-color: #C5992D;
 				    border: none;
@@ -33,7 +34,7 @@
 				    cursor: pointer;
 				    border: 2px solid #C5992D;
 				}
-				*/
+				
 				.buttonreserv {
 				    background-color: #C5992D;
 				    border: none;
@@ -49,7 +50,7 @@
 				    align-content: center;
 				    width: 100% !important;
 				}
-/*
+				
 				.buttonpick {
 				    background-color:#E6E7E8;
 				    border: none;
@@ -120,7 +121,7 @@
 			    background-color: #D4C394;
 			    color: white;
 				}
-*/
+				*/
 
 				.linea{
 				margin-top:   12px;
