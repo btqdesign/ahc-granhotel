@@ -790,23 +790,12 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			
 			<article class="col-md-3">
 				<br>
-				<?php					
-				foreach($roomRate as $roomRatePrice) {
-					?>
-					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$roomRatePrice['Total']['!AmountAfterTax']:$roomRatePrice['Total']['!AmountBeforeTax']); ?></p>
-					<p><?php echo $roomRatePrice['!RoomTypeName']; ?></p>
+					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax']); ?></p>
+					<p><?php echo $roomRate['!RoomTypeName']; ?></p>
 					<?php
-					if ($precio == 0) { 
-						/* Inicializa el valor de precio*/
-						$precio = ($language == 'es')?$roomRatePrice['Total']['!AmountAfterTax']:$roomRatePrice['Total']['!AmountBeforeTax'];
-					} 
-					else {
-						if ($precio > $roomRatePrice['Total']['!AmountAfterTax']){ /* Valida que sea el precio menor*/
-							$precio = $roomRatePrice['Total']['!AmountAfterTax'];
-						}
-					}
-				}
-				?>
+					/* Inicializa el valor de precio*/
+					$precio = ($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax'];
+					?>
 				<hr class="linea"/>
 				<h3 align="center">$<?php echo $currency . " " . $precio; ?>/noche</h3>
 				<button type="button" class="buttonreserv" onclick="location.href='https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($startDate), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($endDate), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>'">Reservar Ahora</button>
