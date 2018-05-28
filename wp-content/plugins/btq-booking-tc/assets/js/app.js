@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){ 
 
-	jQuery('#entrada').datepicker({
+	jQuery('#tq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
 		language: 'es',
@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 		todayHighlight: true
 	});
 	
-	jQuery('#salida').datepicker({
+	jQuery('#tq-date-end').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
 		language: 'es',
