@@ -611,7 +611,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 		
 		<section class="row">
 			
-			<form name="btq-booking-tc-datepicker-form" id="btq-booking-tc-datepicker-form" action="" target="_self" method="post">
+			<form name="btq-booking-tc-form" id="btq-booking-tc-form" action="" target="_self" method="post">
 					
 				<article class="col-xs-12 col-md-4">
 					<div class="row">
