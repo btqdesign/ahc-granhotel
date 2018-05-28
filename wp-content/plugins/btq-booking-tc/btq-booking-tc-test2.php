@@ -362,6 +362,8 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			</div>
 		</section>
 		
+		<hr class="linea" />
+		
 		<section class="row">
 			
 			<form name="btq-booking-tc-datepicker-form" id="btq-booking-tc-datepicker-form" action="" target="_self" method="post">
