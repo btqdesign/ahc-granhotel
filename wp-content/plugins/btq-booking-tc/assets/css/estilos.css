@@ -1,5 +1,9 @@
-			    .btq-booking-tc-btn {
+			    .btq-btn {
 				    width: 100%;
+			    }
+			    
+			    .btq-input {
+				    box-sizing: border-box;
 			    }
 			    /*
 			    .button {

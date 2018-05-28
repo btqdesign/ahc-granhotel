@@ -352,13 +352,13 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 
 		<section class="row">
 			<div class="col-xs-12 col-md-4">
-				<button class="btn btq-booking-tc-btn" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
+				<button class="btn btq-btn" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button class="btn btq-booking-tc-btn" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
+				<button class="btn btq-btn" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button class="btn btq-booking-tc-btn" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1"><?php _e('Top Rated','btq-booking-tc'); ?></button>
+				<button class="btn btq-btn" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1"><?php _e('Top Rated','btq-booking-tc'); ?></button>
 			</div>
 		</section>
 		
