@@ -794,7 +794,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 				foreach($roomRate as $roomRatePrice) {
 					?>
 					<input type="checkbox">Mejor tarifa garantizada <p>$<?php echo $currency . " " . (($language == 'es')?$roomRatePrice['Total']['!AmountAfterTax']:$roomRatePrice['Total']['!AmountBeforeTax']); ?></p>
-					<p><?php echo $roomRatePrice['!RatePlanName']; ?></p>
+					<p><?php echo $roomRatePrice['!RoomTypeName']; ?></p>
 					<?php
 					if ($precio == 0) { 
 						/* Inicializa el valor de precio*/
