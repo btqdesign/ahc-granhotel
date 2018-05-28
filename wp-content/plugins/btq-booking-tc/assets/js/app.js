@@ -20,12 +20,12 @@ jQuery(document).ready(function(){
 	
 	
 		jQuery(document).ready(function () {
-	    jQuery('.text').hide();
-	    jQuery('.expander').click(function () {
+	    jQuery('.texto_recorrido').hide();
+	    jQuery('.vermas').click(function () {
 	        // .parent() selects the A tag, .next() selects the P tag
 	        jQuery(this).parent().next().slideToggle(200);
 	    });
-	    jQuery('.text').slideUp(200);
+	    jQuery('.texto_recorrido').slideUp(200);
 	});
 
 
