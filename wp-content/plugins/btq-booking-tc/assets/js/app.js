@@ -72,19 +72,19 @@ jQuery(document).ready(function(){
 	
 	
 	
-	jQuery('#vermas3').toggle( 
+	jQuery('#vermas').ready( 
 		// Primer click
-		function(y){ 
-			jQuery('#mostrar3').slideDown();
+		function(e){ 
+			jQuery('#mostrar').slideDown();
 			jQuery(this).text('');
-			y.preventDefault();
+			e.preventDefault();
 		}, 
 		
 		// Segundo click
-		function(y){ 
-			jQuery('#mostrar3').slideUp();
+		function(e){ 
+			jQuery('#mostrar').slideUp();
 			jQuery(this).text('Ver mas');
-			y.preventDefault();
+			e.preventDefault();
 		}
 	);
 	
