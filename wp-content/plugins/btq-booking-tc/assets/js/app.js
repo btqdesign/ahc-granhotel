@@ -19,14 +19,14 @@ jQuery(document).ready(function(){
 	
 	
 	
-		$(document).ready(function () {
-    $('.text').hide();
-    $('.expander').click(function () {
-        // .parent() selects the A tag, .next() selects the P tag
-        $(this).parent().next().slideToggle(200);
-    });
-    $('.text').slideUp(200);
-});
+		jQuery(document).ready(function () {
+	    jQuery('.text').hide();
+	    jQuery('.expander').click(function () {
+	        // .parent() selects the A tag, .next() selects the P tag
+	        jQuery(this).parent().next().slideToggle(200);
+	    });
+	    jQuery('.text').slideUp(200);
+	});
 
 
 
