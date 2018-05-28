@@ -786,7 +786,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                 </div>
 				
 
-                    <a href="#"><div class="expander">Click Here</div></a>
+                    <a><div class="expander">Click Here</div></a>
 
 <p class="text">Hidden Text</p>
 <a ><div class="expander">Click Here</div></a>
@@ -795,7 +795,7 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 <a ><div class="expander">Click Here</div></a>
 
 <p class="text">Hidden Text</p>
-<a href="#"><div class="expander">Click Here</div></a>
+<a ><div class="expander">Click Here</div></a>
 
 <p class="text">Hidden Text</p>
 
