@@ -588,81 +588,89 @@ function btq_booking_tc_grid_form($language = 'es') {
 		<hr class="linea"/>	
 		
 		<section class="row">
-			<article class="col-md-5">
-				<h5><?php _e('Select a PACKAGE or ROOM','btq-booking-tc'); ?></h5>
+			<article class="col-md-12">
+				<h5 class="hosp"><?php _e('Select a PACKAGE or ROOM','btq-booking-tc'); ?></h5>
 			</article>
-			<article class="col-md-7">&nbsp;</article>
 		</section>
 
 		<hr class="linea" />
 
 		<section class="row">
-			<article class="col-md-5">
-				<button class="button col-xs-12 col-md-4" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
-				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-3" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
-				<div class="clearfix visible-xs-block"></div>
-				<button class="button col-xs-12 col-md-5" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="19" id="element1">&nbsp;&nbsp;<?php _e('Top Rated','btq-booking-tc'); ?></button>
-				<div class="clearfix visible-xs-block"></div>
-			</article>
+			<div class="col-xs-12 col-md-4">
+				<button class="btn btq-btn" style="background-color:#C9B891"><?php _e('Rooms','btq-booking-tc'); ?></button>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<button class="btn btq-btn" style="background-color:#C9B891"><?php _e('Packages','btq-booking-tc'); ?></button>
+			</div>
+			<div class="col-xs-12 col-md-4">
+				<button class="btn btq-btn" style="background-color:#C9B891"><img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_like.png', __FILE__ ); ?>" width="22" height="22" id="element1"><?php _e('Top Rated','btq-booking-tc'); ?></button>
+			</div>
+		</section>
+		
+		<hr class="linea" />
+		
+		<section class="row">
 			
-			<form name="btq-booking-tc-datepicker-form" action="" id="btq-booking-tc-datepicker-form" target="_self" method="post">
-			
-			<article class="col-md-4">
-				<input type="date" class="col-xs-6" id="entrada" name="entrada" placeholder="<?php _e('Entry date','btq-booking-tc'); ?>">
-				<input type="date" class="col-xs-6" id="salida" name="salida" placeholder="<?php _e('Departure date','btq-booking-tc'); ?>">			
-				<div class="clearfix visible-xs-block"></div>	
-			</article>
-			
-			<article class="col-md-1">
-				<select class="col-xs-6" id="adultos" name="adultos">
-					<option value="1"><?php _e('1 Adult', 'btq-booking-tc'); ?></option>
-					<option value="2"><?php _e('2 Adults','btq-booking-tc'); ?></option>
-					<option value="3"><?php _e('3 Adults','btq-booking-tc'); ?></option>
-					<option value="4"><?php _e('4 Adults','btq-booking-tc'); ?></option>
-					<option value="5"><?php _e('5 Adults','btq-booking-tc'); ?></option>
-					<option value="6"><?php _e('6 Adults','btq-booking-tc'); ?></option>
-					<option value="7"><?php _e('7 Adults','btq-booking-tc'); ?></option>
-					<option value="8"><?php _e('8 Adults','btq-booking-tc'); ?></option>
-					<option value="9"><?php _e('9 Adults','btq-booking-tc'); ?></option>
-				</select>
+			<form name="btq-booking-tc-datepicker-form" id="btq-booking-tc-datepicker-form" action="" target="_self" method="post">
+					
+				<article class="col-xs-12 col-md-4">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<input class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<input class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">
+							</div>		
+						</div>
+					</div>
+				</article>
 				
-				<select class="col-xs-6" id="ninos" name="ninos">				
-					<option value="0"><?php _e('0 Children','btq-booking-tc'); ?></option>
-					<option value="1"><?php _e('1 Children','btq-booking-tc'); ?></option>
-					<option value="2"><?php _e('2 Children','btq-booking-tc'); ?></option>
-					<option value="3"><?php _e('3 Children','btq-booking-tc'); ?></option>
-					<option value="4"><?php _e('4 Children','btq-booking-tc'); ?></option>
-					<option value="5"><?php _e('5 Children','btq-booking-tc'); ?></option>
-					<option value="6"><?php _e('6 Children','btq-booking-tc'); ?></option>
-					<option value="7"><?php _e('7 Children','btq-booking-tc'); ?></option>
-					<option value="8"><?php _e('8 Children','btq-booking-tc'); ?></option>
-					<option value="9"><?php _e('9 Children','btq-booking-tc'); ?></option>
-				</select>
-			</article>
-			
-			<article class="col-md-2">					
-				<button class="col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
-				<!-- <input class="buttonbus col-xs-12" name="btq-bookin-tc-button-search" id="btq-bookin-tc-button-search" type="button" value="<?php _e('SEARCH','btq-booking-tc'); ?> →"> -->
-			</article>
+				<article class="col-xs-12 col-md-4">
+					<div class="row">
+						<div class="col-xs-6">
+							<div class="form-group">
+								<select class="btq-select" id="btq-num-adults" name="btq-num-adults">
+									<?php for ($i = 1; $i <= 9; $i ++) { ?>
+									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+						<div class="col-xs-6">
+							<div class="form-group">
+								<select class="btq-select" id="btq-num-children" name="btq-num-children">
+									<?php for ($i = 0; $i <= 9; $i ++) { ?>
+									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
+									<?php } ?>
+								</select>
+							</div>
+						</div>
+					</div>
+				</article>
+				
+				<article class="col-xs-12 col-md-2">
+					<div class="form-group">
+						<select class="btq-select" id="btq-num-rooms" name="btq-num-rooms">
+							<?php for ($i = 1; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
+							<?php } ?>
+						</select>
+					</div>
+				</article>
+				
+				<article class="col-xs-12 col-md-2">	
+					<input type="hidden" id="btq-type-query" name="btq-type-query" value="rooms">				
+					<button class="btn btn-default btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+				</article>
 			
 			</form>
 			
 		</section>
 
 		<hr class="linea"/>
-
-		<section class="row">
-			<article class="col-md-5">
-				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
-				<h5 class="hosp">&nbsp;&nbsp;&nbsp;<?php _e('Check your dates-rate to stay','btq-booking-tc'); ?></h5>
-			</article>
-
-			<article class="col-md-7">
-				<p class="recordatorio">*<?php _e('Remember that having an advance reservation will always be a better option (rates shown at 90 days)','btq-booking-tc'); ?></p>
-			</article>
-			<hr class="linea"/>
-		</section>
 	<?php
 }
 
@@ -728,7 +736,7 @@ function btq_booking_tc_grid_ajax() {
 			$language = 'es';
 		}
 		
-		btq_booking_tc_grid_rooms($language, $post_data['entrada'], $post_data['salida'], 'rooms', 1, $post_data['adultos'], $post_data['ninos']);
+		btq_booking_tc_grid_rooms($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
 	}
 	else {
 		echo '';

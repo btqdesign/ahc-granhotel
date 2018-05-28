@@ -90,29 +90,24 @@ jQuery(document).ready(function(){
 	
 	
 	
-	jQuery('#btq-booking-tc-datepicker-form').submit(false);
-	
 	jQuery('#btq-bookin-tc-button-search').click(function() {
 		jQuery("#wait").css("display", "block");
-		//jQuery('#btq-bookin-tc-button-search').disabled = true;
 		
-		console.log('btq-bookin-tc-button-search click');
 		jQuery(".preloader").css("display", "block");
 		jQuery.post(
 		    '/wp-admin/admin-ajax.php', 
 		    {
 				'action' : 'btq_booking_tc_grid',
 				'data' : {
-					entrada : moment(jQuery("#entrada").datepicker("getDate")).format('YYYY-MM-DD'), 
-					salida  : moment( jQuery("#salida").datepicker("getDate")).format('YYYY-MM-DD'),
-					adultos : jQuery("#adultos").val(),
-					ninos   : jQuery("#ninos").val(),
-					roomAmount : 1
+					btq_date_start   : moment( jQuery('#btq-date-start').datepicker('getDate') ).format('YYYY-MM-DD'), 
+					btq_date_end     : moment( jQuery('#btq-date-end').datepicker('getDate')   ).format('YYYY-MM-DD'),
+					btq_type_query   : jQuery('#btq-type-query').val(),
+					btq_num_rooms    : jQuery('#btq-num-rooms').val(),
+					btq_num_adults   : jQuery('#btq-num-adults').val(),
+					btq_num_children : jQuery("#btq-num-children").val()
 				}
 		    }, 
 		    function(response) {
-				console.log("Respnse:\n\n");
-				console.log(response);
 				jQuery('#btq-booking-grid').html(response);
 				jQuery(".preloader").css("display", "none");
 		    }
