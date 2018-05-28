@@ -656,6 +656,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		$arrayRatePlan[] = $RatePlanElement;
 	}
 	
+	// Debug Log
+	$response_log = var_export($arrayRatePlan, TRUE);
+	btq_booking_tc_log('grid_packages_rate_plan', $response_log);
+	
 	
 	$RoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
 	
@@ -665,6 +669,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			$arrayRoomRate[$RoomRateElement['!RatePlanCode']] = $RoomRateElement;
 		}
 	}
+	
+	// Debug Log
+	$response_log = var_export($arrayRoomRate, TRUE);
+	btq_booking_tc_log('grid_packages_room_rate', $response_log);
 	
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
@@ -681,6 +689,10 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			}
 		}
 	}
+	
+	// Debug Log
+	$response_log = var_export($arrayRoomType, TRUE);
+	btq_booking_tc_log('grid_packages_room_type', $response_log);
 	
 	
 	$images_path = 'assets/images/';
