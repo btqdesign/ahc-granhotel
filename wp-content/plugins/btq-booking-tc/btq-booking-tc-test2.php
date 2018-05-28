@@ -528,6 +528,9 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                 <p>Mejor tarifa garantizada</p>
                 <p>Con mas beneficios</p>
                 </form>
+				<br>
+				<hr class="linea"/>
+				<h3 class="precio">$MXN 2,733.03   /noche</h3>
                 <br>
 				<button class="buttonreserv">Reservar Ahora</button>
 			</article>
