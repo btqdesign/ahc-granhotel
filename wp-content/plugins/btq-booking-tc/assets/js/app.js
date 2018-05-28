@@ -18,76 +18,19 @@ jQuery(document).ready(function(){
 	
 	
 	
-	jQuery('#vermas').toggle( 
-		// Primer click
-		function(e){ 
-			jQuery('#mostrar').slideDown();
-			jQuery(this).text('');
-			e.preventDefault();
-		},
-		
-		// Segundo click
-		function(e){ 
-			jQuery('#mostrar').slideUp();
-			jQuery(this).text('Ver mas');
-			e.preventDefault();
-		}
-	);
 	
 	
 	
-	jQuery('#vermas1').toggle( 
-		// Primer click
-		function(z){ 
-			jQuery('#mostrar1').slideDown();
-			jQuery(this).text('');
-			z.preventDefault();
-		}, 
-		
-		// Segundo click
-		function(z){ 
-			jQuery('#mostrar1').slideUp();
-			jQuery(this).text('Ver mas');
-			z.preventDefault();
-		}
-	);
-	
-	
-	
-	jQuery('#vermas2').toggle( 
-		// Primer click
-		function(x){ 
-			jQuery('#mostrar2').slideDown();
-			jQuery(this).text('');
-			x.preventDefault();
-		}, 
-		
-		// Segundo click
-		function(x){ 
-			jQuery('#mostrar2').slideUp();
-			jQuery(this).text('Ver mas');
-			x.preventDefault();
-		}
-	);
-	
-	
-	
-	jQuery('#vermas').ready( 
-		// Primer click
-		function(e){ 
-			jQuery('#mostrar').slideDown();
-			jQuery(this).text('');
-			e.preventDefault();
-		}, 
-		
-		// Segundo click
-		function(e){ 
-			jQuery('#mostrar').slideUp();
-			jQuery(this).text('Ver mas');
-			e.preventDefault();
-		}
-	);
-	
+
+
+			$(document).ready(function() {
+			    $(".vermas").click(function() {
+			        $(this).parent().nextAll('.recorrido').first().toggle('slow');
+			    });
+			});
+
+
+
 	
 	
 	jQuery('#btq-booking-tc-form').submit(false);
