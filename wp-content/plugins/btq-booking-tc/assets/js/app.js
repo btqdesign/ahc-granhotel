@@ -90,13 +90,8 @@ jQuery(document).ready(function(){
 	
 	
 	
-	jQuery('#btq-booking-tc-form').submit(false);
-	jQuery('#btq-booking-tc-form').submit(function(e){ e.preventDefault(); });
-	
 	jQuery('#btq-bookin-tc-button-search').click(function() {
 		jQuery("#wait").css("display", "block");
-		
-		jQuery('#btq-booking-tc-form').submit(function(e){ e.preventDefault(); });
 		
 		jQuery(".preloader").css("display", "block");
 		jQuery.post(
