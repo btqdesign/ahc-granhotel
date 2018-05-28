@@ -786,6 +786,20 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
                 </div>
 				
 
+                    <a href="#"><div class="expander">Click Here</div></a>
+
+<p class="text">Hidden Text</p>
+<a href="#"><div class="expander">Click Here</div></a>
+
+<p class="text">Hidden Text</p>
+<a href="#"><div class="expander">Click Here</div></a>
+
+<p class="text">Hidden Text</p>
+<a href="#"><div class="expander">Click Here</div></a>
+
+<p class="text">Hidden Text</p>
+
+
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-04.png', __FILE__ ); ?>" alt="icono">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-03.png', __FILE__ ); ?>" alt="icono" width="60" height="50">
 				<img class="iconoshabitacion hidden-xs hidden-sm" src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_icon-01.png', __FILE__ ); ?>" alt="icono" width="60" height="50">

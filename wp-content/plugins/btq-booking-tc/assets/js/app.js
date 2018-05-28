@@ -19,11 +19,14 @@ jQuery(document).ready(function(){
 	
 	
 	
-		$(function(){ 
-		  $('.vermas').click( function() {
-		    $(this).children('.texto_recorrido').toggle();
-		  });
-		});
+		$(document).ready(function () {
+    $('.text').hide();
+    $('.expander').click(function () {
+        // .parent() selects the A tag, .next() selects the P tag
+        $(this).parent().next().slideToggle(200);
+    });
+    $('.text').slideUp(200);
+});
 
 
 
