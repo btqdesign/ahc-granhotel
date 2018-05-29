@@ -465,7 +465,7 @@ function btq_booking_tc_grid_split_description($string){
 		$wordsArrayFirst = Array();
 		$wordsArrayLast  = Array();
 		for($i = 0; $i < count($wordsArray); $i++){
-			if ($i < 41) {
+			if ($i <= 30) {
 				$wordsArrayFirst[] = $wordsArray[$i];
 			}
 			else {
