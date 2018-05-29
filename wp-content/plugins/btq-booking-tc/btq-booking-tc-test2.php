@@ -514,22 +514,23 @@ jQuery(document).ready(function(jQuery){jQuery.datepicker.setDefaults({"closeTex
 			<article class="col-md-3 grisfondo">
 
                 <form>
-                <label class="radio-inline">
-                  <input type="radio" name="optradio">$MXN 2,733.03
-                </label>
-                <p>Mejor tarifa garantizada</p>
-                <p>Con mas beneficios</p>
-                <label class="radio-inline">
-                  <input type="radio" name="optradio">$MXN 2,733.03
-                </label>
-                <p>Mejor tarifa garantizada</p>
-                <p>Con mas beneficios</p>
-                <label class="radio-inline">
-                  <input type="radio" name="optradio">$MXN 2,733.03
-                </label>
-                <p>Mejor tarifa garantizada</p>
-                <p>Con mas beneficios</p>
+	                <label class="radio-inline">
+	                  <input type="radio" name="optradio">$MXN 2,733.03
+	                </label>
+	                <p>Mejor tarifa garantizada</p>
+	                <p>Con mas beneficios</p>
+	                <label class="radio-inline">
+	                  <input type="radio" name="optradio">$MXN 2,733.03
+	                </label>
+	                <p>Mejor tarifa garantizada</p>
+	                <p>Con mas beneficios</p>
+	                <label class="radio-inline">
+	                  <input type="radio" name="optradio">$MXN 2,733.03
+	                </label>
+	                <p>Mejor tarifa garantizada</p>
+	                <p>Con mas beneficios</p>
                 </form>
+                
 				<hr class="linea"/>
 				<h3 class="precio">$MXN 2,733.03   /noche</h3>
                 <br>
