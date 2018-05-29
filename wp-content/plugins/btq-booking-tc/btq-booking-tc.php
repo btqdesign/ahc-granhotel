@@ -457,7 +457,7 @@ function btq_booking_tc_admin_debug_page() {
 <?php
 }
 
-function btq_booking_tc_grid_split_description($string) {
+function btq_booking_tc_grid_split_description($string){
 	if(!empty($string) && is_string($string)){
 		$wordsArray = explode(' ', $string);
 		
