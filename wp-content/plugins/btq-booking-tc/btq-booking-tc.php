@@ -468,7 +468,7 @@ function btq_booking_tc_grid_split_description($string){
 				$wordsArrayFirst[] = $wordsArray[$i];
 			}
 			else {
-				$$wordsArrayLast[] = $wordsArray[$i];
+				$wordsArrayLast[] = $wordsArray[$i];
 			}
 		}
 		
