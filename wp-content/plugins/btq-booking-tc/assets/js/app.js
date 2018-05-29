@@ -17,12 +17,15 @@ jQuery(document).ready(function(){
 		todayHighlight: true
 	});
 	
-	jQuery('.texto_recorrido').hide();
-	jQuery('.vermas').click(function () {
-		jQuery(this).parent().next().slideToggle(200);
-		jQuery(this).text('');
-	});
-	jQuery('.texto_recorrido').slideUp(200);
+	function vermas() {
+		jQuery('.texto_recorrido').hide();
+		jQuery('.vermas').click(function () {
+			jQuery(this).parent().next().slideToggle(200);
+			jQuery(this).text('');
+		});
+		jQuery('.texto_recorrido').slideUp(200);
+	}
+	vermas();
 
 	
 	
@@ -52,6 +55,7 @@ jQuery(document).ready(function(){
 		    function(response) {
 				jQuery('#btq-booking-grid').html(response);
 				jQuery(".preloader").css("display", "none");
+				vermas();
 		    }
 		)
 		.done(function() {
