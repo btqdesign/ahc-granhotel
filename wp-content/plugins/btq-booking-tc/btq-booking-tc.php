@@ -457,6 +457,31 @@ function btq_booking_tc_admin_debug_page() {
 <?php
 }
 
+function btq_booking_tc_grid_split_description($string) {
+	if(!empty($string) && is_string($string)){
+		$wordsArray = explode(' ', $string);
+		
+		$wordsArrayFirst = Array();
+		$wordsArrayLast  = Array();
+		for($i = 0; $i < count($wordsArray); $i++){
+			if ($i < 41) {
+				$wordsArrayFirst[] = $wordsArray[$i];
+			}
+			else {
+				$$wordsArrayLast[] = $wordsArray[$i];
+			}
+		}
+		
+		$textFirst = implode(' ', $wordsArrayFirst);
+		$textLast  = implode(' ', $wordsArrayLast);
+		
+		?>
+		<div><?php echo $textFirst; ?> <a class="vermas">Ver más</a></div>
+		<div class="texto_recorrido" style="display:none"><?php echo $textLast; ?></div>
+		<?php
+	}
+}
+
 function btq_booking_tc_grid_get_images($path) {
 	$files = scandir($path);
 	$images = array();
@@ -562,7 +587,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 			
 			<article class="col-md-4">
 				<h3 class="titulo"><?php echo $elementRoomType['!RoomTypeName'] ?></h3>
-				<p><?php echo $elementRoomType['RoomDescription']['Text']['!Text'] ?></p>
+				<?php btq_booking_tc_grid_split_description($elementRoomType['RoomDescription']['Text']['!Text']); ?>
 				
 				<?php
 				foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
@@ -762,7 +787,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			
 			<article class="col-md-4">
 				<h3 class="titulo"><?php echo $elementRatePlan['!RatePlanName'] ?></h3>
-				<p><?php echo $elementRatePlan['RatePlanDescription']['Text']['!Text'] ?></p>
+				<?php btq_booking_tc_grid_split_description($elementRatePlan['RatePlanDescription']['Text']['!Text']); ?>
 				
 				<?php
 				foreach($roomType['Amenities']['Amenity'] as $RoomAmenitie){

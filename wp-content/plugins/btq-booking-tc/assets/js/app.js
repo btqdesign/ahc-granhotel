@@ -19,7 +19,7 @@ jQuery(document).ready(function(){
 	
 	
 	
-		jQuery(document).ready(function () {
+	jQuery(document).ready(function () {
 	    jQuery('.texto_recorrido').hide();
 	    jQuery('.vermas').click(function () {
 	        
