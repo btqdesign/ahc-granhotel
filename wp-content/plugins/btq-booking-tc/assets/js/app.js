@@ -17,17 +17,12 @@ jQuery(document).ready(function(){
 		todayHighlight: true
 	});
 	
-	
-	
-	jQuery(document).ready(function () {
-	    jQuery('.texto_recorrido').hide();
-	    jQuery('.vermas').click(function () {
-	        
-	        jQuery(this).parent().next().slideToggle(200);
-	        jQuery(this).text('');
-	    });
-	    jQuery('.texto_recorrido').slideUp(200);
+	jQuery('.texto_recorrido').hide();
+	jQuery('.vermas').click(function () {
+		jQuery(this).parent().next().slideToggle(200);
+		jQuery(this).text('');
 	});
+	jQuery('.texto_recorrido').slideUp(200);
 
 	
 	
