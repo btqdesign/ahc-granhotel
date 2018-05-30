@@ -45,7 +45,8 @@ Text Domain:  solaz-child
 	margin: 22px 40px;
 }
 ul#menu-header-menu {
-    height: 50px;
+	height: 50px;
+	padding-top: 5px;
 }
 .menu-header-menu-container {
     padding-top: 17px;
