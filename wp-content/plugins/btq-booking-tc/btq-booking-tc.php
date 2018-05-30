@@ -477,8 +477,11 @@ function btq_booking_tc_grid_split_description($string){
 		$textLast  = implode(' ', $wordsArrayLast);
 		
 		?>
-		<div><?php echo $textFirst; ?> <a class="vermas">Ver más</a></div>
-		<div class="texto_recorrido" style="display:none"><?php echo $textLast; ?></div>
+		<div>
+			<?php echo $textFirst; ?> 
+			<a class="vermas">Ver más</a>
+			<span class="texto_recorrido" style="display:none"><?php echo $textLast; ?></span>
+		</div>
 		<?php
 	}
 }
