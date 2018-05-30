@@ -42,7 +42,7 @@ Text Domain:  solaz-child
 
 .btq-menu li {
 	display: inline;
-	padding: 22px 40px;
+	margin: 22px 40px;
 }
 ul#menu-header-menu {
     height: 50px;
