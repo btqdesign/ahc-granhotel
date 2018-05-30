@@ -109,6 +109,14 @@ jQuery(document).ready(function(){
 		jQuery('#btq-btn-top').addClass('btn-default');
 		
 		jQuery('#btq-type-query').val('rooms');
+		
+		var today = new Date();
+		if((jQuery('#btq-date-start').datepicker('getDate') <= today) || (jQuery('#btq-date-end').datepicker('getDate') <= today)){
+			btq_btn_rooms();
+		}
+		else {
+			console.log('#btq-btn-rooms nada');
+		}
 	});
 	
 	function btq_btn_packages(){
