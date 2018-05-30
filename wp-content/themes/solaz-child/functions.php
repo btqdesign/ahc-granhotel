@@ -40,6 +40,6 @@ function btq_mailchimp_tag() {
 
 add_shortcode( 'btq-mailchimp-tag', 'btq_mailchimp_tag_shortcode' );
 function btq_mailchimp_tag_shortcode() {
-	$out = '';
+	$out = '<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us12.list-manage.com","uuid":"bad1955772a324fbae65f9d80","lid":"8f8b9b2cb9"}) })</script>';
 	return $out;
 }
