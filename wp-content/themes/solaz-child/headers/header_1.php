@@ -159,7 +159,18 @@ $solaz_settings = solaz_check_theme_options();
 			        		</div>
 			        	<?php endif;?>	
 					<?php endif;?>
-				*/ ?>       	    	        		        	
+				*/ ?>
+				<?php
+				if (has_nav_menu('primary')) {
+					wp_nav_menu(array(
+						'theme_location' => 'primary',
+						'menu_class' => 'btq-menu',
+						'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
+						'walker' => new Solaz_Primary_Walker_Nav_Menu()
+							)
+					);
+				}    
+				?>	    	        		        	
 	        </div>      	
         </div>  
 </div>
