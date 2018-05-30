@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
 		jQuery('.texto_recorrido').hide();
 		jQuery('.vermas').click(function () {
 			jQuery(this).text('');
-			jQuery(this).children('.texto_recorrido').slideToggle(200);
+			jQuery(this).parent().children('.texto_recorrido').slideToggle(200);
 		});
 		jQuery('.texto_recorrido').slideUp(200);
 	}
