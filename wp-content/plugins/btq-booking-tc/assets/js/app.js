@@ -90,7 +90,7 @@ jQuery(document).ready(function(){
 			btq_btn_packages();
 		}
 		else {
-			console.log('#btq-btn-packages nada')
+			console.log('#btq-btn-packages nada');
 		}
 	});
 	
