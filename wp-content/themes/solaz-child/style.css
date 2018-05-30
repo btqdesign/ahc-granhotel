@@ -42,6 +42,6 @@ Text Domain:  solaz-child
 
 .btq-menu li {
 	display: inline;
-	margin: 5px 15px;
-	padding: 0% 10%;
+	max-height: 60px;
+	max-width: 60px;
 }
