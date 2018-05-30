@@ -450,6 +450,8 @@
                 .on('click', '#booking_items .actions .edit', _self.edit_room)
                 // remove room item
                 .on('click', '#booking_items .actions .remove', _self.remove_room)
+                // change qty
+                .on('change', '.hb_modal .booking-room-item .section select[name="qty"]', _self.change_qty)
 
                 // on open trigger
                 .on('hb_modal_open', this.openCallback)
@@ -460,28 +462,14 @@
                 // on save action
                 .on('hb_before_update_action', this.save_action);
         },
-        edit_customer: function (e, target, data) {
-            e.preventDefault();
-            var _self = $(this),
-                _section = _self.parents('.section:first'),
-                _details = _section.find('.details'),
-                _edit_input = _section.find('.edit_details');
 
-            if (!_edit_input.hasClass('active')) {
-                _self.hide();
-                _details.hide();
-                _edit_input.addClass('active');
-            }
-        },
-        toggle_checkbox: function (e) {
-            e.preventDefault();
-            var _self = $(this),
-                _checkox = $('#booking_items input[name*="book_item"]');
+        change_qty: function (e) {
+            var _button = $('.form_footer button.hb_form_submit');
 
-            if (_self.is(':checked')) {
-                _checkox.attr('checked', true);
+            if (e.target.value) {
+                _button.removeAttr('disabled');
             } else {
-                _checkox.attr('checked', false);
+                _button.prop('disabled', true);
             }
         },
         edit_customer: function (e) {

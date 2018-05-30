@@ -180,8 +180,7 @@ class HB_Extra_Post_Type {
 				'type'  => 'number',
 				'std'   => '10',
 				'desc'  => __( 'Price of extra room option', 'wp-hotel-booking' ),
-				'min'   => 0,
-				'max'   => 100
+				'min'   => 0
 			),
 			array(
 				'name'    => 'respondent_name',

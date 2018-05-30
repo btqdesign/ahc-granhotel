@@ -9,17 +9,15 @@ $room_extra = HB_Room_Extra::instance( $post_id );
 $room_extra = $room_extra->get_extra();
 
 if ( $room_extra ) { ?>
-
+	<?php if ( ! get_option( 'tp_hotel_booking_custom_process' ) ) { ?>
     <div class="hb_addition_package_extra">
-		<?php if ( ! get_option( 'tp_hotel_booking_custom_process' ) ) { ?>
-            <div class="hb_addition_package_title">
-                <h5 class="hb_addition_package_title_toggle">
-                    <a href="javascript:void(0)" class="hb_package_toggle">
-						<?php esc_html_e( 'Optional Extras', 'wp-hotel-booking' ); ?>
-                    </a>
-                </h5>
-            </div>
-		<?php } ?>
+        <div class="hb_addition_package_title">
+            <h5 class="hb_addition_package_title_toggle">
+                <a href="javascript:void(0)" class="hb_package_toggle">
+					<?php esc_html_e( 'Optional Extras', 'wp-hotel-booking' ); ?>
+                </a>
+            </h5>
+        </div>
         <div class="hb_addition_packages">
             <ul class="hb_addition_packages_ul">
 				<?php foreach ( $room_extra as $key => $extra ): ?>
@@ -60,6 +58,6 @@ if ( $room_extra ) { ?>
 				<?php endforeach ?>
             </ul>
         </div>
-    </div>
-
+        </div>
+	<?php } ?>
 <?php }
