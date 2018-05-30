@@ -22,4 +22,6 @@ add_filter('final_output', function($output) {
 add_action( 'after_setup_theme', 'btq_menu' );
 function btq_menu() {
   register_nav_menu( 'btq-menu', __( 'BTQ Menu', 'btq-menu' ) );
+  register_nav_menu( 'btq-menu-terraza', __( 'BTQ Menu', 'btq-menu-terraza' ) );
+  register_nav_menu( 'btq-menu-banquete', __( 'BTQ Menu', 'btq-menu-banquete' ) );
 }
