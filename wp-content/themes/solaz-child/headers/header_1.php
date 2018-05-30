@@ -164,13 +164,13 @@ $solaz_settings = solaz_check_theme_options();
 					$post_slug = get_post_field('post_name', get_post());
 					if ($post_slug == 'la-terraza'){
 						if (has_nav_menu('btq-menu-terraza')) {
-						wp_nav_menu(array(
-							'theme_location' => 'btq-menu-terraza',
-							'menu_class' => 'btq-menu',
-							'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
-							'walker' => new Solaz_Primary_Walker_Nav_Menu()
-								)
-						);
+							wp_nav_menu(array(
+								'theme_location' => 'btq-menu-terraza',
+								'menu_class' => 'btq-menu',
+								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
+								'walker' => new Solaz_Primary_Walker_Nav_Menu()
+							));
+						}
 					}
 					elseif($post_slug == 'banquetes'){
 						if (has_nav_menu('btq-menu-banquete')) {
@@ -179,8 +179,8 @@ $solaz_settings = solaz_check_theme_options();
 								'menu_class' => 'btq-menu',
 								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
 								'walker' => new Solaz_Primary_Walker_Nav_Menu()
-									)
-							);
+							));
+						}
 					}
 					else{
 						if (has_nav_menu('btq-menu')) {
@@ -189,14 +189,9 @@ $solaz_settings = solaz_check_theme_options();
 								'menu_class' => 'btq-menu',
 								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
 								'walker' => new Solaz_Primary_Walker_Nav_Menu()
-									)
-							);
+							));
+						}
 					}
-
-
-				}   
-
-				 
 				?>	
 				    <?php if (class_exists('WP_Hotel_Booking')):?>	    
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
