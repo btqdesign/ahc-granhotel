@@ -1,5 +1,4 @@
-
-jQuery(document).ready(function(){ 
+jQuery(document).ready(function(){
 
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
