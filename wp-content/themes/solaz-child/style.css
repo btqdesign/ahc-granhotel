@@ -42,6 +42,9 @@ Text Domain:  solaz-child
 
 .btq-menu li {
 	display: inline;
-	padding: 6px 30px;
-	height: 60px;
+	padding: 40% 25%;
+}
+.header-bottom{
+    height: 50px;
+    background-color: #f2f2f2;
 }
