@@ -91,6 +91,8 @@ jQuery(document).ready(function(){
 		}
 		else {
 			console.log('#btq-btn-packages nada');
+			var today = new Date();
+			console.log(today);
 			console.log(jQuery('#btq-date-start').datepicker('getDate'));
 			console.log(jQuery('#btq-date-end').datepicker('getDate'));
 		}
