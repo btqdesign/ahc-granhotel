@@ -161,7 +161,7 @@ $solaz_settings = solaz_check_theme_options();
 					<?php endif;?>
 				*/ ?>
 				<?php
-				function is_page( $page = 'la-terraza' ) {
+				
 					if (has_nav_menu('btq-menu')) {
 					wp_nav_menu(array(
 						'theme_location' => 'btq-menu',
@@ -170,7 +170,7 @@ $solaz_settings = solaz_check_theme_options();
 						'walker' => new Solaz_Primary_Walker_Nav_Menu()
 							)
 					);
-				}   }
+				}   
 				 
 				?>	
 				    <?php if (class_exists('WP_Hotel_Booking')):?>	    
