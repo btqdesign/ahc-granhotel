@@ -86,13 +86,12 @@ jQuery(document).ready(function(){
 		
 		jQuery('#btq-type-query').val('packages');
 		
-		if((jQuery('#btq-date-start').val() == undefined || jQuery('#btq-date-start').val() == '') || (jQuery('#btq-date-end').val() == undefined || jQuery('#btq-date-end').val() == '')){
+		var today = new Date();
+		if((jQuery('#btq-date-start').datepicker('getDate') <= today) || (jQuery('#btq-date-end').datepicker('getDate') <= today)){
 			btq_btn_packages();
 		}
 		else {
 			console.log('#btq-btn-packages nada');
-			console.log(jQuery('#btq-date-start').datepicker('getDate'));
-			console.log(jQuery('#btq-date-end').datepicker('getDate'));
 		}
 	});
 	
