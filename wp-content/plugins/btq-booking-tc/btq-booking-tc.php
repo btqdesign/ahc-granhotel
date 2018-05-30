@@ -1050,7 +1050,25 @@ function btq_booking_tc_grid_packages_ajax() {
 	}
 	
 	if (isset($_POST['data']['btq_packages_init'])) {
-		btq_booking_tc_grid_packages($language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )), 'packages' );
+		btq_booking_tc_grid_packages( $language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )) );
+	}
+	else {
+		echo '';
+	}
+}
+
+add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
+add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
+function btq_booking_tc_grid_rooms_ajax() {
+	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+		$language = ICL_LANGUAGE_CODE;
+	}
+	else {
+		$language = 'es';
+	}
+	
+	if (isset($_POST['data']['btq_rooms_init'])) {
+		btq_booking_tc_grid_rooms( $language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )) );
 	}
 	else {
 		echo '';
