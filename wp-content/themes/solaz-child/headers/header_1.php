@@ -170,7 +170,22 @@ $solaz_settings = solaz_check_theme_options();
 							)
 					);
 				}    
-				?>	    	        		        	
+				?>	
+				<?php if (class_exists('WP_Hotel_Booking')):?>	    
+			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
+			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'reservation-form';?>
+			        		<div class="link-contact f_right main-bg display-inline-b">
+			        			<?php if ( function_exists('icl_object_id') ) :?>	
+								<a class="" target="_blank" href="<?php echo $solaz_settings['header_book_link'];?>">
+									<?php echo esc_html($solaz_settings['header_book_text']);?>
+								</a>
+								<?php else:?>
+								<a class="" target="_blank" href="<?php echo $solaz_settings['header_book_link'];?>">
+									<?php echo esc_html($solaz_settings['header_book_text']);?>
+								</a>								
+								<?php endif;?>
+			        		</div>
+			        	<?php endif;?>	    	        		        	
 	        </div>      	
         </div>  
 </div>
