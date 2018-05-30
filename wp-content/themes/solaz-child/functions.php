@@ -18,3 +18,8 @@ add_filter('final_output', function($output) {
     $output = str_replace('https://docs.oasisopen.org', 'http://docs.oasisopen.org', $output);
     return $output;
 });
+
+add_action( 'after_setup_theme', 'btq_menu' );
+function btq_menu() {
+  register_nav_menu( 'btq-menu', __( 'BTQ Menu', 'btq-menu' ) );
+}

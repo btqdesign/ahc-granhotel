@@ -105,6 +105,7 @@ $solaz_settings = solaz_check_theme_options();
 		            
 	        </nav>  
 	        <div class="header-bottom">
+				<?php /*
 	        	<?php if(isset($solaz_settings['header_email']) && $solaz_settings['header_email'] !=''):?>
 	        		<div class="link-contact display-inline-b">
 	        			<a href="mailto:<?php echo $solaz_settings['header_email'];?>"><?php echo esc_html($solaz_settings['header_email']);?></a>
@@ -157,7 +158,19 @@ $solaz_settings = solaz_check_theme_options();
 								<?php endif;?>
 			        		</div>
 			        	<?php endif;?>	
-		        	<?php endif;?>	        	    	        		        	
+					<?php endif;?>
+				*/ ?>
+				<?php
+				if (has_nav_menu('btq-menu')) {
+					wp_nav_menu(array(
+						'theme_location' => 'btq-menu',
+						'menu_class' => 'btq-menu',
+						'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
+						'walker' => new Solaz_Primary_Walker_Nav_Menu()
+							)
+					);
+				}    
+				?>	    	        		        	
 	        </div>      	
         </div>  
 </div>
