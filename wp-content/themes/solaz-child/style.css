@@ -44,6 +44,11 @@ Text Domain:  solaz-child
 	display: inline;
 	margin: 22px;
 	margin-right: 2%;
+}
+ul#menu-header-menu {
 	height: 50px;
-	padding-top: 22px;
+	padding-top: 5px;
+}
+.menu-header-menu-container {
+    padding-top: 17px;
 }
