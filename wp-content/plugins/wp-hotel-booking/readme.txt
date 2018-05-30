@@ -77,6 +77,13 @@ Yes.
 
 == Changelog ==
 
+= 1.9.7.2 =
++ Update select extra in search room page with custom process
++ Improve admin booking editor
+
+= 1.9.7.1 =
++ Update maximum extra price
+
 = 1.9.7 =
 + Update compatible with WPML
 

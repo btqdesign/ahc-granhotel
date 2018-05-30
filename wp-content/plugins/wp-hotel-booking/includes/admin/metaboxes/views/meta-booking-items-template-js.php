@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<input type="hidden" name="order_item_type" value="{{ data.order_item_type }}" />
 				<input type="hidden" name="action" value="hotel_booking_admin_add_order_item" />
 				<button type="reset" class="button hb_modal_close"><?php _e( 'Close', 'wp-hotel-booking' ) ?></button>
-				<button type="submit" class="button button-primary hb_form_submit"><?php _e( 'Add', 'wp-hotel-booking' ); ?></button>
+				<button type="submit" class="button button-primary hb_form_submit" disabled><?php _e( 'Add', 'wp-hotel-booking' ); ?></button>
 			</div>
 		</form>
 	</div>
