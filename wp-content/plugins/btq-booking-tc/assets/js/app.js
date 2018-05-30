@@ -91,6 +91,8 @@ jQuery(document).ready(function(){
 		}
 		else {
 			console.log('#btq-btn-packages nada');
+			console.log(jQuery('#btq-date-start').val());
+			console.log(jQuery('#btq-date-end').val());
 		}
 	});
 	
