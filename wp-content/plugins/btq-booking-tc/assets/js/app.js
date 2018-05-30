@@ -20,8 +20,11 @@ jQuery(document).ready(function(){
 	function vermas() {
 		jQuery('.texto_recorrido').hide();
 		jQuery('.vermas').click(function () {
-			jQuery(this).parent().next().slideToggle(200);
+			jQuery(this).parent().children('.texto_recorrido').slideToggle(200);
 			jQuery(this).text('');
+			jQuery(this).parent().css('display','inherit');
+			jQuery(this).parent().children('.texto_recorrido').css('display','contents');
+			
 		});
 		jQuery('.texto_recorrido').slideUp(200);
 	}
