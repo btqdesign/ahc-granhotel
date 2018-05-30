@@ -989,7 +989,7 @@ function btq_booking_tc_grid_shortcode() {
 	?>
 	<div id="btq-booking-grid">
 		<?php
-		btq_booking_tc_grid_rooms($language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )) );
+		btq_booking_tc_grid_rooms($language, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
 		?>
 	</div>
 	</div>
@@ -1050,7 +1050,7 @@ function btq_booking_tc_grid_packages_ajax() {
 	}
 	
 	if (isset($_POST['data']['btq_packages_init'])) {
-		btq_booking_tc_grid_packages( $language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )) );
+		btq_booking_tc_grid_packages( $language, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
 	}
 	else {
 		echo '';
@@ -1068,9 +1068,19 @@ function btq_booking_tc_grid_rooms_ajax() {
 	}
 	
 	if (isset($_POST['data']['btq_rooms_init'])) {
-		btq_booking_tc_grid_rooms( $language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )) );
+		btq_booking_tc_grid_rooms( $language, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
 	}
 	else {
 		echo '';
 	}
+}
+
+function btq_booking_tc_grid_date_start() {
+	// regresa 90 dias
+	return date('Y-m-d', ( time() + (60*60*24*90) ));
+}
+
+function btq_booking_tc_grid_date_end() {
+	// regresa 91 dias
+	return date('Y-m-d', ( time() + (60*60*24*91) ));
 }
