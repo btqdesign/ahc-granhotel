@@ -25,3 +25,21 @@ function btq_menu() {
   register_nav_menu( 'btq-menu-terraza', __( 'BTQ Menu terraza', 'btq-menu-terraza' ) );
   register_nav_menu( 'btq-menu-banquete', __( 'BTQ Menu banquete', 'btq-menu-banquete' ) );
 }
+
+add_action( 'vc_before_init', 'btq_mailchimp_tag' );
+function btq_mailchimp_tag() {
+	vc_map(array(
+		'name'     => __( 'BTQ Mailchimp tag', 'btq-booking-tc' ),
+		'base'     => 'btq-mailchimp-tag',
+		'class'    => '',
+		'category' => __( 'Content', 'btq-mailchimp-tag'),
+		'icon'     => 'icon-wpb-toggle-small-expand'
+		//'icon'     => plugins_url( 'assets/images/iconos' . DIRECTORY_SEPARATOR . 'btqdesign-logo.png', __FILE__ )
+	));
+}
+
+add_shortcode( 'btq-mailchimp-tag', 'btq_mailchimp_tag_shortcode' );
+function btq_mailchimp_tag_shortcode() {
+	$out = '';
+	return $out;
+}
