@@ -503,12 +503,16 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	
 	switch($language){
 		case 'es':
-			$hotelCode = '131328';
-			$currency  = 'MXN';
+			$hotelCode  = '131328';
+			$currency   = 'MXN';
+			$theme      = '13670';
+			$languageId = '2';
 		break;
 		case 'en':
-			$hotelCode = '95698';
-			$currency  = 'USD';
+			$hotelCode  = '95698';
+			$currency   = 'USD';
+			$theme      = '13671';
+			$languageId = '1';
 		break;
 	}
 	
@@ -653,7 +657,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 				<h3 align="center">$<?php echo $currency . " " . $precio; ?>/noche</h3>
 				<hr class="linea"/>
 				
-				<button type="button" class="btn btq-btn" onclick="location.href='https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($startDate), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($endDate), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>'">Reservar Ahora</button>
+				<button type="button" class="btn btq-btn" onclick="location.href='https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($startDate), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($endDate), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $childrens; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>'">Reservar Ahora</button>
 			</article>
 			
 		</section>
