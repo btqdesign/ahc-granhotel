@@ -669,7 +669,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	} // foreach($arrayRoomType as $elementRoomType)
 } // function btq_booking_tc_grid_rooms()
 
-function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
+function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'packages', $rooms = 1, $adults = 2, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
 		case 'es':
@@ -1050,7 +1050,7 @@ function btq_booking_tc_grid_packages_ajax() {
 	}
 	
 	if (isset($_POST['data']['btq_packages_init'])) {
-		btq_booking_tc_grid_packages($language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )) );
+		btq_booking_tc_grid_packages($language, date('Y-m-d', ( time() + (60*60*24*90) )), date('Y-m-d', ( time() + (60*60*24*91) )), 'packages' );
 	}
 	else {
 		echo '';
