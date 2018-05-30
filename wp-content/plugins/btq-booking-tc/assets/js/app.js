@@ -89,6 +89,11 @@ jQuery(document).ready(function(){
 		if((jQuery('#btq-date-start').val() == undefined || jQuery('#btq-date-start').val() == '') || (jQuery('#btq-date-end').val() == undefined || jQuery('#btq-date-end').val() == '')){
 			btq_btn_packages();
 		}
+		else {
+			console.log('#btq-btn-packages nada');
+			console.log(jQuery('#btq-date-start').val());
+			console.log(jQuery('#btq-date-end').val());
+		}
 	});
 	
 	jQuery('#btq-btn-top').click(function() {
