@@ -20,8 +20,8 @@ jQuery(document).ready(function(){
 	function vermas() {
 		jQuery('.texto_recorrido').hide();
 		jQuery('.vermas').click(function () {
-			jQuery(this).parent().next().slideToggle(200);
 			jQuery(this).text('');
+			jQuery(this).next().slideToggle(200);
 		});
 		jQuery('.texto_recorrido').slideUp(200);
 	}
