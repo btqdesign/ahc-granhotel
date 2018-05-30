@@ -635,15 +635,16 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 				}
 										
 				for ($l = 0; $l < count($rate_room); $l++) {
+					$amount = number_format_i18n( (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']), 2 );
 					?>
 					<label class="radio-inline">
-						<input type="radio" name="optradio">$<?php echo $currency . " " . (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']); ?> <br> <?php echo $rate_room[$l]['!RatePlanName']; ?>
+						<input type="radio" name="optradio">$<?php echo $amount . " " . $currency; ?> <br> <?php echo $rate_room[$l]['!RatePlanName']; ?>
 					</label>
 					<hr class="linea"/>
 					<?php
 					if ($precio == 0) { 
 						/* Inicializa el valor de precio*/
-						$precio = ($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'];
+						$precio = (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax'])
 					} 
 					else {
 						if ($precio > $rate_room[$l]['Total']['!AmountAfterTax']){ /* Valida que sea el precio menor*/
@@ -651,6 +652,8 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 						}
 					}
 				}
+				
+				$precio =  number_format_i18n($precio, 2);
 				?>
 				</form>
 				
@@ -837,17 +840,18 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 				<form>
 					<hr class="linea"/>
 					<label class="radio-inline">
-	                  <input type="radio" name="optradio">$<?php echo $currency . " " . (($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax']); ?> <br> <?php echo $roomRate['!RoomTypeName']; ?>
+					  <?php $amount = number_format_i18n( (($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax']), 2 ); ?>
+	                  <input type="radio" name="optradio">$<?php echo $amount . " " . $currency; ?> <br> <?php echo $roomRate['!RoomTypeName']; ?>
 	                </label>
 	                <hr class="linea"/>
 				</form>
 
 				<?php
 				/* Inicializa el valor de precio*/
-				$precio = ($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax'];
+				$precio = number_format_i18n( (($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax']), 2 );
 				?>
 				
-				<h3 align="center">$<?php echo $currency . " " . $precio; ?>/noche</h3>
+				<h3 align="center">$<?php echo $precio . " " . $currency; ?>/noche</h3>
 				<hr class="linea"/>
 				
 						<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');">Reservar Ahora</button>
