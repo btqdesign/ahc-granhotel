@@ -170,7 +170,8 @@ $solaz_settings = solaz_check_theme_options();
 							)
 					);
 				}    
-				?>	    	        		        	
+				?>	
+				    	        		        	
 	        </div>      	
         </div>  
 </div>
