@@ -39,3 +39,8 @@ Text Domain:  solaz-child
 	    width: 100%;
 	}
 }
+
+.btq-menu{
+	display: inline;
+	margin: 5px 15px;
+}
