@@ -40,7 +40,8 @@ Text Domain:  solaz-child
 	}
 }
 
-.menu-header-menu-container {
+.btq-menu {
 	display: inline;
 	margin: 5px 15px;
+	background: #C5992D;
 }
