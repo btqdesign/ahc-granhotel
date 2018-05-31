@@ -24,5 +24,7 @@ $solaz_hide_f_info = solaz_get_meta_value('hide_f_info', true);
 </div> <!-- End page-->
 
 <?php wp_footer(); ?>
+
+
 </body>
 </html>
