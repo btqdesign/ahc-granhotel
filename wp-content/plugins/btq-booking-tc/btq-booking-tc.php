@@ -638,7 +638,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 					$amount = number_format_i18n( (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']), 2 );
 					?>
 					<label class="radio-inline">
-						<input type="radio" name="optradio">$<?php echo $amount . ' ' . $currency; ?> <br> <?php echo $rate_room[$l]['!RatePlanName']; ?>
+						<input type="radio" name="optradio"><?php echo $rate_room[$l]['!RatePlanName']; ?><br>$<?php echo $amount . ' ' . $currency; ?>
 					</label>
 					<hr class="linea"/>
 					<?php
@@ -841,7 +841,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 					<hr class="linea"/>
 					<label class="radio-inline">
 					  <?php $amount = number_format_i18n( (($language == 'es')?$roomRate['Total']['!AmountAfterTax']:$roomRate['Total']['!AmountBeforeTax']), 2 ); ?>
-	                  <input type="radio" name="optradio">$<?php echo $amount . ' ' . $currency; ?> <br> <?php echo $roomRate['!RoomTypeName']; ?>
+	                  <input type="radio" name="optradio"><?php echo $roomRate['!RoomTypeName']; ?><br>$<?php echo $amount . ' ' . $currency; ?>
 	                </label>
 	                <hr class="linea"/>
 				</form>
