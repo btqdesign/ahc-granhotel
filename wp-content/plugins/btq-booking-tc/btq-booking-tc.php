@@ -978,23 +978,16 @@ function btq_booking_tc_grid_VC() {
 }
 
 add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
-function btq_booking_tc_grid_shortcode() {	
-	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$language = ICL_LANGUAGE_CODE;
-	}
-	else {
-		$language = 'es';
-	}
-	
+function btq_booking_tc_grid_shortcode() {
 	ob_start();
 	?>
 	<div class="container">
     <?php
-	btq_booking_tc_grid_form($language);
+	btq_booking_tc_grid_form( btq_booking_tc_grid_current_language_code() );
 	?>
 	<div id="btq-booking-grid">
 		<?php
-		btq_booking_tc_grid_rooms($language, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
+		btq_booking_tc_grid_rooms(btq_booking_tc_grid_current_language_code(), btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
 		?>
 	</div>
 	</div>
@@ -1022,18 +1015,11 @@ function btq_booking_tc_grid_ajax() {
 	)){
 		$post_data = $_POST['data'];
 		
-		if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-			$language = ICL_LANGUAGE_CODE;
-		}
-		else {
-			$language = 'es';
-		}
-		
 		if ($post_data['btq_type_query'] == 'rooms'){
-			btq_booking_tc_grid_rooms($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
+			btq_booking_tc_grid_rooms(    btq_booking_tc_grid_current_language_code(), $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
 		}
 		elseif ($post_data['btq_type_query'] == 'packages'){
-			btq_booking_tc_grid_packages($language, $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
+			btq_booking_tc_grid_packages( btq_booking_tc_grid_current_language_code(), $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
 		}
 		else {
 			echo '';
@@ -1046,16 +1032,9 @@ function btq_booking_tc_grid_ajax() {
 
 add_action( 'wp_ajax_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
-function btq_booking_tc_grid_packages_ajax() {
-	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$language = ICL_LANGUAGE_CODE;
-	}
-	else {
-		$language = 'es';
-	}
-	
+function btq_booking_tc_grid_packages_ajax() {	
 	if (isset($_POST['data']['btq_packages_init'])) {
-		btq_booking_tc_grid_packages( $language, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
+		btq_booking_tc_grid_packages( btq_booking_tc_grid_current_language_code(), btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
 	}
 	else {
 		echo '';
@@ -1064,16 +1043,9 @@ function btq_booking_tc_grid_packages_ajax() {
 
 add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
-function btq_booking_tc_grid_rooms_ajax() {
-	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
-		$language = ICL_LANGUAGE_CODE;
-	}
-	else {
-		$language = 'es';
-	}
-	
+function btq_booking_tc_grid_rooms_ajax() {	
 	if (isset($_POST['data']['btq_rooms_init'])) {
-		btq_booking_tc_grid_rooms( $language, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
+		btq_booking_tc_grid_rooms( btq_booking_tc_grid_current_language_code(), btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
 	}
 	else {
 		echo '';
@@ -1088,4 +1060,15 @@ function btq_booking_tc_grid_date_start() {
 function btq_booking_tc_grid_date_end() {
 	// regresa 91 dias
 	return date('Y-m-d', ( time() + (60*60*24*91) ));
+}
+
+function btq_booking_tc_grid_current_language_code() {
+	if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+		$language = ICL_LANGUAGE_CODE;
+	}
+	else {
+		$language = 'es';
+	}
+	
+	return $language;
 }
