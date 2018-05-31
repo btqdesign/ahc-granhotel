@@ -635,10 +635,11 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 				}
 										
 				for ($l = 0; $l < count($rate_room); $l++) {
-					$amount = number_format_i18n( (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']), 2 );
+					$amount_total    = number_format_i18n( (($language == 'es')?($rate_room[$l]['Total']['!AmountAfterTax'] + $rate_room[$l]['Total']['!Discount']):$rate_room[$l]['Total']['!AmountBeforeTax']), 2 );
+					$amount_discount = number_format_i18n( (($language == 'es')?$rate_room[$l]['Total']['!AmountAfterTax']:$rate_room[$l]['Total']['!AmountBeforeTax']), 2 );
 					?>
 					<label class="radio-inline">
-						<input type="radio" name="optradio"><?php echo $rate_room[$l]['!RatePlanName']; ?><br>$<?php echo $amount . ' ' . $currency; ?>
+						<input type="radio" name="optradio"><?php echo $rate_room[$l]['!RatePlanName']; ?><br><span style="text-decoration: line-through;">$<?php echo $amount_total . ' ' . $currency; ?></span><br>$<?php echo $amount_discount . ' ' . $currency; ?>
 					</label>
 					<hr class="linea"/>
 					<?php
