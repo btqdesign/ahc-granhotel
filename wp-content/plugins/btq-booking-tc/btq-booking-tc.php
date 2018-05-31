@@ -1074,7 +1074,7 @@ function btq_booking_tc_grid_current_language_code() {
 		$language = ICL_LANGUAGE_CODE;
 	}
 	else {
-		$language = 'es';
+		$language = 'es-';
 	}
 	
 	//Debug
