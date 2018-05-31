@@ -36,14 +36,28 @@ function wpdocs_my_page_capability( $capability ) {
 add_filter( 'option_page_capability_my-options-group', 'wpdocs_my_page_capability' );
 */
 
-function btq_booking_tc_log($filename, $string = ''){
+function btq_booking_tc_log($file_name, $var, $same_file = false){
 	$log_dir = plugin_dir_path( __FILE__ ) . 'log' ;
 	
 	if (!file_exists($log_dir)) {
 		mkdir($log_dir, 0755);
 	}
 	
-	file_put_contents($log_dir . DIRECTORY_SEPARATOR . $filename . date('_Y-m-d_U'). '.log', $string);
+	if(is_string($var)){
+		$string = $var;
+	}
+	else {
+		$string = var_export($var, TRUE);
+	}
+	
+	if ($same_file){
+		$file_path = $log_dir . DIRECTORY_SEPARATOR . $file_name . '.log';
+		file_put_contents($file_path, date('[Y-m-d U] ') . $string . "\n\n", FILE_APPEND | LOCK_EX);
+	}
+	else {
+		$file_path = $log_dir . DIRECTORY_SEPARATOR . $file_name . date('_Y-m-d_U'). '.log';
+		file_put_contents($file_path, $string);
+	}
 }
 
 add_action( 'admin_menu', 'btq_booking_tc_admin_menu' );
