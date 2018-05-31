@@ -228,7 +228,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	</soap:Envelope>';
 	
 	// Debug Log
-	btq_booking_tc_log('soapenvelope', $soapEnvelope);
+	//btq_booking_tc_log('soapenvelope', $soapEnvelope);
 	
 	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
@@ -705,8 +705,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	}
 	
 	// Debug Log
-	$response_log = var_export($arrayRatePlan, TRUE);
-	btq_booking_tc_log('grid_packages_rate_plan', $response_log);
+	//$response_log = var_export($arrayRatePlan, TRUE);
+	//btq_booking_tc_log('grid_packages_rate_plan', $response_log);
 	
 	
 	$ResponseRoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
@@ -719,8 +719,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	}
 	
 	// Debug Log
-	$response_log = var_export($arrayRoomRate, TRUE);
-	btq_booking_tc_log('grid_packages_room_rate', $response_log);
+	//$response_log = var_export($arrayRoomRate, TRUE);
+	//btq_booking_tc_log('grid_packages_room_rate', $response_log);
 	
 	$ResponseRoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
@@ -739,8 +739,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	}
 	
 	// Debug Log
-	$response_log = var_export($arrayRoomType, TRUE);
-	btq_booking_tc_log('grid_packages_room_type', $response_log);
+	//$response_log = var_export($arrayRoomType, TRUE);
+	//btq_booking_tc_log('grid_packages_room_type', $response_log);
 	
 	
 	$images_path = 'assets/images/';
@@ -754,8 +754,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		$roomType = $arrayRoomType[$roomTypeCode];
 		
 		// Debug Log
-		$response_log = var_export($roomRate, TRUE);
-		btq_booking_tc_log('grid_packages_for_room_rate', $response_log);
+		//$response_log = var_export($roomRate, TRUE);
+		//btq_booking_tc_log('grid_packages_for_room_rate', $response_log);
 		
 		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
@@ -1007,8 +1007,8 @@ add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
 	// Debug Log
-	$post_log = var_export($_POST, TRUE);
-	btq_booking_tc_log('ajax-post', $post_log);
+	//$post_log = var_export($_POST, TRUE);
+	//btq_booking_tc_log('ajax-post', $post_log);
 	
 	if (isset(
 		$_POST['data'],
