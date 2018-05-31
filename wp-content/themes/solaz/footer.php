@@ -25,7 +25,6 @@ $solaz_hide_f_info = solaz_get_meta_value('hide_f_info', true);
 
 <?php wp_footer(); ?>
 
-<script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js" data-dojo-config="usePlainJson: true, isDebug: false"></script><script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) { L.start({"baseUrl":"mc.us12.list-manage.com","uuid":"bad1955772a324fbae65f9d80","lid":"8f8b9b2cb9"}) })</script>
 
 </body>
 </html>
