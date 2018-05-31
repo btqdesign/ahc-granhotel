@@ -1070,5 +1070,8 @@ function btq_booking_tc_grid_current_language_code() {
 		$language = 'es';
 	}
 	
+	//Debug
+	btq_booking_tc_log('language', $language);
+	
 	return $language;
 }
