@@ -533,8 +533,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
 	
 	// Debug Log
-	$response_log = var_export($response, TRUE);
-	btq_booking_tc_log('grid_rooms', $response_log);
+	//btq_booking_tc_log('grid_rooms', $response);
 	
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
@@ -707,8 +706,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
 	
 	// Debug Log
-	$response_log = var_export($response, TRUE);
-	btq_booking_tc_log('grid_packages', $response_log);
+	//btq_booking_tc_log('grid_packages', $response);
 	
 	$ResponseRatePlan = $response['RoomStays']['RoomStay']['RatePlans']['RatePlan'];
 	
@@ -720,8 +718,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	}
 	
 	// Debug Log
-	//$response_log = var_export($arrayRatePlan, TRUE);
-	//btq_booking_tc_log('grid_packages_rate_plan', $response_log);
+	//btq_booking_tc_log('grid_packages_rate_plan', $arrayRatePlan);
 	
 	
 	$ResponseRoomRate = $response['RoomStays']['RoomStay']['RoomRates']['RoomRate'];
@@ -734,8 +731,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	}
 	
 	// Debug Log
-	//$response_log = var_export($arrayRoomRate, TRUE);
-	//btq_booking_tc_log('grid_packages_room_rate', $response_log);
+	//btq_booking_tc_log('grid_packages_room_rate', $arrayRoomRate);
 	
 	$ResponseRoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
@@ -754,8 +750,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	}
 	
 	// Debug Log
-	//$response_log = var_export($arrayRoomType, TRUE);
-	//btq_booking_tc_log('grid_packages_room_type', $response_log);
+	//btq_booking_tc_log('grid_packages_room_type', $arrayRoomType);
 	
 	
 	$images_path = 'assets/images/';
@@ -769,8 +764,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		$roomType = $arrayRoomType[$roomTypeCode];
 		
 		// Debug Log
-		//$response_log = var_export($roomRate, TRUE);
-		//btq_booking_tc_log('grid_packages_for_room_rate', $response_log);
+		//btq_booking_tc_log('grid_packages_for_room_rate', $roomRate);
 		
 		$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
 		$images = btq_booking_tc_grid_get_images($images_dir);
@@ -1015,8 +1009,7 @@ add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 function btq_booking_tc_grid_ajax() {
 	// Debug Log
-	//$post_log = var_export($_POST, TRUE);
-	//btq_booking_tc_log('ajax-post', $post_log);
+	//btq_booking_tc_log('ajax-post', $_POST);
 	
 	if (isset(
 		$_POST['data'],
@@ -1085,7 +1078,7 @@ function btq_booking_tc_grid_current_language_code() {
 	}
 	
 	//Debug
-	btq_booking_tc_log('language', $language);
+	btq_booking_tc_log('languages', $language, TRUE);
 	
 	return $language;
 }
