@@ -34,41 +34,8 @@ jQuery(document).ready(function(){
 	jQuery('#btq-booking-tc-form').submit(false);
 	
 	jQuery('#btq-search').click(function() {
-		console.log('#btq-search click function');
-		
-		jQuery('#btq-booking-tc-form').submit(function(e){ e.preventDefault(); });
-		
-		jQuery("#wait").css("display", "block");
-		
-		jQuery(".preloader").css("display", "block");
-		jQuery.post(
-		    '/wp-admin/admin-ajax.php', 
-		    {
-				'action' : 'btq_booking_tc_grid',
-				'data' : {
-					btq_date_start   : moment( jQuery('#btq-date-start').datepicker('getDate') ).format('YYYY-MM-DD'), 
-					btq_date_end     : moment( jQuery('#btq-date-end').datepicker('getDate')   ).format('YYYY-MM-DD'),
-					btq_type_query   : jQuery('#btq-type-query').val(),
-					btq_num_rooms    : jQuery('#btq-num-rooms').val(),
-					btq_num_adults   : jQuery('#btq-num-adults').val(),
-					btq_num_children : jQuery("#btq-num-children").val()
-				}
-		    }, 
-		    function(response) {
-				jQuery('#btq-booking-grid').html(response);
-				jQuery(".preloader").css("display", "none");
-				vermas();
-		    }
-		)
-		.done(function() {
-			jQuery(".preloader").css("display", "none");
-		})
-		.fail(function() {
-			jQuery(".preloader").css("display", "none");
-		});
+		btq_btn_search();
 	});
-	
-	
 	
 	jQuery('#btq-btn-rooms').click(function() {
 		jQuery('#btq-btn-rooms').addClass('btn-default');
@@ -80,6 +47,9 @@ jQuery(document).ready(function(){
 		var today = new Date();
 		if((jQuery('#btq-date-start').datepicker('getDate') <= today) || (jQuery('#btq-date-end').datepicker('getDate') <= today)){
 			btq_btn_rooms();
+		}
+		else if ((jQuery('#btq-date-start').datepicker('getDate') > today) && (jQuery('#btq-date-end').datepicker('getDate') > today)){
+			btq_btn_search();
 		}
 		else {
 			console.log('#btq-btn-rooms nada');
@@ -97,6 +67,9 @@ jQuery(document).ready(function(){
 		if((jQuery('#btq-date-start').datepicker('getDate') <= today) || (jQuery('#btq-date-end').datepicker('getDate') <= today)){
 			btq_btn_packages();
 		}
+		else if ((jQuery('#btq-date-start').datepicker('getDate') > today) && (jQuery('#btq-date-end').datepicker('getDate') > today)){
+			btq_btn_search();
+		}
 		else {
 			console.log('#btq-btn-packages nada');
 		}
@@ -112,6 +85,9 @@ jQuery(document).ready(function(){
 		var today = new Date();
 		if((jQuery('#btq-date-start').datepicker('getDate') <= today) || (jQuery('#btq-date-end').datepicker('getDate') <= today)){
 			btq_btn_rooms();
+		}
+		else if ((jQuery('#btq-date-start').datepicker('getDate') > today) && (jQuery('#btq-date-end').datepicker('getDate') > today)){
+			btq_btn_search();
 		}
 		else {
 			console.log('#btq-btn-rooms nada');
@@ -162,6 +138,41 @@ jQuery(document).ready(function(){
 				'action' : 'btq_booking_tc_grid_rooms',
 				'data' : {
 					btq_rooms_init : 'OK'
+				}
+		    }, 
+		    function(response) {
+				jQuery('#btq-booking-grid').html(response);
+				jQuery(".preloader").css("display", "none");
+				vermas();
+		    }
+		)
+		.done(function() {
+			jQuery(".preloader").css("display", "none");
+		})
+		.fail(function() {
+			jQuery(".preloader").css("display", "none");
+		});
+	}
+	
+	function btq_btn_search(){
+		console.log('#btq-search click function');
+		
+		jQuery('#btq-booking-tc-form').submit(function(e){ e.preventDefault(); });
+		
+		jQuery("#wait").css("display", "block");
+		
+		jQuery(".preloader").css("display", "block");
+		jQuery.post(
+		    '/wp-admin/admin-ajax.php', 
+		    {
+				'action' : 'btq_booking_tc_grid',
+				'data' : {
+					btq_date_start   : moment( jQuery('#btq-date-start').datepicker('getDate') ).format('YYYY-MM-DD'), 
+					btq_date_end     : moment( jQuery('#btq-date-end').datepicker('getDate')   ).format('YYYY-MM-DD'),
+					btq_type_query   : jQuery('#btq-type-query').val(),
+					btq_num_rooms    : jQuery('#btq-num-rooms').val(),
+					btq_num_adults   : jQuery('#btq-num-adults').val(),
+					btq_num_children : jQuery("#btq-num-children").val()
 				}
 		    }, 
 		    function(response) {
