@@ -182,10 +182,10 @@ $solaz_settings = solaz_check_theme_options();
 							));
 						}
 					}
-					elseif($post_slug == '/en/%'){
-						if (has_nav_menu('btq-menu-terraza-en')) {
+					elseif($post_slug == '/en'){
+						if (has_nav_menu('btq-menu-en')) {
 							wp_nav_menu(array(
-								'theme_location' => 'btq-menu-terraza-en',
+								'theme_location' => 'btq-menu-en',
 								'menu_class' => 'btq-menu',
 								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
 								'walker' => new Solaz_Primary_Walker_Nav_Menu()
