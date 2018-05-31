@@ -194,9 +194,9 @@ $solaz_settings = solaz_check_theme_options();
 					}
 
 					if ($post_slug == 'events'){
-						if (has_nav_menu('btq-menu-banquetes-en')) {
+						if (has_nav_menu('btq-menu-events-en')) {
 							wp_nav_menu(array(
-								'theme_location' => 'btq-menu-banquetes-en',
+								'theme_location' => 'btq-menu-events-en',
 								'menu_class' => 'btq-menu',
 								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
 								'walker' => new Solaz_Primary_Walker_Nav_Menu()
