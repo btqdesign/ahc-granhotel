@@ -182,7 +182,7 @@ $solaz_settings = solaz_check_theme_options();
 							));
 						}
 					}
-					elseif($post_slug == '/en'){
+					elseif($post_slug == 'https://hotel.idevol.net/en/'){
 						if (has_nav_menu('btq-menu-terraza-en')) {
 							wp_nav_menu(array(
 								'theme_location' => 'btq-menu-terraza-en',
