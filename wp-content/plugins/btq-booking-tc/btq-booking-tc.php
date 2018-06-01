@@ -444,12 +444,10 @@ function btq_booking_tc_admin_debug_page() {
 			<?php submit_button(); ?>
 		</form>
 		-->
-		<!--
 		<div style="background-color: white;">
 			<?php btq_booking_tc_admin_debug_rooms('95698'); ?>
 			<?php btq_booking_tc_admin_debug_rooms('131328'); ?>
 		</div>
-		-->
 		<pre style="background-color: white;">
 		<?php
 			/*
@@ -469,6 +467,8 @@ function btq_booking_tc_admin_debug_page() {
 			*/
 		?>
 		</pre>
+<<<<<<< HEAD
+=======
 		<div style="background-color: white;">
 			<p>Un año</p>
 		<?php 
@@ -488,6 +488,7 @@ function btq_booking_tc_admin_debug_page() {
 			}
 		?>
 		</div>
+>>>>>>> fe50c2a4c95ecdef38bef6e313baad10285217b1
 	</div><!-- wrap -->
 <?php
 }
@@ -1155,15 +1156,4 @@ function btq_booking_tc_grid_current_language_code() {
 	btq_booking_tc_log('languages', $language, TRUE);
 	
 	return $language;
-}
-
-function btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd) {
-	$begin = new DateTime($dateRangeStart);
-	$end = new DateTime($dateRangeEnd);
-	$end = $end->modify('+1 day'); 
-	
-	$interval = new DateInterval('P1D');
-	$daterange = new DatePeriod($begin, $interval ,$end);
-	
-	return $daterange;
 }
