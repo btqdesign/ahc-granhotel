@@ -471,9 +471,11 @@ function btq_booking_tc_admin_debug_page() {
 		</pre>
 		<div style="background-color: white;">
 		<?php 
-			$dates = btq_booking_tc_grid_dates();
+			$dates = btq_booking_tc_grid_dates('2018-06-01','2019-06-01');
+			$num_count = 1;
 			foreach($dates as $date){
-				echo $date->format("Y-m-d") . "<br>";
+				echo $num_count.'.- '.$date->format("Y-m-d") . "<br>";
+				$num_count++;
 			}
 		?>
 		</div>
