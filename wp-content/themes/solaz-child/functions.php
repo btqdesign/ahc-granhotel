@@ -24,8 +24,6 @@ function btq_menu() {
   register_nav_menu( 'btq-menu', __( 'BTQ Menu', 'btq-menu' ) );
   register_nav_menu( 'btq-menu-terraza', __( 'BTQ Menu terraza', 'btq-menu-terraza' ) );
   register_nav_menu( 'btq-menu-banquete', __( 'BTQ Menu banquete', 'btq-menu-banquete' ) );
-  register_nav_menu( 'btq-menu-banquetes-en', __( 'BTQ Menu banquete en', 'btq-menu-banquete-en' ) );
-  register_nav_menu( 'btq-menu-terraza-en', __( 'BTQ Menu terraza en', 'btq-menu-terraza-en' ) );
   register_nav_menu( 'btq-menu-en', __( 'BTQ Menu en', 'btq-menu-en' ) );
 }
 
