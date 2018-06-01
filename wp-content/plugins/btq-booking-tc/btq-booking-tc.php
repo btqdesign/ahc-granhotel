@@ -479,7 +479,7 @@ function btq_booking_tc_admin_debug_page() {
 			foreach($dates as $date){
 				$dayRangeStart = $date->format('Y-m-d');
 				$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-				echo $num_count . '.- ' . $dayRangeStart . $dayRangeEnd . '<br>';
+				echo $num_count . '.- ' . $dayRangeStart . ' - ' . $dayRangeEnd . '<br>';
 				$num_count++;
 			}
 		?>
