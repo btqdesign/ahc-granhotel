@@ -444,10 +444,12 @@ function btq_booking_tc_admin_debug_page() {
 			<?php submit_button(); ?>
 		</form>
 		-->
+		<!--
 		<div style="background-color: white;">
 			<?php btq_booking_tc_admin_debug_rooms('95698'); ?>
 			<?php btq_booking_tc_admin_debug_rooms('131328'); ?>
 		</div>
+		-->
 		<pre style="background-color: white;">
 		<?php
 			/*
@@ -475,7 +477,9 @@ function btq_booking_tc_admin_debug_page() {
 			$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
 			$num_count = 1;
 			foreach($dates as $date){
-				echo $num_count . '.- ' . $date->format('Y-m-d') . date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day')) . '<br>';
+				$dayRangeStart = $date->format('Y-m-d');
+				$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
+				echo $num_count . '.- ' . $dayRangeStart . $dayRangeEnd . '<br>';
 				$num_count++;
 			}
 		?>
