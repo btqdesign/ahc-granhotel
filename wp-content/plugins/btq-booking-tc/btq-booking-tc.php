@@ -444,7 +444,7 @@ function btq_booking_tc_admin_debug_page() {
 		<h1>Debug TravelClick</h1>
 		<!--
 		<form method="post" action="options.php">
-			<?php settings_fields( 'btq-booking-tc-settings' ); ?>
+			<?php /* settings_fields( 'btq-booking-tc-settings' ); ?>
 			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
 			<table class="form-table">
 				<tr valign="top">
@@ -452,13 +452,16 @@ function btq_booking_tc_admin_debug_page() {
 					<td><textarea name="hotel_soap" type="textarea" cols="" rows=""><?php echo esc_attr( get_option('hotel_soap') ); ?></textarea></td>
 				</tr>
 			</table>
-			<?php submit_button(); ?>
+			<?php submit_button(); */ ?>
 		</form>
 		-->
+		<!--
 		<div style="background-color: white;">
-			<?php btq_booking_tc_admin_debug_rooms('95698'); ?>
-			<?php btq_booking_tc_admin_debug_rooms('131328'); ?>
+			<?php /* btq_booking_tc_admin_debug_rooms('95698'); ?>
+			<?php btq_booking_tc_admin_debug_rooms('131328'); */ ?>
 		</div>
+		-->
+		<!--
 		<pre style="background-color: white;">
 		<?php
 			/*
@@ -478,6 +481,7 @@ function btq_booking_tc_admin_debug_page() {
 			*/
 		?>
 		</pre>
+		-->
 		
 		<div style="background-color: white;">
 			<p>Un año</p>
@@ -487,13 +491,14 @@ function btq_booking_tc_admin_debug_page() {
 			$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
 			$num_count = 1;
 			foreach($dates as $date){
+				$currentTime = date('[Y-m-d H:i:s]');
 				$dayRangeStart = $date->format('Y-m-d');
 				$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
 				$disponibilidad = 'OK';
 				if (btq_booking_tc_soap_query('131328', $dayRangeStart, $dayRangeEnd) === FALSE){
 					$disponibilidad = 'NO';
 				}
-				echo $num_count . '.- ' . $dayRangeStart . ' - ' . $dayRangeEnd . ' - ' . $disponibilidad . '<br>';
+				echo $num_count . '.- ' . $currentTime . ' ' . $dayRangeStart . ' - ' . $dayRangeEnd . ' - ' . $disponibilidad . '<br>';
 				$num_count++;
 			}
 		?>
