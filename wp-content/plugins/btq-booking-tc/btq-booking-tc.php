@@ -503,8 +503,8 @@ function btq_booking_tc_admin_debug_page() {
 				echo $num_count . '.- ' . $currentTime . ' ' . $dayRangeStart . ' - ' . $dayRangeEnd . ' - ' . $disponibilidad . '<br>';
 				$num_count++;
 			}
-			
-			file_put_contents('btq-unavailable.json', json_encode($datesUnavailable));
+			$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
+			file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
 		?>
 		</div>
 	</div><!-- wrap -->
