@@ -1074,19 +1074,16 @@ function btq_booking_tc_grid_current_language_code() {
 	$wpml_current_language = apply_filters( 'wpml_current_language', NULL );
 	if (!empty($wpml_current_language)){
 		$language = $wpml_current_language;
-		$debug = 1;
 	}
 	elseif ( defined( 'ICL_LANGUAGE_CODE' ) ) {
 		$language = ICL_LANGUAGE_CODE;
-		$debug = 2;
 	}
 	else {
 		$language = 'es';
-		$debug = 3;
 	}
 	
 	//Debug
-	btq_booking_tc_log('languages', $language.' '.$debug, TRUE);
+	//btq_booking_tc_log('languages', $language, TRUE);
 	
 	return $language;
 }
