@@ -467,8 +467,6 @@ function btq_booking_tc_admin_debug_page() {
 			*/
 		?>
 		</pre>
-<<<<<<< HEAD
-=======
 		<div style="background-color: white;">
 			<p>Un año</p>
 		<?php 
@@ -482,7 +480,6 @@ function btq_booking_tc_admin_debug_page() {
 			}
 		?>
 		</div>
->>>>>>> 0933b4721b2e545c619ea1a2185eea0e6d012c65
 	</div><!-- wrap -->
 <?php
 }
