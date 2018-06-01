@@ -1,5 +1,5 @@
 jQuery(document).ready(function(){
-
+	
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
