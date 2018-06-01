@@ -1,5 +1,13 @@
 jQuery(document).ready(function(){
 	
+	(function() {
+		var btq_unavailable_url = '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json';
+		$.getJSON( btq_unavailable_url, {})
+		.done(function(data) {
+			console.log(data);
+		});
+	})();
+	
 	jQuery('#btq-date-end').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
