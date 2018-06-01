@@ -18,6 +18,7 @@ jQuery(document).ready(function(){
 		minDate: '+1d',
 		onSelect: function(dateSelect){
 			jQuery('#btq-date-end').datepicker('option', {minDate: dateSelect});
+			jQuery('#btq-date-end').datepicker('refresh');
 	    }
 	});
 	
@@ -28,6 +29,8 @@ jQuery(document).ready(function(){
 			console.log(data);
 			jQuery('#btq-date-start').datepicker('option', {datesDisabled: data});
 			jQuery('#btq-date-end').datepicker('option', {datesDisabled: data});
+			jQuery('#btq-date-start').datepicker('refresh');
+			jQuery('#btq-date-end').datepicker('refresh');
 		});
 	})();
 	
