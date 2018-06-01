@@ -120,6 +120,17 @@ function btq_booking_tc_admin_settings_page() {
 <?php
 }
 
+function btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd) {
+	$begin = new DateTime($dateRangeStart);
+	$end = new DateTime($dateRangeEnd);
+	$end = $end->modify('+1 day'); 
+	
+	$interval = new DateInterval('P1D');
+	$daterange = new DatePeriod($begin, $interval ,$end);
+	
+	return $daterange;
+}
+
 function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
 	
 	if ($typeQuery == 'packages'){
