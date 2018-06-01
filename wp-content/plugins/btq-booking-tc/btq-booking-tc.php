@@ -920,6 +920,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_arrival_date = 'Arrival date';
 		$str_departure_date = 'Departure date';
 		$str_search = 'Search';
+		$str_adult = 'Adults';
 	}
 
 
@@ -931,6 +932,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_arrival_date = 'Fecha de llegada';
 		$str_departure_date = 'Fecha de salida';
 		$str_search = 'Buscar';
+		$str_adult = 'Adultos';
 	}
 	$iconos_dir = 'assets/images/iconos';
 	?>
@@ -983,7 +985,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 							<div class="form-group">
 								<select class="btq-select" id="btq-num-adults" name="btq-num-adults">
 									<?php for ($i = 1; $i <= 9; $i ++) { ?>
-									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+									<option value="<?php echo $i; ?>"><?php echo $str_adult, $i; ?></option>
 									<?php } ?>
 								</select>
 							</div>
