@@ -52,7 +52,7 @@ function btq_booking_tc_log($file_name, $var, $same_file = false){
 	
 	if ($same_file){
 		$file_path = $log_dir . DIRECTORY_SEPARATOR . $file_name . '.log';
-		file_put_contents($file_path, date('[Y-m-d U] ') . $string . "\n\n", FILE_APPEND | LOCK_EX);
+		file_put_contents($file_path, date('[Y-m-d M:H:s] ') . $string . "\n", FILE_APPEND | LOCK_EX);
 	}
 	else {
 		$file_path = $log_dir . DIRECTORY_SEPARATOR . $file_name . date('_Y-m-d_U'). '.log';
@@ -995,7 +995,11 @@ function btq_booking_tc_grid_shortcode() {
 	?>
 	<div id="btq-booking-grid">
 		<?php
-		btq_booking_tc_grid_rooms(btq_booking_tc_grid_current_language_code(), btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
+		btq_booking_tc_grid_rooms(
+			btq_booking_tc_grid_current_language_code(),
+			btq_booking_tc_grid_date_start(),
+			btq_booking_tc_grid_date_end()
+		);
 		?>
 	</div>
 	</div>
@@ -1023,10 +1027,26 @@ function btq_booking_tc_grid_ajax() {
 		$post_data = $_POST['data'];
 		
 		if ($post_data['btq_type_query'] == 'rooms'){
-			btq_booking_tc_grid_rooms(    btq_booking_tc_grid_current_language_code(), $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
+			btq_booking_tc_grid_rooms(
+				btq_booking_tc_grid_current_language_code(), 
+				$post_data['btq_date_start'],
+				$post_data['btq_date_end'],
+				$post_data['btq_type_query'],
+				$post_data['btq_num_rooms'],
+				$post_data['btq_num_adults'],
+				$post_data['btq_num_children']
+			);
 		}
 		elseif ($post_data['btq_type_query'] == 'packages'){
-			btq_booking_tc_grid_packages( btq_booking_tc_grid_current_language_code(), $post_data['btq_date_start'], $post_data['btq_date_end'], $post_data['btq_type_query'], $post_data['btq_num_rooms'], $post_data['btq_num_adults'], $post_data['btq_num_children']);
+			btq_booking_tc_grid_packages(
+				btq_booking_tc_grid_current_language_code(), 
+				$post_data['btq_date_start'],
+				$post_data['btq_date_end'],
+				$post_data['btq_type_query'],
+				$post_data['btq_num_rooms'],
+				$post_data['btq_num_adults'],
+				$post_data['btq_num_children']
+			);
 		}
 		else {
 			echo '';
@@ -1041,7 +1061,11 @@ add_action( 'wp_ajax_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_package
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
 function btq_booking_tc_grid_packages_ajax() {	
 	if (isset($_POST['data']['btq_packages_init'])) {
-		btq_booking_tc_grid_packages( btq_booking_tc_grid_current_language_code(), btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
+		btq_booking_tc_grid_packages(
+			btq_booking_tc_grid_current_language_code(),
+			btq_booking_tc_grid_date_start(),
+			btq_booking_tc_grid_date_end()
+		);
 	}
 	else {
 		echo '';
@@ -1052,7 +1076,11 @@ add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
 function btq_booking_tc_grid_rooms_ajax() {	
 	if (isset($_POST['data']['btq_rooms_init'])) {
-		btq_booking_tc_grid_rooms( btq_booking_tc_grid_current_language_code(), btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end() );
+		btq_booking_tc_grid_rooms(
+			btq_booking_tc_grid_current_language_code(),
+			btq_booking_tc_grid_date_start(),
+			btq_booking_tc_grid_date_end()
+		);
 	}
 	else {
 		echo '';
@@ -1083,7 +1111,7 @@ function btq_booking_tc_grid_current_language_code() {
 	}
 	
 	//Debug
-	//btq_booking_tc_log('languages', $language, TRUE);
+	btq_booking_tc_log('languages', $language, TRUE);
 	
 	return $language;
 }
