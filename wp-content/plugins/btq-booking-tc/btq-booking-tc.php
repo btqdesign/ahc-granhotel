@@ -1152,3 +1152,14 @@ function btq_booking_tc_grid_current_language_code() {
 	
 	return $language;
 }
+
+function btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd) {
+	$begin = new DateTime($dateRangeStart);
+	$end = new DateTime($dateRangeEnd);
+	$end = $end->modify('+1 day'); 
+	
+	$interval = new DateInterval('P1D');
+	$daterange = new DatePeriod($begin, $interval ,$end);
+	
+	return $daterange;
+}
