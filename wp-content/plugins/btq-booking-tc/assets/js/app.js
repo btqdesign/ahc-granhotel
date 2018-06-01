@@ -1,5 +1,14 @@
 jQuery(document).ready(function(){
 	
+	jQuery('#btq-date-end').datepicker({
+		dateFormat: 'dd/mm/yy',
+		maxViewMode: 3,
+		language: 'es',
+		autoclose: true,
+		todayHighlight: true,
+		minDate: '+1'
+	});
+	
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
@@ -7,18 +16,9 @@ jQuery(document).ready(function(){
 		autoclose: true,
 		todayHighlight: true,
 		minDate: 0,
-		onSelect: function(date){
-			jQuery('#btq-date-end').datepicker( 'option', 'minDate', date);
+		onSelect: function(dateSelect){
+			jQuery('#btq-date-end').datepicker('option', {minDate: dateSelect});
 	    }
-	});
-	
-	jQuery('#btq-date-end').datepicker({
-		dateFormat: 'dd/mm/yy',
-		maxViewMode: 3,
-		language: 'es',
-		autoclose: true,
-		todayHighlight: true,
-		minDate: 0
 	});
 	
 	function vermas() {
