@@ -503,6 +503,8 @@ function btq_booking_tc_admin_debug_page() {
 				echo $num_count . '.- ' . $currentTime . ' ' . $dayRangeStart . ' - ' . $dayRangeEnd . ' - ' . $disponibilidad . '<br>';
 				$num_count++;
 			}
+			
+			file_put_contents('btq-unavailable.json', json_encode($datesUnavailable));
 		?>
 		</div>
 	</div><!-- wrap -->
