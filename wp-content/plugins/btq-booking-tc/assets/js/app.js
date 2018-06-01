@@ -10,7 +10,7 @@ jQuery(document).ready(function(){
 		onSelect: function(dateSelect){
 			console.log(dateSelect);
 			console.log(typeof dateSelect);
-			jQuery('#btq-date-end').datepicker('option', { minDate: moment(dateSelect, 'DD/MM/YYYY').add(1, 'day').date() });
+			jQuery('#btq-date-end').datepicker('option', { minDate: moment(dateSelect, 'DD/MM/YYYY').date() });
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
 	});
@@ -23,7 +23,7 @@ jQuery(document).ready(function(){
 		todayHighlight: true,
 		minDate: '+1d'
 		/*
-		onSelect: function(dateSelect){
+		,onSelect: function(dateSelect){
 			jQuery('#btq-date-start').datepicker('option', {maxDate: moment(dateSelect, "YYYY-MM-DD").subtract(1, 'days')});
 			jQuery('#btq-date-start').datepicker('refresh');
 	    }
