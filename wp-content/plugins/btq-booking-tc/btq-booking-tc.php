@@ -262,7 +262,7 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 	if (isset($result['Errors'])) {
 		$errors = $result['Errors'];
 		error_log('Error Code: '. $errors['Error']['!Code'] .' - '. $errors['Error']['!ShortText']);
-		return;
+		return FALSE;
 	}
 	
 	return $result;
@@ -479,7 +479,11 @@ function btq_booking_tc_admin_debug_page() {
 			foreach($dates as $date){
 				$dayRangeStart = $date->format('Y-m-d');
 				$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-				echo $num_count . '.- ' . $dayRangeStart . ' - ' . $dayRangeEnd . '<br>';
+				$disponibilidad = 'OK';
+				if (btq_booking_tc_soap_query('131328', $dayRangeStart, $dayRangeEnd) === FALSE){
+					$disponibilidad = 'NO';
+				}
+				echo $num_count . '.- ' . $dayRangeStart . ' - ' . $dayRangeEnd . ' - ' . $disponibilidad . '<br>';
 				$num_count++;
 			}
 		?>
