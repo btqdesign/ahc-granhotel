@@ -5,7 +5,11 @@ jQuery(document).ready(function(){
 		maxViewMode: 3,
 		language: 'es',
 		autoclose: true,
-		todayHighlight: true
+		todayHighlight: true,
+		minDate: 0
+		onSelect: function(date){
+			jQuery('#btq-date-end').datepicker( 'option', 'minDate', date);
+	    }
 	});
 	
 	jQuery('#btq-date-end').datepicker({
@@ -13,7 +17,8 @@ jQuery(document).ready(function(){
 		maxViewMode: 3,
 		language: 'es',
 		autoclose: true,
-		todayHighlight: true
+		todayHighlight: true,
+		minDate: 0
 	});
 	
 	function vermas() {
