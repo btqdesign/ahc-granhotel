@@ -6,7 +6,7 @@ jQuery(document).ready(function(){
 		language: 'es',
 		autoclose: true,
 		todayHighlight: true,
-		minDate: 0
+		minDate: 0,
 		onSelect: function(date){
 			jQuery('#btq-date-end').datepicker( 'option', 'minDate', date);
 	    }
