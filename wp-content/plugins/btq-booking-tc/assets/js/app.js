@@ -21,7 +21,7 @@ jQuery(document).ready(function(){
 		todayHighlight: true,
 		minDate: '+1d',
 		onSelect: function(dateSelect){
-			jQuery('#btq-date-start').datepicker('option', {minDate: moment(dateSelect, "YYYY-MM-DD").subtract(1, 'days')});
+			jQuery('#btq-date-start').datepicker('option', {maxDate: moment(dateSelect, "YYYY-MM-DD").subtract(1, 'days')});
 			jQuery('#btq-date-start').datepicker('refresh');
 	    }
 	});
