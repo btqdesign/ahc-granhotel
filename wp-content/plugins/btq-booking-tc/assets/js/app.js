@@ -8,8 +8,6 @@ jQuery(document).ready(function(){
 		todayHighlight: true,
 		minDate: '+0d',
 		onSelect: function(dateSelect){
-			console.log(dateSelect);
-			console.log(typeof dateSelect);
 			jQuery('#btq-date-end').datepicker('option', { minDate: moment(dateSelect, 'DD/MM/YYYY').date() });
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
@@ -24,7 +22,7 @@ jQuery(document).ready(function(){
 		minDate: '+1d'
 		/*
 		,onSelect: function(dateSelect){
-			jQuery('#btq-date-start').datepicker('option', {maxDate: moment(dateSelect, "YYYY-MM-DD").subtract(1, 'days')});
+			jQuery('#btq-date-start').datepicker('option', { maxDate: moment(dateSelect, "YYYY-MM-DD").date() });
 			jQuery('#btq-date-start').datepicker('refresh');
 	    }
 	    */
@@ -33,8 +31,9 @@ jQuery(document).ready(function(){
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
 		console.log(data);
 		jQuery('#btq-date-start').datepicker('option', {disabledDates: data});
-		jQuery('#btq-date-end').datepicker('option', {disabledDates: data});
 		jQuery('#btq-date-start').datepicker('refresh');
+		
+		jQuery('#btq-date-end').datepicker('option', {disabledDates: data});
 		jQuery('#btq-date-end').datepicker('refresh');
 	});
 	
