@@ -22,17 +22,13 @@ jQuery(document).ready(function(){
 	    }
 	});
 	
-	(function() {
-		var btq_unavailable_url = '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json';
-		jQuery.getJSON( btq_unavailable_url, {})
-		.done(function(data) {
-			console.log(data);
-			jQuery('#btq-date-start').datepicker('option', {datesDisabled: data});
-			jQuery('#btq-date-end').datepicker('option', {datesDisabled: data});
-			jQuery('#btq-date-start').datepicker('refresh');
-			jQuery('#btq-date-end').datepicker('refresh');
-		});
-	})();
+	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
+		console.log(data);
+		jQuery('#btq-date-start').datepicker('option', {datesDisabled: data});
+		jQuery('#btq-date-end').datepicker('option', {datesDisabled: data});
+		jQuery('#btq-date-start').datepicker('refresh');
+		jQuery('#btq-date-end').datepicker('refresh');
+	});
 	
 	function vermas() {
 		jQuery('.texto_recorrido').hide();
