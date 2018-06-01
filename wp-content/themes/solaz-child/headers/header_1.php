@@ -161,6 +161,18 @@ $solaz_settings = solaz_check_theme_options();
 					<?php endif;?>
 				*/ ?>
 				<?php
+
+					$wpml_current_language = apply_filters( 'wpml_current_language', NULL );
+					if (!empty($wpml_current_language)){
+						$language = $wpml_current_language;
+					}
+					elseif ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+						$language = ICL_LANGUAGE_CODE;
+					}
+					else {
+						$language = 'es';
+					}
+
 					$post_slug = get_post_field('post_name', get_post());
 					if ($post_slug == 'la-terraza'){
 						if (has_nav_menu('btq-menu-terraza')) {
@@ -182,7 +194,7 @@ $solaz_settings = solaz_check_theme_options();
 							));
 						}
 					}
-					elseif($post_slug == 'en/'){
+					elseif($post_slug == 'en'){
 						if (has_nav_menu('btq-menu-en')) {
 							wp_nav_menu(array(
 								'theme_location' => 'btq-menu-en',
