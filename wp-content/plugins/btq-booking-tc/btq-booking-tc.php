@@ -875,14 +875,20 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	} // foreach($arrayRoomType as $elementRatePlan)
 } // function btq_booking_tc_grid_packages()
 
-function btq_booking_tc_grid_form($language = 'es') {
+function btq_booking_tc_grid_form($language = 'en') {
+	if ($language == 'es'){
+		$str_seleccion = 'Select a PACKAGE or ROOM';
+	}
+	else {
+		$str_seleccion = 'Selecciona PAQUETE o HABITACIÓN';
+	}
 	$iconos_dir = 'assets/images/iconos';
 	?>
 		<hr class="linea"/>	
 		
 		<section class="row">
 			<article class="col-md-12">
-				<h5 class="hosp"><?php _e('Select a PACKAGE or ROOM','btq-booking-tc'); ?></h5>
+				<h5 class="hosp"><?php echo $str_seleccion; ?></h5>
 			</article>
 		</section>
 
