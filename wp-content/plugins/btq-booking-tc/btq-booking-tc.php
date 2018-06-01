@@ -444,12 +444,10 @@ function btq_booking_tc_admin_debug_page() {
 			<?php submit_button(); ?>
 		</form>
 		-->
-		<!--
 		<div style="background-color: white;">
 			<?php btq_booking_tc_admin_debug_rooms('95698'); ?>
 			<?php btq_booking_tc_admin_debug_rooms('131328'); ?>
 		</div>
-		-->
 		<pre style="background-color: white;">
 		<?php
 			/*
@@ -469,14 +467,6 @@ function btq_booking_tc_admin_debug_page() {
 			*/
 		?>
 		</pre>
-		<div style="background-color: white;">
-		<?php 
-			$dates = btq_booking_tc_grid_dates();
-			foreach($dates as $date){
-				echo $date->format("Y-m-d") . "<br>";
-			}
-		?>
-		</div>
 	</div><!-- wrap -->
 <?php
 }
@@ -891,7 +881,8 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_room = 'Rooms';
 		$str_packages = 'Packages';
 		$str_top_rated = 'Top rated';
-
+		$str_arrival_date = 'Arrival date';
+		$str_departure_date = 'Departure date';
 	}
 
 
@@ -900,8 +891,8 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_room = 'Habitaciones';
 		$str_packages = 'Paquetes';
 		$str_top_rated = 'Mejor calificadas';
-
-
+		$str_arrival_date = 'Fecha de llegada';
+		$str_departure_date = 'Fecha de salida';
 	}
 	$iconos_dir = 'assets/images/iconos';
 	?>
@@ -937,12 +928,12 @@ function btq_booking_tc_grid_form($language = 'es') {
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php _e('Arrival Date','btq-booking-tc'); ?>">
+								<input class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php $str_arrival_date; ?>">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php _e('Departure Date','btq-booking-tc'); ?>">
+								<input class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php $str_departure_date; ?>">
 							</div>		
 						</div>
 					</div>
@@ -1141,15 +1132,4 @@ function btq_booking_tc_grid_current_language_code() {
 	btq_booking_tc_log('languages', $language, TRUE);
 	
 	return $language;
-}
-
-function btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd) {
-	$begin = new DateTime($dateRangeStart);
-	$end = new DateTime($dateRangeEnd);
-	$end = $end->modify('+1 day'); 
-	
-	$interval = new DateInterval('P1D');
-	$daterange = new DatePeriod($begin, $interval ,$end);
-	
-	return $daterange;
 }
