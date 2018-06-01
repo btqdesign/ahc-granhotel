@@ -926,6 +926,9 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_arrival_date = 'Arrival date';
 		$str_departure_date = 'Departure date';
 		$str_search = 'Search';
+		$str_adult = 'Adults: ';
+		$str_children = 'Children: ';
+		$str_rooms = 'Rooms: ';
 	}
 
 
@@ -937,6 +940,9 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_arrival_date = 'Fecha de llegada';
 		$str_departure_date = 'Fecha de salida';
 		$str_search = 'Buscar';
+		$str_adult = 'Adultos: ';
+		$str_children = 'Niños: ';
+		$str_rooms = 'Habitaciones: ';
 	}
 	$iconos_dir = 'assets/images/iconos';
 	?>
@@ -989,7 +995,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 							<div class="form-group">
 								<select class="btq-select" id="btq-num-adults" name="btq-num-adults">
 									<?php for ($i = 1; $i <= 9; $i ++) { ?>
-									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Adult', '%s Adults', $i, 'btq-booking-tc' ), $i); ?></option>
+									<option value="<?php echo $i; ?>"><?php echo $str_adult, $i; ?></option>
 									<?php } ?>
 								</select>
 							</div>
@@ -998,7 +1004,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 							<div class="form-group">
 								<select class="btq-select" id="btq-num-children" name="btq-num-children">
 									<?php for ($i = 0; $i <= 9; $i ++) { ?>
-									<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Children', '%s Children', $i, 'btq-booking-tc' ), $i); ?></option>
+									<option value="<?php echo $i; ?>"><?php echo $str_children, $i; ?></option>
 									<?php } ?>
 								</select>
 							</div>
@@ -1010,7 +1016,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 					<div class="form-group">
 						<select class="btq-select" id="btq-num-rooms" name="btq-num-rooms">
 							<?php for ($i = 1; $i <= 9; $i ++) { ?>
-							<option value="<?php echo $i; ?>"><?php echo sprintf( _n( '%s Room', '%s Rooms', $i, 'btq-booking-tc' ), $i); ?></option>
+							<option value="<?php echo $i; ?>"><?php echo $str_rooms, $i; ?></option>
 							<?php } ?>
 						</select>
 					</div>
