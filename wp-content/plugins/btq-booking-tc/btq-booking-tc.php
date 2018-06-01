@@ -899,6 +899,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_top_rated = 'Top rated';
 		$str_arrival_date = 'Arrival date';
 		$str_departure_date = 'Departure date';
+		$str_search = 'Search';
 	}
 
 
@@ -909,6 +910,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_top_rated = 'Mejor calificadas';
 		$str_arrival_date = 'Fecha de llegada';
 		$str_departure_date = 'Fecha de salida';
+		$str_search = 'Buscar';
 	}
 	$iconos_dir = 'assets/images/iconos';
 	?>
@@ -990,7 +992,7 @@ function btq_booking_tc_grid_form($language = 'es') {
 				
 				<article class="col-xs-12 col-md-2">	
 					<input type="hidden" id="btq-type-query" name="btq-type-query" value="rooms">				
-					<button class="btn btq-btn" name="btq-search" id="btq-search"><?php _e('SEARCH','btq-booking-tc'); ?></button>
+					<button class="btn btq-btn" name="btq-search" id="btq-search"><?php echo $str_search ; ?></button>
 				</article>
 			
 			</form>
