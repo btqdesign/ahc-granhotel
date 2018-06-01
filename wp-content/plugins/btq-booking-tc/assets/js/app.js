@@ -8,6 +8,7 @@ jQuery(document).ready(function(){
 		todayHighlight: true,
 		minDate: '+0d',
 		onSelect: function(dateSelect){
+			console.log(dateSelect);
 			jQuery('#btq-date-end').datepicker('option', {minDate: moment(dateSelect).add(1, 'days')});
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
