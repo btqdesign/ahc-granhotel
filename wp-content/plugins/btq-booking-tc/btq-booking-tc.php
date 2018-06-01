@@ -875,12 +875,23 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	} // foreach($arrayRoomType as $elementRatePlan)
 } // function btq_booking_tc_grid_packages()
 
-function btq_booking_tc_grid_form($language = 'en') {
-	if ($language == 'es'){
+function btq_booking_tc_grid_form($language = 'es') {
+	if ($language == 'en'){
 		$str_seleccion = 'Select a PACKAGE or ROOM';
+		$str_room = 'Rooms';
+		$str_packages = 'Packages';
+		$str_top_rated = 'Top rated';
+
 	}
+
+
 	else {
 		$str_seleccion = 'Selecciona PAQUETE o HABITACIÓN';
+		$str_room = 'Habitaciones';
+		$str_packages = 'Paquetes';
+		$str_top_rated = 'Mejor calificadas';
+
+
 	}
 	$iconos_dir = 'assets/images/iconos';
 	?>
@@ -896,13 +907,13 @@ function btq_booking_tc_grid_form($language = 'en') {
 
 		<section class="row">
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-rooms" name="btq-btn-rooms" class="btn btn-default btq-btn"><?php _e('Rooms','btq-booking-tc'); ?></button>
+				<button id="btq-btn-rooms" name="btq-btn-rooms" class="btn btn-default btq-btn"><?php echo $str_room; ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-packages" name="btq-btn-rooms" class="btn btq-btn"><?php _e('Packages','btq-booking-tc'); ?></button>
+				<button id="btq-btn-packages" name="btq-btn-rooms" class="btn btq-btn"><?php echo $str_packages; ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><?php _e('Top Rated','btq-booking-tc'); ?></button>
+				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><?php echo $str_top_rated; ?></button>
 			</div>
 		</section>
 		
