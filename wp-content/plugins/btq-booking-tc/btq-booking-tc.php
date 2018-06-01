@@ -467,6 +467,24 @@ function btq_booking_tc_admin_debug_page() {
 			*/
 		?>
 		</pre>
+<<<<<<< HEAD
+=======
+		<div style="background-color: white;">
+			<p>Un año</p>
+		<?php 
+			$dateRangeStart = date('Y-m-d');
+			$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
+			$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
+			$num_count = 1;
+			foreach($dates as $date){
+				$dayRangeStart = $date->format('Y-m-d');
+				$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
+				echo $num_count . '.- ' . $dayRangeStart . ' - ' . $dayRangeEnd . '<br>';
+				$num_count++;
+			}
+		?>
+		</div>
+>>>>>>> fe50c2a4c95ecdef38bef6e313baad10285217b1
 	</div><!-- wrap -->
 <?php
 }
