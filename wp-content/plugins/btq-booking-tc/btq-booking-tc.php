@@ -52,7 +52,7 @@ function btq_booking_tc_log($file_name, $var, $same_file = false){
 	
 	if ($same_file){
 		$file_path = $log_dir . DIRECTORY_SEPARATOR . $file_name . '.log';
-		file_put_contents($file_path, date('[Y-m-d H:i:s v] ') . $string . "\n", FILE_APPEND | LOCK_EX);
+		file_put_contents($file_path, date('[Y-m-d H:i:s u] ') . $string . "\n", FILE_APPEND | LOCK_EX);
 	}
 	else {
 		$file_path = $log_dir . DIRECTORY_SEPARATOR . $file_name . date('_Y-m-d_U'). '.log';
