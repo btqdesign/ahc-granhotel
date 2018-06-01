@@ -1,14 +1,5 @@
 jQuery(document).ready(function(){
 	
-	jQuery('#btq-date-end').datepicker({
-		dateFormat: 'dd/mm/yy',
-		maxViewMode: 3,
-		language: 'es',
-		autoclose: true,
-		todayHighlight: true,
-		minDate: '+1d'
-	});
-	
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		maxViewMode: 3,
@@ -17,8 +8,21 @@ jQuery(document).ready(function(){
 		todayHighlight: true,
 		minDate: '+0d',
 		onSelect: function(dateSelect){
-			jQuery('#btq-date-end').datepicker('option', {minDate: dateSelect});
+			jQuery('#btq-date-end').datepicker('option', {minDate: moment(dateSelect, "YYYY-MM-DD").add(1, 'days')});
 			jQuery('#btq-date-end').datepicker('refresh');
+	    }
+	});
+	
+	jQuery('#btq-date-end').datepicker({
+		dateFormat: 'dd/mm/yy',
+		maxViewMode: 3,
+		language: 'es',
+		autoclose: true,
+		todayHighlight: true,
+		minDate: '+1d',
+		onSelect: function(dateSelect){
+			jQuery('#btq-date-start').datepicker('option', {minDate: moment(dateSelect, "YYYY-MM-DD").subtract(1, 'days')});
+			jQuery('#btq-date-start').datepicker('refresh');
 	    }
 	});
 	
