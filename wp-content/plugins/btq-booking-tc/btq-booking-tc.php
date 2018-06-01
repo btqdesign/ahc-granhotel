@@ -477,7 +477,7 @@ function btq_booking_tc_admin_debug_page() {
 			$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
 			$num_count = 1;
 			foreach($dates as $date){
-				echo $num_count.'.- '.$date->format("Y-m-d") . "<br>";
+				echo $num_count . '.- ' . $date->format('Y-m-d') . date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day')) . '<br>';
 				$num_count++;
 			}
 		?>
