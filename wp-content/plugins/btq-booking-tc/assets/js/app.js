@@ -30,11 +30,17 @@ jQuery(document).ready(function(){
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
 		console.log(data);
-		jQuery('#btq-date-start').datepicker('option', {disabledDates: data});
+		
+		jQuery('#btq-date-start').datepicker('option', {
+			beforeShowDay: function(date){
+				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
+				return [ data.indexOf(string) == -1 ]
+    		}
+		});
 		jQuery('#btq-date-start').datepicker('refresh');
 		
-		jQuery('#btq-date-end').datepicker('option', {disabledDates: data});
-		jQuery('#btq-date-end').datepicker('refresh');
+		//jQuery('#btq-date-end').datepicker('option', {disabledDates: data});
+		//jQuery('#btq-date-end').datepicker('refresh');
 	});
 	
 	function vermas() {
