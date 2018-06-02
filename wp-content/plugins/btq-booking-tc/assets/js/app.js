@@ -8,7 +8,7 @@ jQuery(document).ready(function(){
 		todayHighlight: true,
 		minDate: '+0d',
 		onSelect: function(dateSelect){
-			jQuery('#btq-date-end').datepicker('option', { minDate: moment(dateSelect, 'DD/MM/YYYY').date() });
+			jQuery('#btq-date-end').datepicker('option', { minDate: dateSelect });
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
 	});
@@ -20,12 +20,6 @@ jQuery(document).ready(function(){
 		autoclose: true,
 		todayHighlight: true,
 		minDate: '+1d'
-		/*
-		,onSelect: function(dateSelect){
-			jQuery('#btq-date-start').datepicker('option', { maxDate: moment(dateSelect, "YYYY-MM-DD").date() });
-			jQuery('#btq-date-start').datepicker('refresh');
-	    }
-	    */
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
