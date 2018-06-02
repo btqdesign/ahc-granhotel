@@ -10,6 +10,8 @@ jQuery(document).ready(function(){
 		onSelect: function(dateSelected){
 			jQuery('#btq-date-end').datepicker('option', { minDate: moment(dateSelected, 'DD/MM/YYYY').date() });
 			jQuery('#btq-date-end').datepicker('refresh');
+			jQuery('#btq-date-start').datepicker('refresh');
+			jQuery('#btq-date-end').datepicker('refresh');
 	    }
 	});
 	
