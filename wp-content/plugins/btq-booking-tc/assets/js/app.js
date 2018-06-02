@@ -24,7 +24,9 @@ jQuery(document).ready(function(){
 		language: 'es',
 		autoclose: true,
 		todayHighlight: true,
-		minDate: '+1d'
+		minDate: '+1d',
+		changeMonth: true,
+		changeYear: true
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
