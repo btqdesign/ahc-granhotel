@@ -13,6 +13,7 @@ jQuery(document).ready(function(){
 				minDate: moment(dateSelected, 'DD/MM/YYYY').date(),
 				defaultDate : moment(dateSelected, 'DD/MM/YYYY').add(1, 'day').date()
 			});
+			jQuery('#btq-date-end').datepicker( 'setDate', moment(dateSelected, 'DD/MM/YYYY').add(1, 'day').date() );
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
 	});
