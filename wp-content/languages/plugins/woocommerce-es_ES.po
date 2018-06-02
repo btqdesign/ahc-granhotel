@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - WooCommerce - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-05-30 06:59:54+0000\n"
+"PO-Revision-Date: 2018-06-01 16:57:39+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1969,15 +1969,15 @@ msgstr "Crea tu primer cupón"
 msgid "Existing products that match by ID or SKU will be updated. Products that do not exist will be skipped."
 msgstr "Los productos existentes que coincidan en ID o SKU se actualizarán. Los productos que no existan se omitirán."
 
-#. translators: %s: helper screen url
-#: includes/admin/helper/class-wc-helper.php:1364
-msgid "<a href=\"%s\">Connect your store</a> to WooCommerce.com to receive extensions updates and support."
-msgstr "<a href=\"%s\">Conecta tu tienda</a> a WooCommerce.com para recibir actualizaciones y soporte de tus extensiones."
-
 #. translators: 1: subscriptions docs 2: subscriptions docs
 #: includes/admin/helper/class-wc-helper.php:300
 msgid "To receive updates and support for this extension, you need to <strong>purchase</strong> a new subscription or consolidate your extensions to one connected account by <strong><a href=\"%1$s\" title=\"Sharing Docs\">sharing</a> or <a href=\"%2$s\" title=\"Transferring Docs\">transferring</a></strong> this extension to this connected account."
 msgstr "Para recibir actualizaciones y soporte de esta extensión tienes que <strong>adquirir</strong> una nueva suscripción, o consolidar tus extensiones a una cuenta conectada <strong><a href=\"%1$s\" title=\"Sharing Docs\">compartiendo</a> o <a href=\"%2$s\" title=\"Transferring Docs\">transfiriendo</a></strong> esta extensión a esta cuenta conectada."
+
+#. translators: %s: helper screen url
+#: includes/admin/helper/class-wc-helper.php:1364
+msgid "<a href=\"%s\">Connect your store</a> to WooCommerce.com to receive extensions updates and support."
+msgstr "<a href=\"%s\">Conecta tu tienda</a> a WooCommerce.com para recibir actualizaciones de extensiones y soporte."
 
 #: includes/admin/helper/class-wc-helper-compat.php:159
 msgid "The WooCommerce Helper plugin is no longer needed. <a href=\"%s\">Manage subscriptions</a> from the extensions tab instead."
@@ -12643,10 +12643,6 @@ msgstr "BSB"
 msgid "IFSC"
 msgstr "IFSC"
 
-#: includes/gateways/cod/class-wc-gateway-cod.php:57
-msgid "Have your customers pay with cash (or by other means) upon delivery."
-msgstr "Permite que sus clientes paguen en efectivo (o por otros medios) cuando se entrega el producto."
-
 #: includes/gateways/cod/class-wc-gateway-cod.php:124
 msgid "Payment method description that the customer will see on your website."
 msgstr "Descripción del método de pago que el cliente verá en el sitio web."
@@ -13524,6 +13520,10 @@ msgstr "¿Qué códigos postales están disponibles para la entrega local?"
 #: includes/shipping/legacy-local-pickup/class-wc-shipping-legacy-local-pickup.php:111
 msgid "What ZIP/post codes are available for local pickup?"
 msgstr "¿Qué códigos postales estan disponibles para la recogida local?"
+
+#: includes/gateways/cod/class-wc-gateway-cod.php:57
+msgid "Have your customers pay with cash (or by other means) upon delivery."
+msgstr "Haz que tus clientes paguen en efectivo (o por otros medios) en el momento de la entrega."
 
 #: includes/class-wc-ajax.php:216
 msgid "Coupon has been removed."
@@ -14861,6 +14861,12 @@ msgstr "No se ha podido actualizar el cupón"
 msgid "No %1$s data specified to create/edit %1$s"
 msgstr "Sin %1$s datos especificados para crear/editar %1$s"
 
+#: includes/api/legacy/v1/class-wc-api-customers.php:186
+#: includes/api/legacy/v2/class-wc-api-customers.php:231
+#: includes/api/legacy/v3/class-wc-api-customers.php:232
+msgid "You do not have permission to read the customers count"
+msgstr "No tiene permisos para leer la cantidad de clientes"
+
 #. translators: %s: parameter
 #: includes/api/legacy/v1/class-wc-api-server.php:412
 #: includes/api/legacy/v2/class-wc-api-coupons.php:226
@@ -14902,12 +14908,6 @@ msgstr "Falta el parámetro %s"
 #: includes/api/legacy/v3/class-wc-api-webhooks.php:242
 msgid "No %1$s data specified to edit %1$s"
 msgstr "Sin %1$s datos especificados para editar %1$s"
-
-#: includes/api/legacy/v1/class-wc-api-customers.php:186
-#: includes/api/legacy/v2/class-wc-api-customers.php:231
-#: includes/api/legacy/v3/class-wc-api-customers.php:232
-msgid "You do not have permission to read the customers count"
-msgstr "No tiene permisos para leer la cantidad de clientes"
 
 #: includes/api/legacy/v1/class-wc-api-customers.php:202
 #: includes/api/legacy/v2/class-wc-api-customers.php:356
@@ -15114,6 +15114,12 @@ msgstr "No tienes permisos para borrar los atributos de producto"
 msgid "Could not delete the attribute"
 msgstr "No se pudieron borrar los atributos"
 
+#: includes/api/legacy/v1/class-wc-api-resource.php:313
+#: includes/api/legacy/v2/class-wc-api-resource.php:372
+#: includes/api/legacy/v3/class-wc-api-resource.php:374
+msgid "Permanently deleted customer"
+msgstr "Cliente eliminado permanentemente"
+
 #: includes/api/legacy/v1/class-wc-api-resource.php:333
 #: includes/api/legacy/v2/class-wc-api-products.php:463
 #: includes/api/legacy/v2/class-wc-api-products.php:2225
@@ -15129,12 +15135,6 @@ msgstr "No se pudieron borrar los atributos"
 #: includes/api/legacy/v3/class-wc-api-taxes.php:665
 msgid "Deleted %s"
 msgstr "Eliminado %s"
-
-#: includes/api/legacy/v1/class-wc-api-resource.php:313
-#: includes/api/legacy/v2/class-wc-api-resource.php:372
-#: includes/api/legacy/v3/class-wc-api-resource.php:374
-msgid "Permanently deleted customer"
-msgstr "Cliente eliminado permanentemente"
 
 #: includes/api/legacy/v1/class-wc-api-resource.php:315
 #: includes/api/legacy/v2/class-wc-api-resource.php:374
@@ -15767,10 +15767,6 @@ msgstr "Esto establece el número de decimales que se muestran en los precios mo
 #: includes/admin/settings/class-wc-settings-integrations.php:27
 msgid "Integration"
 msgstr "Integración"
-
-#: includes/admin/settings/class-wc-settings-products.php:328
-msgid "The base page can also be used in your <a href=\"%s\">product permalinks</a>."
-msgstr "La página de base también se puede utilizar en sus <a href=\"%s\">enlaces permanentes de productos</a> ."
 
 #: includes/customizer/class-wc-shop-customizer.php:385
 #: includes/customizer/class-wc-shop-customizer.php:411
@@ -16570,6 +16566,10 @@ msgstr "En la siguiente lista se muestran las pasarelas de pago instaladas. Arra
 #: includes/admin/settings/class-wc-settings-general.php:201
 msgid "Enable the use of coupon codes"
 msgstr "Activa el uso de códigos de cupones"
+
+#: includes/admin/settings/class-wc-settings-products.php:328
+msgid "The base page can also be used in your <a href=\"%s\">product permalinks</a>."
+msgstr "La página base también se puede utilizar en los <a href=\"%s\">enlaces permanentes de tus productos</a>."
 
 #: includes/admin/meta-boxes/views/html-product-data-shipping.php:14
 #: includes/admin/meta-boxes/views/html-product-data-variations.php:83
@@ -19989,10 +19989,6 @@ msgstr "Producto"
 msgid "Shop base"
 msgstr "Base de la tienda"
 
-#: includes/admin/class-wc-admin-permalink-settings.php:127
-msgid "Shop base with category"
-msgstr "Base de la tienda con categorias"
-
 #: includes/abstracts/abstract-wc-product.php:1945
 #: includes/admin/class-wc-admin-reports.php:108
 #: includes/admin/list-tables/class-wc-admin-list-table-products.php:265
@@ -20645,6 +20641,10 @@ msgstr "Orden del menú de la variación (determina la posición en la lista de 
 #: includes/class-wc-ajax.php:1221
 msgid "%1$s stock increased from %2$s to %3$s."
 msgstr "El inventario del artículo %1$s se ha aumentado de %2$s a %3$s."
+
+#: includes/admin/class-wc-admin-permalink-settings.php:127
+msgid "Shop base with category"
+msgstr "Base de la tienda con categorías"
 
 #: i18n/states/PH.php:18
 msgid "Albay"
