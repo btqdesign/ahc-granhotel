@@ -9,9 +9,9 @@ jQuery(document).ready(function(){
 		minDate: '+0d',
 		onSelect: function(dateSelected){
 			console.log('onSelect: ' + dateSelected);
-			jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').add(1,'day').date());
+			jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').date());
 			jQuery('#btq-date-end').datepicker('option', { 
-				minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').date()
+				minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City')subtract(1,'day').date()
 			});
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
