@@ -2,10 +2,6 @@ jQuery(document).ready(function(){
 	
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
-		maxViewMode: 3,
-		language: 'es',
-		autoclose: true,
-		todayHighlight: true,
 		minDate: '+0d',
 		onSelect: function(dateSelected){
 			console.log('onSelect: ' + dateSelected);
@@ -19,13 +15,7 @@ jQuery(document).ready(function(){
 	
 	jQuery('#btq-date-end').datepicker({
 		dateFormat: 'dd/mm/yy',
-		maxViewMode: 3,
-		language: 'es',
-		autoclose: true,
-		todayHighlight: true,
-		minDate: '+1d',
-		changeMonth: true,
-		changeYear: true
+		minDate: '+1d'
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
