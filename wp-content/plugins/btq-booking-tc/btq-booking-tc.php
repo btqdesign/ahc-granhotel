@@ -511,6 +511,32 @@ function btq_booking_tc_admin_debug_page() {
 <?php
 }
 
+register_activation_hook(__FILE__, ' btq_booking_tc_generate_unavailable_dates_activation');
+function btq_booking_tc_generate_unavailable_dates_activation() {
+    if (! wp_next_scheduled ( 'btq_booking_tc_generate_unavailable_dates_event' )) {
+		wp_schedule_event(time(), 'hourly', 'btq_booking_tc_generate_unavailable_dates_event');
+    }
+}
+
+add_action('btq_booking_tc_generate_unavailable_dates_event', 'btq_booking_tc_generate_unavailable_dates');
+function btq_booking_tc_generate_unavailable_dates(){
+	$dateRangeStart = date('Y-m-d');
+	$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
+	$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
+	$datesUnavailable = array();
+	
+	foreach($dates as $date){
+		$dayRangeStart = $date->format('Y-m-d');
+		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
+		if (btq_booking_tc_soap_query('131328', $dayRangeStart, $dayRangeEnd) === FALSE){
+			$datesUnavailable[] = $dayRangeStart;
+		}
+	}
+	
+	$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
+	file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
+}
+
 function btq_booking_tc_grid_split_description($string){
 	if(!empty($string) && is_string($string)){
 		$stringStripTags = strip_tags($string);
