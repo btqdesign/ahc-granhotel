@@ -1,4 +1,5 @@
 jQuery(document).ready(function(){
+	moment.tz.add('America/Mexico_City');
 	
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
