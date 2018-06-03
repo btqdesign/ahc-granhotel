@@ -10,11 +10,17 @@ jQuery(document).ready(function(){
 				jQuery('#btq-date-end').val() == '' || 
 				moment(jQuery('#btq-date-end').val(), 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date() <= moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
 			) {
+				jQuery('#btq-date-end').datepicker('destroy');
+				jQuery('#btq-date-end').datepicker({
+					dateFormat: 'dd/mm/yy',
+					minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
+				});
+				/*
 				jQuery('#btq-date-end').val(moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').add(1,'day').format('DD/MM/YYYY'));
 				jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').subtract(1,'day').tz('America/Mexico_City').date());
 				jQuery('#btq-date-end').datepicker('option', { 
 					minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
-				});
+				});*/
 				jQuery('#btq-date-end').datepicker('refresh');
 				jQuery('#btq-date-end').val(moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').add(1,'day').format('DD/MM/YYYY'));
 			}
