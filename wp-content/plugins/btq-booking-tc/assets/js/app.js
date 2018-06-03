@@ -9,14 +9,7 @@ jQuery(document).ready(function(){
 			if (
 				jQuery('#btq-date-end').val() == '' || 
 				moment(jQuery('#btq-date-end').val(), 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date() <= moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
-			) {
-				/*
-				jQuery('#btq-date-end').datepicker('destroy');
-				jQuery('#btq-date-end').datepicker({
-					dateFormat: 'dd/mm/yy',
-					minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
-				});*/
-					
+			) {	
 				jQuery('#btq-date-end').datepicker('option', { 
 					minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
 				})
@@ -47,16 +40,16 @@ jQuery(document).ready(function(){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 				return [ data.indexOf(string) == -1 ]
     		}
-		});
-		jQuery('#btq-date-start').datepicker('refresh');
+		})
+		.datepicker('refresh');
 		
 		jQuery('#btq-date-end').datepicker('option', {
 			beforeShowDay: function(date){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 				return [true, 'btq-unavailable-day']
     		}
-		});
-		jQuery('#btq-date-end').datepicker('refresh');
+		})
+		.datepicker('refresh');
 	});
 	
 	function vermas() {
