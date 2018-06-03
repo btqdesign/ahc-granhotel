@@ -951,15 +951,15 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_room = 'Rooms';
 		$str_packages = 'Packages';
 		$str_top_rated = 'Top rated';
-		$str_arrival_date = 'Arrival date';
-		$str_departure_date = 'Departure date';
+		$str_arrival_date = 'Check-in';
+		$str_departure_date = 'Check-out';
 		$str_search = 'Search';
 		$str_adult = 'Adults: ';
 		$str_children = 'Children: ';
 		$str_rooms = 'Rooms: ';
+		$str_check = 'Check your dates-rate to stay';
+		$str_90days = '* Remember that having an advance reservation will always be a better option (rates shown at 90 days)';
 	}
-
-
 	else {
 		$str_seleccion = 'Selecciona PAQUETE o HABITACIÓN';
 		$str_room = 'Habitaciones';
@@ -971,7 +971,10 @@ function btq_booking_tc_grid_form($language = 'es') {
 		$str_adult = 'Adultos: ';
 		$str_children = 'Niños: ';
 		$str_rooms = 'Habitaciones: ';
+		$str_check = 'Consulta las tarifas para hospedarte';
+		$str_90days = '* Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)';
 	}
+	
 	$iconos_dir = 'assets/images/iconos';
 	?>
 		<hr class="linea"/>	
@@ -1060,6 +1063,20 @@ function btq_booking_tc_grid_form($language = 'es') {
 		</section>
 
 		<hr class="linea"/>
+		
+		<section class="row">
+			<article class="col-md-5">
+				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
+				<h5 class="hosp2"><?php echo $str_check; ?></h5>
+			</article>
+
+			<article class="col-md-7">
+				<p class="recordatorio"><?php echo $str_90days; ?></p>
+			</article>
+			<hr class="linea"/>
+		</section>
+		
+        <hr class="linea" />
 	<?php
 }
 
