@@ -14,7 +14,7 @@ jQuery(document).ready(function(){
 					minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
 				});
 				jQuery('#btq-date-end').datepicker('refresh');
-				jQuery('#btq-date-end').val(dateSelected);
+				jQuery('#btq-date-end').val(moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').format('DD/MM/YYYY'));
 			}
 	    }
 	});
