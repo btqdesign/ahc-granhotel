@@ -11,7 +11,7 @@ jQuery(document).ready(function(){
 			console.log('onSelect: ' + dateSelected);
 			jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').date());
 			jQuery('#btq-date-end').datepicker('option', { 
-				minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City')subtract(1,'day').date()
+				minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
 			});
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
