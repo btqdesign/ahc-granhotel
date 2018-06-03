@@ -9,9 +9,9 @@ jQuery(document).ready(function(){
 		minDate: '+0d',
 		onSelect: function(dateSelected){
 			console.log('onSelect: ' + dateSelected);
-			jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').add(1,'day').date());
+			jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').add(1,'day').date());
 			jQuery('#btq-date-end').datepicker('option', { 
-				minDate: moment(dateSelected, 'DD/MM/YYYY').date()
+				minDate: moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').date()
 			});
 			jQuery('#btq-date-end').datepicker('refresh');
 	    }
@@ -199,8 +199,8 @@ jQuery(document).ready(function(){
 		    {
 				'action' : 'btq_booking_tc_grid',
 				'data' : {
-					btq_date_start   : moment( jQuery('#btq-date-start').datepicker('getDate') ).format('YYYY-MM-DD'), 
-					btq_date_end     : moment( jQuery('#btq-date-end').datepicker('getDate')   ).format('YYYY-MM-DD'),
+					btq_date_start   : moment( jQuery('#btq-date-start').datepicker('getDate') ).tz('America/Mexico_City').format('YYYY-MM-DD'), 
+					btq_date_end     : moment( jQuery('#btq-date-end').datepicker('getDate')   ).tz('America/Mexico_City').format('YYYY-MM-DD'),
 					btq_type_query   : jQuery('#btq-type-query').val(),
 					btq_num_rooms    : jQuery('#btq-num-rooms').val(),
 					btq_num_adults   : jQuery('#btq-num-adults').val(),
