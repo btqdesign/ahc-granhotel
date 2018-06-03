@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 			console.log('onSelect: ' + dateSelected);
 			if (
 				jQuery('#btq-date-end').val() == '' || 
-				moment(jQuery('#btq-date-end').val(), 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date() >= moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
+				moment(jQuery('#btq-date-end').val(), 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date() <= moment(dateSelected, 'DD/MM/YYYY').tz('America/Mexico_City').subtract(1,'day').date()
 			) {
 				jQuery('#btq-date-end').datepicker('setDate', moment(dateSelected, 'DD/MM/YYYY').subtract(1,'day').tz('America/Mexico_City').date());
 				jQuery('#btq-date-end').datepicker('option', { 
