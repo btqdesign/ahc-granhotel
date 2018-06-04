@@ -1114,10 +1114,11 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 					
 					<h3 align="center">$<?php echo $precio . ' ' . $currency; ?>/noche</h3>
 					<hr class="linea"/>
-							if($language == 'es')	
-							<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');">Reservar Ahora</button>
-							else
-							<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');">Book Now</button>
+							if($languageId == 2){
+								<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');">Reservar Ahora</button>
+							}else{
+								<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $theme ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');">Book Now</button>
+							}
 
 				</article>
 				
