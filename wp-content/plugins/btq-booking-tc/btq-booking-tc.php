@@ -760,6 +760,8 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	
 	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
 	
+	btq_booking_tc_log('resultado', $response);
+	
 	if ($response !== FALSE) {
 		// Debug Log
 		//btq_booking_tc_log('grid_rooms', $response);
