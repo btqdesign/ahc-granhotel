@@ -221,11 +221,14 @@ $solaz_settings = solaz_check_theme_options();
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
 			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
 			        		<div class="link-contact f_right main-bg display-inline-b">
+							if($language == 'es'){
 			        			<?php if ( function_exists('icl_object_id') ) :?>	
 								<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Book Now</a>
+							}elseif{
 								<?php else:?>
 								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>
-								</a>								
+								</a>	}
+															
 								<?php endif;?>
 			        		</div>
 			        	<?php endif;?>	
