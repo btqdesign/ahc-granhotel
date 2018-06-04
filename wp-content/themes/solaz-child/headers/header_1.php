@@ -222,8 +222,7 @@ $solaz_settings = solaz_check_theme_options();
 			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
 			        		<div class="link-contact f_right main-bg display-inline-b">
 			        			<?php if ( function_exists('icl_object_id') ) :?>	
-								<a class="" target="_blank" href="<?php echo $solaz_settings['header_book_link'];?>">
-									<?php echo esc_html($solaz_settings['header_book_text']);?>
+								<a class="" target="_blank" href="https://hotel.idevol.net/es/">Book Now</a>
 								</a>
 								<?php else:?>
 								<a class="" target="_blank" href="<?php echo $solaz_settings['header_book_link'];?>">
