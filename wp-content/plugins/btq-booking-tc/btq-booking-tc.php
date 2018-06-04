@@ -783,6 +783,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 		
 		$images_rooms_path   = 'assets/images/rooms/';
 		$images_amenity_path = 'assets/images/amenity/';
+		$images_iconos_path = 'assets/images/iconos/';
 		
 		$i = 0;
 		foreach($arrayRoomType as $elementRoomType){
@@ -862,8 +863,8 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 					?>
 								
 					<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
-					<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
-					<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
+					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
+					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
 				</article>
 				
 				<article class="col-md-3 grisfondo">
@@ -1012,6 +1013,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		
 		$images_packages_path = 'assets/images/packages/';
 		$images_amenity_path = 'assets/images/amenity/';
+		$images_iconos_path = 'assets/images/iconos/';
 		
 		$i = 0;
 		foreach($arrayRatePlan as $elementRatePlan){
@@ -1099,8 +1101,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 					?>
 					<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
 					
-					<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
-					<img src="<?php echo plugins_url( $images_path . DIRECTORY_SEPARATOR . 'iconos' . DIRECTORY_SEPARATOR . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
+					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
+					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
 				</article>
 				
 				<article class="col-md-3 grisfondo">
