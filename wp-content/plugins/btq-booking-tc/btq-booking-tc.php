@@ -1427,9 +1427,10 @@ add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
 
 /**
- * Devuelve la fecha de llegada disponible a 90 días o más 
+ * Devuelve la fecha de llegada disponible a 90 días o más.
  *
- *
+ * @autor Saúl Díaz
+ * @return string Fecha de llegada disponible a 90 días o más.
  */
 function btq_booking_tc_grid_date_start() {
 	$unavailableJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-unavailable.json';
@@ -1444,18 +1445,21 @@ function btq_booking_tc_grid_date_start() {
 }
 
 /**
+ * Devuelve la fecha de salida al día siguiente.
  *
- *
- *
+ * @author Saúl Díaz
+ * @param string $date_start Fecha de llegada.
+ * @return string Fecha de salida.
  */
 function btq_booking_tc_grid_date_end($date_start) {
 	return date('Y-m-d', strtotime($date_start . ' + 1 day'));
 }
 
 /**
+ * Devuelve el código de idioma que se está utilizando.
  *
- *
- *
+ * @author Saúl Díaz
+ * @return string Código de idioma que se está utilizando.
  */
 function btq_booking_tc_grid_current_language_code() {
 
