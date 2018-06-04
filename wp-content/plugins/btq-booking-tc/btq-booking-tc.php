@@ -781,12 +781,13 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 			$arrayRoomRate[] = $RoomRateElement;
 		}
 		
-		$images_path = 'assets/images/rooms/';
+		$images_rooms_path   = 'assets/images/rooms/';
+		$images_amenity_path = 'assets/images/amenity/';
 		
 		$i = 0;
 		foreach($arrayRoomType as $elementRoomType){
 			$roomTypeCode = $elementRoomType['!RoomTypeCode'];
-			$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $roomTypeCode;
+			$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $roomTypeCode;
 			$images = btq_booking_tc_grid_get_images($images_dir);
 			?>
 			
@@ -848,7 +849,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 							$amenityCode     = $RoomAmenitie['!ExistsCode'];
 							$amenityFileName = btq_booking_tc_amenity_icon_name($amenityCode);
 							if (!empty($amenityFileName)) {
-								$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . $amenityFileName, __FILE__ );
+								$image_icono_url = plugins_url( $images_amenity_path . $amenityFileName, __FILE__ );
 								?>
 								<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="<?php echo htmlentities($RoomAmenitie['!RoomAmenity']); ?>" title="<?php echo htmlentities($RoomAmenitie['!RoomAmenity']); ?>" width="40" height="40">
 								<?php
@@ -1009,7 +1010,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 		//btq_booking_tc_log('grid_packages_room_type', $arrayRoomType);
 		
 		
-		$images_path = 'assets/images/packages/';
+		$images_packages_path = 'assets/images/packages/';
+		$images_amenity_path = 'assets/images/amenity/';
 		
 		$i = 0;
 		foreach($arrayRatePlan as $elementRatePlan){
@@ -1022,7 +1024,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			// Debug Log
 			//btq_booking_tc_log('grid_packages_for_room_rate', $roomRate);
 			
-			$images_dir = plugin_dir_path( __FILE__ ) . $images_path . $RatePlanCode;
+			$images_dir = plugin_dir_path( __FILE__ ) . $images_packages_path . $RatePlanCode;
 			$images = btq_booking_tc_grid_get_images($images_dir);
 			?>
 			
@@ -1084,7 +1086,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 							$amenityCode     = $RoomAmenitie['!ExistsCode'];
 							$amenityFileName = btq_booking_tc_amenity_icon_name($amenityCode);
 							if (!empty($amenityFileName)) {
-								$image_icono_url = plugins_url( $images_path . DIRECTORY_SEPARATOR . 'amenity' . DIRECTORY_SEPARATOR . $amenityFileName, __FILE__ );
+								$image_icono_url = plugins_url( $images_amenity_path . $amenityFileName, __FILE__ );
 								?>
 								<img class="iconoshabitacion" src="<?php echo $image_icono_url; ?>" alt="<?php echo htmlentities($RoomAmenitie['!RoomAmenity']); ?>" title="<?php echo htmlentities($RoomAmenitie['!RoomAmenity']); ?>" width="40" height="40">
 								<?php
