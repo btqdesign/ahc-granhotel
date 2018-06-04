@@ -814,7 +814,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 						<?php
 						$count_img = 1;
 						foreach ($images as $image_name) {
-						$image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+						$image_url = plugins_url( $images_rooms_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
 						$class_active = ($count_img == 1) ? ' active' : '';
 						?> 
 							<div class="item<?php echo $class_active?>">
@@ -1051,7 +1051,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 						<?php
 						$count_img = 1;
 						foreach ($images as $image_name) {
-						$image_url = plugins_url( $images_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+						$image_url = plugins_url( $images_packages_path . $roomTypeCode . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
 						$class_active = ($count_img == 1) ? ' active' : '';
 						?> 
 							<div class="item<?php echo $class_active?>">
