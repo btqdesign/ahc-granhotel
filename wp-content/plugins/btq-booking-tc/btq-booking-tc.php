@@ -41,9 +41,9 @@ add_filter( 'option_page_capability_my-options-group', 'wpdocs_my_page_capabilit
  *
  * Con el proposito de poder depurar el código es necesario poder
  * conocer el resultado de cadenas de caracteres, arreglos, consultas 
- * y funciones, por ello esta funcion almacena en la carpeta "log" 
- * del plugin el contenido de las variables que se indique en el 
- * paramento $var .
+ * y funciones, por ello esta funcion almacena en un archvo adentro
+ * adentro de la carpeta "log" del plugin el contenido de la 
+ * variable que se indique en el paramento $var .
  *
  * @author Saúl Díaz
  * @access public
