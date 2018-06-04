@@ -36,6 +36,25 @@ function wpdocs_my_page_capability( $capability ) {
 add_filter( 'option_page_capability_my-options-group', 'wpdocs_my_page_capability' );
 */
 
+/**
+ * Almacena en un archivo el contenido de una variable.
+ *
+ * Con el proposito de poder depurar el código es necesario poder
+ * conocer el resultado de cadenas de caracteres, arreglos, consultas 
+ * y funciones, por ello esta funcion almacena en la carpeta "log" 
+ * del plugin el contenido de las variables que se indique en el 
+ * paramento $var .
+ *
+ * @author Saúl Díaz
+ * @access public
+ * @param string $file_name Nombre del archivo .log
+ * @param string $var Variable a depurar, si es diferente a tipo 
+ *		cadena la pasa por la función var_export
+ * @param bool $same_file El valor predeterminado false indica que 
+ * 		cada vez que se llama la función crea un nuevo archivo .log . 
+ * 		El valor true utiliza el mismo archivo .log .
+ * @return file Escribe en el archivo .log el contenido de la variable.
+ */ 
 function btq_booking_tc_log($file_name, $var, $same_file = false){
 	$log_dir = plugin_dir_path( __FILE__ ) . 'log' ;
 	
@@ -60,7 +79,16 @@ function btq_booking_tc_log($file_name, $var, $same_file = false){
 	}
 }
 
-add_action( 'admin_menu', 'btq_booking_tc_admin_menu' );
+/**
+ * Genera un elemento en el menú del escritorio del wp-admin de WordPress.
+ *
+ * El menú generado llama la funcion que genera la página de ajustes y la
+ * página del depurador.
+ * 
+ * @author Saúl Díaz
+ * @return void Genera el menú y sub-menú en el escritorio del wp-admin de
+ * 		WordPress.
+ */
 function btq_booking_tc_admin_menu() {
     add_menu_page(
         __('Booking TC', 'btq-booking-tc'),
@@ -88,7 +116,14 @@ function btq_booking_tc_admin_menu() {
     	'btq_booking_tc_admin_debug_page'
     );
 }
+add_action( 'admin_menu', 'btq_booking_tc_admin_menu' );
 
+/**
+ * Genera la página de ajustes para el plugin.
+ *
+ * @author Saúl Díaz
+ * @return void Genera la pagina de ajustes del plugin.
+ */
 function btq_booking_tc_admin_settings_page() {
 ?>
 	<div class="wrap">
@@ -120,6 +155,14 @@ function btq_booking_tc_admin_settings_page() {
 <?php
 }
 
+/**
+ * Genera un arreglo con las fechas de los días entre dos fechas distintas.
+ *
+ * @author Saúl Díaz
+ * @param string $dateRangeStart Fecha de inicio en formato 'Y-m-d'
+ * @param string $dateRangeEnd Fecha fin en formato 'Y-m-d'
+ * @return array
+ */
 function btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd) {
 	$begin = new DateTime($dateRangeStart);
 	$end = new DateTime($dateRangeEnd);
@@ -131,6 +174,21 @@ function btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd) {
 	return $daterange;
 }
 
+/**
+ * Genera la consulta SOAP en el booking de TravelClick.
+ *
+ * @author Saúl Díaz
+ * @param string $hotelCode Código de hotel en TravelClick.
+ * @param string $dateRangeStart Fecha de llegada.
+ * @param string $dateRangeEnd Fecha de salida.
+ * @param string $typeQuery Tipo de consulta: habitaciones o paquetes.
+ * @param int $rooms Cantidad de habitaciones.
+ * @param int $adults Cantidad de adultos.
+ * @param int $childrens Cantidad de niños.
+ * @param string $availRatesOnly Valor booleano 'true' o 'false' para
+ *		la consulta de habitaciones disponibles.
+ * @return string Consulta SOAP.
+ */
 function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true') {
 	
 	if ($typeQuery == 'packages'){
@@ -259,6 +317,21 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	
 }
 
+/**
+ * Realiza la consulta SOAP a TravelClick
+ *
+ * @author Saúl Díaz
+ * @param string $hotelCode Código de hotel en TravelClick.
+ * @param string $dateRangeStart Fecha de llegada.
+ * @param string $dateRangeEnd Fecha de salida.
+ * @param string $typeQuery Tipo de consulta: habitaciones o paquetes.
+ * @param int $rooms Cantidad de habitaciones.
+ * @param int $adults Cantidad de adultos.
+ * @param int $childrens Cantidad de niños.
+ * @param string $availRatesOnly Valor booleano 'true' o 'false' para
+ *		la consulta de habitaciones disponibles.
+ * @return array Resultado de la consulta SOAP.
+ */
 function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
 	require_once('lib/nusoap.php');
 	
@@ -279,6 +352,13 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 	return $result;
 }
 
+/**
+ * Consulta en el catálogo de amenidades y devuelve el nombre de la imagen.
+ *
+ * @author Saúl Díaz
+ * @param string $amenityCode Código de la amenidad.
+ * @return string Nombre del archivo de la amenidad. 
+ */
 function btq_booking_tc_amenity_icon_name($amenityCode) {
 	$amenitiesArray = array(
 		'10'       => 'english_air_conditioned.png',
@@ -343,7 +423,13 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 	return $amenitiesArray[$amenityCode];
 }
 
-
+/**
+ * Para depurar la consulta de las habitaciones.
+ *
+ * @author Saúl Díaz
+ * @param string $hotelCode Código de hotel en TravelClick.
+ * @return string Información retornada de la consulta.
+ */
 function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
 	
@@ -391,6 +477,13 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	<?php
 }
 
+/**
+ * Para depurar la consulta de los paquetes.
+ *
+ * @author Saúl Díaz
+ * @param string $hotelCode Código de hotel en TravelClick
+ * @return string Información retornada de la consulta.
+ */
 function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
 	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12', 'packages');
 	
@@ -438,6 +531,12 @@ function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
 	<?php
 }
 
+/**
+ * Genera la página para depurar el desarrollo del plugin.
+ *
+ * @author Saúl Díaz
+ * @return void Genera la pagina de depuración.
+ */
 function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
@@ -511,19 +610,43 @@ function btq_booking_tc_admin_debug_page() {
 <?php
 }
 
-register_deactivation_hook(__FILE__, 'btq_booking_tc_generate_unavailable_dates_deactivation');
+/**
+ * Cuando el plugin sea desactibado eliminara el Hook de la tarea programada.
+ *
+ * La tarea programada que se ejecuta para generar el archivo JSON con las fechas
+ * no disponibles.
+ *
+ * @author Saúl Díaz
+ * @return void
+ */
 function btq_booking_tc_generate_unavailable_dates_deactivation() {
 	wp_clear_scheduled_hook('btq_booking_tc_generate_unavailable_dates_event');
 }
+register_deactivation_hook(__FILE__, 'btq_booking_tc_generate_unavailable_dates_deactivation');
 
-register_activation_hook(__FILE__, 'btq_booking_tc_generate_unavailable_dates_activation');
+/**
+ * Declara el Hook para generar las fechas no disponibles.
+ *
+ * El Hook es necesario para declarar la tarea que se ejecutara cada hora,
+ * está tarea genera un archivo JSON con un arreglo de las fechas de los
+ * días donde no tienen disponibilidad.
+ *
+ * @author Saúl Díaz
+ * @return void 
+ */
 function btq_booking_tc_generate_unavailable_dates_activation() {
     if (! wp_next_scheduled ( 'btq_booking_tc_generate_unavailable_dates_event' )) {
 		wp_schedule_event(time(), 'hourly', 'btq_booking_tc_generate_unavailable_dates_event');
     }
 }
+register_activation_hook(__FILE__, 'btq_booking_tc_generate_unavailable_dates_activation');
 
-add_action('btq_booking_tc_generate_unavailable_dates_event', 'btq_booking_tc_generate_unavailable_dates');
+/**
+ * Genera el archivo JSON con el arreglo de fechas en donde no hay disponibilidad.
+ *
+ * @author Saúl Díaz
+ * @return file Archivo JSON
+ */
 function btq_booking_tc_generate_unavailable_dates(){
 	$dateRangeStart = date('Y-m-d');
 	$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
@@ -541,11 +664,19 @@ function btq_booking_tc_generate_unavailable_dates(){
 	$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
 	file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
 }
+add_action('btq_booking_tc_generate_unavailable_dates_event', 'btq_booking_tc_generate_unavailable_dates');
 
-function btq_booking_tc_grid_split_description($string){
-	if(!empty($string) && is_string($string)){
-		$stringStripTags = strip_tags($string);
-		$wordsArray = explode(' ', $stringStripTags);
+/**
+ * Genera la descripción con las estiquetas HTML necesarias para el link "Ver más".
+ *
+ * @author Saúl Díaz
+ * @param string $description Descripción devuelta por TravelClick
+ * @return string Descripción con etiquetas necesarias para el link "Ver más".
+ */
+function btq_booking_tc_grid_split_description($description){
+	if(!empty($description) && is_string($description)){
+		$descriptionStripTags = strip_tags($description);
+		$wordsArray = explode(' ', $descriptionStripTags);
 		
 		$wordsArrayFirst = Array();
 		$wordsArrayLast  = Array();
@@ -571,6 +702,13 @@ function btq_booking_tc_grid_split_description($string){
 	}
 }
 
+/**
+ * Devuelve un arreglo con los nombres de las imagenes contenidas en un directorio.
+ *
+ * @author Saúl Díaz
+ * @param string $path Ruta en disco del directorio con las imagenes.
+ * @return array Lista de los nombres de archivo de las imagenes contenidas en la ruta.
+ */
 function btq_booking_tc_grid_get_images($path) {
 	$files = scandir($path);
 	$images = array();
@@ -584,6 +722,25 @@ function btq_booking_tc_grid_get_images($path) {
 	return $images;
 }
 
+/**
+ * Grid del booking con los datos de habitaciones disponibles devueltos de la consulta a TravelClick.
+ *
+ * Genera en formato HTML con las etiquetas con clases CSS de Bootstrap el resultado
+ * de la consulta a TraveClick.
+ * 
+ * @author Saúl Díaz
+ * @author José del Carmen
+ * @param string $language Código de idioma.
+ * @param string $dateRangeStart Fecha del día de llegada.
+ * @param string $dateRangeEnd Fecha del día de salida.
+ * @param string $typeQuery Tipo de consulta: habitaciones o paquetes.
+ * @param int $rooms Cantidad de habitaciones.
+ * @param int $adults Cantidad de adultos.
+ * @param int $childrens Cantidad de niños.
+ * @param string $availRatesOnly Valor booleano 'true' o 'false' para
+ *		la consulta de habitaciones disponibles.
+ * @return string HTML del Grid de habitaciones.
+ */
 function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
@@ -759,6 +916,25 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	} // if ($response !== FALSE)
 } // function btq_booking_tc_grid_rooms()
 
+/**
+ * Grid del booking con los datos de paquetes disponibles devueltos de la consulta a TravelClick.
+ *
+ * Genera en formato HTML con las etiquetas con clases CSS de Bootstrap el resultado
+ * de la consulta a TraveClick.
+ * 
+ * @author Saúl Díaz
+ * @author José del Carmen
+ * @param string $language Código de idioma.
+ * @param string $dateRangeStart Fecha del día de llegada.
+ * @param string $dateRangeEnd Fecha del día de salida.
+ * @param string $typeQuery Tipo de consulta: habitaciones o paquetes.
+ * @param int $rooms Cantidad de habitaciones.
+ * @param int $adults Cantidad de adultos.
+ * @param int $childrens Cantidad de niños.
+ * @param string $availRatesOnly Valor booleano 'true' o 'false' para
+ *		la consulta de habitaciones disponibles.
+ * @return string HTML del Grid de pauetes.
+ */
 function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'packages', $rooms = 1, $adults = 2, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
@@ -950,6 +1126,14 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 	} // if ($response !== FALSE)
 } // function btq_booking_tc_grid_packages()
 
+/**
+ * Genera formulario de conulta a TravelClick
+ *
+ * @author Saúl Díaz
+ * @author José del Carmen
+ * @param string $language Código de idioma.
+ * @return string Formulario de consulta.
+ */
 function btq_booking_tc_grid_form($language = 'es') {
 	if ($language == 'en'){
 		$str_seleccion = 'Select a PACKAGE or ROOM';
@@ -1085,15 +1269,26 @@ function btq_booking_tc_grid_form($language = 'es') {
 	<?php
 }
 
-add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
+/**
+ * Añade a WordPress los assets JS y CSS necesarios para el Grid.
+ *
+ * @author Saúl Díaz
+ * @return void Integra CSS y JS al frond-end del sitio.
+ */
 function btq_booking_tc_grid_scripts() {
     wp_enqueue_style( 'btq-booking-tc-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ), 'solaz-child-style','1.0.0');
     wp_enqueue_script( 'moment', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment.min.js', __FILE__ ), array(), '2.21.0', true);
     wp_enqueue_script( 'moment-timezone', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment-timezone.js', __FILE__ ), array('moment'), ' 0.5.17', true);
     wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array('moment','moment-timezone'), '1.0.0');
 }
+add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
 
-add_action( 'vc_before_init', 'btq_booking_tc_grid_VC' );
+/**
+ * Declara el Widget de BTQ Booking TC en VisualCompouser.
+ *
+ * @author Saúl Díaz
+ * @return void Widget de BTQ Booking TC en VisualCompouser.
+ */
 function btq_booking_tc_grid_VC() {
 	vc_map(array(
 		'name'     => __( 'BTQ Booking', 'btq-booking-tc' ),
@@ -1103,8 +1298,14 @@ function btq_booking_tc_grid_VC() {
 		'icon'     => plugins_url( 'assets/images/iconos' . DIRECTORY_SEPARATOR . 'btqdesign-logo.png', __FILE__ )
 	));
 }
+add_action( 'vc_before_init', 'btq_booking_tc_grid_VC' );
 
-add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
+/**
+ * Función del shortcode que imprime el BTQ Booking TC en el frond-end.
+ *
+ * @author Saúl Díaz
+ * @return string Imprime el BTQ Booking TC
+ */
 function btq_booking_tc_grid_shortcode() {
 	ob_start();
 	?>
@@ -1127,9 +1328,14 @@ function btq_booking_tc_grid_shortcode() {
 	
 	return $out;
 }
+add_shortcode( 'btq-booking-tc-grid', 'btq_booking_tc_grid_shortcode' );
 
-add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
-add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
+/**
+ * Genera la respuesta AJAX del la consulta al booking de TravelClick.
+ *
+ * @author Saúl Díaz
+ * @return string Resultado de la consulta al booking de TravelClick.
+ */
 function btq_booking_tc_grid_ajax() {
 	// Debug Log
 	//btq_booking_tc_log('ajax-post', $_POST);
@@ -1175,9 +1381,15 @@ function btq_booking_tc_grid_ajax() {
 		echo '';
 	}
 }
+add_action( 'wp_ajax_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
+add_action( 'wp_ajax_nopriv_btq_booking_tc_grid', 'btq_booking_tc_grid_ajax' );
 
-add_action( 'wp_ajax_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
-add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
+/**
+ * Genera la respuesta AJAX del la consulta predeterminada de paquetes al booking de TravelClick.
+ *
+ * @author Saúl Díaz
+ * @return string Resultado de la consulta de paquetes al booking de TravelClick.
+ */
 function btq_booking_tc_grid_packages_ajax() {	
 	if (isset($_POST['data']['btq_packages_init'])) {
 		btq_booking_tc_grid_packages(
@@ -1190,9 +1402,15 @@ function btq_booking_tc_grid_packages_ajax() {
 		echo '';
 	}
 }
+add_action( 'wp_ajax_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
+add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
 
-add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
-add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
+/**
+ * Genera la respuesta AJAX del la consulta predeterminada de habitaciones al booking de TravelClick.
+ *
+ * @author Saúl Díaz
+ * @return string Resultado de la consulta de habitaciones al booking de TravelClick.
+ */
 function btq_booking_tc_grid_rooms_ajax() {	
 	if (isset($_POST['data']['btq_rooms_init'])) {
 		btq_booking_tc_grid_rooms(
@@ -1205,7 +1423,14 @@ function btq_booking_tc_grid_rooms_ajax() {
 		echo '';
 	}
 }
+add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
+add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
 
+/**
+ * Devuelve la fecha de llegada disponible a 90 días o más 
+ *
+ *
+ */
 function btq_booking_tc_grid_date_start() {
 	$unavailableJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-unavailable.json';
 	$unavailableJSON = file_get_contents($unavailableJSON_file);
@@ -1218,10 +1443,20 @@ function btq_booking_tc_grid_date_start() {
 	}
 }
 
+/**
+ *
+ *
+ *
+ */
 function btq_booking_tc_grid_date_end($date_start) {
 	return date('Y-m-d', strtotime($date_start . ' + 1 day'));
 }
 
+/**
+ *
+ *
+ *
+ */
 function btq_booking_tc_grid_current_language_code() {
 
 	$wpml_current_language = apply_filters( 'wpml_current_language', NULL );
