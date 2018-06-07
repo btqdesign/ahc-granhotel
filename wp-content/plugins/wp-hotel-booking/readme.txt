@@ -41,7 +41,7 @@ Take a look at the Premium **[HotelWP - Hotel Wordpress Theme](https://themefore
 
 - <a href="https://wordpress.org/plugins/wp-hotel-booking-authorize-payment/" target="_blank">Authorize.Net Payment method for WP Hotel Booking</a> - Authorize.Net payment method for WP Hotel Booking Plugin.
 - <a href="https://wordpress.org/plugins/wp-hotel-booking-stripe-payment/" target="_blank">Stripe Payment method for WP Hotel Booking</a> - Stripe payment method for WP Hotel Booking Plugin.
-- <a href="https://wordpress.org/plugins/wp-hotel-booking-block/" target="_blank">Block booking for WP Hotel Booking</a> - Block booking rooms of WP Hotel Booking for specific dates.
+- <a href="https://wordpress.org/plugins/wp-hotel-booking-block-room/" target="_blank">Block booking for WP Hotel Booking</a> - Block booking rooms of WP Hotel Booking for specific dates.
 - <a href="https://wordpress.org/plugins/wp-hotel-booking-booking-room/" target="_blank">Booking in single room for WP Hotel Booking</a> - Support booking in single room page for WP Hotel Booking.
 - <a href="https://wordpress.org/plugins/wp-hotel-booking-report/" target="_blank">Statistic for WP Hotel Booking</a> - Statistic booking for WP Hotel Booking Plugin.
 - <a href="https://wordpress.org/plugins/wp-hotel-booking-coupon/" target="_blank">Coupon for WP Hotel Booking</a> - Coupon for WP Hotel Booking Plugin.
@@ -76,6 +76,9 @@ Yes.
 7. System settings
 
 == Changelog ==
+
+= 1.9.7.3 =
++ Update offline payment instruction in thank you page template
 
 = 1.9.7.2 =
 + Update select extra in search room page with custom process
