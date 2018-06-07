@@ -23,7 +23,7 @@ class WPHB_Admin_Menu {
 			'3.99'
 		);
 
-		/*$menu_items = array(
+		$menu_items = array(
 			'pricing_table' => array(
 				'tp_hotel_booking',
 				__( 'Pricing Plans', 'wp-hotel-booking' ),
@@ -86,11 +86,11 @@ class WPHB_Admin_Menu {
 		WPHB_Admin_Settings::output();
 	}
 
-	function pricing_table() {
+	/*function pricing_table() {
 		wp_enqueue_script( 'wp-util' );
 		WP_Hotel_Booking::instance()->_include( 'includes/admin/views/pricing-table.php' );
 	}
-
+	*/
 	function other_settings() {
 		WP_Hotel_Booking::instance()->_include( 'includes/admin/views/settings/other_settings.php' );
 	}
