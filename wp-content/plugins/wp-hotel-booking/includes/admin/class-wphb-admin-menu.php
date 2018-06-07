@@ -86,11 +86,11 @@ class WPHB_Admin_Menu {
 		WPHB_Admin_Settings::output();
 	}
 
-	/*function pricing_table() {
+	function pricing_table() {
 		wp_enqueue_script( 'wp-util' );
 		WP_Hotel_Booking::instance()->_include( 'includes/admin/views/pricing-table.php' );
 	}
-	*/
+	
 	function other_settings() {
 		WP_Hotel_Booking::instance()->_include( 'includes/admin/views/settings/other_settings.php' );
 	}
