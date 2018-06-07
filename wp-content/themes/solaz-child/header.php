@@ -56,7 +56,7 @@ else {
         <?php if (!empty($solaz_settings['favicon'])): ?>
             <link rel="shortcut icon" href="<?php echo esc_url(str_replace(array('http:', 'https:'), '', $solaz_settings['favicon']['url'])); ?>" type="image/x-icon" />
         <?php endif; ?>
-    <?php endif;?>    
+    <?php endif;?>
     <?php wp_head(); ?>
 </head>
 <?php
