@@ -41,8 +41,10 @@ class ArrowPress_Override_Widget_Room_Carousel extends WP_Widget{
             $q_args = array(
                 'post_type' => 'hb_room',
                 'posts_per_page' => $number_rooms,
-                'orderby' => 'date',
-                'order' => 'DESC',
+                //'orderby' => 'date',
+		//'order' => 'DESC',
+		'orderby' => 'order_rooms',
+		'order' => 'ASC'
                     // 'meta_key'          => '_hb_gallery'
             );
             if (isset($instance['room_type']) && $instance['room_type'] != ''){
