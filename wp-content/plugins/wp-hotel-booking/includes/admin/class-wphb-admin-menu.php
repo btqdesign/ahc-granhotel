@@ -1,3 +1,4 @@
+
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -89,7 +90,7 @@ class WPHB_Admin_Menu {
 		wp_enqueue_script( 'wp-util' );
 		WP_Hotel_Booking::instance()->_include( 'includes/admin/views/pricing-table.php' );
 	}
-
+	
 	function other_settings() {
 		WP_Hotel_Booking::instance()->_include( 'includes/admin/views/settings/other_settings.php' );
 	}
