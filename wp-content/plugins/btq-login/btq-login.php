@@ -42,6 +42,6 @@ function btq_login_wp_head(){
 		  };
 		  firebase.initializeApp(config);
 		</script>
-	<?
+	<?php
 }
 add_action('wp_head', 'btq_login_wp_head', 1);
