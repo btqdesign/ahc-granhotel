@@ -6,8 +6,8 @@
  * Version: 0.1.0
  * Author: BTQ Design
  * Author URI: http://btqdesign.com/
- * Requires at least: 4.9.5
- * Tested up to: 4.9.5
+ * Requires at least: 4.9.6
+ * Tested up to: 4.9.6
  * 
  * Text Domain: btq-booking-tc
  * Domain Path: /languages
