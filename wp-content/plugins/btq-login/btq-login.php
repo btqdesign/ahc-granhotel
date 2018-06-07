@@ -47,3 +47,46 @@ function btq_login_wp_head(){
 <?php
 }
 add_action('wp_enqueue_scripts', 'btq_login_wp_head', 1);
+
+/**
+ * Declara el Widget de BTQ Login en VisualCompouser.
+ *
+ * @author Saúl Díaz
+ * @return void Widget de BTQ Login en VisualCompouser.
+ */
+function btq_booking_login_VC() {
+	vc_map(array(
+		'name'     => __( 'BTQ Login', 'btq-login' ),
+		'base'     => 'btq-login',
+		'class'    => '',
+		'category' => __( 'Content', 'btq-login'),
+		'icon'     => plugins_url( 'assets/images/iconos' . DIRECTORY_SEPARATOR . 'btqdesign-logo.png', __FILE__ )
+	));
+}
+add_action( 'vc_before_init', 'btq_booking_login_VC' );
+
+/**
+ * Función del shortcode que imprime el BTQ Login en el frond-end.
+ *
+ * @author Saúl Díaz
+ * @return string Imprime el BTQ Booking TC
+ */
+function btq_login_shortcode() {
+	ob_start();
+	?>
+	<script>
+		ui.start('#firebaseui-auth-container', {
+		  signInOptions: [
+		    firebase.auth.EmailAuthProvider.PROVIDER_ID,
+		    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+			firebase.auth.FacebookAuthProvider.PROVIDER_ID
+		  ],
+		  // Other config options...
+		});
+	</script>
+	<?php
+	$out = ob_get_clean();
+	
+	return $out;
+}
+add_shortcode( 'btq-login', 'btq_login_shortcode' );
