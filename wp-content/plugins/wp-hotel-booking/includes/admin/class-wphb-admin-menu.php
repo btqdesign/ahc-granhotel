@@ -1,3 +1,4 @@
+
 <?php
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -22,7 +23,7 @@ class WPHB_Admin_Menu {
 			'3.99'
 		);
 
-		$menu_items = array(
+		/*$menu_items = array(
 			'pricing_table' => array(
 				'tp_hotel_booking',
 				__( 'Pricing Plans', 'wp-hotel-booking' ),
