@@ -44,4 +44,4 @@ function btq_login_wp_head(){
 		</script>
 	<?php
 }
-add_action('wp_head', 'btq_login_wp_head', 1);
+add_action('wp_enqueue_scripts', 'btq_login_wp_head', 1);
