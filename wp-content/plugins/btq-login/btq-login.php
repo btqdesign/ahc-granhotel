@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BTQ Login
  * Plugin URI: http://btqdesign.com/plugins/btq-login/
- * Description: Booking TravelClick
+ * Description: Login con redes sociales.
  * Version: 0.1.0
  * Author: BTQ Design
  * Author URI: http://btqdesign.com/
