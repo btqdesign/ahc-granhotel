@@ -42,8 +42,18 @@ function btq_login_wp_head(){
 	  };
 	  firebase.initializeApp(config);
 	</script>
-	<script src="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.js"></script>
-	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/2.5.1/firebaseui.css" />
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js"></script>
+
+<!-- Leave out Storage -->
+<!-- <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase-storage.js"></script> -->
+
+<script>
+  var config = {
+    // ...
+  };
+  firebase.initializeApp(config);
+</script>
 <?php
 }
 add_action('wp_enqueue_scripts', 'btq_login_wp_head', 1);
