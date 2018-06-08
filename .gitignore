@@ -26,3 +26,5 @@ logs
 
 info.php
 info-siwp.php
+
+elfsight-instagram-feed-api/storage/*
