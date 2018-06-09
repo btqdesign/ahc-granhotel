@@ -28,3 +28,7 @@ info.php
 info-siwp.php
 
 elfsight-instagram-feed-api/storage/*
+wp-content/plugins/elfsight-instagram-feed-cc/api/storage/*
+
+wp-content/themes/solaz/css/config/skin.css
+wp-content/themes/solaz/sass/config/_config_skin.scss
