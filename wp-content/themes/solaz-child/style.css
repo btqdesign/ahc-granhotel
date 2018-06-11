@@ -26,6 +26,14 @@ Text Domain:  solaz-child
 	left: auto;
 }
 
+@media (max-width: 480px){
+	.side-breadcrumb {
+		height: 190px;
+	}
+	.side-breadcrumb h1 {
+		font-size: 32px;
+	}
+}
 @media (max-width:768px){
 	.btq-book-now {
 		display: block !important;
