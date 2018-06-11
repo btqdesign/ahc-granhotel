@@ -19,6 +19,13 @@ Text Domain:  solaz-child
 .btq-book-now {
 	display: none !important;
 }
+
+.banner-type-5 .banner-desc h2 {
+	position: relative;
+	top: auto;
+	left: auto;
+}
+
 @media (max-width:768px){
 	.btq-book-now {
 		display: block !important;
@@ -40,9 +47,6 @@ Text Domain:  solaz-child
 	}
 	.banner-type-5 .banner-desc h2 {
 		font-size: 30px;
-		position: relative;
-		top: auto;
-		left: auto;
 	}
 }
 
