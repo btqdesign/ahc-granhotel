@@ -17,22 +17,29 @@ class WPML_Name_Query_Filter_Translated extends WPML_Name_Query_Filter {
 	 */
 	protected function select_best_match( $pages_with_name ) {
 		$pages_to_langs = array();
-		foreach ( $pages_with_name as $p_with_name ) {
-			$pages_to_langs[ $p_with_name ] = $this->post_translation->get_element_lang_code( (int) $p_with_name );
+		foreach ( $pages_with_name as $page_with_name ) {
+			$page_lang = $this->post_translation->get_element_lang_code( (int) $page_with_name );
+
+			if ( $this->sitepress->get_current_language() === $page_lang ) {
+				// return immediately the first page in the current language
+				return $page_with_name;
+			}
+
+			$pages_to_langs[ $page_with_name ] = $page_lang;
 		}
 
-		foreach ( $pages_to_langs as $p_with_name => $element_lang ) {
+		foreach ( $pages_to_langs as $page_with_name => $element_lang ) {
 			if ( $element_lang === $this->sitepress->get_default_language()
-			     && $this->sitepress->is_display_as_translated_post_type( get_post_type( $p_with_name ) )
+			     && $this->sitepress->is_display_as_translated_post_type( get_post_type( $page_with_name ) )
 			) {
-				return $p_with_name;
+				return $page_with_name;
 			}
 		}
 
 		foreach ( $this->active_languages as $lang_code ) {
-			foreach ( $pages_to_langs as $p_with_name => $element_lang ) {
+			foreach ( $pages_to_langs as $page_with_name => $element_lang ) {
 				if ( $element_lang === $lang_code ) {
-					return $p_with_name;
+					return $page_with_name;
 				}
 			}
 		}

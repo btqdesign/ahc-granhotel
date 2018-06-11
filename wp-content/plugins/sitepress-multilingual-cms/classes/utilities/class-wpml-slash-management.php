@@ -28,6 +28,11 @@ class WPML_Slash_Management {
 	public function maybe_user_trailingslashit( $url, $method ) {
 		global $wp_rewrite;
 		$url_parts = wpml_parse_url( $url );
+
+		if ( ! $url_parts ) {
+			return $url;
+		}
+
 		$url_parts = $this->parse_missing_host_from_path( $url_parts );
 
 		if ( $this->is_root_url_with_trailingslash( $url_parts )

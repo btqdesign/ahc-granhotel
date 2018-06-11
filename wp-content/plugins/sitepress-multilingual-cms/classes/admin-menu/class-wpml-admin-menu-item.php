@@ -174,14 +174,23 @@ class WPML_Admin_Menu_Item {
 	 * @return string
 	 */
 	private function serialize() {
-		return json_encode( array(
-			                    'capability'  => $this->get_capability(),
-			                    'function'    => $this->get_function(),
-			                    'menu_slug'   => $this->get_menu_slug(),
-			                    'menu_title'  => $this->get_menu_title(),
-			                    'order'       => $this->get_order(),
-			                    'page_title'  => $this->get_page_title(),
-			                    'parent_slug' => $this->get_parent_slug(),
-		                    ) );
+		$function = $this->get_function();
+		if ( is_callable( $function ) ) {
+			/**
+			 * "Hash" is for the hash table. That's not an actual hash of the callable, but it should
+			 * be good enough for the scope of this function
+			 */
+			$function = spl_object_hash( (object) $function );
+		}
+
+		return wp_json_encode( array(
+			'capability'  => $this->get_capability(),
+			'function'    => $function,
+			'menu_slug'   => $this->get_menu_slug(),
+			'menu_title'  => $this->get_menu_title(),
+			'order'       => $this->get_order(),
+			'page_title'  => $this->get_page_title(),
+			'parent_slug' => $this->get_parent_slug(),
+		), 0, 1 );
 	}
 }
