@@ -38,6 +38,12 @@ Text Domain:  solaz-child
 	    align-content: center;
 	    width: 100%;
 	}
+	.banner-type-5 .banner-desc h2 {
+		font-size: 30px;
+		position: relative;
+		top: auto;
+		left: auto;
+	}
 }
 
 .btq-menu li {
