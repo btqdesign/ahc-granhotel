@@ -26,6 +26,15 @@ Text Domain:  solaz-child
 	left: auto;
 }
 
+.ui-state-disabled {
+	background-color: #cb6666;
+}
+
+.ui-state-disabled span.ui-state-default{
+	color: #666;
+	background-color: #cb6666;
+}
+
 @media (max-width: 480px){
 	.side-breadcrumb {
 		height: 190px;
@@ -33,6 +42,11 @@ Text Domain:  solaz-child
 	.side-breadcrumb h1 {
 		font-size: 32px;
 	}
+	/*
+	.vc_col-has-fill>.vc_column-inner{
+		padding-bottom: 0px;
+	}
+	*/
 }
 @media (max-width:768px){
 	.btq-book-now {
