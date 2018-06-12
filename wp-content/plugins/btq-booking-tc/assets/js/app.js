@@ -44,7 +44,9 @@ jQuery(document).ready(function(){
 		jQuery('#btq-date-end').datepicker('option', {
 			beforeShowDay: function(date){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-				return [true, 'btq-unavailable-day']
+				if (data.indexOf(string) > -1){
+					return [true, 'btq-unavailable-day']
+				}
     		}
 		})
 		.datepicker('refresh');
