@@ -8,6 +8,11 @@
 	color: #666 !important;
 }
 
+.btq-unavailable-day a.ui-state-default:hover{
+	background-color: #b58a61 !important;
+	color: #fff !important;
+}
+
 
 
 
