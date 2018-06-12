@@ -26,11 +26,11 @@ Text Domain:  solaz-child
 	left: auto;
 }
 
-.ui-state-disabled {
+.ui-datepicker-unselectable {
 	background-color: #cb6666;
 }
 
-.ui-state-disabled span.ui-state-default{
+.ui-datepicker-unselectable span.ui-state-default{
 	background-color: #cb6666;
 	color: #666;
 }
@@ -39,7 +39,7 @@ Text Domain:  solaz-child
 	background-color: #cbd08c;
 }
 
-.btq-unavailable-day span.ui-state-default{
+.btq-unavailable-day a.ui-state-default{
 	background-color: #cbd08c;
 	color: #666;
 }
