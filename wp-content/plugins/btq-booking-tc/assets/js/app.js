@@ -41,14 +41,23 @@ jQuery(document).ready(function(){
 		})
 		.datepicker('refresh');
 		
+		var continueDay = 0;
 		jQuery('#btq-date-end').datepicker('option', {
 			beforeShowDay: function(date){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
 				if (data.indexOf(string) == -1){
+					continueDay = 0;
 					return [ true ];
 				}
 				else{
-					return [true, 'btq-unavailable-day'];
+					if (continueDay == 0){
+						continueDay++;
+						return [true, 'btq-unavailable-day'];
+					}
+					else {
+						continueDay++;
+						return [ false ];
+					}
 				}
     		}
 		})
