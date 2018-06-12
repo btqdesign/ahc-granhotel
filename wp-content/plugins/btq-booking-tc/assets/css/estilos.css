@@ -1,19 +1,11 @@
-.ui-datepicker-unselectable {
-	background-color: #cb6666;
-}
-
 .ui-datepicker-unselectable span.ui-state-default{
-	background-color: #cb6666;
-	color: #666;
-}
-
-.btq-unavailable-day {
-	background-color: #cbd08c;
+	background-color: #cb6666 !important;
+	color: #666 !important;
 }
 
 .btq-unavailable-day a.ui-state-default{
-	background-color: #cbd08c;
-	color: #666;
+	background-color: #cbd08c !important;
+	color: #666 !important;
 }
 
 
