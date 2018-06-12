@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		minDate: '+0d',
+		changeYear: true,
 		onSelect: function(dateSelected){
 			if (
 				jQuery('#btq-date-end').val() == '' || 
@@ -29,7 +30,8 @@ jQuery(document).ready(function(){
 	
 	jQuery('#btq-date-end').datepicker({
 		dateFormat: 'dd/mm/yy',
-		minDate: '+1d'
+		minDate: '+1d',
+		changeYear: true
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
