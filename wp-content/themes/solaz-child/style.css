@@ -31,8 +31,17 @@ Text Domain:  solaz-child
 }
 
 .ui-state-disabled span.ui-state-default{
-	color: #666;
 	background-color: #cb6666;
+	color: #666;
+}
+
+.btq-unavailable-day {
+	background-color: #cbd08c;
+}
+
+.btq-unavailable-day span.ui-state-default{
+	background-color: #cbd08c;
+	color: #666;
 }
 
 @media (max-width: 480px){
