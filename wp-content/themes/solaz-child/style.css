@@ -26,24 +26,6 @@ Text Domain:  solaz-child
 	left: auto;
 }
 
-.ui-datepicker-unselectable {
-	background-color: #cb6666;
-}
-
-.ui-datepicker-unselectable span.ui-state-default{
-	background-color: #cb6666;
-	color: #666;
-}
-
-.btq-unavailable-day {
-	background-color: #cbd08c;
-}
-
-.btq-unavailable-day a.ui-state-default{
-	background-color: #cbd08c;
-	color: #666;
-}
-
 @media (max-width: 480px){
 	.side-breadcrumb {
 		height: 190px;
