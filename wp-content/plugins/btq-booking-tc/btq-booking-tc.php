@@ -448,11 +448,11 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	}
 	?>
 	</table>
-	<?php /*
+	
 	<pre>
 		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
 	</pre>
-	*/ ?>
+	
 	<?php
 	
 	for ($i = 0; $i < count($RoomAmenities); $i++){
@@ -502,11 +502,11 @@ function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
 	}
 	?>
 	</table>
-	<?php /*
+	
 	<pre>
 		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
 	</pre>
-	*/ ?>
+	
 	<?php
 	
 	for ($i = 0; $i < count($RoomAmenities); $i++){
@@ -554,12 +554,12 @@ function btq_booking_tc_admin_debug_page() {
 			<?php submit_button(); */ ?>
 		</form>
 		-->
-		<!--
+		
 		<div style="background-color: white;">
-			<?php /* btq_booking_tc_admin_debug_rooms('95698'); ?>
-			<?php btq_booking_tc_admin_debug_rooms('131328'); */ ?>
+			<?php btq_booking_tc_admin_debug_rooms('131330'); ?>
+			<?php btq_booking_tc_admin_debug_rooms('95697'); ?>
 		</div>
-		-->
+		
 		<!--
 		<pre style="background-color: white;">
 		<?php
@@ -582,6 +582,7 @@ function btq_booking_tc_admin_debug_page() {
 		</pre>
 		-->
 		
+		<!--
 		<div style="background-color: white;">
 			<p>Un año</p>
 		<?php 
@@ -606,6 +607,7 @@ function btq_booking_tc_admin_debug_page() {
 			file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
 		?>
 		</div>
+		-->
 	</div><!-- wrap -->
 <?php
 }

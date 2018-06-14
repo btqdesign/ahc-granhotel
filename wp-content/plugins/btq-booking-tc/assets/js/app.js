@@ -5,6 +5,7 @@ jQuery(document).ready(function(){
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		minDate: '+0d',
+		changeYear: true,
 		onSelect: function(dateSelected){
 			if (
 				jQuery('#btq-date-end').val() == '' || 
@@ -29,22 +30,37 @@ jQuery(document).ready(function(){
 	
 	jQuery('#btq-date-end').datepicker({
 		dateFormat: 'dd/mm/yy',
-		minDate: '+1d'
+		minDate: '+1d',
+		changeYear: true
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking-tc/assets/js/btq-unavailable.json', {}).done(function(data) {
 		jQuery('#btq-date-start').datepicker('option', {
 			beforeShowDay: function(date){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-				return [ data.indexOf(string) == -1 ]
+				return [ data.indexOf(string) == -1 ];
     		}
 		})
 		.datepicker('refresh');
 		
+		var continueDay = 0;
 		jQuery('#btq-date-end').datepicker('option', {
 			beforeShowDay: function(date){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
-				return [true, 'btq-unavailable-day']
+				if (data.indexOf(string) == -1){
+					continueDay = 0;
+					return [ true ];
+				}
+				else{
+					if (continueDay == 0){
+						continueDay++;
+						return [true, 'btq-unavailable-day'];
+					}
+					else {
+						continueDay++;
+						return [ false ];
+					}
+				}
     		}
 		})
 		.datepicker('refresh');

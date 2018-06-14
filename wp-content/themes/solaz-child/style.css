@@ -33,6 +33,11 @@ Text Domain:  solaz-child
 	.side-breadcrumb h1 {
 		font-size: 32px;
 	}
+	/*
+	.vc_col-has-fill>.vc_column-inner{
+		padding-bottom: 0px;
+	}
+	*/
 }
 @media (max-width:768px){
 	.btq-book-now {
