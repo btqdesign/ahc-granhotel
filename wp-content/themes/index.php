@@ -11,7 +11,7 @@ switch ($lang){
         include("https://www.http://granhoteldelaciudaddemexico.com.mx/en/");
         break;        
     default:
-        //echo "PAGE EN - Setting Default";
+        //echo "PAGE ES - Setting Default";
         include("https://www.http://granhoteldelaciudaddemexico.com.mx/es/");//include EN in all other cases of different lang detection
         break;
 }
