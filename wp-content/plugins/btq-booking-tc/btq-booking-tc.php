@@ -1270,8 +1270,11 @@ function btq_booking_tc_grid_form($language = 'es') {
 		
 		<section class="row">
 			<article class="col-md-5">
+				<!--
 				<img src="<?php echo plugins_url( $iconos_dir . DIRECTORY_SEPARATOR . 'gh_calendar2.png', __FILE__ ); ?>" width="30" height="30" id="element2">
 				<h5 class="hosp2"><?php echo $str_check; ?></h5>
+				-->
+				<p>&nbsp;</p>
 			</article>
 
 			<article class="col-md-7">
