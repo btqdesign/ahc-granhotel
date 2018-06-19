@@ -81,13 +81,13 @@ textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
 }
 
 
-@media (min-width: 1200px) {
+@media (min-width: 1231px) {
 	.main-navigation .mega-menu li a{
 		padding-left: 8px;
 		padding-right: 8px;
 	}
 }
-@media (max-width: 1024px) and (min-width: 992px) {
+@media (max-width: 1230px) and (min-width: 992px) {
 	.main-navigation .mega-menu li a{
 		padding-left: 4px !important;
 		padding-right: 4px !important;
