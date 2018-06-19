@@ -79,3 +79,22 @@ ul#menu-header-menu, ul#menu-header-menu-terraza, ul#menu-header-menu-banquete, 
 textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
     height: 150px;
 }
+
+
+@media (min-width: 1200px) {
+	.main-navigation .mega-menu li a{
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+}
+@media @media (max-width: 1024px) and (min-width: 992px) {
+	.main-navigation .mega-menu li a{
+		padding-left: 4px !important;
+		padding-right: 4px !important;
+		font-size: 11px !important;
+	}
+	.header-v1 .languges-flags + .search-block-top {
+		right: 55px !important;
+	}
+}
+
