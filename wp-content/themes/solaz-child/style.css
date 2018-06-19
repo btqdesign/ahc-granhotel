@@ -87,7 +87,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
 		padding-right: 8px;
 	}
 }
-@media @media (max-width: 1024px) and (min-width: 992px) {
+@media (max-width: 1024px) and (min-width: 992px) {
 	.main-navigation .mega-menu li a{
 		padding-left: 4px !important;
 		padding-right: 4px !important;
