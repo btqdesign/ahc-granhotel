@@ -97,4 +97,14 @@ textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
 		right: 55px !important;
 	}
 }
+@media (max-width: 991px) and (min-width: 768px) {
+	.header-v1 .mega-menu > li > a {
+	    font-size: 11px;
+	    padding-left: 3px !important;
+		padding-right: 3px !important;
+	}
+	.header-v1 .languges-flags + .search-block-top {
+		right: 55px !important;
+	}
+}
 
