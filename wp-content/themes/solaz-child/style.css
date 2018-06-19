@@ -81,6 +81,12 @@ textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
 }
 
 
+.dropdown-menu {
+	min-width: 140px;
+	text-align: right;
+	right: -30px;
+}
+
 @media (min-width: 1231px) {
 	.main-navigation .mega-menu li a{
 		padding-left: 8px;
