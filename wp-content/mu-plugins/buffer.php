@@ -27,3 +27,12 @@ add_action(
 	}, 
 	0
 );
+
+add_filter('final_output', function($output) {
+    // Soporte HTTPS
+    $output = str_replace('http:', 'https:', $output);
+    $output = str_replace('https://schemas.xmlsoap.org', 'http://schemas.xmlsoap.org', $output);
+    $output = str_replace('https://docs.oasisopen.org', 'http://docs.oasisopen.org', $output);
+    $output = str_replace('https://www.sitemaps.org', 'http://www.sitemaps.org', $output);
+    return $output;
+});
