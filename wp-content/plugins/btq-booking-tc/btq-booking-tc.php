@@ -673,6 +673,7 @@ add_action('btq_booking_tc_generate_unavailable_dates_event', 'btq_booking_tc_ge
  *
  * @author Saúl Díaz
  * @param string $description Descripción devuelta por TravelClick
+ * @param string $language Código de idioma
  * @return string Descripción con etiquetas necesarias para el link "Ver más".
  */
 function btq_booking_tc_grid_split_description($description, $language = 'es'){
