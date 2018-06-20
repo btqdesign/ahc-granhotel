@@ -1,7 +1,11 @@
 <?php 
 $solaz_settings = solaz_check_theme_options(); 
 
-if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+$wpml_current_language = apply_filters( 'wpml_current_language', NULL );
+if (!empty($wpml_current_language)){
+	$idioma = $wpml_current_language;
+}
+elseif ( defined( 'ICL_LANGUAGE_CODE' ) ) {
 	$idioma = ICL_LANGUAGE_CODE;
 }
 else {
