@@ -694,14 +694,16 @@ function btq_booking_tc_grid_split_description($description, $language = 'es'){
 			}
 		}
 		
-		$textFirst = implode(' ', $wordsArrayFirst);
-		$textLast  = implode(' ', $wordsArrayLast);
+		$textFirst = trim(implode(' ', $wordsArrayFirst));
+		$textLast  = trim(implode(' ', $wordsArrayLast));
 		
 		?>
 		<div>
-			<?php echo $textFirst; ?> 
+			<?php echo $textFirst . ' '; ?> 
+			<?php if(!empty($textLast)){ ?>
 			<a class="vermas"><?php echo $str_view_more; ?></a>
 			<span class="texto_recorrido" style="display:none"><?php echo $textLast; ?></span>
+			<?php } ?>
 		</div>
 		<?php
 	}
