@@ -675,8 +675,11 @@ add_action('btq_booking_tc_generate_unavailable_dates_event', 'btq_booking_tc_ge
  * @param string $description Descripción devuelta por TravelClick
  * @return string Descripción con etiquetas necesarias para el link "Ver más".
  */
-function btq_booking_tc_grid_split_description($description){
+function btq_booking_tc_grid_split_description($description, $language = 'es'){
 	if(!empty($description) && is_string($description)){
+		
+		$str_view_more = ($language == 'es')?'Ver más':'View more';
+		
 		$descriptionStripTags = strip_tags($description);
 		$wordsArray = explode(' ', $descriptionStripTags);
 		
@@ -697,7 +700,7 @@ function btq_booking_tc_grid_split_description($description){
 		?>
 		<div>
 			<?php echo $textFirst; ?> 
-			<a class="vermas">Ver más</a>
+			<a class="vermas"><?php echo $str_view_more; ?></a>
 			<span class="texto_recorrido" style="display:none"><?php echo $textLast; ?></span>
 		</div>
 		<?php
@@ -843,7 +846,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 				
 				<article class="col-md-4">
 					<h3 class="titulo"><?php echo $elementRoomType['!RoomTypeName'] ?></h3>
-					<?php btq_booking_tc_grid_split_description($elementRoomType['RoomDescription']['Text']['!Text']); ?>
+					<?php btq_booking_tc_grid_split_description($elementRoomType['RoomDescription']['Text']['!Text'], $language); ?>
 					
 					<?php
 					foreach($elementRoomType['Amenities']['Amenity'] as $RoomAmenitie){
@@ -1081,7 +1084,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 				
 				<article class="col-md-4">
 					<h3 class="titulo"><?php echo $elementRatePlan['!RatePlanName'] ?></h3>
-					<?php btq_booking_tc_grid_split_description($elementRatePlan['RatePlanDescription']['Text']['!Text']); ?>
+					<?php btq_booking_tc_grid_split_description($elementRatePlan['RatePlanDescription']['Text']['!Text'], $language); ?>
 					
 					<?php
 					foreach($roomType['Amenities']['Amenity'] as $RoomAmenitie){
