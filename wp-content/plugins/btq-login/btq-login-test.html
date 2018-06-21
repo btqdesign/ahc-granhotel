@@ -4,37 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Prueba</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-        <script src="prueba.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
-            authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
-            databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
-            projectId: "btq-ahm-gran-hotel",
-            storageBucket: "btq-ahm-gran-hotel.appspot.com",
-            messagingSenderId: "241886061865"
-          };
-          firebase.initializeApp(config);
-        </script>
+    <title>Document</title>
 </head>
 <body>
+        <div id="login-form">
 
-<div class='login'>
-        <h2>Sign in</h2>
-        <input name='username' placeholder='Usuario' type='text'/>
-        <input id='pw' name='password' placeholder='Contraseña' type='password'/>
-        <div class='remember'>
-          <input checked='' id='remember' name='remember' type='checkbox'/>
-          <label for='remember'></label>Recordarme
-        </div>
-        <input type='submit' value='Sign in'/>
-        <a class='forgot' href='#'>Forgot your password?</a>
-      </div>
-      <script class="cssdeck" src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-
+                <h1>Login</h1>
+        
+                <fieldset>
+        
+                    <form action="javascript:void(0);" method="get">
+        
+                        <input type="email" required value="Email" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
+        
+                        <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
+        
+                        <input type="submit" value="Login">
+        
+                        <footer class="clearfix">
+        
+                            <p><span class="info">?</span><a href="#">Forgot Password</a></p>
+        
+                        </footer>
+        
+                    </form>
+        
+                </fieldset>
+        
+            </div> <!-- end login-form -->
 </body>
 </html>
