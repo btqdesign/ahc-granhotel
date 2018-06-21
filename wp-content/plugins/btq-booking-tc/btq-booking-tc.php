@@ -26,20 +26,6 @@ defined('ABSPATH') or die('No script kiddies please!');
  */
 load_plugin_textdomain('btq-booking-tc', false, basename( dirname( __FILE__ ) ) . '/languages');
 
-/*
-// Register settings using the Settings API 
-function wpdocs_register_my_setting() {
-    register_setting( 'my-options-group', 'my-option-name', 'intval' ); 
-} 
-add_action( 'admin_init', 'wpdocs_register_my_setting' );
- 
-// Modify capability
-function wpdocs_my_page_capability( $capability ) {
-    return 'edit_others_posts';
-}
-add_filter( 'option_page_capability_my-options-group', 'wpdocs_my_page_capability' );
-*/
-
 /**
  * Almacena en un archivo el contenido de una variable.
  *
@@ -83,16 +69,6 @@ function btq_booking_tc_log($file_name, $var, $same_file = false){
 	}
 }
 
-function btq_booking_tc_register_settings() {
-	add_option('btq_booking_tc_soap_header_to', 'http://www.google.com');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_header_to');
-	add_option('btq_booking_tc_soap_header_action', 'PALS');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_header_action');
-	add_option('btq_booking_tc_hotel_code_us', '11111');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_us', $args_code, array('type' => 'integer'));
-	add_option('btq_booking_tc_hotel_code_es', '22222');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es', $args_code, array('type' => 'integer'));
-}
 
 /**
  * Genera un elemento en el menú del escritorio del wp-admin de WordPress.
@@ -130,10 +106,23 @@ function btq_booking_tc_admin_menu() {
     	'btq_booking_tc_debug',
     	'btq_booking_tc_admin_debug_page'
     );
-    //call register settings function
-	add_action( 'admin_init', 'btq_booking_tc_register_settings' );
+    /* Manda a llamar la funcion para declarar los ajustes y opciones del plug-in */
+    add_action( 'admin_init', 'btq_booking_tc_register_settings' );
 }
 add_action( 'admin_menu', 'btq_booking_tc_admin_menu' );
+
+/**
+ * Declara los ajustes y opciones del plug-in
+ */
+function btq_booking_tc_register_settings() {
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_sales_channel_info_id');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_username');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_password');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_to_action_pals');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_to_action_full');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_us', $args_code, array('type' => 'integer'));
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es', $args_code, array('type' => 'integer'));
+}
 
 /**
  * Genera la página de ajustes para el plugin.
@@ -150,19 +139,31 @@ function btq_booking_tc_admin_settings_page() {
 			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
 			<table class="form-table">
 				<tr valign="top">
-					<th scope="row"><?php _e('SOAP Header To', 'btq-booking-tc'); ?></th>
-					<td><input type="url" name="btq_booking_tc_soap_header_to" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_to') ); ?>" /></td>
+					<th scope="row"><label for="btq_booking_tc_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking-tc'); ?></label></th>
+					<td><input type="text" name="btq_booking_tc_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><?php _e('SOAP Header Action', 'btq-booking-tc'); ?></th>
-					<td><input type="text" name="btq_booking_tc_soap_header_action" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_action') ); ?>" /></td>
+					<th scope="row"><label for="btq_booking_tc_soap_username"><?php _e('Username', 'btq-booking-tc'); ?></label></th>
+					<td><input type="text" name="btq_booking_tc_soap_username" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_username') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></th>
+					<th scope="row"><label for="btq_booking_tc_soap_password"><?php _e('Password', 'btq-booking-tc'); ?></label></th>
+					<td><input type="text" name="btq_booking_tc_soap_password" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_password') ); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="btq_booking_tc_soap_to_action_pals"><?php _e('SOAP Action PALS To', 'btq-booking-tc'); ?></label></th>
+					<td><input type="url" name="btq_booking_tc_soap_to_action_pals" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_to_action_pals') ); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="btq_booking_tc_soap_to_action_full"><?php _e('SOAP Action FULL To', 'btq-booking-tc'); ?></label></th>
+					<td><input type="url" name="btq_booking_tc_soap_to_action_full" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_to_action_full') ); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="btq_booking_tc_hotel_code_us"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></label></th>
 					<td><input type="number" name="btq_booking_tc_hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_us') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
-					<th scope="row"><?php _e('Hotel code spanish language', 'btq-booking-tc'); ?></th>
+					<th scope="row"><label for="btq_booking_tc_hotel_code_es"><?php _e('Hotel code spanish language', 'btq-booking-tc'); ?></label></th>
 					<td><input type="number" name="btq_booking_tc_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_es') ); ?>" /></td>
 				</tr>
 			</table>
