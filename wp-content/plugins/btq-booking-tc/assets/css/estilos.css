@@ -92,3 +92,10 @@ h5.hosp2{
       visibility: hidden !important;
    } 
 }
+
+
+
+.radio-inline span{
+	text-decoration: line-through;
+	color: #666;
+}
