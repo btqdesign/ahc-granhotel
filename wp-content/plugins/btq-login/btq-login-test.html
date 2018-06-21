@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Prueba</title>
+</head>
+<body>
+
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+        <script src="prueba.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
+            authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
+            databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
+            projectId: "btq-ahm-gran-hotel",
+            storageBucket: "btq-ahm-gran-hotel.appspot.com",
+            messagingSenderId: "241886061865"
+          };
+          firebase.initializeApp(config);
+        </script>
+
+<div class='login'>
+        <h2>Sign in</h2>
+        <input name='username' placeholder='Usuario' type='text'/>
+        <input id='pw' name='password' placeholder='Contraseña' type='password'/>
+        <div class='remember'>
+          <input checked='' id='remember' name='remember' type='checkbox'/>
+          <label for='remember'></label>Recordarme
+        </div>
+        <input type='submit' value='Sign in'/>
+        <a class='forgot' href='#'>Forgot your password?</a>
+      </div>
+
+
+</body>
+</html>
