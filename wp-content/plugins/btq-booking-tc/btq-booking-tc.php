@@ -21,6 +21,10 @@
 // Exit if accessed directly
 defined('ABSPATH') or die('No script kiddies please!');
 
+/** 
+ * Establece el dominio correcto para la carga de traducciones
+ */
+load_plugin_textdomain('btq-booking-tc', false, basename( dirname( __FILE__ ) ) . '/languages');
 
 /*
 // Register settings using the Settings API 
