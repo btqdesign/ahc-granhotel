@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.15
+Version: 7.10.16
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,10 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.16 - 2018-06-21 :- Medium priority
+ * Fixed global settings lost
+ * Fixed whitespace matched in version variable
+ *
  * 7.10.15 - 2018-06-14 :- Medium priority
  * Fixed GDPR consent notice bypassed when "prevent other plugins and theme enqueueing maps API" is not set
  *
@@ -488,7 +492,7 @@ $wpgmza_tblname_category_maps = $wpdb->prefix. "wpgmza_category_maps";
 
 $subject = file_get_contents(__FILE__);
 if(preg_match('/Version:\s*(.+)/', $subject, $m))
-	$wpgmza_version = $m[1];
+	$wpgmza_version = trim($m[1]);
 
 define('WPGMZA_VERSION', $wpgmza_version);
 define("WPGMAPS", $wpgmza_version);
@@ -577,14 +581,16 @@ function wpgmaps_activate() {
 	
 	$wpgmza_data = get_option("WPGMZA");
 	
-	if($wpgmza)
-		return;
+	$other_settings = get_option('WPGMZA_OTHER_SETTINGS');
 	
-	$other_settings = array();
-	$other_settings['wpgmza_settings_map_streetview'] = "yes";
-	$other_settings['wpgmza_settings_map_zoom'] = "yes";
-	$other_settings['wpgmza_settings_map_pan'] = "yes";
-	$other_settings['wpgmza_settings_map_type'] = "yes";
+	if(empty($other_settings))
+		$other_settings = array(
+			'wpgmza_settings_map_streetview' => 'yes',
+			'wpgmza_settings_map_zoom' => 'yes',
+			'wpgmza_settings_map_pan' => 'yes',
+			'wpgmza_settings_map_type' => 'yes'
+		);
+	
 	update_option('WPGMZA_OTHER_SETTINGS', $other_settings);
 
     update_option("wpgmza_temp_api",'AIzaSyChPphumyabdfggISDNBuGOlGVBgEvZnGE');
