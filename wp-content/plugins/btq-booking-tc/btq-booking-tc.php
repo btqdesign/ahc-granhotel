@@ -151,19 +151,19 @@ function btq_booking_tc_admin_settings_page() {
 			<table class="form-table">
 				<tr valign="top">
 					<th scope="row"><?php _e('SOAP Header To', 'btq-booking-tc'); ?></th>
-					<td><input type="url" name="soap_header_to" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_to') ); ?>" /></td>
+					<td><input type="url" name="btq_booking_tc_soap_header_to" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_to') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><?php _e('SOAP Header Action', 'btq-booking-tc'); ?></th>
-					<td><input type="text" name="soap_header_action" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_action') ); ?>" /></td>
+					<td><input type="text" name="btq_booking_tc_soap_header_action" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_action') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></th>
-					<td><input type="number" name="hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_us') ); ?>" /></td>
+					<td><input type="number" name="btq_booking_tc_hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_us') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><?php _e('Hotel code spanish language', 'btq-booking-tc'); ?></th>
-					<td><input type="number" name="hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_es') ); ?>" /></td>
+					<td><input type="number" name="btq_booking_tc_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_es') ); ?>" /></td>
 				</tr>
 			</table>
 			<?php submit_button(); ?>
