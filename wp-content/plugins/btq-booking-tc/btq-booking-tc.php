@@ -84,10 +84,14 @@ function btq_booking_tc_log($file_name, $var, $same_file = false){
 }
 
 function btq_booking_tc_register_settings() {
+	add_option('btq_booking_tc_soap_header_to', 'http://www.google.com');
 	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_header_to');
+	add_option('btq_booking_tc_soap_header_action', 'PALS');
 	register_setting('btq-booking-tc-settings', 'btq_booking_tc_soap_header_action');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_us');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es');
+	add_option('btq_booking_tc_hotel_code_us', '11111');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_us', $args_code, array('type' => 'integer'));
+	add_option('btq_booking_tc_hotel_code_es', '22222');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es', $args_code), array('type' => 'integer');
 }
 
 /**
@@ -147,11 +151,11 @@ function btq_booking_tc_admin_settings_page() {
 			<table class="form-table">
 				<tr valign="top">
 					<th scope="row"><?php _e('SOAP Header To', 'btq-booking-tc'); ?></th>
-					<td><input type="number" name="soap_header_to" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_to') ); ?>" /></td>
+					<td><input type="url" name="soap_header_to" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_to') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><?php _e('SOAP Header Action', 'btq-booking-tc'); ?></th>
-					<td><input type="number" name="soap_header_action" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_action') ); ?>" /></td>
+					<td><input type="text" name="soap_header_action" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_header_action') ); ?>" /></td>
 				</tr>
 				<tr valign="top">
 					<th scope="row"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></th>
