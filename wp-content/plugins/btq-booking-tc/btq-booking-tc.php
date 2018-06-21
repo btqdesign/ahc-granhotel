@@ -91,7 +91,7 @@ function btq_booking_tc_register_settings() {
 	add_option('btq_booking_tc_hotel_code_us', '11111');
 	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_us', $args_code, array('type' => 'integer'));
 	add_option('btq_booking_tc_hotel_code_es', '22222');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es', $args_code), array('type' => 'integer');
+	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es', $args_code, array('type' => 'integer'));
 }
 
 /**
