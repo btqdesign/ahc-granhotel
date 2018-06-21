@@ -872,7 +872,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 					}
 					?>
 								
-					<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+					<hr class="linealetras" />
 					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
 					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
 				</article>
@@ -1109,7 +1109,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 						}
 					}
 					?>
-					<hr class="linealetras" style="border-color:#C9B891;" style="border:2px;" />
+					<hr class="linealetras" />
 					
 					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
 					<img src="<?php echo plugins_url( $images_iconos_path . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
