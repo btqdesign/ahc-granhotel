@@ -226,7 +226,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	
 	if ($typeQuery == 'packages'){
 		// Paquete
-		$wsaTo = esc_attr( get_option('btq_booking_tc_soap_to_action_full'); /* https://ota2.ihotelier.com/OTA_Seamless/services/FullDataService */
+		$wsaTo = esc_attr( get_option('btq_booking_tc_soap_to_action_full') ); /* https://ota2.ihotelier.com/OTA_Seamless/services/FullDataService */
 		$wsaAction = 'FULL';
 		
 		$soapBody = '
@@ -269,7 +269,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	}
 	else{
 		// Habitaciones
-		$wsaTo = esc_attr( get_option('btq_booking_tc_soap_to_action_pals'); /* https://ota2.ihotelier.com/OTA_Seamless/services/PropertyAvailabilityService */
+		$wsaTo = esc_attr( get_option('btq_booking_tc_soap_to_action_pals') ); /* https://ota2.ihotelier.com/OTA_Seamless/services/PropertyAvailabilityService */
 		$wsaAction = 'PALS';
 		
 		$soapBody = '
