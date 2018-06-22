@@ -574,6 +574,7 @@ function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
 		<h1>Debug TravelClick</h1>
+		<?php btq_booking_tc_generate_unavailable_dates(); ?>
 		<!--
 		<form method="post" action="options.php">
 			<?php /* settings_fields( 'btq-booking-tc-settings' ); ?>
@@ -589,8 +590,8 @@ function btq_booking_tc_admin_debug_page() {
 		-->
 		
 		<div style="background-color: white;">
-			<?php btq_booking_tc_admin_debug_rooms('131330'); ?>
-			<?php btq_booking_tc_admin_debug_rooms('95697'); ?>
+			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
+			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_en') )); ?>
 		</div>
 		
 		<!--
