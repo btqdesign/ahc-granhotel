@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BTQ Design Booking TC\n"
-"POT-Creation-Date: 2018-06-21 11:16-0500\n"
-"PO-Revision-Date: 2018-06-21 11:16-0500\n"
+"POT-Creation-Date: 2018-06-22 17:37-0500\n"
+"PO-Revision-Date: 2018-06-22 17:40-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -82,39 +82,63 @@ msgstr ""
 "* Recuerda que tener una reservación anticipada siempre será una mejor "
 "opción (tarifas mostradas a 90 días)"
 
-#: btq-booking-tc.php:98 btq-booking-tc.php:99
+#: btq-booking-tc.php:85 btq-booking-tc.php:86
 msgid "Booking TC"
 msgstr "Booking TC"
 
-#: btq-booking-tc.php:108 btq-booking-tc.php:109
+#: btq-booking-tc.php:95 btq-booking-tc.php:96
 msgid "Settings"
 msgstr "Configuración"
 
-#: btq-booking-tc.php:116 btq-booking-tc.php:117
+#: btq-booking-tc.php:103 btq-booking-tc.php:104
 msgid "Debug"
 msgstr "Depuración"
 
-#: btq-booking-tc.php:140
-msgid "SOAP Header To"
-msgstr "SOAP Header To"
+#: btq-booking-tc.php:145
+msgid "Sales channel info ID"
+msgstr "ID de canal de ventas"
 
-#: btq-booking-tc.php:144
-msgid "SOAP Header Action"
-msgstr "SOAP Header Action"
+#: btq-booking-tc.php:149
+msgid "Username"
+msgstr "Nombre de usuario"
 
-#: btq-booking-tc.php:148
+#: btq-booking-tc.php:153
+msgid "Password"
+msgstr "Contraseña"
+
+#: btq-booking-tc.php:157
+msgid "SOAP Action PALS To"
+msgstr "SOAP Action PALS To"
+
+#: btq-booking-tc.php:161
+msgid "SOAP Action FULL To"
+msgstr "SOAP Action FULL To"
+
+#: btq-booking-tc.php:165
 msgid "Hotel code english language"
 msgstr "Código de hotel en idioma inglés"
 
-#: btq-booking-tc.php:152
+#: btq-booking-tc.php:169
 msgid "Hotel code spanish language"
 msgstr "Código de hotel en idioma español"
 
-#: btq-booking-tc.php:1312
+#: btq-booking-tc.php:173
+msgid "Theme id english language"
+msgstr "Identificador de tema en idioma inglés"
+
+#: btq-booking-tc.php:177
+msgid "Theme id spanish language"
+msgstr "Identificador de tema en idioma español"
+
+#: btq-booking-tc.php:181
+msgid "Default color"
+msgstr "Color predeterminado"
+
+#: btq-booking-tc.php:1395
 msgid "BTQ Booking"
 msgstr "BTQ Booking"
 
-#: btq-booking-tc.php:1315
+#: btq-booking-tc.php:1398
 msgid "Content"
 msgstr "Contenido"
 
@@ -137,6 +161,12 @@ msgstr "BTQ Design"
 #. Author URI of the plugin/theme
 msgid "http://btqdesign.com/"
 msgstr "http://btqdesign.com/"
+
+#~ msgid "SOAP Header To"
+#~ msgstr "SOAP Header To"
+
+#~ msgid "SOAP Header Action"
+#~ msgstr "SOAP Header Action"
 
 #~ msgid "Saul Díaz"
 #~ msgstr "Saul Díaz"
