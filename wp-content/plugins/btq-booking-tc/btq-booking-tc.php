@@ -1246,12 +1246,12 @@ function btq_booking_tc_grid_form($language = 'es') {
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo $str_arrival_date; ?>">
+								<input autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo $str_arrival_date; ?>">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo $str_departure_date; ?>">
+								<input autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo $str_departure_date; ?>">
 							</div>		
 						</div>
 					</div>
