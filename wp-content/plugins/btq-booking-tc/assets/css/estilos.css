@@ -1,3 +1,26 @@
+/**
+ * Estilos del BTQ Booking TC Grid
+ *
+ * Datepicker
+ * 
+ * #cb6666  Rosado rojo
+ * #222     Negro
+ * #cbd08c  Amarillo limon
+ * #666     Gris
+ * #b58a61  Melon - Gran Hotel
+ * #fff     Balnco
+ *
+ *
+ *
+ * Grid
+ *
+ * #E6E7E8  Gris claro
+ * #666     Gris
+ * #C9B891  Dorado - Gran Hotel
+ */
+
+
+
 .ui-datepicker-unselectable span.ui-state-default{
 	background-color: #cb6666 !important;
 	color: #222 !important;
