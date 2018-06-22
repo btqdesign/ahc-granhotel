@@ -1341,34 +1341,36 @@ function btq_booking_tc_head_scripts(){
 	 * #666     Gris
 	 * #C69807  Dorado - Gran Hotel
 	 */
-    ?>
-    <style type="text/css">
-	    .ui-datepicker-unselectable span.ui-state-default{
-			background-color: #cb6666 !important;
-			color: #222 !important;
-		}
-		
-		.btq-unavailable-day a.ui-state-default{
-			background-color: #cbd08c !important;
-			color: #666 !important;
-		}
-		
-		.btq-unavailable-day a.ui-state-default:hover{
-			background-color: #C69807 !important;
-			color: #fff !important;
-		}
-		
-		.grisfondo{
-			background-color:#BDBDBD;
-		}
-		
-		.radio-inline span{
-			color: #666;
-		}
-		.linealetras {
-			border-color:#C69807;			}
-    </style>
-	<?php
+	if (!is_admin()) {
+	    ?>
+	    <style type="text/css">
+		    .ui-datepicker-unselectable span.ui-state-default{
+				background-color: #cb6666 !important;
+				color: #222 !important;
+			}
+			
+			.btq-unavailable-day a.ui-state-default{
+				background-color: #cbd08c !important;
+				color: #666 !important;
+			}
+			
+			.btq-unavailable-day a.ui-state-default:hover{
+				background-color: #C69807 !important;
+				color: #fff !important;
+			}
+			
+			.grisfondo{
+				background-color:#BDBDBD;
+			}
+			
+			.radio-inline span{
+				color: #666;
+			}
+			.linealetras {
+				border-color:#C69807;			}
+	    </style>
+		<?php
+	}
 }
 add_action('wp_enqueue_scripts', 'btq_booking_tc_head_scripts', 1002);
 
