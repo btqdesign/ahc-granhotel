@@ -7,16 +7,16 @@
  * #222     Negro
  * #cbd08c  Amarillo limon
  * #666     Gris
- * #b58a61  Melon - Gran Hotel
+ * #C69807  Dorado - Gran Hotel
  * #fff     Balnco
  *
  *
  *
  * Grid
  *
- * #E6E7E8  Gris claro
+ * #BDBDBD  Gris claro
  * #666     Gris
- * #C9B891  Dorado - Gran Hotel
+ * #C69807  Dorado - Gran Hotel
  */
 
 
@@ -32,7 +32,7 @@
 }
 
 .btq-unavailable-day a.ui-state-default:hover{
-	background-color: #b58a61 !important;
+	background-color: #C69807 !important;
 	color: #fff !important;
 }
 
@@ -89,7 +89,7 @@ h5.hosp2{
 }
 
 .grisfondo{
-	background-color:#E6E7E8;
+	background-color:#BDBDBD;
 }
 .precio{
 	align-content: center;
@@ -124,7 +124,7 @@ h5.hosp2{
 }
 
 .linealetras {
-	border-color:#C9B891;
+	border-color:#C69807;
 	border:2px;
 }
 
