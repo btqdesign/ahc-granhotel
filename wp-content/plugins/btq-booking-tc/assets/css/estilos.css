@@ -1,45 +1,3 @@
-/**
- * Estilos del BTQ Booking TC Grid
- *
- * Datepicker
- * 
- * #cb6666  Rosado rojo
- * #222     Negro
- * #cbd08c  Amarillo limon
- * #666     Gris
- * #C69807  Dorado - Gran Hotel
- * #fff     Balnco
- *
- *
- *
- * Grid
- *
- * #BDBDBD  Gris claro
- * #666     Gris
- * #C69807  Dorado - Gran Hotel
- */
-
-
-
-.ui-datepicker-unselectable span.ui-state-default{
-	background-color: #cb6666 !important;
-	color: #222 !important;
-}
-
-.btq-unavailable-day a.ui-state-default{
-	background-color: #cbd08c !important;
-	color: #666 !important;
-}
-
-.btq-unavailable-day a.ui-state-default:hover{
-	background-color: #C69807 !important;
-	color: #fff !important;
-}
-
-
-
-
-
 .btq-btn, .btq-input {
     width: 100%;
     box-sizing: border-box;
@@ -87,10 +45,6 @@ h5.hosp2{
 .mostrar{
 	margin-bottom: 15px;
 }
-
-.grisfondo{
-	background-color:#BDBDBD;
-}
 .precio{
 	align-content: center;
 	text-align: center;
@@ -120,11 +74,9 @@ h5.hosp2{
 
 .radio-inline span{
 	text-decoration: line-through;
-	color: #666;
 }
 
 .linealetras {
-	border-color:#C69807;
 	border:2px;
 }
 
