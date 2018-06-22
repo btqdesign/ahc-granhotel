@@ -1315,59 +1315,62 @@ function btq_booking_tc_grid_scripts() {
 	    wp_enqueue_script( 'moment', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment.min.js', __FILE__ ), array(), '2.21.0', true);
 	    wp_enqueue_script( 'moment-timezone', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment-timezone.js', __FILE__ ), array('moment'), ' 0.5.17', true);
 	    wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array('moment','moment-timezone'), '1.0.0');
-	    
-	    /** 
-		 * CSS personalizado dentro de <head>
-		 * Estilos del BTQ Booking TC Grid
-		 *
-		 * Datepicker
-		 * 
-		 * #cb6666  Rosado rojo
-		 * #222     Negro
-		 * #cbd08c  Amarillo limon
-		 * #666     Gris
-		 * #C69807  Dorado - Gran Hotel
-		 * #fff     Balnco
-		 *
-		 *
-		 *
-		 * Grid
-		 *
-		 * #BDBDBD  Gris claro
-		 * #666     Gris
-		 * #C69807  Dorado - Gran Hotel
-		 */
-	    ?>
-	    <style type="text/css">
-		    .ui-datepicker-unselectable span.ui-state-default{
-				background-color: #cb6666 !important;
-				color: #222 !important;
-			}
-			
-			.btq-unavailable-day a.ui-state-default{
-				background-color: #cbd08c !important;
-				color: #666 !important;
-			}
-			
-			.btq-unavailable-day a.ui-state-default:hover{
-				background-color: #C69807 !important;
-				color: #fff !important;
-			}
-			
-			.grisfondo{
-				background-color:#BDBDBD;
-			}
-			
-			.radio-inline span{
-				color: #666;
-			}
-			.linealetras {
-				border-color:#C69807;			}
-	    </style>
-		<?php
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
+
+function btq_booking_tc_head_scripts(){
+	/** 
+	 * CSS personalizado dentro de <head>
+	 * Estilos del BTQ Booking TC Grid
+	 *
+	 * Datepicker
+	 * 
+	 * #cb6666  Rosado rojo
+	 * #222     Negro
+	 * #cbd08c  Amarillo limon
+	 * #666     Gris
+	 * #C69807  Dorado - Gran Hotel
+	 * #fff     Balnco
+	 *
+	 *
+	 *
+	 * Grid
+	 *
+	 * #BDBDBD  Gris claro
+	 * #666     Gris
+	 * #C69807  Dorado - Gran Hotel
+	 */
+    ?>
+    <style type="text/css">
+	    .ui-datepicker-unselectable span.ui-state-default{
+			background-color: #cb6666 !important;
+			color: #222 !important;
+		}
+		
+		.btq-unavailable-day a.ui-state-default{
+			background-color: #cbd08c !important;
+			color: #666 !important;
+		}
+		
+		.btq-unavailable-day a.ui-state-default:hover{
+			background-color: #C69807 !important;
+			color: #fff !important;
+		}
+		
+		.grisfondo{
+			background-color:#BDBDBD;
+		}
+		
+		.radio-inline span{
+			color: #666;
+		}
+		.linealetras {
+			border-color:#C69807;			}
+    </style>
+	<?php
+}
+add_action('wp_enqueue_scripts', 'btq_booking_tc_head_scripts', 1002);
 
 /**
  * Declara el Widget de BTQ Booking TC en VisualCompouser.
