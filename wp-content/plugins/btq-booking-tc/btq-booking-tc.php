@@ -344,7 +344,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	</soap:Envelope>';
 	
 	// Debug Log
-	btq_booking_tc_log('soapenvelope', $soapEnvelope);
+	//btq_booking_tc_log('soapenvelope', $soapEnvelope);
 	
 	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
@@ -801,7 +801,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 	
 	$response = btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
 	
-	btq_booking_tc_log('resultado', $response);
+	//btq_booking_tc_log('resultado', $response);
 	
 	if ($response !== FALSE) {
 		// Debug Log
@@ -1576,7 +1576,7 @@ function btq_booking_tc_grid_current_language_code() {
 	}
 	
 	//Debug
-	btq_booking_tc_log('languages', $language, TRUE);
+	//btq_booking_tc_log('languages', $language, TRUE);
 	
 	return $language;
 }
