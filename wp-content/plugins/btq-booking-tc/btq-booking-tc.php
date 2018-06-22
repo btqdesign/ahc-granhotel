@@ -236,7 +236,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					<Source>
 						<RequestorID ID="1" Type="1" />
 						<BookingChannel Type="18">
-							<CompanyName Code="AHC" />
+							<CompanyName Code="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 						</BookingChannel>
 					</Source>
 				</POS>
@@ -279,7 +279,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					<Source>
 						<RequestorID ID="1" Type="1" />
 						<BookingChannel Type="18">
-							<CompanyName Code="AHC" />
+							<CompanyName Code="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 						</BookingChannel>
 					</Source>
 				</POS>
