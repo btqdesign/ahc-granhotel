@@ -123,7 +123,6 @@ function btq_booking_tc_register_settings() {
 	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_us', $args_code, array('type' => 'integer'));
 	register_setting('btq-booking-tc-settings', 'btq_booking_tc_hotel_code_es', $args_code, array('type' => 'integer'));
 	register_setting('btq-booking-tc-settings', 'btq_booking_tc_color_principal');
-	register_setting('btq-booking-tc-settings', 'btq_booking_tc_color_secundario');
 }
 
 /**
@@ -167,6 +166,10 @@ function btq_booking_tc_admin_settings_page() {
 				<tr valign="top">
 					<th scope="row"><label for="btq_booking_tc_hotel_code_es"><?php _e('Hotel code spanish language', 'btq-booking-tc'); ?></label></th>
 					<td><input type="number" name="btq_booking_tc_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_es') ); ?>" /></td>
+				</tr>
+				<tr valign="top">
+					<th scope="row"><label for="btq_booking_tc_color_principal"><?php _e('Default color', 'btq-booking-tc'); ?></label></th>
+					<td><input type="text" name="btq_booking_tc_color_principal" value="<?php echo esc_attr( get_option('btq_booking_tc_color_principal') ); ?>" /></td>
 				</tr>
 			</table>
 			<?php submit_button(); ?>
@@ -1355,7 +1358,7 @@ function btq_booking_tc_head_scripts(){
 			}
 			
 			.btq-unavailable-day a.ui-state-default:hover{
-				background-color: #C69807 !important;
+				background-color: <?php echo esc_attr( get_option('btq_booking_tc_color_principal') ); ?> !important;
 				color: #fff !important;
 			}
 			
@@ -1367,7 +1370,8 @@ function btq_booking_tc_head_scripts(){
 				color: #666;
 			}
 			.linealetras {
-				border-color:#C69807;			}
+				border-color:<?php echo esc_attr( get_option('btq_booking_tc_color_principal') ); ?> !important;
+			}
 	    </style>
 		<?php
 	}
