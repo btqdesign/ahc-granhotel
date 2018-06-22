@@ -344,7 +344,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 	</soap:Envelope>';
 	
 	// Debug Log
-	//btq_booking_tc_log('soapenvelope', $soapEnvelope);
+	btq_booking_tc_log('soapenvelope', $soapEnvelope);
 	
 	return array('envelope' => $soapEnvelope, 'wsaTo' => $wsaTo);
 	
