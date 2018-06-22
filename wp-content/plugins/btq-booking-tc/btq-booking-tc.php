@@ -981,14 +981,12 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			$hotelCode    = '131328';
 			$currency     = 'MXN';
 			$theme        = '13670';
-			$languageId   = '2';
 			$str_book_now = 'Reservar Ahora';
 		break;
 		case 'en':
 			$hotelCode    = '95698';
 			$currency     = 'USD';
 			$theme        = '13671';
-			$languageId   = '1';
 			$str_book_now = 'Book Now';
 		break;
 	}
