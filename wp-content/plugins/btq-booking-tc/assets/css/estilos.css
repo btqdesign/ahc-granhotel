@@ -1,22 +1,3 @@
-.ui-datepicker-unselectable span.ui-state-default{
-	background-color: #cb6666 !important;
-	color: #222 !important;
-}
-
-.btq-unavailable-day a.ui-state-default{
-	background-color: #cbd08c !important;
-	color: #666 !important;
-}
-
-.btq-unavailable-day a.ui-state-default:hover{
-	background-color: #b58a61 !important;
-	color: #fff !important;
-}
-
-
-
-
-
 .btq-btn, .btq-input {
     width: 100%;
     box-sizing: border-box;
@@ -64,10 +45,6 @@ h5.hosp2{
 .mostrar{
 	margin-bottom: 15px;
 }
-
-.grisfondo{
-	background-color:#E6E7E8;
-}
 .precio{
 	align-content: center;
 	text-align: center;
@@ -91,4 +68,18 @@ h5.hosp2{
    input[type="date"]::-webkit-input-placeholder { 
       visibility: hidden !important;
    } 
+}
+
+
+
+.radio-inline span{
+	text-decoration: line-through;
+}
+
+.linealetras {
+	border:2px;
+}
+
+.vermas {
+	cursor: pointer;
 }
