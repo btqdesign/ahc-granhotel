@@ -1503,6 +1503,7 @@ function btq_booking_tc_grid_packages_ajax() {
 	else {
 		echo '';
 	}
+	wp_die();
 }
 add_action( 'wp_ajax_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
@@ -1524,6 +1525,7 @@ function btq_booking_tc_grid_rooms_ajax() {
 	else {
 		echo '';
 	}
+	wp_die();
 }
 add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
