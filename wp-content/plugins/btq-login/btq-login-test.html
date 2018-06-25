@@ -6,10 +6,45 @@
 
 	<title>Prueba</title>
 
+//Funcion de sdk de facebook para login
+    
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '{your-app-id}',
+        cookie     : true,
+        xfbml      : true,
+        version    : '{latest-api-version}'
+      });
+        
+      FB.AppEvents.logPageView();   
+        
+    };
+  
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+  </script>
+    //Aqui termina el sdk de facebook
 
-    <link rel="stylesheet" type="text/css" href="estilos.css">
+  //Aqui inicia boton
 
 
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.0&appId=1542134782558463&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+//Aqui termina llamada a funcion de boton
+
+    //funcion para conectar con firebase
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
    
     <script>
@@ -25,11 +60,11 @@
       firebase.initializeApp(config);
     </script>
 
-<script>
+    <script>
 
     //Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 
-firebase.auth().onAuthStateChanged(function(user) {
+    firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
   
@@ -58,7 +93,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   
 
-//login con correo y contraseña
+    //login con correo y contraseña
   function login(){
   
     var userEmail = document.getElementById("email_field").value;
@@ -80,10 +115,10 @@ firebase.auth().onAuthStateChanged(function(user) {
     firebase.auth().signOut();
   }
 
-//aqui termina login con correo y contraseña
+    //aqui termina login con correo y contraseña
 
 
-//google
+    //google
   function google_login(){
     
     var provider = new firebase.auth.GoogleAuthProvider();
@@ -117,6 +152,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     <div id="login_div" class="main-div">
         <h3>Login</h3>
+        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
         <button onclick="google_login()">Ingresa a tu cuenta con google </button>
         <br>
         <input type="email" placeholder="Email..." id="email_field" />
