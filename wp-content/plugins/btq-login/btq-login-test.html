@@ -1,36 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-US">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-        <div id="login-form">
 
-                <h1>Login</h1>
-        
-                <fieldset>
-        
-                    <form action="javascript:void(0);" method="get">
-        
-                        <input type="email" required value="Email" onBlur="if(this.value=='')this.value='Email'" onFocus="if(this.value=='Email')this.value='' "> <!-- JS because of IE support; better: placeholder="Email" -->
-        
-                        <input type="password" required value="Password" onBlur="if(this.value=='')this.value='Password'" onFocus="if(this.value=='Password')this.value='' "> <!-- JS because of IE support; better: placeholder="Password" -->
-        
-                        <input type="submit" value="Login">
-        
-                        <footer class="clearfix">
-        
-                            <p><span class="info">?</span><a href="#">Forgot Password</a></p>
-        
-                        </footer>
-        
-                    </form>
-        
-                </fieldset>
-        
-            </div> <!-- end login-form -->
+	<meta charset="utf-8">
+
+	<title>Prueba</title>
+
+
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+   
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
+        authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
+        databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
+        projectId: "btq-ahm-gran-hotel",
+        storageBucket: "btq-ahm-gran-hotel.appspot.com",
+        messagingSenderId: "241886061865"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+<script src="index.js"></script>
+
+</head>
+
+<body>
+
+    <div id="login_div" class="main-div">
+        <h3>Login</h3>
+        <button onclick="google_login()">Ingresa a tu cuenta con google </button>
+        <br>
+        <input type="email" placeholder="Email..." id="email_field" />
+        <input type="password" placeholder="Password..." id="password_field" />
+    
+        <button onclick="login()">Ingresa a tu cuenta </button>
+      </div>
+    
+      <div id="user_div" class="loggedin-div">
+        <h3>Bienvenido Usario: </h3>
+        <p id="user_para">Estas actualmente conectado.</p>
+        <button onclick="logout()">Cerrar Sesion</button>
+      </div>
+
+
 </body>
 </html>
