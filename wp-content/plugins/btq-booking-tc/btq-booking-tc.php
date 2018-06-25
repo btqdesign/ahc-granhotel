@@ -236,7 +236,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					<Source>
 						<RequestorID ID="1" Type="1" />
 						<BookingChannel Type="18">
-							<CompanyName Code="AHC" />
+							<CompanyName Code="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 						</BookingChannel>
 					</Source>
 				</POS>
@@ -279,7 +279,7 @@ function btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRang
 					<Source>
 						<RequestorID ID="1" Type="1" />
 						<BookingChannel Type="18">
-							<CompanyName Code="AHC" />
+							<CompanyName Code="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 						</BookingChannel>
 					</Source>
 				</POS>
@@ -574,6 +574,7 @@ function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
 		<h1>Debug TravelClick</h1>
+		<?php btq_booking_tc_generate_unavailable_dates(); ?>
 		<!--
 		<form method="post" action="options.php">
 			<?php /* settings_fields( 'btq-booking-tc-settings' ); ?>
@@ -589,8 +590,8 @@ function btq_booking_tc_admin_debug_page() {
 		-->
 		
 		<div style="background-color: white;">
-			<?php btq_booking_tc_admin_debug_rooms('131330'); ?>
-			<?php btq_booking_tc_admin_debug_rooms('95697'); ?>
+			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
+			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_en') )); ?>
 		</div>
 		
 		<!--
@@ -1502,6 +1503,7 @@ function btq_booking_tc_grid_packages_ajax() {
 	else {
 		echo '';
 	}
+	wp_die();
 }
 add_action( 'wp_ajax_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_packages', 'btq_booking_tc_grid_packages_ajax' );
@@ -1523,6 +1525,7 @@ function btq_booking_tc_grid_rooms_ajax() {
 	else {
 		echo '';
 	}
+	wp_die();
 }
 add_action( 'wp_ajax_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_tc_grid_rooms', 'btq_booking_tc_grid_rooms_ajax' );
