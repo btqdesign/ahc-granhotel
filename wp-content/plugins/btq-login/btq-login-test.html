@@ -101,11 +101,31 @@
         var credential = error.credential;
         // ...
     });
-
-  
   }
-
   //Aqui termina google
+
+   //Aqui Inicia login de Facebook
+   function facebook_login(){
+   
+   var provider = new firebase.auth.FacebookAuthProvider();
+
+   firebase.auth().signInWithPopup(provider).then(function(result) {
+        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+        var token = result.credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        // ...
+        }).catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+    });
+    }   
 
 </script>
 
@@ -116,7 +136,8 @@
     <div id="login_div" class="main-div">
        
         <h3>Login</h3>
-        <button onclick="google_login()">Ingresa a tu cuenta con google </button>
+        <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook</button>
+        <button onclick="google_login()">Ingresa a tu cuenta con Google </button>
         <br>
         <input type="email" placeholder="Email..." id="email_field" />
         <input type="password" placeholder="Password..." id="password_field" />
