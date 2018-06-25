@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-06-22 17:09:11+0000\n"
+"PO-Revision-Date: 2018-06-23 17:23:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1266,7 +1266,7 @@ msgstr "Problemas silenciados:"
 #. Premium.
 #: admin/class-social-admin.php:176
 msgid "Do you want to preview what it will look like if people share this post on %1$s? You can, with %2$s."
-msgstr "¿Quieres previsualizar lo que verá la gente si comparte estar entrada en %1$s? Puedes, con %2$s."
+msgstr "¿Quieres previsualizar lo que verá la gente si comparte esta entrada en %1$s? Puedes, con %2$s."
 
 #. translators: %s expands to "Yoast SEO Premium".
 #: admin/class-premium-upsell-admin-block.php:62
