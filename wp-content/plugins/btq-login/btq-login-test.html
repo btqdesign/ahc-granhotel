@@ -134,6 +134,10 @@
 <body>
 
   <script>
+    FB.getLoginStatus(function(response) {
+    statusChangeCallback(response);
+    });
+    
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1542134782558463',
