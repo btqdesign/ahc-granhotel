@@ -402,6 +402,34 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 }
 
 /**
+ * Realiza la consulta SOAP a TravelClick y devuelve el resultado
+ *
+ * @author Saúl Díaz
+ * @param string $hotelCode Código de hotel en TravelClick.
+ * @param string $dateRangeStart Fecha de llegada.
+ * @param string $dateRangeEnd Fecha de salida.
+ * @param string $typeQuery Tipo de consulta: habitaciones o paquetes.
+ * @param int $rooms Cantidad de habitaciones.
+ * @param int $adults Cantidad de adultos.
+ * @param int $childrens Cantidad de niños.
+ * @param string $availRatesOnly Valor booleano 'true' o 'false' para
+ *		la consulta de habitaciones disponibles.
+ * @return array Resultado de la consulta SOAP.
+ */
+function btq_booking_tc_soap_query_status($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
+	require_once('lib/nusoap.php');
+	
+	$soap = btq_booking_tc_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEnd, $typeQuery, $rooms, $adults, $childrens, $availRatesOnly);
+	
+	$client = new nusoap_client($soap['wsaTo']);
+	$client->soap_defencoding = 'UTF-8';
+	$client->decode_utf8 = FALSE;
+	$result = $client->send($soap['envelope'], $soap['wsaTo'], '');
+	
+	return $result;
+}
+
+/**
  * Consulta en el catálogo de amenidades y devuelve el nombre de la imagen.
  *
  * @author Saúl Díaz
@@ -582,10 +610,10 @@ function btq_booking_tc_admin_test_query_rooms_page() {
 function btq_booking_tc_admin_generate_unavailable_dates_page() {
 ?>
 	<div class="wrap">
-		<h1>Generate Unavailable Dates TravelClick</h1>
+		<h1><?php _e('Generate Unavailable Dates TravelClick','btq-booking-tc'); ?></h1>
 		
 		<div style="background-color: white; padding: 10px;">
-			<?php btq_booking_tc_generate_unavailable_dates(); ?>
+			<?php btq_booking_tc_generate_unavailable_dates_status(); ?>
 		</div>
 	</div><!-- wrap -->
 <?php
@@ -621,6 +649,48 @@ function btq_booking_tc_generate_unavailable_dates_activation() {
     }
 }
 register_activation_hook(__FILE__, 'btq_booking_tc_generate_unavailable_dates_activation');
+
+/**
+ * Genera el archivo JSON con el arreglo de fechas en donde no hay disponibilidad y devuelve elestado
+ *
+ * @author Saúl Díaz
+ * @return mixed Archivo JSON y tabala
+ */
+function btq_booking_tc_generate_unavailable_dates_status(){
+	$dateRangeStart = date('Y-m-d');
+	$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
+	$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
+	$datesUnavailable = array();
+	
+	?>
+	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
+		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Date', 'btq-booking-tc'); ?></th><th><?php _e('Status', 'btq-booking-tc'); ?></th><th><?php _e('Description', 'btq-booking-tc'); ?></th></tr>
+	<?php
+	
+	foreach($dates as $date){
+		$dayRangeStart = $date->format('Y-m-d');
+		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
+		$result = btq_booking_tc_soap_query_status(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd);
+		if (isset($result['Errors'])){
+			$errors = $result['Errors'];
+			$description = 'Error Code: '. $errors['Error']['!Code'] .' - '. $errors['Error']['!ShortText'];
+			$is_available = __('No','btq-booking-tc');
+			$datesUnavailable[] = $dayRangeStart;
+		}
+		else {
+			$is_available = __('Yes','btq-booking-tc');
+		}
+		?>
+		<tr><td style="background-color: #EEE;"><?php echo $dayRangeStart; ?></td><td style="background-color: #EEE;"><?php echo $is_available; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($description); ?></td></tr>
+		<?php
+	}
+	?>
+	</table>
+	<?php
+	
+	$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
+	file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
+}
 
 /**
  * Genera el archivo JSON con el arreglo de fechas en donde no hay disponibilidad.
