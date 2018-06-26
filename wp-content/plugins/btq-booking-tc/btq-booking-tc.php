@@ -514,10 +514,21 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Amenitie Code', 'btq-booking-tc'); ?></th><th><?php _e('Amenitie Name', 'btq-booking-tc'); ?></th></tr>
+		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Amenity Code', 'btq-booking-tc'); ?></th><th><?php _e('Amenity Name', 'btq-booking-tc'); ?></th><th><?php _e('Amenity Icon', 'btq-booking-tc'); ?></th></tr>
 	<?php
+	$images_amenity_path = 'assets/images/amenity/';
+	
 	foreach($amenities as $amenitieCode => $amenitieName){
-		?><tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
+		$amenitieFileName = btq_booking_tc_amenity_icon_name($amenitieCode);
+		if (!empty($amenitieFileName)) {
+			$image_icono_url = plugins_url( $images_amenity_path . $amenitieFileName, __FILE__ );
+			$amenityIcon = '<img src="'.$image_icono_url.'" alt="'.htmlentities($amenitieName).'" title="'.htmlentities($amenitieName).'">';
+		}
+		else {
+			$amenityIcon = 'No';
+		}
+		?>
+		<tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td><td style="background-color: #EEE;"><?php echo $amenityIcon; ?></td></tr><?php
 	}
 	?>
 	</table>
