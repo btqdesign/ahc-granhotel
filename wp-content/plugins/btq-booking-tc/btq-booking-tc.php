@@ -529,7 +529,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 			$amenityIcon = 'No';
 		}
 		?>
-		<tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td><td style="background-color: #EEE;"><?php echo $amenityIcon; ?></td></tr>
+		<tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td><td align="center" style="background-color: #EEE;"><?php echo $amenityIcon; ?></td></tr>
 		<?php
 	}
 	?>
