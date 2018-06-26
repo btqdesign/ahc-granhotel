@@ -446,39 +446,16 @@ function btq_booking_tc_admin_test_query_packages($hotelCode) {
 	<?php
 	foreach($arrayRatePlan as $elementRatePlan){			
 		$RatePlanCode = $elementRatePlan['!RatePlanCode'];
-		$roomRate = $arrayRoomRate[$RatePlanCode];
-		$roomTypeCode = $roomRate['!RoomTypeCode'];
-		$roomType = $arrayRoomType[$roomTypeCode];
+		//$roomRate = $arrayRoomRate[$RatePlanCode];
+		//$roomTypeCode = $roomRate['!RoomTypeCode'];
+		//$roomType = $arrayRoomType[$roomTypeCode];
 		?>
 		<tr><td style="background-color: #EEE;"><?php echo $RatePlanCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td></tr>
 		<?php
 	}
 	?>
 	</table>
-	
 	<?php
-	/*
-	for ($i = 0; $i < count($RoomAmenities); $i++){
-		foreach($RoomAmenities[$i] as $RoomAmenitie){
-			if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
-				$amenities[$RoomAmenitie['!ExistsCode']] = $RoomAmenitie['!RoomAmenity'];
-			}
-		}
-	}
-	
-	//$amenitiesUnique = array_unique($amenities);
-	
-	?>
-	<table>
-		<tr><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
-	<?php
-	foreach($amenities as $amenitieCode => $amenitieName){
-		?><tr><td><?php echo $amenitieCode; ?></td><td><?php echo htmlentities($amenitieName); ?></td></tr><?php
-	}
-	?>
-	</table>
-	<?php
-	*/
 }
 
 /**
