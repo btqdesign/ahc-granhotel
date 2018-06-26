@@ -530,9 +530,11 @@ function btq_booking_tc_admin_test_query_rooms_page() {
 		<h1><?php _e('Test query rooms on TravelClick', 'btq-booking-tc'); ?></h1>
 		
 		<div style="background-color: white; padding: 10px;">
+			<h2><?php _e('Spanish','btq-booking-tc')?></h2>
 			<?php btq_booking_tc_admin_test_query_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
 		<div style="background-color: white; padding: 10px; margin-top: 10px;">
+			<h2><?php _e('English','btq-booking-tc')?></h2>
 			<?php btq_booking_tc_admin_test_query_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
 	</div><!-- wrap -->
