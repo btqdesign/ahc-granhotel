@@ -909,7 +909,8 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 								<?php
 							}
 							else {
-								error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								//error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								btq_booking_tc_log('amenitiesExistsCodeRooms', 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'], true);
 							} 
 						}
 					}
@@ -1145,7 +1146,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 								<?php
 							}
 							else {
-								error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								//error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								btq_booking_tc_log('amenitiesExistsCodePackages', 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'], true);
 							} 
 						}
 					}
