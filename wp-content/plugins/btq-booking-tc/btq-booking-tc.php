@@ -393,6 +393,14 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
  * @return string Nombre del archivo de la amenidad. 
  */
 function btq_booking_tc_amenity_icon_name($amenityCode) {
+	$amenitiesJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-amenities.json';
+	$amenitiesJSON = file_get_contents($amenitiesJSON_file);
+	$amenitiesArray = json_decode($amenitiesJSON, true);
+	
+	// Debug Log
+	//btq_booking_tc_log('amenities', $amenitiesArray);
+	
+	/*
 	$amenitiesArray = array(
 		'10'       => 'english_air_conditioned.png',
 		'12'       => 'english_alarm_clock.png',
@@ -449,6 +457,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 		'54190'    => 'spanish_television_con_cable.png',
 		'59242'    => 'spanish_wifi_en_cortesia.png'
 	);
+	*/
 	
 	if (!isset($amenitiesArray[$amenityCode]))
 		return FALSE;
@@ -463,8 +472,8 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
  * @param string $hotelCode Código de hotel en TravelClick.
  * @return string Información retornada de la consulta.
  */
-function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
-	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12');
+function btq_booking_tc_admin_debug_rooms($hotelCode) {
+	$response = btq_booking_tc_soap_query( $hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()) );
 	
 	$RoomAmenities = array();
 	$amenities = array();
@@ -482,9 +491,11 @@ function btq_booking_tc_admin_debug_rooms($hotelCode = '131328') {
 	?>
 	</table>
 	
+	<?php /*
 	<pre>
 		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
 	</pre>
+	*/ ?>
 	
 	<?php
 	
@@ -574,7 +585,7 @@ function btq_booking_tc_admin_debug_page() {
 ?>
 	<div class="wrap">
 		<h1>Debug TravelClick</h1>
-		<?php btq_booking_tc_generate_unavailable_dates(); ?>
+		<?php /*btq_booking_tc_generate_unavailable_dates();*/ ?>
 		<!--
 		<form method="post" action="options.php">
 			<?php /* settings_fields( 'btq-booking-tc-settings' ); ?>
@@ -591,7 +602,7 @@ function btq_booking_tc_admin_debug_page() {
 		
 		<div style="background-color: white;">
 			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
-			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_en') )); ?>
+			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
 		
 		<!--
@@ -898,7 +909,8 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
 								<?php
 							}
 							else {
-								error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								//error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								btq_booking_tc_log('amenitiesExistsCodeRooms', 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'], true);
 							} 
 						}
 					}
@@ -993,7 +1005,7 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 			$str_book_now = 'Reservar Ahora';
 		break;
 		case 'en':
-			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_en') ); /* 95698 */
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') ); /* 95698 */
 			$currency     = 'USD';
 			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') ); /* 13671 */
 			$str_book_now = 'Book Now';
@@ -1134,7 +1146,8 @@ function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-
 								<?php
 							}
 							else {
-								error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								//error_log( 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'] );
+								btq_booking_tc_log('amenitiesExistsCodePackages', 'ExistsCode: ' . $RoomAmenitie['!ExistsCode'] . ' - RoomAmenity: ' . $RoomAmenitie['!RoomAmenity'], true);
 							} 
 						}
 					}
