@@ -111,48 +111,61 @@
   //Aqui termina google
 
    //Aqui Inicia login de Facebook
-   function facebook_login(){
+   var provider = new firebase.auth.FacebookAuthProvider();
 
-        var provider = new firebase.auth.FacebookAuthProvider();
-
-                firebase.auth().signInWithPopup(provider).then(function(result) {
-
-                  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-                  var token = result.credential.accessToken;
-                  })
-
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
+    function facebookSignin() {
+      firebase.auth().signInWithPopup(provider)
+      
+      .then(function(result) {
+          var token = result.credential.accessToken;
+          var user = result.user;
+        
+          console.log(token)
+          console.log(user)
       }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-        window.alert("Error : " + errorMessage);
+          console.log(error.code);
+          console.log(error.message);
       });
+    }
 
-
-    }   
+    function facebookSignout() {
+      firebase.auth().signOut()
+      
+      .then(function() {
+          console.log('Signout successful!')
+      }, function(error) {
+          console.log('Signout failed')
+      });
+    }
 
   </script>
 
 </head>
 
 <body>
-
+    <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '1542134782558463',
+            xfbml      : true,
+            version    : 'v3.0'
+          });
+          FB.AppEvents.logPageView();
+        };
+      
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "https://connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
   
     <div id="login_div" class="main-div">
        
         <h3>Login</h3>
-        <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook</button>
+        <button onclick = "facebookSignin()">Facebook Signin</button>
         <br>
         <button onclick="google_login()">Ingresa a tu cuenta con Google </button>
         <br>
@@ -165,7 +178,7 @@
       <div id="user_div" class="loggedin-div">
         <h3>Bienvenido Usario: </h3>
         <p id="user_para">Estas actualmente conectado.</p>
-        <button onclick="logout()">Cerrar Sesion</button>
+        <button onclick="logout()" onclick="facebookSignout()">Cerrar Sesion</button>
       </div>
 
       <style>
