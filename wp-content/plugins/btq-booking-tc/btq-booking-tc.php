@@ -679,6 +679,7 @@ function btq_booking_tc_generate_unavailable_dates_status(){
 		}
 		else {
 			$is_available = __('Yes','btq-booking-tc');
+			$description = '';
 		}
 		?>
 		<tr><td style="background-color: #EEE;"><?php echo $dayRangeStart; ?></td><td style="background-color: #EEE;"><?php echo $is_available; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($description); ?></td></tr>
