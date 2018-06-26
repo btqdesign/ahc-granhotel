@@ -110,19 +110,22 @@
   }
   //Aqui termina google
 
-   //Aqui Inicia login de Facebook
-   var provider = new firebase.auth.FacebookAuthProvider();
+   
 
     function facebookSignin() {
+      //Aqui Inicia login de Facebook
+      var provider = new firebase.auth.FacebookAuthProvider();
       firebase.auth().signInWithPopup(provider)
       
       .then(function(result) {
           var token = result.credential.accessToken;
           var user = result.user;
-        
-          console.log(token)
-          console.log(user)
+          
+          console.log('=======================');
+          console.log(token);
+          console.log(user);
       }).catch(function(error) {
+          console.log('=======================');
           console.log(error.code);
           console.log(error.message);
       });
