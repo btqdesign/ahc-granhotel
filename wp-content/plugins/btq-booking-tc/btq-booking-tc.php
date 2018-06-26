@@ -485,11 +485,17 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Room Type Code', 'btq-booking-tc'); ?></th><th><?php _e('Room Type Name', 'btq-booking-tc'); ?></th></tr>
+		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Room Type Code', 'btq-booking-tc'); ?></th><th><?php _e('Room Type Name', 'btq-booking-tc'); ?></th><th><?php _e('Folder With Pictures');?></th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		?><tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+		
+		$images_rooms_path   = 'assets/images/rooms/';
+		$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $elementRoomType['!RoomTypeCode'];
+		$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking-tc') : __('No','btq-booking-tc');
+		
+		?>
+		<tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td><td><?php echo $folder_with_pictures; ?></td></tr><?php
 	}
 	?>
 	</table>
