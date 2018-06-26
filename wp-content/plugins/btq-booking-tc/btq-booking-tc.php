@@ -664,7 +664,7 @@ function btq_booking_tc_generate_unavailable_dates_status(){
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Date', 'btq-booking-tc'); ?></th><th><?php _e('Status', 'btq-booking-tc'); ?></th><th><?php _e('Description', 'btq-booking-tc'); ?></th></tr>
+		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Date', 'btq-booking-tc'); ?></th><th><?php _e('Available', 'btq-booking-tc'); ?></th><th><?php _e('Description', 'btq-booking-tc'); ?></th></tr>
 	<?php
 	
 	foreach($dates as $date){
