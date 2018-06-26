@@ -137,7 +137,17 @@
     FB.getLoginStatus(function(response) {
     statusChangeCallback(response);
     });
-    
+
+    function checkLoginState() {
+      FB.getLoginStatus(function(response) {
+        statusChangeCallback(response);
+      });
+    }
+
+
+    FB.logout(function(response) {
+    // Person is now logged out
+    });
     window.fbAsyncInit = function() {
       FB.init({
         appId      : '1542134782558463',
@@ -166,6 +176,7 @@
           data-show-faces="true">
         </div>
         <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook</button>
+        <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
         <br>
         <button onclick="google_login()">Ingresa a tu cuenta con Google </button>
         <br>
