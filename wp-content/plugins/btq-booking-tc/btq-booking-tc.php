@@ -108,6 +108,14 @@ function btq_booking_tc_admin_menu() {
     );
     add_submenu_page(
     	'btq_booking_tc_settings', 
+    	__('Test Query Packages', 'btq-booking-tc'), 
+    	__('Test Query Packages', 'btq-booking-tc'), 
+    	'manage_options', 
+    	'btq_booking_tc_test_query_packages',
+    	'btq_booking_tc_admin_test_query_packages_page'
+    );
+    add_submenu_page(
+    	'btq_booking_tc_settings', 
     	__('Unavailable Dates', 'btq-booking-tc'), 
     	__('Unavailable Dates', 'btq-booking-tc'), 
     	'manage_options', 
@@ -421,31 +429,35 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
  * @param string $hotelCode Código de hotel en TravelClick
  * @return string Información retornada de la consulta.
  */
-function btq_booking_tc_admin_debug_packages($hotelCode) {
+function btq_booking_tc_admin_test_query_packages($hotelCode) {
 	$response = btq_booking_tc_soap_query($hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()), 'packages');
 	
-	$RoomAmenities = array();
-	$amenities = array();
-	
-	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
-	
+	$ResponseRatePlan = $response['RoomStays']['RoomStay']['RatePlans']['RatePlan'];
+		
+	$arrayRatePlan = array();
+	foreach($ResponseRatePlan as $RatePlanElement){
+		if ($RatePlanElement['!RatePlanType'] == 'Package'){
+			$arrayRatePlan[] = $RatePlanElement;
+		}
+	}
 	?>
-	<table>
-		<tr><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
+	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
+		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Rate Plan Code','btq-booking-tc'); ?></th><th><?php _e('Rate Plan Name','btq-booking-tc'); ?></th></tr>
 	<?php
-	foreach($RoomType as $elementRoomType){
-		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		?><tr><td><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+	foreach($arrayRatePlan as $elementRatePlan){			
+		$RatePlanCode = $elementRatePlan['!RatePlanCode'];
+		$roomRate = $arrayRoomRate[$RatePlanCode];
+		$roomTypeCode = $roomRate['!RoomTypeCode'];
+		$roomType = $arrayRoomType[$roomTypeCode];
+		?>
+		<tr><td style="background-color: #EEE;"><?php echo $RatePlanCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td></tr>
+		<?php
 	}
 	?>
 	</table>
 	
-	<pre>
-		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
-	</pre>
-	
 	<?php
-	
+	/*
 	for ($i = 0; $i < count($RoomAmenities); $i++){
 		foreach($RoomAmenities[$i] as $RoomAmenitie){
 			if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
@@ -466,6 +478,30 @@ function btq_booking_tc_admin_debug_packages($hotelCode) {
 	?>
 	</table>
 	<?php
+	*/
+}
+
+/**
+ * Genera la página para probar la carga de información de los paquetes.
+ *
+ * @author Saúl Díaz
+ * @return void Genera la pagina de depuración.
+ */
+function btq_booking_tc_admin_test_query_packages_page(){
+?>
+	<div class="wrap">
+		<h1><?php _e('Test query packages on TravelClick', 'btq-booking-tc'); ?></h1>
+		
+		<div style="background-color: white; padding: 10px;">
+			<h2><?php _e('Spanish','btq-booking-tc')?></h2>
+			<?php btq_booking_tc_admin_test_query_packages(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
+		</div>
+		<div style="background-color: white; padding: 10px; margin-top: 10px;">
+			<h2><?php _e('English','btq-booking-tc')?></h2>
+			<?php btq_booking_tc_admin_test_query_packages(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
+		</div>
+	</div><!-- wrap -->
+<?php
 }
 
 /**
@@ -485,7 +521,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Room Type Code', 'btq-booking-tc'); ?></th><th><?php _e('Room Type Name', 'btq-booking-tc'); ?></th><th><?php _e('Folder With Pictures');?></th></tr>
+		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Room Type Code', 'btq-booking-tc'); ?></th><th><?php _e('Room Type Name', 'btq-booking-tc'); ?></th><th><?php _e('Folder With Pictures');?></th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
