@@ -395,10 +395,10 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
 function btq_booking_tc_amenity_icon_name($amenityCode) {
 	$amenitiesJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-amenities.json';
 	$amenitiesJSON = file_get_contents($amenitiesJSON_file);
-	$amenitiesArray = json_decode($amenitiesJSON);
+	$amenitiesArray = json_decode($amenitiesJSON, true);
 	
 	// Debug Log
-	btq_booking_tc_log('amenities', $amenitiesArray[0]);
+	btq_booking_tc_log('amenities', $amenitiesArray);
 	
 	/*
 	$amenitiesArray = array(
@@ -459,7 +459,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 	);
 	*/
 	
-	if (!isset($amenitiesArray[0][$amenityCode]))
+	if (!isset($amenitiesArray[$amenityCode]))
 		return FALSE;
 	
 	return $amenitiesArray[$amenityCode];
