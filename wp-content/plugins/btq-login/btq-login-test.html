@@ -162,22 +162,7 @@
     document.getElementById("registro").style.display = "none";  
   }
 
-  function vinculacion(){
 
-    var provider = new firebase.auth.GoogleAuthProvider();
-    var provider = new firebase.auth.FacebookAuthProvider();
-
-    auth.currentUser.linkWithPopup(provider).then(function(result) {
-      // Accounts successfully linked.
-      var credential = result.credential;
-      var user = result.user;
-      // ...
-    }).catch(function(error) {
-      // Handle Errors here.
-      // ...
-    });
-
-  }
 
 
   </script>
