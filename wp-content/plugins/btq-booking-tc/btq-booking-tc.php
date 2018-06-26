@@ -701,19 +701,19 @@ function btq_booking_tc_grid_get_images($path) {
  *		la consulta de habitaciones disponibles.
  * @return string HTML del Grid de habitaciones.
  */
-function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
+function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
 		case 'es':
-			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_es') ); /* 131328 */
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_es') );
 			$currency     = 'MXN';
-			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_es') ); /* 13670 */
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_es') );
 			$str_book_now = 'Reservar Ahora';
 		break;
 		case 'en':
-			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') ); /* 95698 */
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') );
 			$currency     = 'USD';
-			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') ); /* 13671 */
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') );
 			$str_book_now = 'Book Now';
 		break;
 	}
@@ -902,19 +902,19 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart = '2018-09-
  *		la consulta de habitaciones disponibles.
  * @return string HTML del Grid de pauetes.
  */
-function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart = '2018-09-21', $dateRangeEnd = '2018-09-22', $typeQuery = 'packages', $rooms = 1, $adults = 2, $childrens = 0, $availRatesOnly = 'true'){
+function btq_booking_tc_grid_packages($language = 'es', $dateRangeStart, $dateRangeEnd, $typeQuery = 'packages', $rooms = 1, $adults = 2, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
 		case 'es':
-			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_es') ); /* 131328 */
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_es') );
 			$currency     = 'MXN';
-			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_es') );  /* 13670 */
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_es') );
 			$str_book_now = 'Reservar Ahora';
 		break;
 		case 'en':
-			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') ); /* 95698 */
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') );
 			$currency     = 'USD';
-			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') ); /* 13671 */
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') );
 			$str_book_now = 'Book Now';
 		break;
 	}
