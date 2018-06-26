@@ -430,12 +430,12 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
 	?>
-	<table cellpadding="3" cellspacing="3" border="1">
+	<table cellpadding="4" cellspacing="0" border="2" style="margin-top: 10px; background-color: #333;">
 		<tr style="background-color: #333; color: white;" align="center"><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		?><tr><td style="background-color: white;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: white;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+		?><tr><td style="background-color: #CCC;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #CCC;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
 	}
 	?>
 	</table>
@@ -453,11 +453,11 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	//$amenitiesUnique = array_unique($amenities);
 	
 	?>
-	<table cellpadding="3" cellspacing="3" border="1" style="margin-top: 10px;">
+	<table cellpadding="4" cellspacing="0" border="2" style="margin-top: 10px; background-color: #333;">
 		<tr style="background-color: #333; color: white;" align="center"><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
 	<?php
 	foreach($amenities as $amenitieCode => $amenitieName){
-		?><tr><td style="background-color: white;"><?php echo $amenitieCode; ?></td><td style="background-color: white;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
+		?><tr><td style="background-color: #CCC;"><?php echo $amenitieCode; ?></td><td style="background-color: #CCC;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
 	}
 	?>
 	</table>
