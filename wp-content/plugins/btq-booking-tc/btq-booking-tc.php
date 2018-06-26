@@ -398,7 +398,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 	$amenitiesArray = json_decode($amenitiesJSON);
 	
 	// Debug Log
-	btq_booking_tc_log('amenities', $amenitiesArray);
+	btq_booking_tc_log('amenities', $amenitiesArray[0]);
 	
 	/*
 	$amenitiesArray = array(
@@ -459,7 +459,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 	);
 	*/
 	
-	if (!isset($amenitiesArray[$amenityCode]))
+	if (!isset($amenitiesArray[0][$amenityCode]))
 		return FALSE;
 	
 	return $amenitiesArray[$amenityCode];
