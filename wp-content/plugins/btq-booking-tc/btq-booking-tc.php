@@ -100,11 +100,11 @@ function btq_booking_tc_admin_menu() {
     );
     add_submenu_page(
     	'btq_booking_tc_settings', 
-    	__('Test', 'btq-booking-tc'), 
-    	__('Test', 'btq-booking-tc'), 
+    	__('Test Query Rooms', 'btq-booking-tc'), 
+    	__('Test Query Rooms', 'btq-booking-tc'), 
     	'manage_options', 
-    	'btq_booking_tc_test',
-    	'btq_booking_tc_admin_test_page'
+    	'btq_booking_tc_test_query_rooms',
+    	'btq_booking_tc_admin_test_query_rooms_page'
     );
     add_submenu_page(
     	'btq_booking_tc_settings', 
@@ -421,7 +421,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
  * @param string $hotelCode Código de hotel en TravelClick.
  * @return string Información retornada de la consulta.
  */
-function btq_booking_tc_admin_test_rooms($hotelCode) {
+function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	$response = btq_booking_tc_soap_query( $hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()) );
 	
 	$RoomAmenities = array();
@@ -430,21 +430,15 @@ function btq_booking_tc_admin_test_rooms($hotelCode) {
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
 	?>
-	<table>
-		<tr><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
+	<table cellpadding="3" cellspacing="3" border="1">
+		<tr style="background-color: #333; color: white;" align="center"><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		?><tr><td><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+		?><tr><td style="background-color: white;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: white;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
 	}
 	?>
 	</table>
-	
-	<?php /*
-	<pre>
-		<?php $RoomAmenitiesDebug = var_export($RoomAmenities); echo htmlentities($RoomAmenitiesDebug); ?>
-	</pre>
-	*/ ?>
 	
 	<?php
 	
@@ -459,11 +453,11 @@ function btq_booking_tc_admin_test_rooms($hotelCode) {
 	//$amenitiesUnique = array_unique($amenities);
 	
 	?>
-	<table>
-		<tr><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
+	<table cellpadding="3" cellspacing="3" border="1" style="margin-top: 10px;">
+		<tr style="background-color: #333; color: white;" align="center"><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
 	<?php
 	foreach($amenities as $amenitieCode => $amenitieName){
-		?><tr><td><?php echo $amenitieCode; ?></td><td><?php echo htmlentities($amenitieName); ?></td></tr><?php
+		?><tr><td style="background-color: white;"><?php echo $amenitieCode; ?></td><td style="background-color: white;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
 	}
 	?>
 	</table>
@@ -530,17 +524,17 @@ function btq_booking_tc_admin_debug_packages($hotelCode) {
  * @author Saúl Díaz
  * @return void Genera la pagina de depuración.
  */
-function btq_booking_tc_admin_test_page() {
+function btq_booking_tc_admin_test_query_rooms_page() {
 ?>
 	<div class="wrap">
 		<h1>Test TravelClick</h1>
 		<?php /*btq_booking_tc_generate_unavailable_dates();*/ ?>
 		
 		<div style="background-color: white; padding: 10px;">
-			<?php btq_booking_tc_admin_test_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
+			<?php btq_booking_tc_admin_test_query_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
 		<div style="background-color: white; padding: 10px; margin-top: 10px;">
-			<?php btq_booking_tc_admin_test_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
+			<?php btq_booking_tc_admin_test_query_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
 	</div><!-- wrap -->
 <?php
