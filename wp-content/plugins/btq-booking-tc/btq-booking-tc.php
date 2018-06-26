@@ -144,7 +144,7 @@ function btq_booking_tc_register_settings() {
 function btq_booking_tc_admin_settings_page() {
 ?>
 	<div class="wrap">
-		<h1>Booking TC</h1>
+		<h1>Booking Settings TC</h1>
 		<form method="post" action="options.php">
 			<?php settings_fields( 'btq-booking-tc-settings' ); ?>
 			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
