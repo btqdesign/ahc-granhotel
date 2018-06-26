@@ -175,7 +175,7 @@
         <h3>Registrate con tu correo: </h3>
         <input type="email" placeholder="Correo" id="email_field" />
         <input type="password" placeholder="Contraseña" id="password_field" />
-        <button onclick="nuevo_usuario()">Ingresa a tu cuenta </button>
+        <button onclick="nuevo_usuario()">Registrate </button>
       </div>
 
       <div id="user_div" class="loggedin-div">
@@ -225,6 +225,25 @@
     border: 1px solid #777;
   }
   
+ .loggedin-div input {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+  }
+  
+  .loggedin-div input:focus {
+    border: 1px solid #777;
+  }
+
+
   .main-div button, .loggedin-div button {
     background: #5d8ffc;
     color: #fff;
