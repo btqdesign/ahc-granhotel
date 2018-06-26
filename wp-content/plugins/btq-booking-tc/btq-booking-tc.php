@@ -100,11 +100,19 @@ function btq_booking_tc_admin_menu() {
     );
     add_submenu_page(
     	'btq_booking_tc_settings', 
-    	__('Debug', 'btq-booking-tc'), 
-    	__('Debug', 'btq-booking-tc'), 
+    	__('Test', 'btq-booking-tc'), 
+    	__('Test', 'btq-booking-tc'), 
     	'manage_options', 
-    	'btq_booking_tc_debug',
-    	'btq_booking_tc_admin_debug_page'
+    	'btq_booking_tc_test',
+    	'btq_booking_tc_admin_test_page'
+    );
+    add_submenu_page(
+    	'btq_booking_tc_settings', 
+    	__('Unavailable Dates', 'btq-booking-tc'), 
+    	__('Unavailable Dates', 'btq-booking-tc'), 
+    	'manage_options', 
+    	'btq_booking_tc_unavailable_dates',
+    	'btq_booking_tc_admin_generate_unavailable_dates_page'
     );
     /* Manda a llamar la funcion para declarar los ajustes y opciones del plug-in */
     add_action( 'admin_init', 'btq_booking_tc_register_settings' );
@@ -413,7 +421,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
  * @param string $hotelCode Código de hotel en TravelClick.
  * @return string Información retornada de la consulta.
  */
-function btq_booking_tc_admin_debug_rooms($hotelCode) {
+function btq_booking_tc_admin_test_rooms($hotelCode) {
 	$response = btq_booking_tc_soap_query( $hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()) );
 	
 	$RoomAmenities = array();
@@ -522,78 +530,36 @@ function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
  * @author Saúl Díaz
  * @return void Genera la pagina de depuración.
  */
-function btq_booking_tc_admin_debug_page() {
+function btq_booking_tc_admin_test_page() {
 ?>
 	<div class="wrap">
-		<h1>Debug TravelClick</h1>
+		<h1>Test TravelClick</h1>
 		<?php /*btq_booking_tc_generate_unavailable_dates();*/ ?>
-		<!--
-		<form method="post" action="options.php">
-			<?php /* settings_fields( 'btq-booking-tc-settings' ); ?>
-			<?php do_settings_sections( 'btq-booking-tc-settings' ); ?>
-			<table class="form-table">
-				<tr valign="top">
-					<th scope="row"><?php _e('Hotel code english language', 'btq-booking-tc'); ?></th>
-					<td><textarea name="hotel_soap" type="textarea" cols="" rows=""><?php echo esc_attr( get_option('hotel_soap') ); ?></textarea></td>
-				</tr>
-			</table>
-			<?php submit_button(); */ ?>
-		</form>
-		-->
 		
-		<div style="background-color: white;">
-			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
-			<?php btq_booking_tc_admin_debug_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
+		<div style="background-color: white; padding: 10px;">
+			<?php btq_booking_tc_admin_test_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
-		
-		<!--
-		<pre style="background-color: white;">
-		<?php
-			/*
-			$images_dir = 'assets/images/340132';
-			
-			$images_path = plugin_dir_path( __FILE__ ) . $images_dir;
-			//$image_url = plugins_url( $images_dir . DIRECTORY_SEPARATOR . 'wordpress.png', __FILE__ );
-			echo $images_path . "\n";
-			
-			$images = btq_booking_tc_grid_get_images($images_path);
-			echo var_export($images, TRUE) . "\n\n";
-			
-			foreach($images as $image_name){
-				$image_url = plugins_url( $images_dir . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
-				echo $image_url . "\n";
-			}
-			*/
-		?>
-		</pre>
-		-->
-		
-		<!--
-		<div style="background-color: white;">
-			<p>Un año</p>
-		<?php 
-			$dateRangeStart = date('Y-m-d');
-			$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
-			$dates = btq_booking_tc_grid_dates($dateRangeStart, $dateRangeEnd);
-			$datesUnavailable = array();
-			$num_count = 1;
-			foreach($dates as $date){
-				$currentTime = date('[Y-m-d H:i:s]');
-				$dayRangeStart = $date->format('Y-m-d');
-				$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-				$disponibilidad = 'OK';
-				if (btq_booking_tc_soap_query('131328', $dayRangeStart, $dayRangeEnd) === FALSE){
-					$disponibilidad = 'NO';
-					$datesUnavailable[] = $dayRangeStart;
-				}
-				echo $num_count . '.- ' . $currentTime . ' ' . $dayRangeStart . ' - ' . $dayRangeEnd . ' - ' . $disponibilidad . '<br>';
-				$num_count++;
-			}
-			$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
-			file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
-		?>
+		<div style="background-color: white; padding: 10px; margin-top: 10px;">
+			<?php btq_booking_tc_admin_test_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
-		-->
+	</div><!-- wrap -->
+<?php
+}
+
+/**
+ * Genera el JSON de los días no disponibles.
+ *
+ * @author Saúl Díaz
+ * @return void Genera la pagina de depuración.
+ */
+function btq_booking_tc_admin_generate_unavailable_dates_page() {
+?>
+	<div class="wrap">
+		<h1>Generate Unavailable Dates TravelClick</h1>
+		
+		<div style="background-color: white; padding: 10px;">
+			<?php btq_booking_tc_generate_unavailable_dates(); ?>
+		</div>
 	</div><!-- wrap -->
 <?php
 }
