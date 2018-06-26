@@ -162,6 +162,23 @@
     document.getElementById("registro").style.display = "none";  
   }
 
+  function vinculacion(){
+
+    var provider = new firebase.auth.GoogleAuthProvider();
+    var provider = new firebase.auth.FacebookAuthProvider();
+
+    auth.currentUser.linkWithPopup(provider).then(function(result) {
+      // Accounts successfully linked.
+      var credential = result.credential;
+      var user = result.user;
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      // ...
+    });
+
+  }
+
 
   </script>
 
@@ -192,6 +209,8 @@
         <button onclick="nuevo_usuario()">Registrate </button>
         <br>
         <button onclick="pestaña_inicio()">Atras <-</button>
+        <br>
+        <button onclick="vinculacion()">Vincular cuentas</button>
       </div>
 
       <div id="user_div" class="loggedin-div">
