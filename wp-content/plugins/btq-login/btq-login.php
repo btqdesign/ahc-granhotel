@@ -21,6 +21,11 @@
 // Exit if accessed directly
 defined('ABSPATH') or die('No script kiddies please!');
 
+/** 
+ * Establece el dominio correcto para la carga de traducciones
+ */
+load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/languages');
+
 /**
  * Integra en la etiqueta <head> el tag de Firebase
  *
