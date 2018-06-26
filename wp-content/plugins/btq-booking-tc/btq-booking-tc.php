@@ -396,6 +396,10 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 	$amenitiesJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-amenities.json';
 	$amenitiesJSON = file_get_contents($amenitiesJSON_file);
 	$amenitiesArray = json_decode($amenitiesJSON);
+	
+	// Debug Log
+	btq_booking_tc_log('amenities', $amenitiesArray);
+	
 	/*
 	$amenitiesArray = array(
 		'10'       => 'english_air_conditioned.png',
