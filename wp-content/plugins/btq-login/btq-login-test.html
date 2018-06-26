@@ -54,7 +54,26 @@
 
   //Aqui termina la funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 
-  
+   
+
+    function nuevo_usuario(){
+
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("registro").style.display = "none";  
+
+    var newuserEmail = document.getElementById("new_email_field").value;
+    var newuserPass = document.getElementById("new_password_field").value;
+
+    firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // ...
+    window.alert("Error : " + errorMessage);
+    });
+    }
+
 
     //login con correo y contraseña
   function login(){
@@ -76,6 +95,11 @@
   
   function logout(){
     firebase.auth().signOut();
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
   }
 
     //aqui termina login con correo y contraseña
@@ -100,56 +124,84 @@
         // The firebase.auth.AuthCredential type that was used.
         var credential = error.credential;
         // ...
+        window.alert("Error : " + errorMessage);
     });
   }
   //Aqui termina google
 
-   //Aqui Inicia login de Facebook
-   function facebook_login(){
+  function facebook_login(){
+
+  var provider = new firebase.auth.FacebookAuthProvider();
    
-   var providerr = new firebase.auth.FacebookAuthProvider();
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+    var token = result.credential.accessToken;
+    // The signed-in user info.
+    var user = result.user;
+    // ...
+  }).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+    // ...
+  });
+}
 
-   firebase.auth().signInWithPopup(providerr).then(function(result) {
-        // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-        }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-    });
-    }   
+  function pestaña_registro(){
+      document.getElementById("registro").style.display = "block";
+      document.getElementById("login_div").style.display = "none";
+  }
 
-</script>
+  function pestaña_inicio(){
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("registro").style.display = "none";  
+  }
+
+
+
+
+  </script>
 
 </head>
 
-<body>
+<body> 
 
     <div id="login_div" class="main-div">
        
         <h3>Login</h3>
-        <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook</button>
+        <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook </button>
         <br>
         <button onclick="google_login()">Ingresa a tu cuenta con Google </button>
         <br>
         <input type="email" placeholder="Email..." id="email_field" />
         <input type="password" placeholder="Password..." id="password_field" />
-    
         <button onclick="login()">Ingresa a tu cuenta </button>
+        <br>
+        <button onclick="pestaña_registro()"> Registrate </button>
+        <br>
+        <button onclick="vinculacion()">Vincular cuentas</button>
+
       </div>
-    
+      
+       
+       <div id="registro" class="loggedin-div">
+        <h3>Registrate con tu correo: </h3>
+        <input type="email" placeholder="Correo" id="new_email_field" required/>
+        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
+        <button onclick="nuevo_usuario()">Registrate </button>
+        <br>
+        <button onclick="pestaña_inicio()">Atras <-</button>
+      </div>
+
       <div id="user_div" class="loggedin-div">
         <h3>Bienvenido Usario: </h3>
         <p id="user_para">Estas actualmente conectado.</p>
-        <button onclick="logout()">Cerrar Sesion</button>
+        <button onclick="logout()" onclick="facebookSignout()">Cerrar Sesion</button>
       </div>
 
       <style>
@@ -193,6 +245,25 @@
     border: 1px solid #777;
   }
   
+ .loggedin-div input {
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: #fff;
+    padding: 15px;
+    outline: none;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+  }
+  
+  .loggedin-div input:focus {
+    border: 1px solid #777;
+  }
+
+
   .main-div button, .loggedin-div button {
     background: #5d8ffc;
     color: #fff;
