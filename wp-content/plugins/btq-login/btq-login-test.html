@@ -57,6 +57,11 @@
    
 
     function nuevo_usuario(){
+
+         document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+     document.getElementById("registro").style.display = "none";  
+
     var newuserEmail = document.getElementById("new_email_field").value;
     var newuserPass = document.getElementById("new_password_field").value;
 
@@ -66,11 +71,6 @@
     var errorMessage = error.message;
     // ...
     window.alert("Error : " + errorMessage);
-
-     document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
-     document.getElementById("registro").style.display = "none";
-
     });
     }
 
