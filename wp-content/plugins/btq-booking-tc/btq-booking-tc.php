@@ -477,8 +477,8 @@ function btq_booking_tc_admin_test_rooms($hotelCode) {
  * @param string $hotelCode Código de hotel en TravelClick
  * @return string Información retornada de la consulta.
  */
-function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
-	$response = btq_booking_tc_soap_query($hotelCode, '2018-09-11', '2018-09-12', 'packages');
+function btq_booking_tc_admin_debug_packages($hotelCode) {
+	$response = btq_booking_tc_soap_query($hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()), 'packages');
 	
 	$RoomAmenities = array();
 	$amenities = array();
@@ -525,7 +525,7 @@ function btq_booking_tc_admin_debug_packages($hotelCode = '131328') {
 }
 
 /**
- * Genera la página para depurar el desarrollo del plugin.
+ * Genera la página para probar la carga de información del booking.
  *
  * @author Saúl Díaz
  * @return void Genera la pagina de depuración.
@@ -610,7 +610,7 @@ function btq_booking_tc_generate_unavailable_dates(){
 	foreach($dates as $date){
 		$dayRangeStart = $date->format('Y-m-d');
 		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-		if (btq_booking_tc_soap_query('131328', $dayRangeStart, $dayRangeEnd) === FALSE){
+		if (btq_booking_tc_soap_query(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd) === FALSE){
 			$datesUnavailable[] = $dayRangeStart;
 		}
 	}
