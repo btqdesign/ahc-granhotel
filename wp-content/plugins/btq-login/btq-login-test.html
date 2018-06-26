@@ -113,13 +113,13 @@
    //Aqui Inicia login de Facebook
    function facebook_login(){
 
-        firebase.auth().signInWithPopup(provider).then(function(result) {
-
-          // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-          var token = result.credential.accessToken;
-        })
-
         var provider = new firebase.auth.FacebookAuthProvider();
+
+                firebase.auth().signInWithPopup(provider).then(function(result) {
+
+                  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                  var token = result.credential.accessToken;
+                  })
 
         firebase.auth().signInWithPopup(provider).then(function(result) {
         // This gives you a Facebook Access Token. You can use it to access the Facebook API.
@@ -138,6 +138,8 @@
         // ...
         window.alert("Error : " + errorMessage);
       });
+
+
     }   
 
   </script>
