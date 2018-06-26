@@ -495,7 +495,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 		$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking-tc') : __('No','btq-booking-tc');
 		
 		?>
-		<tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td><td><?php echo $folder_with_pictures; ?></td></tr><?php
+		<tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td><td align="center" style="background-color: #EEE;"><?php echo $folder_with_pictures; ?></td></tr><?php
 	}
 	?>
 	</table>
