@@ -523,7 +523,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 		$amenitieFileName = btq_booking_tc_amenity_icon_name($amenitieCode);
 		if (!empty($amenitieFileName)) {
 			$image_icono_url = plugins_url( $images_amenity_path . $amenitieFileName, __FILE__ );
-			$amenityIcon = '<img src="'.$image_icono_url.'" alt="'.htmlentities($amenitieName).'" title="'.htmlentities($amenitieName).'">';
+			$amenityIcon = '<img src="' . $image_icono_url . '" alt="' . htmlentities($amenitieName) . '" title="' . htmlentities($amenitieName) . '">';
 		}
 		else {
 			$amenityIcon = 'No';
