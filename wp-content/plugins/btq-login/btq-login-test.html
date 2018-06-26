@@ -57,8 +57,8 @@
    
 
     function nuevo_usuario(){
-    var newuserEmail = document.getElementById("email_field").value;
-    var newuserPass = document.getElementById("password_field").value;
+    var newuserEmail = document.getElementById("new_email_field").value;
+    var newuserPass = document.getElementById("new_password_field").value;
 
     firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
     // Handle Errors here.
@@ -174,8 +174,8 @@
        
        <div id="registro" class="loggedin-div">
         <h3>Registrate con tu correo: </h3>
-        <input type="email" placeholder="Correo" id="email_field" />
-        <input type="password" placeholder="Contraseña" id="password_field" />
+        <input type="email" placeholder="Correo" id="new_email_field" />
+        <input type="password" placeholder="Contraseña" id="new_password_field" />
         <button onclick="nuevo_usuario()">Registrate </button>
       </div>
 
