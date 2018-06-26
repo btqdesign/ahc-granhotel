@@ -57,8 +57,13 @@
    
 
     function nuevo_usuario(){
-    var newuserEmail = document.getElementById("email_field").value;
-    var newuserPass = document.getElementById("password_field").value;
+
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("registro").style.display = "none";  
+
+    var newuserEmail = document.getElementById("new_email_field").value;
+    var newuserPass = document.getElementById("new_password_field").value;
 
     firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
     // Handle Errors here.
@@ -146,16 +151,26 @@
   });
 }
 
-  function pestañas(){
+  function pestaña_registro(){
       document.getElementById("registro").style.display = "block";
       document.getElementById("login_div").style.display = "none";
   }
+
+  function pestaña_inicio(){
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("registro").style.display = "none";  
+  }
+
+
+
 
   </script>
 
 </head>
 
 <body> 
+
     <div id="login_div" class="main-div">
        
         <h3>Login</h3>
@@ -166,17 +181,21 @@
         <input type="email" placeholder="Email..." id="email_field" />
         <input type="password" placeholder="Password..." id="password_field" />
         <button onclick="login()">Ingresa a tu cuenta </button>
-        <button onclick="pestañas()"> Registrate </button>
-
+        <br>
+        <button onclick="pestaña_registro()"> Registrate </button>
+        <br>
+        <button onclick="vinculacion()">Vincular cuentas</button>
 
       </div>
       
        
        <div id="registro" class="loggedin-div">
         <h3>Registrate con tu correo: </h3>
-        <input type="email" placeholder="Correo" id="email_field" />
-        <input type="password" placeholder="Contraseña" id="password_field" />
+        <input type="email" placeholder="Correo" id="new_email_field" required/>
+        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
         <button onclick="nuevo_usuario()">Registrate </button>
+        <br>
+        <button onclick="pestaña_inicio()">Atras <-</button>
       </div>
 
       <div id="user_div" class="loggedin-div">
