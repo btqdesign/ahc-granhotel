@@ -393,6 +393,10 @@ function btq_booking_tc_soap_query($hotelCode, $dateRangeStart, $dateRangeEnd, $
  * @return string Nombre del archivo de la amenidad. 
  */
 function btq_booking_tc_amenity_icon_name($amenityCode) {
+	$amenitiesJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-amenities.json';
+	$amenitiesJSON = file_get_contents($amenitiesJSON_file);
+	$amenitiesArray = json_decode($amenitiesJSON);
+	/*
 	$amenitiesArray = array(
 		'10'       => 'english_air_conditioned.png',
 		'12'       => 'english_alarm_clock.png',
@@ -449,6 +453,7 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 		'54190'    => 'spanish_television_con_cable.png',
 		'59242'    => 'spanish_wifi_en_cortesia.png'
 	);
+	*/
 	
 	if (!isset($amenitiesArray[$amenityCode]))
 		return FALSE;
