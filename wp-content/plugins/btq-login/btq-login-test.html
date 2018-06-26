@@ -58,9 +58,9 @@
 
     function nuevo_usuario(){
 
-         document.getElementById("user_div").style.display = "none";
+    document.getElementById("user_div").style.display = "none";
     document.getElementById("login_div").style.display = "block";
-     document.getElementById("registro").style.display = "none";  
+    document.getElementById("registro").style.display = "none";  
 
     var newuserEmail = document.getElementById("new_email_field").value;
     var newuserPass = document.getElementById("new_password_field").value;
@@ -151,9 +151,15 @@
   });
 }
 
-  function pestañas(){
+  function pestaña_registro(){
       document.getElementById("registro").style.display = "block";
       document.getElementById("login_div").style.display = "none";
+  }
+
+  function pestaña_inicio(){
+    document.getElementById("login_div").style.display = "block";
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("registro").style.display = "none";  
   }
 
 
@@ -173,7 +179,7 @@
         <input type="password" placeholder="Password..." id="password_field" />
         <button onclick="login()">Ingresa a tu cuenta </button>
         <br>
-        <button onclick="pestañas()"> Registrate </button>
+        <button onclick="pestaña_registro()"> Registrate </button>
 
 
       </div>
@@ -184,6 +190,7 @@
         <input type="email" placeholder="Correo" id="new_email_field" />
         <input type="password" placeholder="Contraseña" id="new_password_field" />
         <button onclick="nuevo_usuario()">Registrate </button>
+        <button onclick="nuevo_usuario()">Atras <-</button>
       </div>
 
       <div id="user_div" class="loggedin-div">
