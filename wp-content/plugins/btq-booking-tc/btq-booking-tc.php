@@ -415,56 +415,6 @@ function btq_booking_tc_amenity_icon_name($amenityCode) {
 }
 
 /**
- * Para depurar la consulta de las habitaciones.
- *
- * @author Saúl Díaz
- * @param string $hotelCode Código de hotel en TravelClick.
- * @return string Información retornada de la consulta.
- */
-function btq_booking_tc_admin_test_query_rooms($hotelCode) {
-	$response = btq_booking_tc_soap_query( $hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()) );
-	
-	$RoomAmenities = array();
-	$amenities = array();
-	
-	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
-	
-	?>
-	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th>Código de habitación</th><th>Nombre de la habitación</th></tr>
-	<?php
-	foreach($RoomType as $elementRoomType){
-		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		?><tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
-	}
-	?>
-	</table>
-	
-	<?php
-	
-	for ($i = 0; $i < count($RoomAmenities); $i++){
-		foreach($RoomAmenities[$i] as $RoomAmenitie){
-			if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
-				$amenities[$RoomAmenitie['!ExistsCode']] = $RoomAmenitie['!RoomAmenity'];
-			}
-		}
-	}
-	
-	//$amenitiesUnique = array_unique($amenities);
-	
-	?>
-	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
-	<?php
-	foreach($amenities as $amenitieCode => $amenitieName){
-		?><tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
-	}
-	?>
-	</table>
-	<?php
-}
-
-/**
  * Para depurar la consulta de los paquetes.
  *
  * @author Saúl Díaz
@@ -519,6 +469,56 @@ function btq_booking_tc_admin_debug_packages($hotelCode) {
 }
 
 /**
+ * Para depurar la consulta de las habitaciones.
+ *
+ * @author Saúl Díaz
+ * @param string $hotelCode Código de hotel en TravelClick.
+ * @return string Información retornada de la consulta.
+ */
+function btq_booking_tc_admin_test_query_rooms($hotelCode) {
+	$response = btq_booking_tc_soap_query( $hotelCode, btq_booking_tc_grid_date_start(), btq_booking_tc_grid_date_end(btq_booking_tc_grid_date_start()) );
+	
+	$RoomAmenities = array();
+	$amenities = array();
+	
+	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
+	
+	?>
+	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
+		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Room Type Code', 'btq-booking-tc'); ?></th><th><?php _e('Room Type Name', 'btq-booking-tc'); ?></th></tr>
+	<?php
+	foreach($RoomType as $elementRoomType){
+		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
+		?><tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+	}
+	?>
+	</table>
+	
+	<?php
+	
+	for ($i = 0; $i < count($RoomAmenities); $i++){
+		foreach($RoomAmenities[$i] as $RoomAmenitie){
+			if (!isset($amenities[$RoomAmenitie['!ExistsCode']])){
+				$amenities[$RoomAmenitie['!ExistsCode']] = $RoomAmenitie['!RoomAmenity'];
+			}
+		}
+	}
+	
+	//$amenitiesUnique = array_unique($amenities);
+	
+	?>
+	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
+		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Amenitie Code', 'btq-booking-tc'); ?></th><th><?php _e('Amenitie Name', 'btq-booking-tc'); ?></th></tr>
+	<?php
+	foreach($amenities as $amenitieCode => $amenitieName){
+		?><tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
+	}
+	?>
+	</table>
+	<?php
+}
+
+/**
  * Genera la página para probar la carga de información del booking.
  *
  * @author Saúl Díaz
@@ -527,8 +527,7 @@ function btq_booking_tc_admin_debug_packages($hotelCode) {
 function btq_booking_tc_admin_test_query_rooms_page() {
 ?>
 	<div class="wrap">
-		<h1>Test TravelClick</h1>
-		<?php /*btq_booking_tc_generate_unavailable_dates();*/ ?>
+		<h1><?php _e('Test query rooms on TravelClick', 'btq-booking-tc'); ?></h1>
 		
 		<div style="background-color: white; padding: 10px;">
 			<?php btq_booking_tc_admin_test_query_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
