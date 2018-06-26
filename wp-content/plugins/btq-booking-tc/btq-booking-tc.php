@@ -525,7 +525,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 			$image_icono_url = plugins_url( $images_amenity_path . $amenitieFileName, __FILE__ );
 			$amenityIcon = '<img src="' . $image_icono_url . '" alt="' . htmlentities($amenitieName) . '" title="' . htmlentities($amenitieName) . '">';
 		}
-		else {
+		else {
 			$amenityIcon = 'No';
 		}
 		?>
