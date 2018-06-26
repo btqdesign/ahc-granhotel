@@ -112,34 +112,7 @@
 
    
 
-    function facebookSignin() {
-      //Aqui Inicia login de Facebook
-      var provider = new firebase.auth.FacebookAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-      
-      .then(function(result) {
-          var token = result.credential.accessToken;
-          var user = result.user;
-          
-          console.log('=======================');
-          console.log(token);
-          console.log(user);
-      }).catch(function(error) {
-          console.log('=======================');
-          console.log(error.code);
-          console.log(error.message);
-      });
-    }
 
-    function facebookSignout() {
-      firebase.auth().signOut()
-      
-      .then(function() {
-          console.log('Signout successful!')
-      }, function(error) {
-          console.log('Signout failed')
-      });
-    }
 
   </script>
 
@@ -169,7 +142,6 @@
        
         <h3>Login</h3>
         <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true"></div>
-        <button onclick = "facebookSignin()">Facebook Signin</button>
         <br>
         <button onclick="google_login()">Ingresa a tu cuenta con Google </button>
         <br>
