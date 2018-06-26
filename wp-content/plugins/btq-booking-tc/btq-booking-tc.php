@@ -435,7 +435,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		?><tr><td style="background-color: #DDD;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #DDD;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
+		?><tr><td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td></tr><?php
 	}
 	?>
 	</table>
@@ -457,7 +457,7 @@ function btq_booking_tc_admin_test_query_rooms($hotelCode) {
 		<tr style="background-color: #333; color: white;" align="center"><th>Código de amenidad</th><th>Nombre de la amenidad</th></tr>
 	<?php
 	foreach($amenities as $amenitieCode => $amenitieName){
-		?><tr><td style="background-color: #DDD;"><?php echo $amenitieCode; ?></td><td style="background-color: #DDD;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
+		?><tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td></tr><?php
 	}
 	?>
 	</table>
