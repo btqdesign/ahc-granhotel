@@ -192,11 +192,6 @@
         //Aqui termina la funcion para ocultar cualquier pestaña y mostrar la de inicio
 
 
-  function checkLoginState() {
-  FB.getLoginStatus(function(response) {
-    statusChangeCallback(response);
-  });
-  }
   
   </script>
 </head>
@@ -206,12 +201,17 @@
 
 <body> 
   <! Aqui inicia la pestaña de inicio >
+
     <div id="login_div" class="main-div">     
         <h3>Login</h3>
-        <fb:login-button 
-  scope="public_profile,email"
-  onlogin="checkLoginState();">
-</fb:login-button>
+        <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.0&appId=1542134782558463&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
         <div onclick="facebook_login()" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
         <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook </button>
         <br>
