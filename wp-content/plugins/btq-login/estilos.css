@@ -13,9 +13,9 @@
       }
       
       .main-div, .loggedin-div {
-        width: 20%;
+        width: 100%;
         margin: 0px auto;
-        margin-top: 150px;
+        margin-top: 20px;
         padding: 20px;
         display: none;
       }
