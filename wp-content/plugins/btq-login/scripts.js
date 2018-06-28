@@ -1,18 +1,8 @@
-<! //funcion para conectar con firebase>
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
 
-<script>
-  // Aqui se inicializa firebase
-  var config = {
-    apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
-    authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
-    databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
-    projectId: "btq-ahm-gran-hotel",
-    storageBucket: "btq-ahm-gran-hotel.appspot.com",
-    messagingSenderId: "241886061865"
-  };
-  firebase.initializeApp(config);
-</script>
+//funcion para conectar con firebase>
+
+
+
 
 
   //Aqui termina la conexcion a firebase
