@@ -31,71 +31,50 @@
 
 
   <body> 
-     
+
+      <div class="modal-body">
+
+      <! Aqui inicia la pestaña de inicio >
+
+
+    <div id="login_div" class="main-div">     
+        <h3>Login</h3>        
+        <button onclick="facebook_login()"><img src="fb.png"/> Continuar con Facebook </button>
+        <br>
+        <button onclick="google_login()"><img src="google.png"/>  Continuar con Google </button>
+        <br>
+        <input type="email" placeholder="Email..." id="email_field" />
+        <input type="password" placeholder="Password..." id="password_field" />
+        <button onclick="login()">Ingresa a tu cuenta </button>
+        <br>
+        <button onclick="pestaña_registro()"> Registrate </button>
+     </div>
+        <! Aqui termina la pestaña de inicio >
+      
+
+
+      <! Aqui inicia html para registro de usuario por correo > 
+       <div id="registro" class="loggedin-div">
+        <h3>Registrate con tu correo: </h3>
+        <input type="email" placeholder="Correo" id="new_email_field" required/>
+        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
+        <button onclick="nuevo_usuario()">Registrate </button>
+        <br>
+        <button onclick="pestaña_inicio()">Atras <-</button>
+      </div>
+      <! Aqui termina html para registro de usuario por correo >     
+
+
+
+
+      <! Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
+      <div id="user_div" class="loggedin-div">
+        <h3>Bienvenido Usario: </h3>
+        <p id="user_para">Estas actualmente conectado.</p>
+        <button onclick="logout()">Cerrar Sesion</button>
+      </div>
       <! Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-            Launch demo modal
-          </button>
-          
-          <!-- Modal -->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                    <! Aqui inicia la pestaña de inicio >
-
-
-                    <div id="login_div" class="main-div">     
-                        <h3>Login</h3>        
-                        <button onclick="facebook_login()"><img src="fb.png"/> Continuar con Facebook </button>
-                        <br>
-                        <button onclick="google_login()"><img src="google.png"/>  Continuar con Google </button>
-                        <br>
-                        <input type="email" placeholder="Email..." id="email_field" />
-                        <input type="password" placeholder="Password..." id="password_field" />
-                        <button onclick="login()">Ingresa a tu cuenta </button>
-                        <br>
-                        <button onclick="pestaña_registro()"> Registrate </button>
-                     </div>
-                        <! Aqui termina la pestaña de inicio >
-                      
-                
-                
-                      <! Aqui inicia html para registro de usuario por correo > 
-                       <div id="registro" class="loggedin-div">
-                        <h3>Registrate con tu correo: </h3>
-                        <input type="email" placeholder="Correo" id="new_email_field" required/>
-                        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                        <button onclick="nuevo_usuario()">Registrate </button>
-                        <br>
-                        <button onclick="pestaña_inicio()">Atras <-</button>
-                      </div>
-                      <! Aqui termina html para registro de usuario por correo >     
-                
-                
-                
-                
-                      <! Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
-                      <div id="user_div" class="loggedin-div">
-                        <h3>Bienvenido Usario: </h3>
-                        <p id="user_para">Estas actualmente conectado.</p>
-                        <button onclick="logout()">Cerrar Sesion</button>
-                      </div>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
+       
+      </div>
   </body>
 </html>
