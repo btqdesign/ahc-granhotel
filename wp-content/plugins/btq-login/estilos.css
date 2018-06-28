@@ -13,6 +13,7 @@
       }
       
       .main-div, .loggedin-div {
+        min-width: 60px;
         width: 100%;
         margin: 0px auto;
         margin-top: 20px;
