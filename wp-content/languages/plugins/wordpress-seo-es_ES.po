@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-06-27 16:25:10+0000\n"
+"PO-Revision-Date: 2018-06-28 15:38:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,7 +19,7 @@ msgstr "Año actual"
 #. to the link closing tag.
 #: languages/yoast-seo-js.php:102
 msgid "You are not using any %1$ssubheadings%2$s, but your text is short enough and probably doesn't need them."
-msgstr "No estás usando %1$subtítulos%2$s, pero tu texto es bastante corto y probablemente no los necesite."
+msgstr "No estás usando %1$ssubencabezados%2$s, pero tu texto es bastante corto y probablemente no los necesite."
 
 #. Translators: %1$s expands to a link to https://yoa.st/headings, %2$s expands
 #. to the link closing tag.
