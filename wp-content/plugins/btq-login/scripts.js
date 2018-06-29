@@ -27,6 +27,7 @@ if (user) {
     var photoUrl = user.photoURL;
     document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + " " +  name + " "
       + '<img src"' + decodeURIComponent(photoUrl) + '">';
+      document.getElementById("user_para").src = "photoUrl";
   }
 
 } else {
