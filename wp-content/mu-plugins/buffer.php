@@ -55,3 +55,10 @@ add_filter('final_output', function($output) {
     
     return $output;
 });
+
+add_filter('wp_redirect', function($output) {
+	$output = str_replace('http://hotel.idevol.net', 'https://hotel.idevol.net', $output);
+	$output = str_replace('http://granhoteldelaciudaddemexico.com.mx', 'https://granhoteldelaciudaddemexico.com.mx', $output);
+	  
+	return $output;
+});
