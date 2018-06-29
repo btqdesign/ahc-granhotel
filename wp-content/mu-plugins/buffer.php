@@ -43,7 +43,7 @@ add_filter('final_output', function($output) {
         //,'${1}${4}'
         //,'${1}${4}'
         //,'${1}${5}'
-        '${1}${3}'
+        '${1}${7}'
     );
     $output = preg_replace($patt, $repl, $output);
     
