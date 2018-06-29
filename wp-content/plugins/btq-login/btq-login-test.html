@@ -1,291 +1,96 @@
 <!doctype html>
+
 <html lang="en-US">
-<head>
 
-	<meta charset="utf-8">
+  <head>
+      <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+      <script>
+          // Aqui se inicializa firebase
+          var config = {
+            apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
+            authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
+            databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
+            projectId: "btq-ahm-gran-hotel",
+            storageBucket: "btq-ahm-gran-hotel.appspot.com",
+            messagingSenderId: "241886061865"
+          };
+          firebase.initializeApp(config);
+        </script>
+      <link rel="stylesheet" type="text/css" href="estilos.css">
+      <script src="scripts.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 
-	<title>Prueba</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="utf-8">
 
-    
-   <! //funcion para conectar con firebase>
-    <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-   
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
-        authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
-        databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
-        projectId: "btq-ahm-gran-hotel",
-        storageBucket: "btq-ahm-gran-hotel.appspot.com",
-        messagingSenderId: "241886061865"
-      };
-      firebase.initializeApp(config);
-    </script>
-
-    <script>
-
-    //Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
-
-    firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-      // User is signed in.
-  
-      document.getElementById("user_div").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-  
-      var user = firebase.auth().currentUser;
-  
-      if(user != null){
-  
-        var email_id = user.email;
-        document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-  
-      }
-  
-    } else {
-      // No user is signed in.
-  
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
-  
-    }
-  });
-
-  //Aqui termina la funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
-
-   
-
-    function nuevo_usuario(){
-
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
-    document.getElementById("registro").style.display = "none";  
-
-    var newuserEmail = document.getElementById("new_email_field").value;
-    var newuserPass = document.getElementById("new_password_field").value;
-
-    firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-    window.alert("Error : " + errorMessage);
-    });
-    }
+    <title>Prueba</title>
+  </head>
 
 
-    //login con correo y contraseña
-  function login(){
-  
-    var userEmail = document.getElementById("email_field").value;
-    var userPass = document.getElementById("password_field").value;
-  
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-      // Handle Errors here.
-      var errorCode = error.code;
-      var errorMessage = error.message;
-  
-      window.alert("Error : " + errorMessage);
-  
-      // ...
-    });
-  
-  }
-  
-  function logout(){
-    firebase.auth().signOut();
-    firebase.auth().signOut().then(function() {
-      // Sign-out successful.
-    }).catch(function(error) {
-      // An error happened.
-    });
-  }
+  <body> 
+<!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Inicia Sesión / Registrate</button>
+          
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">    
+                    <div id="login_div" class="main-div">      
+                        <button onclick="facebook_login()"><img src="fb.png"/> Continuar con Facebook </button>
+                        <br>
+                        <button onclick="google_login()"><img src="google.png"/>  Continuar con Google </button>
+                        <br>
+                        <input type="email" placeholder="Email..." id="email_field" />
+                        <input type="password" placeholder="Password..." id="password_field" />
+                        <button onclick="login()">Ingresa a tu cuenta </button>
+                        <! Aqui termina la pestaña de inicio >
+                    </div>
+                
+                
+                      <! Aqui inicia html para registro de usuario por correo > 
+                       <div id="registro" class="loggedin-div">
+                        <h3>Registrate con tu correo: </h3>
+                        <input type="email" placeholder="Correo" id="new_email_field" required/>
+                        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
+                        <button onclick="nuevo_usuario()">Finalizar tu registro </button>
+                        <br>
+                        <button onclick="pestaña_inicio()">Volver <-</button>
+                      </div>
+                      <! Aqui termina html para registro de usuario por correo >     
+                
+                
+                
+                
+                      <! Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
+                      <div id="user_div" class="loggedin-div">
+                        <h3>Bienvenido Usario: </h3>
+                        <p id="user_para">Estas actualmente conectado.</p>
+                        <button onclick="logout()">Cerrar Sesion</button>
+                      </div>
+                      <! Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
+                </div>
 
-    //aqui termina login con correo y contraseña
 
-
-    //google
-  function google_login(){
-    
-    var provider = new firebase.auth.GoogleAuthProvider();
-	firebase.auth().signInWithPopup(provider).then(function(result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        var token = result.credential.accessToken;
-        // The signed-in user info.
-        var user = result.user;
-        // ...
-        }).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
-        window.alert("Error : " + errorMessage);
-    });
-  }
-  //Aqui termina google
-
-  function facebook_login(){
-
-  var provider = new firebase.auth.FacebookAuthProvider();
-   
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    var token = result.credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    // ...
-  }).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
-}
-
-  function pestaña_registro(){
-      document.getElementById("registro").style.display = "block";
-      document.getElementById("login_div").style.display = "none";
-  }
-
-  function pestaña_inicio(){
-    document.getElementById("login_div").style.display = "block";
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("registro").style.display = "none";  
-  }
+                <div class="modal-footer">
+                  <p>¿No eres miembro? <u onclick="pestaña_registro()">Registrate</u></p><pre>          </pre>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar Ventana</button>
 
 
 
-
-  </script>
-
-</head>
-
-<body> 
-
-    <div id="login_div" class="main-div">
-       
-        <h3>Login</h3>
-        <button onclick="facebook_login()">Ingresa a tu cuenta con Facebook </button>
-        <br>
-        <button onclick="google_login()">Ingresa a tu cuenta con Google </button>
-        <br>
-        <input type="email" placeholder="Email..." id="email_field" />
-        <input type="password" placeholder="Password..." id="password_field" />
-        <button onclick="login()">Ingresa a tu cuenta </button>
-        <br>
-        <button onclick="pestaña_registro()"> Registrate </button>
-        <br>
-        <button onclick="vinculacion()">Vincular cuentas</button>
-
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
-      
-       
-       <div id="registro" class="loggedin-div">
-        <h3>Registrate con tu correo: </h3>
-        <input type="email" placeholder="Correo" id="new_email_field" required/>
-        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-        <button onclick="nuevo_usuario()">Registrate </button>
-        <br>
-        <button onclick="pestaña_inicio()">Atras <-</button>
-      </div>
-
-      <div id="user_div" class="loggedin-div">
-        <h3>Bienvenido Usario: </h3>
-        <p id="user_para">Estas actualmente conectado.</p>
-        <button onclick="logout()" onclick="facebookSignout()">Cerrar Sesion</button>
-      </div>
-
-      <style>
-      
-      body {
-    background: #fff;
-    padding: 0px;
-    margin: 0px;
-    font-family: 'Nunito', sans-serif;
-    font-size: 16px;
-  }
-  
-  input, button {
-    font-family: 'Nunito', sans-serif;
-    font-weight: 700;
-  }
-  
-  .main-div, .loggedin-div {
-    width: 20%;
-    margin: 0px auto;
-    margin-top: 150px;
-    padding: 20px;
-    display: none;
-  }
-  
-  .main-div input {
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    padding: 15px;
-    outline: none;
-    width: 100%;
-    margin-bottom: 20px;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-  }
-  
-  .main-div input:focus {
-    border: 1px solid #777;
-  }
-  
- .loggedin-div input {
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background: #fff;
-    padding: 15px;
-    outline: none;
-    width: 100%;
-    margin-bottom: 20px;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-  }
-  
-  .loggedin-div input:focus {
-    border: 1px solid #777;
-  }
-
-
-  .main-div button, .loggedin-div button {
-    background: #5d8ffc;
-    color: #fff;
-    border: 1px solid #5d8ffc;
-    border-radius: 5px;
-    padding: 15px;
-    display: block;
-    width: 100%;
-    transition: 0.3s;
-    -webkit-transition: 0.3s;
-    -moz-transition: 0.3s;
-  }
-  
-  .main-div button:hover, .loggedin-div button:hover {
-    background: #fff;
-    color: #5d8ffc;
-    border: 1px solid #5d8ffc;
-    cursor: pointer;
-  }
-  
-
-      </style>
-
-</body>
+  </body>
 </html>
