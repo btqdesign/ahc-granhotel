@@ -46,13 +46,13 @@
                 </div>
                 <div class="modal-body">    
                     <div id="login_div" class="main-div">      
-                        <button onclick="facebook_login()"><img src="fb.png"/> Continuar con Facebook </button>
+                        <button onclick="facebook_login()" data-dismiss="modal"><img src="fb.png"/> Continuar con Facebook </button>
                         <br>
-                        <button onclick="google_login()"><img src="google.png"/>  Continuar con Google </button>
+                        <button onclick="google_login()" data-dismiss="modal"><img src="google.png"/>  Continuar con Google </button>
                         <br>
                         <input type="email" placeholder="Email..." id="email_field" />
                         <input type="password" placeholder="Password..." id="password_field" />
-                        <button onclick="login()">Ingresa a tu cuenta </button>
+                        <button onclick="login()" data-dismiss="modal">Ingresa a tu cuenta </button>
                         <! Aqui termina la pestaña de inicio >
                     </div>
                 
@@ -67,11 +67,6 @@
                         <button onclick="pestaña_inicio()">Volver <-</button>
                       </div>
                       <! Aqui termina html para registro de usuario por correo >     
-                
-                
-                
-                
-
                 </div>
 
 
@@ -87,7 +82,7 @@
           </div>
       </div>
       <! Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
-      <div data-dismiss="modal" id="user_div" class="loggedin-div">
+      <div id="user_div" class="loggedin-div">
         <h3>Bienvenido Usario: </h3>
         <p id="user_para">Estas actualmente conectado.</p>
         <button onclick="logout()">Cerrar Sesion</button>
