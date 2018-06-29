@@ -19,15 +19,13 @@ if (user) {
   document.getElementById("login_div").style.display = "none";
 
   var user = firebase.auth().currentUser;
-  var name, email, photoUrl, uid, emailVerified;
-  
-  if (user != null) {
-    name = user.displayName;
-    email = user.email;
-    photoUrl = user.photoURL;
-    emailVerified = user.emailVerified;
-    uid = user.uid; 
-    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email + name + photoURL + uid;
+
+  if(user != null){
+
+    var email_id = user.email;
+    var name = user.displayName;
+
+    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + name;
   }
 
 } else {
