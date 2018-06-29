@@ -35,7 +35,7 @@ add_filter('final_output', function($output) {
         //,'/(&quot;)(https?)(:)(\\\\\/\\\\\/)/'
         //,'/("|\')(https?)(:)(\\\\\/\\\\\/)/'
         //,'/(,\s*("|\')?)(https?)(:)(\/\/)/'
-        '/(("|\')https?:\/\/((hotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\/[a-zA-Z0-9\._\/-]*\.(css|js))(\?ver=[a-zA-Z0-9_.-]{1,8})("|\')/'
+        '/(("|\')https?:\/\/((hotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\/[a-zA-Z0-9\._\/-]*\.(css|js))(\?(ver|version)=[a-zA-Z0-9%_.-]{1,8})("|\')/'
     );
     $repl = array(
         //'${1}${7}'
@@ -43,7 +43,7 @@ add_filter('final_output', function($output) {
         //,'${1}${4}'
         //,'${1}${4}'
         //,'${1}${5}'
-        '${1}${8}'
+        '${1}${9}'
     );
     $output = preg_replace($patt, $repl, $output);
     
