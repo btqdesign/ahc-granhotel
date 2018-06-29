@@ -55,8 +55,27 @@
                         <button onclick="login()">Ingresa a tu cuenta </button>
                         <! Aqui termina la pestaña de inicio >
                     </div>
-                
-                
+                </div>
+                <div class="modal-footer">
+                  <p>¿No eres miembro? <u onclick="pestaña_registro()">Registrate</u></p><pre>          </pre>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar Ventana</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">    
                       <! Aqui inicia html para registro de usuario por correo > 
                        <div id="registro" class="loggedin-div">
                         <h3>Registrate con tu correo: </h3>
@@ -66,31 +85,25 @@
                         <br>
                         <button onclick="pestaña_inicio()">Volver <-</button>
                       </div>
-                      <! Aqui termina html para registro de usuario por correo >     
-                
-                
-                
-                
-                      <! Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
-                      <div id="user_div" class="loggedin-div">
-                        <h3>Bienvenido Usario: </h3>
-                        <p id="user_para">Estas actualmente conectado.</p>
-                        <button onclick="logout()">Cerrar Sesion</button>
-                      </div>
-                      <! Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
+                      <! Aqui termina html para registro de usuario por correo > 
                 </div>
-
-
                 <div class="modal-footer">
-                  <p>¿No eres miembro? <u onclick="pestaña_registro()">Registrate</u></p><pre>          </pre>
+                  <p>¿Ya eres miembro? <u onclick="pestaña_registro()">Inicia Sesion Aqui</u></p><pre>          </pre>
                   <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar Ventana</button>
-
-
-
                 </div>
               </div>
             </div>
           </div>
       </div>
+
+
+      <! Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
+      <div id="user_div" class="loggedin-div">
+        <h3>Bienvenido Usario: </h3>
+        <p id="user_para">Estas actualmente conectado.</p>
+        <button onclick="logout()">Cerrar Sesion</button>
+      </div>
+      <! Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña >
+
   </body>
 </html>
