@@ -25,7 +25,8 @@ if (user) {
     var email_id = user.email;
     var name = user.displayName;
     var photoUrl = user.photoURL;
-    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + " " +  name + " " + photoUrl;
+    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + " " +  name + " " + photoUrl
+      + '<img src"' + photoUrl + '">';
   }
 
 } else {
