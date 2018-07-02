@@ -61,14 +61,19 @@ var errorMessage = error.message;
 window.alert("Error : " + errorMessage);
 });
 
-newuserEmail.sendEmailVerification().then(function() {
-  // Email sent.
-}).catch(function(error) {
-  // An error happened.
-  window.alert("Error : " + errorMessage);
-});
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
+
+
+function verificacion(){
+  var newuserEmail = document.getElementById("new_email_field").value;
+  newuserEmail.sendEmailVerification().then(function() {
+    // Email sent.
+  }).catch(function(error) {
+    // An error happened.
+    window.alert("Error : " + errorMessage);
+  });
+}
 
 
 
