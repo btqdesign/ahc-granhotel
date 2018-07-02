@@ -84,8 +84,8 @@
         color: #fff;
         border: 1px solid #c69807;
         border-radius: 5px;
-        display: block;
-        width: 10%;
+        display: inline-block;
+        width: 15%;
         transition: 0.3s;
         -webkit-transition: 0.3s;
         -moz-transition: 0.3s;
