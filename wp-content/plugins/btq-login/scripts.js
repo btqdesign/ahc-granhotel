@@ -161,6 +161,20 @@ function facebook_login(){
 
 
 
+function recuperar_contrasena(){
+
+  var auth = firebase.auth();
+var emailAddress =  document.getElementById("recover_email_field").value; ;
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
+}
+
+
+
 
   //Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
 function pestaña_registro(){
