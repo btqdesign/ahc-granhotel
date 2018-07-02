@@ -13,25 +13,15 @@ class GDPRCompliance
 		
 		add_action('wp_ajax_wpgmza_gdpr_privacy_policy_notice_dismissed', array($this, 'onPrivacyPolicyNoticeDismissed'));
 		
-		/*$wpgmza_other_settings = get_option('WPGMZA_OTHER_SETTINGS');
+		add_action('admin_notices', array($this, 'onAdminNotices'));
+		add_action('admin_post_wpgmza_dismiss_admin_gdpr_warning', array($this, 'onDismissAdminWarning'));
 		
-		if(!isset($wpgmza_other_settings['wpgmza_gdpr_notice']))
-		{
-			if(!is_array($wpgmza_other_settings))
-				$wpgmza_other_settings = array();
-			
-			$wpgmza_other_settings = apply_filters('wpgmza_plugin_get_default_settings', $wpgmza_other_settings);
-			
-			// TODO: Remove this after performance enhancements permit
-			$wpgmza_other_settings['wpgmza_settings_marker_pull'] = '0';
-			
-			update_option('WPGMZA_OTHER_SETTINGS', $wpgmza_other_settings);
-		}*/
+		$this->setDefaultSettings();
 	}
 	
-	public function onPluginGetDefaultSettings($settings)
+	public function getDefaultSettings()
 	{
-		return array_merge($settings, array(
+		return array(
 			'wpgmza_gdpr_enabled'		=> 1,
 			'wpgmza_gdpr_notice'		=> apply_filters('wpgmza_gdpr_notice',
 											__('I agree for my personal data to be processed by {COMPANY_NAME}.
@@ -47,7 +37,27 @@ Please <a href="https://developers.google.com/maps/terms">see here</a> and <a hr
 Where this notice is displayed in place of a map, agreeing to this notice will store a cookie recording your agreement so you are not prompted again.'), 'wp-google-maps'),
 			
 			'wpgmza_gdpr_retention_purpose' => 'presenting the data you have submitted on the map.'
-		));
+		);
+	}
+	
+	public function setDefaultSettings()
+	{
+		$settings = get_option('WPGMZA_OTHER_SETTINGS');
+		
+		if(empty($settings))
+			$settings = array();
+		
+		if(isset($settings['wpgmza_gdpr_notice']))
+			return;
+		
+		$settings = array_merge($settings, $this->getDefaultSettings());
+		
+		update_option('WPGMZA_OTHER_SETTINGS', $settings);
+	}
+	
+	public function onPluginGetDefaultSettings($settings)
+	{
+		return array_merge($settings, $this->getDefaultSettings());
 	}
 	
 	public function onPrivacyPolicyNoticeDismissed()
@@ -66,11 +76,13 @@ Where this notice is displayed in place of a map, agreeing to this notice will s
 	
 	protected function getSettingsTabContent()
 	{
-		$wpgmza_other_settings = get_option('WPGMZA_OTHER_SETTINGS');
+		global $wpgmza;
+		
+		$settings = get_option('WPGMZA_OTHER_SETTINGS');
 		
 		$document = new DOMDocument();
 		$document->loadPHPFile(plugin_dir_path(__DIR__) . 'html/gdpr-compliance-settings.html.php');
-		$document->populate($wpgmza_other_settings);
+		$document->populate($settings);
 		
 		return $document;
 	}
@@ -130,6 +142,57 @@ Where this notice is displayed in place of a map, agreeing to this notice will s
 		return $input . $document->saveInnerBody();
 	}
 	
+	public function onAdminNotices()
+	{
+		global $wpgmza;
+		
+		$settings = get_option('WPGMZA_OTHER_SETTINGS');
+		
+		if(!empty($settings->wpgmza_gdpr_enabled))
+			return;
+		
+		if(!empty($_COOKIE['wpgmza-gdpr-user-has-dismissed-admin-warning']))
+			return;
+		
+		echo '
+			<div class="notice admin-notice notice-error">
+				<p>
+					<strong>
+						' . __('WP Google Maps - Warning - GDPR Compliance Disabled - Action Required', 'wp-google-maps') . '
+					</strong>
+				</p>
+				<p>
+					' . __('GDPR compliance has been disabled, read more about the implications of this here: ', 'wp-google-maps') . '
+					<a href="https://www.eugdpr.org/" target="_blank">' . __('EU GDPR', 'wp-google-maps') . '</a>
+				</p>
+				<p>
+					' . __('Additionally please take a look at WP Google Maps <a href="https://www.wpgmaps.com/privacy-policy">Privacy Policy</a>') . '
+				</p>
+				<p>
+					' . __('It is highly recommended that you enable GDPR compliance to ensure your user data is regulated.') . '
+				</p>
+				
+				<form action="' . admin_url('admin-post.php') . '" method="POST">
+					<input type="hidden" name="action" value="wpgmza_dismiss_admin_gdpr_warning"/>
+					<input type="hidden" name="redirect" value="' . $_SERVER['REQUEST_URI'] . '"/>
+				
+					<p>
+						<a href="' . admin_url('admin.php?page=wp-google-maps-menu-settings') . '" class="button button-secondary">' . __('Privacy Settings', 'wp-google-maps') . '</a>
+					
+						<button type="submit" class="button button-primary" style="background-color: #DC3232 !important; border: none !important; box-shadow: 0 1px 0 #DA2825; text-shadow: 0px -1px 1px #DA2825">' . __('Dismiss & Accept Responsibility', 'wp-google-maps') . '</button>
+					</p>
+				</form>
+			</div>
+		';
+	}
+	
+	public function onDismissAdminWarning()
+	{
+		setcookie('wpgmza-gdpr-user-has-dismissed-admin-warning', 'true', 2147483647);
+		wp_redirect($_POST['redirect']);
+		exit;
+	}
+	
 	public function onPOST()
 	{
 		$document = $this->getSettingsTabContent();
@@ -150,9 +213,13 @@ Where this notice is displayed in place of a map, agreeing to this notice will s
 			{
 				case 'checkbox':
 					if($input->getValue())
+					{
 						$wpgmza_other_settings[$name] = 1;
+					}
 					else
+					{
 						unset($wpgmza_other_settings[$name]);
+					}
 					break;
 				
 				default:
