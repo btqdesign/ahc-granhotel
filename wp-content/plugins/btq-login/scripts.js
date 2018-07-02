@@ -157,7 +157,7 @@ function facebook_login(){
 
   //Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
 function pestaña_registro(){
-  document.getElementById("registro").style.display = "block";
+  document.getElementById("registro").style.display = "inline-block";
   document.getElementById("login_div").style.display = "none";
 }
   //Aqui termina la funcion para ocultar la pestaña de inicio y mostrar la de registro
