@@ -56,7 +56,7 @@
       }
     
     
-      .main-div button, .loggedin-div button {
+      .main-div button, .loggedin-div button, #botones {
         height: 40px;
         margin: 0px 0px 0px 0px;
         background: #c69807;
@@ -70,7 +70,7 @@
         -moz-transition: 0.3s;
       }
       
-      .main-div button:hover, .loggedin-div button:hover {
+      .main-div button:hover, .loggedin-div button:hover, #botones:hover{
         background: #fff;
         color: #000000;
         border: 1px solid #c69807;
