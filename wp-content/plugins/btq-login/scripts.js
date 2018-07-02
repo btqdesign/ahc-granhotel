@@ -65,6 +65,7 @@ newuserEmail.sendEmailVerification().then(function() {
   // Email sent.
 }).catch(function(error) {
   // An error happened.
+  window.alert("Error : " + errorMessage);
 });
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
