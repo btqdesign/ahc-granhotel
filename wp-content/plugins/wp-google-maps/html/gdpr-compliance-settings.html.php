@@ -11,7 +11,7 @@
 			<i class="fa fa-question-circle" 
 				title="<?php _e('Disabling will disable all GDPR related options, this is not advised.', 'wp-google-maps'); ?>"/>
 		</label>
-		<input name="wpgmza_gdpr_enabled" type="checkbox" checked="checked"/>
+		<input name="wpgmza_gdpr_enabled" type="checkbox"/>
 	</fieldset>
 	
 	<fieldset>

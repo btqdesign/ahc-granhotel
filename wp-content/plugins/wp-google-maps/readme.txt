@@ -215,6 +215,15 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.10.17 - 2018-06-29 :- Medium Priority =
+* Fixed country restriction broken in store locator
+* Added dismissable admin GDPR warning when GDPR compliance has been switched off
+* Fixed GDPR settings blank by default on some installations
+
+= 7.10.16 - 2018-06-21 :- Medium priority =
+* Fixed global settings lost
+* Fixed whitespace matched in version variable
+
 = 7.10.15 - 2018-06-14 :- Medium priority =
 * Fixed GDPR consent notice bypassed when "prevent other plugins and theme enqueueing maps API" is not set
 

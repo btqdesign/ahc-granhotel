@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-06-28 15:38:15+0000\n"
+"PO-Revision-Date: 2018-06-29 12:08:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,16 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
+
+#. translators: %1$s expands to an opening anchor tag, %2$s expands to a
+#. closing anchor tag.
+#: admin/views/tabs/metas/post-types.php:73
+msgid "You can edit the SEO meta-data for this custom type on the %1$sShop page%2$s."
+msgstr "Puedes editar los metadatos SEO de este tipo de contenido personalizado en la %1$spágina de la tienda%2$s."
+
+#: admin/views/tabs/metas/post-types.php:68
+msgid "You haven't set a Shop page in your WooCommerce settings. Please do this first."
+msgstr "No has configurado una página de tienda en tus ajustes de WooCommerce, Por favor, haz primero esto."
 
 #: languages/wordpress-seojs.php:14
 msgid "Current year"
@@ -221,12 +231,13 @@ msgid "You just trashed a %1$s."
 msgstr "Acabas de enviar a la papelera una %1$s."
 
 #. translators: %s is the plural version of the post type's name.
-#: admin/views/tabs/metas/post-types.php:90
+#: admin/views/tabs/metas/post-types.php:111
 msgid "Breadcrumb settings for %s archive"
 msgstr "Ajustes de migas de pan para el archivo de %s"
 
 #. translators: %s is the plural version of the post type's name.
-#: admin/views/tabs/metas/post-types.php:68
+#: admin/views/tabs/metas/post-types.php:79
+#: admin/views/tabs/metas/post-types.php:89
 msgid "Settings for %s archive"
 msgstr "Ajustes del archivo de %s"
 
@@ -620,7 +631,7 @@ msgid "Learn more about the RSS feed setting"
 msgstr "Aprende más sobre el ajuste del RSS feed"
 
 #. translators: %s expands to the post type's name.
-#: admin/views/tabs/metas/post-types.php:76
+#: admin/views/tabs/metas/post-types.php:97
 msgid "the archive for %s"
 msgstr "el archivo para %s"
 
@@ -922,53 +933,53 @@ msgstr "Nueva petición de soporte"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:79
+#: admin/formatter/class-metabox-formatter.php:80
 msgid "Readability: %1$sNot available%2$s"
 msgstr "Legibilidad: %1$sNo disponible%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:85
+#: admin/formatter/class-metabox-formatter.php:86
 msgid "Readability: %1$sNeeds improvement%2$s"
 msgstr "Legibilidad: %1$sNecesita mejoras%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:91
+#: admin/formatter/class-metabox-formatter.php:92
 msgid "Readability: %1$sOK%2$s"
 msgstr "Legibilidad: %1$sBien%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:97
+#: admin/formatter/class-metabox-formatter.php:98
 msgid "Readability: %1$sGood%2$s"
 msgstr "Legibilidad: %1$sBuena%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:105
+#: admin/formatter/class-metabox-formatter.php:106
 msgid "SEO: %1$sNot available%2$s"
 msgstr "SEO: %1$sNo disponible%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:111
+#: admin/formatter/class-metabox-formatter.php:112
 msgid "SEO: %1$sNeeds improvement%2$s"
 msgstr "SEO: %1$sNecesita mejoras%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:117
+#: admin/formatter/class-metabox-formatter.php:118
 msgid "SEO: %1$sOK%2$s"
 msgstr "SEO: %1$sBien%2$s"
 
 #. translators: %1$s expands to an opening strong tag, %2$s expands to a
 #. closing strong tag.
-#: admin/formatter/class-metabox-formatter.php:123
+#: admin/formatter/class-metabox-formatter.php:124
 msgid "SEO: %1$sGood%2$s"
 msgstr "SEO: %1$sBueno%2$s"
 
-#: admin/formatter/class-metabox-formatter.php:163
+#: admin/formatter/class-metabox-formatter.php:164
 #: languages/yoast-components.php:137
 msgid "Good results"
 msgstr "Buenos resultados"
@@ -1082,12 +1093,12 @@ msgstr "Has utilizado esta palabra clave objetivo %1$s%2$d veces antes%3$s. Prob
 msgid "You've used this focus keyword %1$sonce before%2$s. It’s probably a good idea to read about %3$swhy you should not use your focus keyword more than once%4$s."
 msgstr "Has utilizado esta palabra clave objetivo %1$suna vez antes%2$s. Probablemente sea buena idea leer %3$spor qué no deberías usar tu palabra clave objetivo más de una vez%4$s."
 
-#: admin/formatter/class-metabox-formatter.php:167
+#: admin/formatter/class-metabox-formatter.php:168
 #: languages/yoast-components.php:110
 msgid "Remove highlight from the text"
 msgstr "Quitar el resaltado del texto"
 
-#: admin/formatter/class-metabox-formatter.php:164
+#: admin/formatter/class-metabox-formatter.php:165
 msgid "Your site language is set to {language}."
 msgstr "El idioma de tu sitio está configurado a {language}."
 
@@ -1105,7 +1116,7 @@ msgstr "¡Comienza ya mismo con el %2$sasistente de configuración%3$s de %1$s!"
 msgid "First-time SEO configuration"
 msgstr "Configuración SEO inicial"
 
-#: admin/formatter/class-metabox-formatter.php:165
+#: admin/formatter/class-metabox-formatter.php:166
 msgid "Your site language is set to {language}. If this is not correct, contact your site administrator."
 msgstr "El idioma de tu sitio está configurado a {language}. Si esto no es correcto contacta con el administrador de tu sitio."
 
@@ -1113,22 +1124,22 @@ msgstr "El idioma de tu sitio está configurado a {language}. Si esto no es corr
 msgid "Your site language is set to %s."
 msgstr "El idioma de tu sitio está configurado a %s."
 
-#: admin/formatter/class-metabox-formatter.php:166
+#: admin/formatter/class-metabox-formatter.php:167
 #: languages/yoast-components.php:113
 msgid "Highlight this result in the text"
 msgstr "Resalta este resultado en el texto"
 
-#: admin/formatter/class-metabox-formatter.php:162
+#: admin/formatter/class-metabox-formatter.php:163
 #: languages/yoast-components.php:134
 msgid "Considerations"
 msgstr "Consideraciones"
 
-#: admin/formatter/class-metabox-formatter.php:159
+#: admin/formatter/class-metabox-formatter.php:160
 #: languages/yoast-components.php:125
 msgid "Errors"
 msgstr "Errores"
 
-#: admin/formatter/class-metabox-formatter.php:158
+#: admin/formatter/class-metabox-formatter.php:159
 #: languages/yoast-components.php:119
 msgid "Change language"
 msgstr "Cambiar idioma"
@@ -1262,7 +1273,7 @@ msgid "Go back to the search results"
 msgstr "Volver a los resultados de búsqueda"
 
 #: admin/class-add-keyword-modal.php:38 admin/class-help-center.php:263
-#: admin/formatter/class-metabox-formatter.php:169
+#: admin/formatter/class-metabox-formatter.php:170
 #: languages/yoast-components.php:205
 msgid "(Opens in a new browser tab)"
 msgstr "(Se abre en  una nueva pestaña del navegador)"
@@ -2214,7 +2225,7 @@ msgstr "Quitar marcas del texto"
 msgid "Mark this result in the text"
 msgstr "Marca este resultado en el texto"
 
-#: admin/formatter/class-metabox-formatter.php:168
+#: admin/formatter/class-metabox-formatter.php:169
 #: languages/yoast-components.php:107 languages/yoast-seo-js.php:362
 msgid "Marks are disabled in current view"
 msgstr "Las marcas están desactivadas en la vista actual"
@@ -3011,7 +3022,7 @@ msgstr "Estás tratando de cargar archivos sin minimizar. Estos solo están disp
 msgid "You have a new issue concerning your SEO!"
 msgstr "¡Tienes un nuevo problema relacionado con tu SEO!"
 
-#: admin/formatter/class-metabox-formatter.php:161
+#: admin/formatter/class-metabox-formatter.php:162
 #: languages/yoast-components.php:131
 msgid "Improvements"
 msgstr "A mejorar"
@@ -3033,7 +3044,7 @@ msgstr "¡Buen trabajo! No hemos podido detectar ningún problema grave de SEO."
 msgid "We have detected the following issues that affect the SEO of your site."
 msgstr "Hemos detectado los siguientes problemas que afectan al SEO de tu sitio."
 
-#: admin/formatter/class-metabox-formatter.php:160
+#: admin/formatter/class-metabox-formatter.php:161
 #: admin/views/partial-alerts-errors.php:11 languages/yoast-components.php:128
 msgid "Problems"
 msgstr "Problemas"
@@ -3050,7 +3061,7 @@ msgstr "Este es el análisis de contenido, una colección de revisiones de conte
 msgid "Pick the main keyword or keyphrase that this post/page is about. %1$sLearn more about the Focus Keyword%2$s."
 msgstr "Escoge la palabra clave principal o frase clave sobre la que trata esta entrada/página. %1$sAprende más sobre la palabra clave objetivo%2$s."
 
-#: admin/formatter/class-metabox-formatter.php:131
+#: admin/formatter/class-metabox-formatter.php:132
 #: admin/metabox/class-metabox.php:64
 #: admin/taxonomy/class-taxonomy-content-fields.php:36
 msgid "Analysis"
@@ -3402,7 +3413,7 @@ msgstr "Equipo Yoast"
 msgid "The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more."
 msgstr "La primera verdadera solución SEO todo en uno para WordPress, incluyendo análisis de contenido de páginas, mapas del sitio en XML y mucho más."
 
-#. #-#-#-#-#  wordpress-seo-code.pot (Yoast SEO 7.7.1)  #-#-#-#-#
+#. #-#-#-#-#  wordpress-seo-code.pot (Yoast SEO 7.7.2)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: admin/capabilities/class-capability-manager-integration.php:68
 msgid "Yoast SEO"
@@ -4666,7 +4677,7 @@ msgstr "Información general de entradas de %s"
 msgid "The Breadcrumbs Title is used in the breadcrumbs where this taxonomy appears."
 msgstr "El título de las migas de pan se utiliza en las migas de pan de las taxonomías."
 
-#: admin/views/tabs/metas/post-types.php:91
+#: admin/views/tabs/metas/post-types.php:112
 msgid "Breadcrumbs title"
 msgstr "Título de la ruta de las migas de pan"
 
@@ -5141,7 +5152,7 @@ msgstr "Elimina la página del blog de las migas de pan"
 msgid "%s Breadcrumbs"
 msgstr "%s Migas de pan"
 
-#: admin/class-config.php:118 admin/metabox/class-metabox.php:928
+#: admin/class-config.php:119 admin/metabox/class-metabox.php:928
 #: admin/taxonomy/class-taxonomy.php:121
 msgid "Use Image"
 msgstr "Usar imagen"
