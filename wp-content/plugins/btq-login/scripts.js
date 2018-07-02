@@ -60,6 +60,13 @@ var errorCode = error.code;
 var errorMessage = error.message; 
 window.alert("Error : " + errorMessage);
 });
+var user = firebase.auth().currentUser;
+
+user.sendEmailVerification().then(function() {
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
