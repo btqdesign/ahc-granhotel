@@ -215,6 +215,9 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.10.18 - 2018-07-02 :- Medium Priority =
+* Fixed GDPR back end warning appearing when GDPR compliance is enabled
+
 = 7.10.17 - 2018-06-29 :- Medium Priority =
 * Fixed country restriction broken in store locator
 * Added dismissable admin GDPR warning when GDPR compliance has been switched off
