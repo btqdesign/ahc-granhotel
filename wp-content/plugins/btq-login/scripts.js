@@ -174,3 +174,9 @@ document.getElementById("registro").style.display = "none";
 }
     //Aqui termina la funcion para ocultar cualquier pestaña y mostrar la de inicio
 
+
+    function pestaña_ocultar(){
+      document.getElementById("login_div").style.display = "none";
+      document.getElementById("user_div").style.display = "none";
+      document.getElementById("registro").style.display = "none";  
+      }
