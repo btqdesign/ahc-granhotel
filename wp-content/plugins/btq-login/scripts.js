@@ -194,3 +194,11 @@ document.getElementById("user_div").style.display = "none";
 document.getElementById("registro").style.display = "none";  
 }
     //Aqui termina la funcion para ocultar cualquier pestaña y mostrar la de inicio
+
+function pestaña_recuperar(){
+  document.getElementById("recuperar").style.display = "block";
+  document.getElementById("login_div").style.display = "none";
+  document.getElementById("user_div").style.display = "none";
+  document.getElementById("registro").style.display = "none";  
+
+}
