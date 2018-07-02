@@ -60,9 +60,8 @@ var errorCode = error.code;
 var errorMessage = error.message; 
 window.alert("Error : " + errorMessage);
 });
-var user = firebase.auth().currentUser;
 
-user.sendEmailVerification().then(function() {
+newuserEmail.sendEmailVerification().then(function() {
   // Email sent.
 }).catch(function(error) {
   // An error happened.
