@@ -148,7 +148,7 @@ Where this notice is displayed in place of a map, agreeing to this notice will s
 		
 		$settings = get_option('WPGMZA_OTHER_SETTINGS');
 		
-		if(!empty($settings->wpgmza_gdpr_enabled))
+		if(!empty($settings['wpgmza_gdpr_enabled']))
 			return;
 		
 		if(!empty($_COOKIE['wpgmza-gdpr-user-has-dismissed-admin-warning']))
