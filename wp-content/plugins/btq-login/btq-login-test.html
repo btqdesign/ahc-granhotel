@@ -80,12 +80,14 @@
             </div>
             <div class="modal-body">    
                   <! Aqui inicia html para registro de usuario por correo > 
+                   <div id="registro" class="loggedin-div">
                     <h3>Registrate con tu correo: </h3>
                     <input type="email" placeholder="Correo" id="new_email_field" required/>
                     <input type="password" placeholder="Contraseña" id="new_password_field" required/>
                     <button onclick="nuevo_usuario()">Finalizar tu registro </button>
                   </div>
                   <! Aqui termina html para registro de usuario por correo >     
+            </div>
             <div class="modal-footer">
               <p>¿Ya eres miembro? <u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Inicia Sesion</u></p><pre>         </pre>
               <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar Ventana</button>
