@@ -66,8 +66,12 @@ window.alert("Error : " + errorMessage);
 
 
 function verificacion(){
-  firebase.auth().onAuthStateChanged(function(user) {
-    user.sendEmailVerification(); 
+  var user = firebase.auth().currentUser;
+
+  user.sendEmailVerification().then(function() {
+    // Email sent.
+  }).catch(function(error) {
+    // An error happened.
   });
 }
 
