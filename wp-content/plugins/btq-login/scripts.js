@@ -1,14 +1,4 @@
 
-//funcion para conectar con firebase>
-
-
-
-
-
-  //Aqui termina la conexcion a firebase
-
-
-
 //Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -59,15 +49,18 @@ function nuevo_usuario(){
       // Errores en caso de que no se pueda registrar
       var errorCode = error.code;
       var errorMessage = error.message; 
+      if(errorMessage != null){
+        document.getElementById("botones_primarios").style.display = "block";  
+      }else{
+        document.getElementById("registro_completado").style.display = "block";
+        document.getElementById("recuperado").style.display = "none";
+        document.getElementById("recuperar").style.display = "none";
+        document.getElementById("login_div").style.display = "none";
+        document.getElementById("user_div").style.display = "none";
+        document.getElementById("registro").style.display = "none";
+        document.getElementById("botones_primarios").style.display = "none";  
+      }
       });
-      document.getElementById("registro_completado").style.display = "block";
-      document.getElementById("recuperado").style.display = "none";
-      document.getElementById("recuperar").style.display = "none";
-      document.getElementById("login_div").style.display = "none";
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("registro").style.display = "none";
-      document.getElementById("botones_primarios").style.display = "none";  
-
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
