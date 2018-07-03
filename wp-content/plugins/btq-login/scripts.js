@@ -44,11 +44,9 @@ function nuevo_usuario(){
       // Errores en caso de que no se pueda registrar
       var errorCode = error.code;
       var errorMessage = error.message; 
-      if(errorMessage != null){
-        document.getElementById("botones_primarios").style.display = "block";  
-        document.getElementById("registro").style.display = "block";
+        document.getElementById("botones_primarios").style.display = "none";  
+        document.getElementById("registro").style.display = "none";
         document.getElementById("registro_completado").style.display = "block";
-      }
       });
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
