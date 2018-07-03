@@ -43,7 +43,7 @@ function btq_login_scripts() {
 	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebasejs'), '1.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1002 );
+add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
 
 /**
  * Declara el Widget de BTQ Login en VisualCompouser.
