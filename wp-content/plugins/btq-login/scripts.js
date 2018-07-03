@@ -25,8 +25,10 @@ if (user) {
     var email_id = user.email;
     var name = user.displayName;
     var photoUrl = user.photoURL;
+    if(name == "null" )
+    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id;
+    else
     document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + " " +  name;
-
   }
 
 } else {
@@ -69,16 +71,15 @@ window.alert("Error : " + errorMessage);
  //login con correo y contraseña
 function login(){
 
-var userEmail = document.getElementById("email_field").value;
-var userPass = document.getElementById("password_field").value;
+    var userEmail = document.getElementById("email_field").value;
+    var userPass = document.getElementById("password_field").value;
 
-firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-  // Errores en caso de que no pueda iniciar sesion
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  window.alert("Error : " + errorMessage);
-});
-
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+      // Errores en caso de que no pueda iniciar sesion
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      window.alert("Error : " + errorMessage);
+    });
 }
   //aqui termina login con correo y contraseña
 
@@ -87,12 +88,12 @@ firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(e
 
 //Aqui inicia el cierre de sesion del usuario de los 3 metodos
 function logout(){
-firebase.auth().signOut();
-firebase.auth().signOut().then(function() {
-  //Si cierra sesion correctamente
-}).catch(function(error) {
-  //Si sucede algun error
-});
+    firebase.auth().signOut();
+    firebase.auth().signOut().then(function() {
+      //Si cierra sesion correctamente
+    }).catch(function(error) {
+      //Si sucede algun error
+    });
 }
 //Aqui termina el cierre de sesion del usuario de los 3 metodos
 
@@ -198,11 +199,3 @@ function pestaña_recuperar(){
   document.getElementById("recuperado").style.display = "none";
 }
 
-function pestaña_recuperada(){
-  document.getElementById("recuperado").style.display = "block";
-  document.getElementById("recuperar").style.display = "none";
-  document.getElementById("login_div").style.display = "none";
-  document.getElementById("user_div").style.display = "none";
-  document.getElementById("registro").style.display = "none";  
-
-}
