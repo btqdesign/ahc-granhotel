@@ -84,8 +84,8 @@ function login(){
       var errorCode = error.code;
       var errorMessage = error.message;
       window.alert("Error : " + errorMessage);
+      document.getElementById("botones_primarios").style.display = "none";
     });
-    document.getElementById("botones_primarios").style.display = "none";
 }
   //aqui termina login con correo y contraseña
 
@@ -97,10 +97,10 @@ function logout(){
     firebase.auth().signOut();
     firebase.auth().signOut().then(function() {
       //Si cierra sesion correctamente
+      document.getElementById("botones_primarios").style.display = "block";
     }).catch(function(error) {
       //Si sucede algun error
     });
-    document.getElementById("botones_primarios").style.display = "block";
 }
 //Aqui termina el cierre de sesion del usuario de los 3 metodos
 
@@ -117,6 +117,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Te da la informacion del usuario
     var user = result.user;
     // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
+    document.getElementById("botones_primarios").style.display = "none";
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
     var errorCode = error.code;
@@ -128,7 +129,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // ...
     window.alert("Error : " + errorMessage);
 });
-document.getElementById("botones_primarios").style.display = "none";
 }
 //Aqui termina funcion para iniciar sesion con google
 
@@ -148,6 +148,7 @@ function facebook_login(){
     // Obtiene la informacion del usuario
     var user = result.user;
     // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
+    document.getElementById("botones_primarios").style.display = "none";
   }).catch(function(error) {
     // Errores en caso de no iniciar sesion
     var errorCode = error.code;
