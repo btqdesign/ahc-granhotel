@@ -140,7 +140,6 @@ function facebook_login(){
     // Obtiene la informacion del usuario
     var user = result.user;
     // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
-    if(user != null)
     document.getElementById("botones_primarios").style.display = "none";
   }).catch(function(error) {
     // Errores en caso de no iniciar sesion
@@ -152,7 +151,6 @@ function facebook_login(){
     var credential = error.credential;
     // ...
   });
-  document.getElementById("botones_primarios").style.display = "none";
 }
 //Aqui termina funcion para iniciar sesion con facebook
 
