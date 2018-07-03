@@ -24,8 +24,7 @@ if (user) {
 
     var email_id = user.email;
     var name = user.displayName;
-    var photoUrl = user.photoURL;
-    if(name == "null" )
+    if(name == null )
     document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id;
     else
     document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + " " +  name;
