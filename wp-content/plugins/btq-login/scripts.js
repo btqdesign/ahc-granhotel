@@ -100,6 +100,7 @@ function logout(){
     }).catch(function(error) {
       //Si sucede algun error
     });
+    document.getElementById("botones_primarios").style.display = "block";
 }
 //Aqui termina el cierre de sesion del usuario de los 3 metodos
 
