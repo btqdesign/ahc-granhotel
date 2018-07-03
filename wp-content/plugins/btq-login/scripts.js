@@ -37,6 +37,8 @@ if (user) {
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
+  document.getElementById("registro").style.display = "none";
+  document.getElementById("registro_completado").style.display = "block";
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
 
@@ -45,9 +47,6 @@ function nuevo_usuario(){
       var errorCode = error.code;
       var errorMessage = error.message; 
       });
-      document.getElementById("registro").style.display = "none";
-      document.getElementById("registro_completado").style.display = "block";
-
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
