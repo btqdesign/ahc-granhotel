@@ -110,6 +110,8 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Te da la informacion del usuario
     var user = result.user;
     // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
+    if(user != null)
+    document.getElementById("botones_primarios").style.display = "none";
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
     var errorCode = error.code;
@@ -119,8 +121,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Si la credencial de auth ya esta usada.
     var credential = error.credential;
     // ...
-    document.getElementById("botones_primarios").style.display = "none";
-
 });
 }
 //Aqui termina funcion para iniciar sesion con google
