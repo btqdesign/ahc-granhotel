@@ -84,9 +84,9 @@ function btq_login_shortcode() {
 	ob_start();
 	?>
 
- 
+	<div id="botones_primarios" style="z-index:10000; display: inline-block; float:left;"> 
 <!-- Button trigger modal -->
-        <button id="botones_primarios" id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Inicia Sesión</button>
+        <button id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Inicia Sesión</button>
           
           <!-- Modal -->
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -122,7 +122,7 @@ function btq_login_shortcode() {
 
 
 
-          <button id="botones_primarios" id="botones" type="button" onclick="pestaña_registro()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Registro</button>
+          <button id="botones" type="button" onclick="pestaña_registro()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Registro</button>
           <!-- Modal -->
       <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -191,7 +191,7 @@ function btq_login_shortcode() {
       </div>
     </div>
   </div>
-
+</div>
 
 
 
