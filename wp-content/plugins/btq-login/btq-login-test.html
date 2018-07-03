@@ -88,12 +88,13 @@
                     <input type="password" placeholder="Contraseña" id="new_password_field" required/>
                     <button onclick="nuevo_usuario()">Finaliza tu registro </button>
                   </div>
-                  <! Aqui termina html para registro de usuario por correo >     
-            </div>
-            <div class="modal-footer">
-              <p>¿Ya eres miembro? <u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Inicia Sesion</u></p><pre>   </pre>
-              <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">¿Olvidaste tu contraseña?</p>
-            </div>
+                  <! Aqui termina html para registro de usuario por correo >   
+                  <div id="registro_completado" class="loggedin-div">
+                    <h3>Registro exitoso: </h3>
+                      <br>
+                    <h5>Tu registro se ha completado correctamente, hemos iniciado sesion automaticamente por ti.</h5>
+                  </div>  
+                </div>
           </div>
         </div>
       </div>
@@ -122,7 +123,7 @@
               <! Aqui termina html para registro de usuario por correo >     
               <div id="recuperado" class="loggedin-div">
                 <h3>Restablecimiento de Contraseña: </h3>
-                <br>
+                <br
                 <h5>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h5>
               </div>
         </div>
