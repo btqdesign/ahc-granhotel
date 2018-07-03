@@ -202,6 +202,8 @@ $solaz_settings = solaz_check_theme_options();
 								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
 								'walker' => new Solaz_Primary_Walker_Nav_Menu()
 							));
+							echo "en";
+							btq_login_shortcode();
 						}
 					}
 					else{
@@ -212,10 +214,10 @@ $solaz_settings = solaz_check_theme_options();
 								'items_wrap' => $before_items_wrap . '<ul id="%1$s" class="%2$s">%3$s</ul>' . $after_item_wrap,
 								'walker' => new Solaz_Primary_Walker_Nav_Menu()
 							));
+							echo "boton";
+							btq_login_shortcode();
 						}
 					}
-
-					btq_login_shortcode();
 				?>	
 				    <?php if (class_exists('WP_Hotel_Booking')):?>	    
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
