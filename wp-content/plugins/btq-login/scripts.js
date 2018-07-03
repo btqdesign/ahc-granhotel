@@ -46,8 +46,6 @@ function nuevo_usuario(){
       var errorMessage = error.message; 
       });
       document.getElementById("registro_completado").style.display = "block";
-      document.getElementById("botones_primarios").style.display = "none";  
-      document.getElementById("registro").style.display = "none";
 
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
