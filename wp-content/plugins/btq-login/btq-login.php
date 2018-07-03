@@ -83,7 +83,8 @@ add_action( 'vc_before_init', 'btq_booking_login_VC' );
 function btq_login_shortcode() {
 	ob_start();
 	?>
-<div id="botones_primarios"> 
+
+	<div id="botones_primarios"> 
 <!-- Button trigger modal -->
         <button id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Inicia Sesión</button>
           
@@ -99,9 +100,9 @@ function btq_login_shortcode() {
                 </div>
                 <div class="modal-body">    
                     <div id="login_div" class="main-div">      
-                        <button onclick="facebook_login()" data-dismiss="modal"><img src="fb.png"/> Continuar con Facebook </button>
+                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', __FILE__ ); ?>"/>Continuar con Facebook </button>
                         <br>
-                        <button onclick="google_login()" data-dismiss="modal"><img src="google.png"/>  Continuar con Google </button>
+                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png"', __FILE__ ); ?>"/>  Continuar con Google </button>
                         <br>
                         <input type="email" placeholder="Correo" id="email_field" />
                         <input type="password" placeholder="Contraseña" id="password_field" />
