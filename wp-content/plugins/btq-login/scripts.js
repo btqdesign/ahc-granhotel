@@ -66,9 +66,10 @@ window.alert("Error : " + errorMessage);
 
 
 function verificacion(){
-  var user = firebase.auth().currentUser;
+  var auth = firebase.auth();
+  var emailAddress =  document.getElementById("new_email_field").value; ;
 
-  user.sendEmailVerification().then(function() {
+  auth.sendEmailVerification(emailAddress).then(function() {
     // Email sent.
   }).catch(function(error) {
     // An error happened.
@@ -168,14 +169,14 @@ function facebook_login(){
 
 function recuperar_contrasena(){
 
-  var auth = firebase.auth();
-var emailAddress =  document.getElementById("recover_email_field").value; ;
+    var auth = firebase.auth();
+    var emailAddress =  document.getElementById("recover_email_field").value; ;
 
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  // Email sent.
-}).catch(function(error) {
-  // An error happened.
-});
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+    });
 }
 
 
@@ -187,9 +188,6 @@ function pestaña_registro(){
   document.getElementById("login_div").style.display = "none";
 }
   //Aqui termina la funcion para ocultar la pestaña de inicio y mostrar la de registro
-
-
-
 
 
   //Aqui inicia la funcion para ocultar cualquier pestaña y mostrar la de inicio
