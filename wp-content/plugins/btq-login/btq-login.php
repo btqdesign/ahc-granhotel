@@ -198,7 +198,7 @@ function btq_login_shortcode() {
       <!-- Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
       <div id="user_div" class="loggedin-div">
         <h3>Bienvenido Usario: </h3>
-        <p id="user_para">Estas actualmente conectado.</p>
+        <p id="user_para"></p>
         <button onclick="logout()">Cerrar Sesión</button>
       </div>
       <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
