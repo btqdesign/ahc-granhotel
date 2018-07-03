@@ -15,9 +15,9 @@ if (user) {
     var email_id = user.email;
     var name = user.displayName;
     if(name == null )
-    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id;
+    document.getElementById("user_para").innerHTML = email_id;
     else
-    document.getElementById("user_para").innerHTML = "Bienvenido usuario : " + email_id + " " +  name;
+    document.getElementById("user_para").innerHTML =email_id + " " +  name;
   }
 
 } else {
