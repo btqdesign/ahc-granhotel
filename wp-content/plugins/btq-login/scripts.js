@@ -157,6 +157,7 @@ function facebook_login(){
     var credential = error.credential;
     // ...
   });
+  document.getElementById("botones_primarios").style.display = "none";
 }
 //Aqui termina funcion para iniciar sesion con facebook
 
