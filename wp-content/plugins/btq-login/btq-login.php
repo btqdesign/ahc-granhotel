@@ -112,7 +112,7 @@ function btq_login_shortcode() {
                 </div>
                 <div class="modal-footer">
                   <p>¿No eres miembro? <u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal">Registrate</u></p>
-                  <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;¿Olvidaste tu contraseña?</p>
+                  <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">¿Olvidaste tu contraseña?</p>
 
                 </div>
               </div>
