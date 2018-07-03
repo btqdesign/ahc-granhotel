@@ -11,7 +11,6 @@ if (user) {
   var user = firebase.auth().currentUser;
 
   if(user != null){
-    document.getElementById("botones_primarios").style.display = "none";
     var email_id = user.email;
     var name = user.displayName;
     if(name == null )
@@ -40,7 +39,7 @@ function nuevo_usuario(){
 
   document.getElementById("registro").style.display = "none";  
   document.getElementById("registro_completado").style.display = "block";
-
+  
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
 
@@ -64,6 +63,7 @@ function login(){
       // Errores en caso de que no pueda iniciar sesion
       var errorCode = error.code;
       var errorMessage = error.message;
+      document.getElementById("botones_primarios").style.display = "none";
     });
 }
   //aqui termina login con correo y contraseña
