@@ -164,6 +164,11 @@ function recuperar_contrasena(){
     }).catch(function(error) {
       // An error happened.
     });
+    document.getElementById("recuperado").style.display = "block";
+    document.getElementById("recuperar").style.display = "none";
+    document.getElementById("login_div").style.display = "none";
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("registro").style.display = "none";  
 }
 
 
