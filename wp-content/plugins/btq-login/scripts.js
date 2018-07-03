@@ -65,19 +65,6 @@ window.alert("Error : " + errorMessage);
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
 
-function verificacion(){
-  var auth = firebase.auth();
-  var emailAddress =  document.getElementById("new_email_field").value; ;
-
-  auth.sendEmailVerification(emailAddress).then(function() {
-    // Email sent.
-  }).catch(function(error) {
-    // An error happened.
-  });
-}
-
-
-
 
  //login con correo y contraseña
 function login(){
@@ -200,6 +187,15 @@ document.getElementById("registro").style.display = "none";
 
 function pestaña_recuperar(){
   document.getElementById("recuperar").style.display = "block";
+  document.getElementById("login_div").style.display = "none";
+  document.getElementById("user_div").style.display = "none";
+  document.getElementById("registro").style.display = "none";  
+  document.getElementById("recuperado").style.display = "none";
+}
+
+function pestaña_recuperada(){
+  document.getElementById("recuperado").style.display = "block";
+  document.getElementById("recuperar").style.display = "none";
   document.getElementById("login_div").style.display = "none";
   document.getElementById("user_div").style.display = "none";
   document.getElementById("registro").style.display = "none";  

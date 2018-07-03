@@ -86,7 +86,7 @@
                     <h3>Registrate con tu correo: </h3>
                     <input type="email" placeholder="Correo" id="new_email_field" required/>
                     <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                    <button onclick="nuevo_usuario()" onclick="verificacion()">Finaliza tu registro </button>
+                    <button onclick="nuevo_usuario()">Finaliza tu registro </button>
                   </div>
                   <! Aqui termina html para registro de usuario por correo >     
             </div>
@@ -106,7 +106,7 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Recuperar Contraseña</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle">Restablecer Contraseña</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -117,9 +117,13 @@
               <div id="recuperar" class="loggedin-div">
                 <h3>Ingresa tu correo: </h3>
                 <input type="email" placeholder="Correo" id="recover_email_field" required/>
-                <button onclick="recuperar_contrasena()">Recupera tu contraseña </button>
+                <button onclick="recuperar_contrasena()" onclick="pestaña_recuperada">Restablecer tu contraseña </button>
               </div>
               <! Aqui termina html para registro de usuario por correo >     
+              <div id="recuperado" class="loggedin-div">
+                <h3>Restableciemiento de Contraseña: </h3>
+                <h4>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h4>
+              </div>
         </div>
         <div class="modal-footer">
           <p>¿Ya eres miembro? <u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Inicia Sesion</u></p>
