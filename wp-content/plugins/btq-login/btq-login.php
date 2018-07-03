@@ -73,7 +73,7 @@ function btq_login_wp_head(){
 <?php
 	}
 }
-add_action('wp_enqueue_scripts', 'btq_login_wp_head', 1002);
+//add_action('wp_enqueue_scripts', 'btq_login_wp_head', 1002);
 
 /**
  * Declara el Widget de BTQ Login en VisualCompouser.
