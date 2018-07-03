@@ -66,12 +66,8 @@ window.alert("Error : " + errorMessage);
 
 
 function verificacion(){
-  var newuserEmail = document.getElementById("new_email_field").value;
-  newuserEmail.sendEmailVerification().then(function() {
-    // Email sent.
-  }).catch(function(error) {
-    // An error happened.
-    window.alert("Error : " + errorMessage);
+  firebase.auth().onAuthStateChanged(function(user) {
+    user.sendEmailVerification(); 
   });
 }
 
