@@ -72,7 +72,7 @@ function btq_login_shortcode() {
 	ob_start();
 	?>
 
-	<div id="botones_primarios"> 
+	<div id="botones_primarios" class="link-contact f_right main-bg display-inline-b"> 
 <!-- Button trigger modal -->
         <button id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Inicia Sesión</button>
           
