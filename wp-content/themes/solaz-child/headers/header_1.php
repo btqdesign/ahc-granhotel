@@ -215,7 +215,7 @@ $solaz_settings = solaz_check_theme_options();
 						}
 					}
 
-				
+					btq_login_shortcode();
 				?>	
 				    <?php if (class_exists('WP_Hotel_Booking')):?>	    
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
