@@ -160,7 +160,7 @@ $solaz_settings = solaz_check_theme_options();
 			        	<?php endif;?>	
 					<?php endif;?>
 				*/ ?>
-				<?php echo do_shortcode('[btq-login]'); ?>
+				
 				<?php
 
 					$wpml_current_language = apply_filters( 'wpml_current_language', NULL );
@@ -220,6 +220,7 @@ $solaz_settings = solaz_check_theme_options();
 				    <?php if (class_exists('WP_Hotel_Booking')):?>	    
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
 			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
+			        		<?php echo do_shortcode('[btq-login]'); ?>
 			        		<div class="link-contact f_right main-bg display-inline-b">
 			        			<?php if ($language == 'es'):?>	
 								<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a>
