@@ -32,7 +32,7 @@ load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/l
  * @author Saúl Díaz
  * @return void Integra CSS y JS al frond-end del sitio.
  */
-function btq_booking_tc_grid_scripts() {
+function btq_login_scripts() {
     if (!is_admin()) {
 	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
 	    wp_enqueue_style( 'btq-login', plugins_url( 'estilos.css', __FILE__ ), array('solaz-child-style','bootstrap4'),'1.0');
@@ -42,7 +42,7 @@ function btq_booking_tc_grid_scripts() {
 	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebasejs'), '1.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
+add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1001 );
 
 /**
  * Integra en la etiqueta <head> el tag de Firebase
