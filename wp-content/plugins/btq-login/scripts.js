@@ -49,19 +49,27 @@ if (user) {
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
 
-document.getElementById("user_div").style.display = "none";
-document.getElementById("login_div").style.display = "block";
-document.getElementById("registro").style.display = "none";  
+      document.getElementById("user_div").style.display = "none";
+      document.getElementById("login_div").style.display = "block";
+      document.getElementById("registro").style.display = "none";  
 
-var newuserEmail = document.getElementById("new_email_field").value;
-var newuserPass = document.getElementById("new_password_field").value;
+      var newuserEmail = document.getElementById("new_email_field").value;
+      var newuserPass = document.getElementById("new_password_field").value;
 
-firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
-// Errores en caso de que no se pueda registrar
-var errorCode = error.code;
-var errorMessage = error.message; 
-window.alert("Error : " + errorMessage);
-});
+      firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
+      // Errores en caso de que no se pueda registrar
+      var errorCode = error.code;
+      var errorMessage = error.message; 
+      window.alert("Error : " + errorMessage);
+      });
+      var user = firebase.auth().currentUser;
+
+      user.sendEmailVerification().then(function() {
+        // Email sent.
+      }).catch(function(error) {
+        // An error happened.
+      });
+      window.alert("Error : " + errorMessage);
 
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
