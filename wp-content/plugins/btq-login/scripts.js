@@ -4,12 +4,14 @@
 firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
   // Usuario con sesion iniciada
-  document.getElementById("botones_primarios").style.display = "none";
 
+  document.getElementById("user_div").style.display = "block";
+  document.getElementById("login_div").style.display = "none";
 
   var user = firebase.auth().currentUser;
 
   if(user != null){
+    document.getElementById("botones_primarios").style.display = "none";
     var email_id = user.email;
     var name = user.displayName;
     if(name == null )
