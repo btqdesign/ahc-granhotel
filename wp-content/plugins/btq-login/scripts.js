@@ -47,14 +47,7 @@ function nuevo_usuario(){
       if(errorMessage != null){
         document.getElementById("botones_primarios").style.display = "block";  
         document.getElementById("registro").style.display = "block";
-      }else{
         document.getElementById("registro_completado").style.display = "block";
-        document.getElementById("recuperado").style.display = "none";
-        document.getElementById("recuperar").style.display = "none";
-        document.getElementById("login_div").style.display = "none";
-        document.getElementById("user_div").style.display = "none";
-        document.getElementById("registro").style.display = "none";
-        document.getElementById("botones_primarios").style.display = "none";  
       }
       });
 }
