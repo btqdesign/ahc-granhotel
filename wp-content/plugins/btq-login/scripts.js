@@ -45,6 +45,7 @@ function nuevo_usuario(){
       var errorCode = error.code;
       var errorMessage = error.message; 
       });
+      document.getElementById("registro").style.display = "none";
       document.getElementById("registro_completado").style.display = "block";
 
 }
