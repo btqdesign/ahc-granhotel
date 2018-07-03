@@ -29,6 +29,7 @@ load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/l
 /**
  * Añade a WordPress los assets JS y CSS necesarios para el Grid.
  *
+ * @author José Antonio del Carmen
  * @author Saúl Díaz
  * @return void Integra CSS y JS al frond-end del sitio.
  */
@@ -42,38 +43,7 @@ function btq_login_scripts() {
 	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebasejs'), '1.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1001 );
-
-/**
- * Integra en la etiqueta <head> el tag de Firebase
- *
- * @author José Antonio del Carmen
- * @return string Tag de Firebase
- */
-function btq_login_wp_head(){
-	if (!is_admin()) {
-?>
-	<script>
-	// Aqui se inicializa firebase
-	var config = {
-		apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
-		authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
-		databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
-		projectId: "btq-ahm-gran-hotel",
-		storageBucket: "btq-ahm-gran-hotel.appspot.com",
-		messagingSenderId: "241886061865"
-	};
-	firebase.initializeApp(config);
-	</script>
-	<!--
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-	-->
-<?php
-	}
-}
-//add_action('wp_enqueue_scripts', 'btq_login_wp_head', 1002);
+add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1002 );
 
 /**
  * Declara el Widget de BTQ Login en VisualCompouser.
