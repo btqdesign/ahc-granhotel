@@ -38,6 +38,7 @@ if (user) {
 function nuevo_usuario(){
 
   document.getElementById("registro").style.display = "none";  
+  document.getElementById("botones_primarios").style.display = "none";
   document.getElementById("registro_completado").style.display = "block";
   
       var newuserEmail = document.getElementById("new_email_field").value;
