@@ -37,11 +37,6 @@ if (user) {
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
-
-      document.getElementById("user_div").style.display = "none";
-      document.getElementById("login_div").style.display = "block";
-      document.getElementById("registro").style.display = "none";  
-
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
 
@@ -51,6 +46,7 @@ function nuevo_usuario(){
       var errorMessage = error.message; 
       if(errorMessage != null){
         document.getElementById("botones_primarios").style.display = "block";  
+        document.getElementById("registro").style.display = "block";
       }else{
         document.getElementById("registro_completado").style.display = "block";
         document.getElementById("recuperado").style.display = "none";
@@ -76,7 +72,7 @@ function login(){
       // Errores en caso de que no pueda iniciar sesion
       var errorCode = error.code;
       var errorMessage = error.message;
-      window.alert("Error : " + errorMessage);
+      window.alert("Las credenciales no coinciden.");
       document.getElementById("botones_primarios").style.display = "none";
     });
 }
