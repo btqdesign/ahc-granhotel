@@ -21,7 +21,7 @@ if (user) {
   var user = firebase.auth().currentUser;
 
   if(user != null){
-
+    document.getElementById("botones_primarios").style.display = "none";
     var email_id = user.email;
     var name = user.displayName;
     if(name == null )
@@ -65,7 +65,8 @@ function nuevo_usuario(){
       document.getElementById("recuperar").style.display = "none";
       document.getElementById("login_div").style.display = "none";
       document.getElementById("user_div").style.display = "none";
-      document.getElementById("registro").style.display = "none";  
+      document.getElementById("registro").style.display = "none";
+      document.getElementById("botones_primarios").style.display = "none";  
 
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
@@ -84,6 +85,7 @@ function login(){
       var errorMessage = error.message;
       window.alert("Error : " + errorMessage);
     });
+    document.getElementById("botones_primarios").style.display = "none";
 }
   //aqui termina login con correo y contraseña
 
@@ -125,6 +127,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // ...
     window.alert("Error : " + errorMessage);
 });
+document.getElementById("botones_primarios").style.display = "none";
 }
 //Aqui termina funcion para iniciar sesion con google
 
