@@ -199,7 +199,7 @@ function pestaña_recuperar(){
 }
 
 function cerrar_ventana(){
-  if (clickOutSite && $('.open-vertical').hasClass('active')) {
+
     $('.open-vertical').trigger('click');
-}
+
 }
