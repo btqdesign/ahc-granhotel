@@ -78,7 +78,7 @@ function btq_login_shortcode() {
 
       <ul class="mega-menu">
         <li class="dib customlinks"><a id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav()">Inicia Sesión</a></li>
-        <li><a id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2" onclick="closeNav()">Registro</a></li>  
+        <li><a id="botones" type="button" onclick="pestaña_registro();", onclick="closeNav()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Registro</a></li>  
       </ul>
 
           <!-- Modal -->
