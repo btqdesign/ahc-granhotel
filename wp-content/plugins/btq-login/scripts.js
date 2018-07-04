@@ -199,7 +199,7 @@ function pestaña_recuperar(){
 }
 
 function cerrar_ventana(){
-
+    console.log("inicia cierra ventana");
     jQuery('.open-vertical').trigger('click');
     console.log("cierra ventana");
 
