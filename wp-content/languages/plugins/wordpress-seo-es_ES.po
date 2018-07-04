@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-06-29 12:08:56+0000\n"
+"PO-Revision-Date: 2018-07-03 07:31:26+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,22 @@ msgstr ""
 "X-Generator: GlotPress/2.4.0-alpha\n"
 "Language: es\n"
 "Project-Id-Version: Plugins - Yoast SEO - Stable (latest release)\n"
+
+#. translators: %s expands to 'Yoast SEO'.
+#: admin/config-ui/components/class-component-configuration-choices.php:73
+msgid "Get the %s plugin training now"
+msgstr "Consigue la formación de %s"
+
+#. translators: %s expands to 'Yoast SEO'.
+#: admin/config-ui/components/class-component-configuration-choices.php:67
+msgid "Get the most out of the %s plugin"
+msgstr "Sácale el máximo partido a %s"
+
+#. translators: %1$s expands to 'Yoast SEO for WordPress', %2$s to Joost de
+#. Valk.
+#: admin/config-ui/components/class-component-configuration-choices.php:59
+msgid "If you want to take full advantage of the plugin, get our %1$s training. Get insights from renowned SEO expert %2$s and the team behind the plugin. Actionable tips that'll help you configure your site to perform even better in search and for your visitors. Hours of video, sliced into bite-sized clips for you to learn from!"
+msgstr "Si quieres aprovechar todas las ventajas del plugin haz nuestro entrenamiento %1$s. Obtén revelaciones del renombrado experto SEO %2$s y el equipo que está detrás del plugin. Trucos prácticos que te ayudarán a configurar tu sitio para funcionar aún mejor en las búsquedas y para los visitantes. ¡Horas de vídeo, repartidas en porciones asequibles para que aprendas!"
 
 #. translators: %1$s expands to an opening anchor tag, %2$s expands to a
 #. closing anchor tag.
@@ -342,11 +358,6 @@ msgstr "Únete para nuestra newsletter si quieres estar al día sobre %1$s, otro
 #: admin/banner/class-admin-banner-sidebar.php:331
 msgid "Get the FREE SEO for beginners training course and learn the SEO basics to make your site rank higher."
 msgstr "Consigue el curso gratuito SEO para principiantes y aprende las técnicas básicas de SEO para conseguir posicionar tu sitio."
-
-#. translators: %1$s expands to 'Yoast SEO Premium'.
-#: admin/config-ui/components/class-component-configuration-choices.php:67
-msgid "While we strive to make setting up %1$s as easy as possible, we understand it can still be daunting. If you would rather have us set up %1$s for you, order a %1$s configuration service and sit back while we configure your site."
-msgstr "Aunque nos esforzamos para hacer que configurar %1$s sea lo más fácil posible, comprendemos que puede intimidar un poco. Si prefieres que te configuremos %1$s nosotros, encarga un servicio de configuración de %1$s y relájate mientras que nosotros configuramos tu sitio."
 
 #. translators: %1$s expands to a link start tag to the Baidu Webmaster Tools
 #. site add page, %2$s is the link closing tag.
@@ -1663,11 +1674,6 @@ msgid "Other benefits of %s for you:"
 msgstr "Otros beneficios de %s para ti:"
 
 #. translators: %s expands to 'Yoast SEO'.
-#: admin/config-ui/components/class-component-configuration-choices.php:75
-msgid "Let us set up %s for you"
-msgstr "Déjanos configurar %s para ti"
-
-#. translators: %s expands to 'Yoast SEO'.
 #: admin/config-ui/components/class-component-configuration-choices.php:38
 msgid "Configure %s in a few steps"
 msgstr "Configura %s en unos pocos pasos"
@@ -1738,16 +1744,6 @@ msgstr "¿Quieres ganar a tu competencia? %1$s te ofrece fantásticas caracterí
 #: admin/config-ui/components/class-component-suggestions.php:34
 msgid "Outrank the competition with %s"
 msgstr "Gana a tu competencia con %s"
-
-#: admin/config-ui/components/class-component-configuration-choices.php:80
-msgid "Configuration service"
-msgstr "Servicio de configuración"
-
-#. translators: %1$s expands to 'Yoast SEO', %2$s expands to 'Yoast SEO
-#. Premium'.
-#: admin/config-ui/components/class-component-configuration-choices.php:59
-msgid "While we strive to make setting up %1$s as easy as possible, we understand it can still be daunting. If you would rather have us set up %1$s for you (and get a copy of %2$s in the process), order a %1$s configuration service and sit back while we configure your site."
-msgstr "Aunque tratamos de hace que configurar %1$s sea lo más fácil posible entendemos que puede ser en ocasiones intimidante. Si prefieres que configuremos %1$s por ti (y consguir una copia de %2$s en el proceso) contrata un servicio de configuración de %1$s y siéntate mientras configuramos tu sitio."
 
 #. translators: %s expands to 'Yoast SEO'.
 #: admin/config-ui/components/class-component-configuration-choices.php:50
@@ -3413,7 +3409,7 @@ msgstr "Equipo Yoast"
 msgid "The first true all-in-one SEO solution for WordPress, including on-page content analysis, XML sitemaps and much more."
 msgstr "La primera verdadera solución SEO todo en uno para WordPress, incluyendo análisis de contenido de páginas, mapas del sitio en XML y mucho más."
 
-#. #-#-#-#-#  wordpress-seo-code.pot (Yoast SEO 7.7.2)  #-#-#-#-#
+#. #-#-#-#-#  wordpress-seo-code.pot (Yoast SEO 7.7.3)  #-#-#-#-#
 #. Plugin Name of the plugin/theme
 #: admin/capabilities/class-capability-manager-integration.php:68
 msgid "Yoast SEO"
@@ -4965,11 +4961,11 @@ msgstr "SEO: Aceptable"
 msgid "SEO: No Focus Keyword"
 msgstr "SEO: sin palabra clave objetivo"
 
-#: admin/metabox/class-metabox.php:916
+#: admin/metabox/class-metabox.php:921
 msgid "SEO issue: The featured image should be at least 200 by 200 pixels to be picked up by Facebook and other social media sites."
 msgstr "Problema SEO: La imagen destacada debe ser de al menos 200 por 200 pixeles para que la use Facebook y otros sitios de redes sociales."
 
-#: admin/metabox/class-metabox.php:257 admin/taxonomy/class-taxonomy.php:237
+#: admin/metabox/class-metabox.php:257 admin/taxonomy/class-taxonomy.php:242
 msgid "(no parent)"
 msgstr "(sin superior)"
 
@@ -5152,8 +5148,8 @@ msgstr "Elimina la página del blog de las migas de pan"
 msgid "%s Breadcrumbs"
 msgstr "%s Migas de pan"
 
-#: admin/class-config.php:119 admin/metabox/class-metabox.php:928
-#: admin/taxonomy/class-taxonomy.php:121
+#: admin/class-config.php:124 admin/metabox/class-metabox.php:933
+#: admin/taxonomy/class-taxonomy.php:126
 msgid "Use Image"
 msgstr "Usar imagen"
 
