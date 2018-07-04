@@ -201,6 +201,9 @@ function pestaña_recuperar(){
 function cerrar_ventana(){
     console.log("inicia cierra ventana --");
     clickOutSite = true;
+    if (clickOutSite && jQuery('.open-vertical').hasClass('active')) {
+      jQuery('.open-vertical').trigger('click');
+  }
     console.log("cierra ventana");
 
 }
