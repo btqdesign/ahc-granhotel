@@ -71,6 +71,7 @@ Text Domain:  solaz-child
 ul#menu-header-menu, ul#menu-header-menu-terraza, ul#menu-header-menu-banquete, ul#menu-header-menu-terraza-en, ul#menu-header-menu-en {
 	height: 50px;
 	padding-top: 5px;
+	max-width: 600px;
 }
 .menu-header-menu-container, .menu-header-menu-terraza-container, .menu-header-menu-banquete-container, .menu-header-menu-terraza-en-container, .menu-header-menu-en-container {
     padding-top: 17px;
