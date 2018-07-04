@@ -178,7 +178,7 @@ function btq_login_shortcode() {
               </div>
         </div>
         <div class="modal-footer">
-          <p><?php _e('Are you already a member?','btq-login'); ?><u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal"><?php _e('Log in','btq-login'); ?><</u></p>
+          <p><?php _e('Are you already a member?','btq-login'); ?><u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal"><?php _e('Log in','btq-login'); ?></u></p>
           <p><?php _e('Not a member?','btq-login'); ?><u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?></u></p>
         </div>
       </div>
