@@ -168,10 +168,14 @@ function btq_login_shortcode() {
               <div id="recuperar" class="loggedin-div">
                 <h3><?php _e('Enter your Email','btq-login'); ?></h3>
                 <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="recover_email_field" required/>
-                <button onclick="recuperar_contrasena()">"<?php _e('Reset your password','btq-login'); ?>" </button>
+                <button onclick="recuperar_contrasena()"><?php _e('Reset your password','btq-login'); ?></button>
               </div>
               <!-- Aqui termina html para registro de usuario por correo -->     
               <div id="recuperado" class="loggedin-div">
+              <h3><?php _e('Reset your password','btq-login'); ?></h3>
+                <br
+                <h5><?php _e('We have sent a password reset email to the email address you provided.','btq-login'); ?></h5>
+              </div>
         </div>
         <div class="modal-footer">
           <p><?php _e('Are you already a member?','btq-login'); ?><u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal"><?php _e('Log in','btq-login'); ?><</u></p>
