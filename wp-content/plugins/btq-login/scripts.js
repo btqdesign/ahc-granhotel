@@ -199,10 +199,11 @@ function pestaña_recuperar(){
 }
 
 function cerrar_ventana(){
-    console.log("inicia cierra ventana --");
+    console.log("inicia cierra ventana ++");
     clickOutSite = true;
+    console.log(jQuery('.open-vertical').hasClass('active'));
     if (clickOutSite && jQuery('.open-vertical').hasClass('active')) {
-      console.log("inicia cierra ventana çç");
+      console.log("inicia cierra ventana xx");
       jQuery('.open-vertical').trigger('click');
   }
     console.log("cierra ventana");
