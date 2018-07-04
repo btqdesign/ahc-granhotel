@@ -200,6 +200,9 @@ function pestaña_recuperar(){
 
 function cerrar_ventana(){
     console.log("inicia cierra ventana --");
+    if (clickOutSite && jQuery('.open-vertical').hasClass('active')) {
+      jQuery('.open-vertical').trigger('click');
+  }
     jQuery('.open-vertical').removeClass('active');
     jQuery('.vertical-menu').animate({
         'margin-left' : '-270px'
