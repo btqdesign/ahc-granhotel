@@ -77,8 +77,8 @@ function btq_login_shortcode() {
 <!-- Button trigger modal -->
 
       <ul class="mega-menu">
-        <li class="dib customlinks"><a id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav(); pestaña_inicio();">Inicia Sesión</a></li>
-        <li><a id="botones" type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Registro</a></li>  
+        <li class="dib customlinks"><a id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav(); pestaña_inicio();"><?php _e('Log in','btq-login'); ?></a></li>
+        <li><a id="botones" type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2"><?php _e('Sign up','btq-login'); ?></a></li>  
       </ul>
 
           <!-- Modal -->
@@ -86,26 +86,26 @@ function btq_login_shortcode() {
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Login','btq-login'); ?></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">    
                     <div id="login_div" class="main-div">      
-                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', __FILE__ ); ?>"/>Continuar con Facebook </button>
+                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', __FILE__ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
                         <br>
-                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png"', __FILE__ ); ?>"/>  Continuar con Google </button>
+                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png"', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
                         <br>
-                        <input type="email" placeholder="Correo" id="email_field" />
-                        <input type="password" placeholder="Contraseña" id="password_field" />
-                        <button onclick="login()" data-dismiss="modal">Ingresa a tu cuenta </button>
+                        <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="email_field" />
+                        <input type="password" placeholder="<?php _e('Password','btq-login'); ?>" id="password_field" />
+                        <button onclick="login()" data-dismiss="modal"><?php _e('Log in to your account','btq-login'); ?></button>
                         <!-- Aqui termina la pestaña de inicio -->
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <p>¿No eres miembro? <u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal">Registrate</u></p>
-                  <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">¿Olvidaste tu contraseña?</p>
+                  <p><?php _e('Not a member?','btq-login'); ?><u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal"><?php _e('Sing up','btq-login'); ?></u></p>
+                  <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal"><?php _e('Forgot your password?','btq-login'); ?></p>
 
                 </div>
               </div>
@@ -121,7 +121,7 @@ function btq_login_shortcode() {
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Registrate</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Sign up','btq-login'); ?></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -130,19 +130,19 @@ function btq_login_shortcode() {
             <div class="modal-body">    
                   <!-- Aqui inicia html para registro de usuario por correo --> 
                   <div id="registro" class="loggedin-div">
-                    <h3>Registrate con tu correo: </h3>
-                    <input type="email" placeholder="Correo" id="new_email_field" required/>
-                    <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                    <button onclick="nuevo_usuario()" data-dismiss="modal">Finaliza tu registro </button>
+                    <h3><?php _e('Register with your email','btq-login'); ?></h3>
+                    <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="new_email_field" required/>
+                    <input type="password" placeholder="<?php _e('Password','btq-login'); ?>" id="new_password_field" required/>
+                    <button onclick="nuevo_usuario()" data-dismiss="modal"><?php _e('Finalize your registration','btq-login'); ?></button>
                   </div>
                   <!-- Aqui termina html para registro de usuario por correo -->   
                   <div id="registro_completado" class="loggedin-div">
-                    <h3>Registro exitoso: </h3>
+                    <h3><?php _e('Successful registration','btq-login'); ?></h3>
                       <br>
-                    <h5>Tu registro se ha completado correctamente, hemos iniciado sesión automaticamente por ti.</h5>
+                    <h5><?php _e('Your registration has been completed correctly, we have logged in automatically for you.','btq-login'); ?></h5>
                   </div>  
                   <div class="modal-footer">
-                    <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
+                    <p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal"><?php _e('Forgot your password?','btq-login'); ?></p> 
                   </div>  
                 </div>
           </div>
@@ -157,7 +157,7 @@ function btq_login_shortcode() {
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Restablecer Contraseña</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Reset your password','btq-login'); ?></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -166,20 +166,16 @@ function btq_login_shortcode() {
         <div class="modal-body">    
               <!-- Aqui inicia html para registro de usuario por correo --> 
               <div id="recuperar" class="loggedin-div">
-                <h3>Ingresa tu correo: </h3>
-                <input type="email" placeholder="Correo" id="recover_email_field" required/>
-                <button onclick="recuperar_contrasena()">Restablecer tu contraseña </button>
+                <h3><?php _e('Enter your Email','btq-login'); ?></h3>
+                <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="recover_email_field" required/>
+                <button onclick="recuperar_contrasena()">"<?php _e('Reset your password','btq-login'); ?>" </button>
               </div>
               <!-- Aqui termina html para registro de usuario por correo -->     
               <div id="recuperado" class="loggedin-div">
-                <h3>Restablecimiento de Contraseña: </h3>
-                <br
-                <h5>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h5>
-              </div>
         </div>
         <div class="modal-footer">
-          <p>¿Ya eres miembro? <u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal">Inicia Sesión</u></p>
-          <p>¿No eres miembro? <u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal">Registrate</u></p>
+          <p><?php _e('Are you already a member?','btq-login'); ?><u onclick="pestaña_inicio()" data-toggle="modal" data-target="#exampleModalCenter" data-dismiss="modal"><?php _e('Log in','btq-login'); ?><</u></p>
+          <p><?php _e('Not a member?','btq-login'); ?><u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?></u></p>
         </div>
       </div>
     </div>
@@ -190,9 +186,9 @@ function btq_login_shortcode() {
 
       <!-- Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
       <div id="user_div" class="loggedin-div">
-        <h3>Bienvenido Usario: </h3>
+        <h3><?php _e('Welcome user: ','btq-login'); ?></h3>
         <p id="user_para"></p>
-        <button onclick="logout()">Cerrar Sesión</button>
+        <button onclick="logout()"><?php _e('Log out','btq-login'); ?></button>
       </div>
       <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
 
