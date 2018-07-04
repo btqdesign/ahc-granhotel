@@ -160,8 +160,6 @@ $solaz_settings = solaz_check_theme_options();
 			        	<?php endif;?>	
 					<?php endif;?>
 				*/ ?>
-											<?php echo do_shortcode('[btq-login]'); ?>
-
 				<?php
 
 					$wpml_current_language = apply_filters( 'wpml_current_language', NULL );
