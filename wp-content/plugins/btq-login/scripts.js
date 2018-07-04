@@ -198,3 +198,8 @@ function pestaña_recuperar(){
   document.getElementById("recuperado").style.display = "none";
 }
 
+function cerrar_ventana(){
+  if (clickOutSite && $('.open-vertical').hasClass('active')) {
+    $('.open-vertical').trigger('click');
+}
+}
