@@ -56,6 +56,7 @@ $solaz_settings = solaz_check_theme_options();
 							</div>
 			            </div>
 			            <div id="account" class="tabcontent hidden-md hidden-sm hidden-lg">
+							<?php /*
 			            <?php 
 							if ( class_exists( 'WooCommerce' )) {
 								$myaccount_page_id = get_option('woocommerce_myaccount_page_id');
@@ -77,6 +78,8 @@ $solaz_settings = solaz_check_theme_options();
 								<?php endif; ?>									
 								
 							</ul>
+							*/?>
+							<?php echo do_shortcode('[btq-login]'); ?>
 			            </div>
 	                </div>
 	            <?php
