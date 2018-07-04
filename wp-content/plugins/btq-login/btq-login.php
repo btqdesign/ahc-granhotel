@@ -41,7 +41,7 @@ function btq_login_scripts() {
 	    //wp_enqueue_script( 'firebase-auth', 'https://www.gstatic.com/firebasejs/5.0.4/firebase-auth.js', array('firebase'), '5.0.4');
 	    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
 	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
-	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebasejs'), '1.0');
+	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebase'), '1.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
