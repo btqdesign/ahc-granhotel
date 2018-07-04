@@ -199,8 +199,13 @@ function pestaña_recuperar(){
 }
 
 function cerrar_ventana(){
-    console.log("inicia cierra ventana");
-    jQuery('.open-vertical').trigger('click');
+    console.log("inicia cierra ventana --");
+    jQuery('.open-vertical').removeClass('active');
+    jQuery('.vertical-menu').animate({
+        'margin-left' : '-270px'
+    }, 400, function () {
+      jQuery('.vertical-menu').hide()
+    });
     console.log("cierra ventana");
 
 }
