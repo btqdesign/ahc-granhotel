@@ -202,6 +202,7 @@ function cerrar_ventana(){
     console.log("inicia cierra ventana --");
     clickOutSite = true;
     if (clickOutSite && jQuery('.open-vertical').hasClass('active')) {
+      console.log("inicia cierra ventana çç");
       jQuery('.open-vertical').trigger('click');
   }
     console.log("cierra ventana");
