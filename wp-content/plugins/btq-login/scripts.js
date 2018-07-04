@@ -201,5 +201,6 @@ function pestaña_recuperar(){
 function cerrar_ventana(){
 
     $('.open-vertical').trigger('click');
+    console.log("cierra ventana");
 
 }
