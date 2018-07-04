@@ -197,9 +197,3 @@ function pestaña_recuperar(){
   document.getElementById("registro").style.display = "none";  
   document.getElementById("recuperado").style.display = "none";
 }
-
-function cerrar_ventana(){
-    console.log("inicia cierra ventana ==");
-    closeNav();
-    console.log("cierra ventana");
-}
