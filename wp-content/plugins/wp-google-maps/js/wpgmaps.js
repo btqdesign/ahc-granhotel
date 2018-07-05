@@ -178,6 +178,9 @@ function wpgmza_create_places_autocomplete() {
 	if(!google.maps.places || !google.maps.places.Autocomplete)
 		return;
 	
+	if(WPGMZA.settings.engine != "google-maps")
+		return;
+	
 	var options = {
 		types: ["geocode"]
 	};
