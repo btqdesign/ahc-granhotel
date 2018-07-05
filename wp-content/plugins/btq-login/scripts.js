@@ -22,6 +22,7 @@ if (user) {
 
   if(user != null){
     document.getElementById("botones_primarios").style.display = "none";
+    document.getElementById("botones_primarios_modals").style.display = "none";
     var email_id = user.email;
     var name = user.displayName;
     if(name == null )
@@ -75,6 +76,8 @@ function login(){
       var errorCode = error.code;
       var errorMessage = error.message;
       document.getElementById("botones_primarios").style.display = "none";
+      document.getElementById("botones_primarios_modals").style.display = "none";
+
     });
     document.getElementById("user_div").style.display = "block";
 }
@@ -89,6 +92,8 @@ function logout(){
     firebase.auth().signOut().then(function() {
       //Si cierra sesion correctamente
       document.getElementById("botones_primarios").style.display = "block";
+      document.getElementById("botones_primarios_modals").style.display = "block";
+
     }).catch(function(error) {
       //Si sucede algun error
     });
@@ -109,6 +114,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
     var user = result.user;
     // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
     document.getElementById("botones_primarios").style.display = "none";
+    document.getElementById("botones_primarios_modals").style.display = "none";
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
     var errorCode = error.code;
@@ -139,6 +145,7 @@ function facebook_login(){
     var user = result.user;
     // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
     document.getElementById("botones_primarios").style.display = "none";
+    document.getElementById("botones_primarios_modals").style.display = "none";
   }).catch(function(error) {
     // Errores en caso de no iniciar sesion
     var errorCode = error.code;

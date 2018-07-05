@@ -93,7 +93,7 @@ add_shortcode( 'btq-login', 'btq_login_shortcode' );
 
 function btq_login_modals() {
 	?>
-	<div id="botones_primarios_modal"> 
+	<div id="botones_primarios_modals"> 
   <!-- Button trigger modal -->
 
           <!-- Modal -->
