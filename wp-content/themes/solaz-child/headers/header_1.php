@@ -79,7 +79,7 @@ $solaz_settings = solaz_check_theme_options();
 								
 							</ul>
 							*/?>
-							<?php echo do_shortcode('[btq-login]'); ?>q
+							<?php echo do_shortcode('[btq-login]'); ?>
 			            </div>
 	                </div>
 	            <?php
