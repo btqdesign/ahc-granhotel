@@ -77,9 +77,24 @@ function btq_login_shortcode() {
 <!-- Button trigger modal -->
 
       <ul class="mega-menu">
-        <li class="dib customlinks"><a id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav(); pestaña_inicio();"><?php _e('Log in','btq-login'); ?></a></li>
-        <li><a id="botones" type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2"><?php _e('Sign up','btq-login'); ?></a></li>  
+        <li class="dib customlinks"><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav(); pestaña_inicio();"><?php _e('Log in','btq-login'); ?></a></li>
+        <li><a type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2"><?php _e('Sign up','btq-login'); ?></a></li>  
       </ul>
+  </div>
+
+	<?php
+	$out = ob_get_clean();
+	
+	return $out;
+} // function btq_login_shortcode()
+add_shortcode( 'btq-login', 'btq_login_shortcode' );
+
+
+
+function btq_login_modals() {
+	?>
+	<div id="botones_primarios_modal"> 
+  <!-- Button trigger modal -->
 
           <!-- Modal -->
           <div class="modal hide fade in" data-backdrop="false" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -195,10 +210,6 @@ function btq_login_shortcode() {
         <button onclick="logout()"><?php _e('Log out','btq-login'); ?></button>
       </div>
       <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
-
 	<?php
-	$out = ob_get_clean();
-	
-	return $out;
-} // function btq_login_shortcode()
-add_shortcode( 'btq-login', 'btq_login_shortcode' );
+}
+add_action('wp_footer', 'btq_login_modals');
