@@ -208,7 +208,13 @@ function btq_login_modals() {
 </div>
 
 
-
+      <!-- Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
+      <div id="user_div" class="loggedin-div">
+        <h3><?php _e('Welcome user: ','btq-login'); ?></h3>
+        <p id="user_para"></p>
+        <button onclick="logout()"><?php _e('Log out','btq-login'); ?></button>
+      </div>
+      <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
 
 	<?php
 }
