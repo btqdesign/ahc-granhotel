@@ -81,7 +81,13 @@ function btq_login_shortcode() {
         <li><a type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2"><?php _e('Sign up','btq-login'); ?></a></li>  
       </ul>
   </div>
-
+      <!-- Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
+      <div id="user_div" class="loggedin-div">
+        <h3><?php _e('Welcome user: ','btq-login'); ?></h3>
+        <p id="user_para"></p>
+        <button onclick="logout()"><?php _e('Log out','btq-login'); ?></button>
+      </div>
+      <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
 	<?php
 	$out = ob_get_clean();
 	
@@ -203,13 +209,7 @@ function btq_login_modals() {
 
 
 
-      <!-- Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
-      <div id="user_div" class="loggedin-div">
-        <h3><?php _e('Welcome user: ','btq-login'); ?></h3>
-        <p id="user_para"></p>
-        <button onclick="logout()"><?php _e('Log out','btq-login'); ?></button>
-      </div>
-      <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
+
 	<?php
 }
 add_action('wp_footer', 'btq_login_modals');
