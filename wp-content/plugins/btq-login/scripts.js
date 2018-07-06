@@ -28,7 +28,7 @@ if (user) {
     if(name == null )
     document.getElementById("user_para").innerHTML = email_id;
     else
-    document.getElementById("user_para").innerHTML = name + " " +  email_id;
+    document.getElementById("user_para").innerHTML = name + "<br/> " +  email_id;
   }
 
 } else {
