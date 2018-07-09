@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.9.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-07-05 20:47:41+0000\n"
+"PO-Revision-Date: 2018-07-09 17:55:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1404,7 +1404,7 @@ msgstr "Tus cambios programados recién publicados"
 #. translators: %s: meetup organization documentation URL
 #: wp-admin/includes/dashboard.php:1262
 msgid "There aren&#8217;t any events scheduled near you at the moment. Would you like to <a href=\"%s\">organize one</a>?"
-msgstr "No hay ningún evento programado cerca de ti en este momento. Te gustaría <a href=\"%s\">organizar uno</a>?"
+msgstr "No hay ningún evento programado cerca de ti en este momento. ¿Te gustaría <a href=\"%s\">organizar uno</a>?"
 
 #. translators: %s: user's display name
 #: wp-admin/user-edit.php:32
@@ -1485,7 +1485,7 @@ msgstr "Lo siento, no tienes permisos para borrar usuarios."
 
 #: wp-admin/user-new.php:23 wp-admin/user-new.php:122
 msgid "Sorry, you are not allowed to create users."
-msgstr "Lo sentimos, no tienes permisos para crear usuarios."
+msgstr "Lo siento, no tienes permisos para crear usuarios."
 
 #: wp-admin/customize.php:211
 msgid "The Customizer allows you to preview changes to your site before publishing them. You can navigate to different pages on your site within the preview. Edit shortcuts are shown for some editable elements."
@@ -3869,7 +3869,7 @@ msgid ""
 "--The WordPress Team\n"
 "https://wordpress.org/\n"
 msgstr ""
-"Tu nuevo sitio WordPress ha sido creado en:\n"
+"Tu nuevo sitio de WordPress se ha creado correctamente en:\n"
 "\n"
 "%1$s\n"
 "\n"
@@ -3879,10 +3879,10 @@ msgstr ""
 "Contraseña: %3$s\n"
 "Accede desde aquí:  %4$s\n"
 "\n"
-"Esperamos que disfrutes de tu sitio. ¡Gracias!\n"
+"Esperamos que disfrutes de tu nuevo sitio. ¡Gracias!\n"
 "\n"
 "--El Equipo de WordPress\n"
-"https://wordpress.org/\n"
+"https://es.wordpress.org/\n"
 
 #: wp-admin/themes.php:177
 msgid "You cannot delete a theme while it has an active child theme."
