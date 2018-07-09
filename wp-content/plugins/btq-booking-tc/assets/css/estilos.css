@@ -1,3 +1,11 @@
+@media (max-width:767px) {
+	.ui-datepicker{
+		left: 50% !important;
+		transform: translate(-50%);
+	}
+}
+
+
 .btq-btn, .btq-input {
     width: 100%;
     box-sizing: border-box;

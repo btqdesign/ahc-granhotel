@@ -215,6 +215,10 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.10.21 :- 2018-07-09 :- Medium priority =
+* Added MySQL version check and dropped ST_ function prefixes for versions < 8.0
+* Fixed markers not appearing front end and back end marker table empty for servers running old MySQL versions
+
 = 7.10.20 :- 2018-07-05 :- Low priority =
 * Added hook for new GDPR tab content
 * Added JavaScript for VGM GDPR controls
