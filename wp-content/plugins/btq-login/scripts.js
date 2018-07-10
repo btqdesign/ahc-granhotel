@@ -1,13 +1,13 @@
-
-//funcion para conectar con firebase>
-
-
-
-
-
-  //Aqui termina la conexcion a firebase
-
-
+// Aqui se inicializa firebase
+var config = {
+	apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
+	authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
+	databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
+	projectId: "btq-ahm-gran-hotel",
+	storageBucket: "btq-ahm-gran-hotel.appspot.com",
+	messagingSenderId: "241886061865"
+};
+firebase.initializeApp(config);
 
 //Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 
@@ -21,10 +21,14 @@ if (user) {
   var user = firebase.auth().currentUser;
 
   if(user != null){
-
+    document.getElementById("botones_primarios").style.display = "none";
+    document.getElementById("botones_primarios_modals").style.display = "none";
     var email_id = user.email;
-    document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-
+    var name = user.displayName;
+    if(name == null )
+    document.getElementById("user_para").innerHTML = email_id;
+    else
+    document.getElementById("user_para").innerHTML = name + "<br/> " +  email_id;
   }
 
 } else {
@@ -45,38 +49,37 @@ if (user) {
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
 
-document.getElementById("user_div").style.display = "none";
-document.getElementById("login_div").style.display = "block";
-document.getElementById("registro").style.display = "none";  
+  document.getElementById("registro").style.display = "none";  
+  document.getElementById("registro_completado").style.display = "block";
+  
+      var newuserEmail = document.getElementById("new_email_field").value;
+      var newuserPass = document.getElementById("new_password_field").value;
 
-var newuserEmail = document.getElementById("new_email_field").value;
-var newuserPass = document.getElementById("new_password_field").value;
-
-firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
-// Errores en caso de que no se pueda registrar
-var errorCode = error.code;
-var errorMessage = error.message; 
-window.alert("Error : " + errorMessage);
-});
+      firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
+      // Errores en caso de que no se pueda registrar
+      var errorCode = error.code;
+      var errorMessage = error.message; 
+      });
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
-
 
 
 
  //login con correo y contraseña
 function login(){
 
-var userEmail = document.getElementById("email_field").value;
-var userPass = document.getElementById("password_field").value;
+    var userEmail = document.getElementById("email_field").value;
+    var userPass = document.getElementById("password_field").value;
 
-firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-  // Errores en caso de que no pueda iniciar sesion
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  window.alert("Error : " + errorMessage);
-});
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+      // Errores en caso de que no pueda iniciar sesion
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      document.getElementById("botones_primarios").style.display = "none";
+      document.getElementById("botones_primarios_modals").style.display = "none";
 
+    });
+    document.getElementById("user_div").style.display = "block";
 }
   //aqui termina login con correo y contraseña
 
@@ -85,12 +88,15 @@ firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(e
 
 //Aqui inicia el cierre de sesion del usuario de los 3 metodos
 function logout(){
-firebase.auth().signOut();
-firebase.auth().signOut().then(function() {
-  //Si cierra sesion correctamente
-}).catch(function(error) {
-  //Si sucede algun error
-});
+    firebase.auth().signOut();
+    firebase.auth().signOut().then(function() {
+      //Si cierra sesion correctamente
+      document.getElementById("botones_primarios").style.display = "block";
+      document.getElementById("botones_primarios_modals").style.display = "block";
+
+    }).catch(function(error) {
+      //Si sucede algun error
+    });
 }
 //Aqui termina el cierre de sesion del usuario de los 3 metodos
 
@@ -107,6 +113,8 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Te da la informacion del usuario
     var user = result.user;
     // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
+    document.getElementById("botones_primarios").style.display = "none";
+    document.getElementById("botones_primarios_modals").style.display = "none";
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
     var errorCode = error.code;
@@ -116,7 +124,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Si la credencial de auth ya esta usada.
     var credential = error.credential;
     // ...
-    window.alert("Error : " + errorMessage);
 });
 }
 //Aqui termina funcion para iniciar sesion con google
@@ -137,6 +144,8 @@ function facebook_login(){
     // Obtiene la informacion del usuario
     var user = result.user;
     // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
+    document.getElementById("botones_primarios").style.display = "none";
+    document.getElementById("botones_primarios_modals").style.display = "none";
   }).catch(function(error) {
     // Errores en caso de no iniciar sesion
     var errorCode = error.code;
@@ -152,16 +161,32 @@ function facebook_login(){
 
 
 
+function recuperar_contrasena(){
+
+    var auth = firebase.auth();
+    var emailAddress =  document.getElementById("recover_email_field").value; ;
+
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+      // Email sent.
+    }).catch(function(error) {
+      // An error happened.
+    });
+    document.getElementById("recuperado").style.display = "block";
+    document.getElementById("recuperar").style.display = "none";
+    document.getElementById("login_div").style.display = "none";
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("registro").style.display = "none";  
+}
+
+
+
 
   //Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
 function pestaña_registro(){
-  document.getElementById("registro").style.display = "block";
+  document.getElementById("registro").style.display = "inline-block";
   document.getElementById("login_div").style.display = "none";
 }
   //Aqui termina la funcion para ocultar la pestaña de inicio y mostrar la de registro
-
-
-
 
 
   //Aqui inicia la funcion para ocultar cualquier pestaña y mostrar la de inicio
@@ -172,3 +197,10 @@ document.getElementById("registro").style.display = "none";
 }
     //Aqui termina la funcion para ocultar cualquier pestaña y mostrar la de inicio
 
+function pestaña_recuperar(){
+  document.getElementById("recuperar").style.display = "block";
+  document.getElementById("login_div").style.display = "none";
+  document.getElementById("user_div").style.display = "none";
+  document.getElementById("registro").style.display = "none";  
+  document.getElementById("recuperado").style.display = "none";
+}

@@ -1345,7 +1345,7 @@ function btq_booking_tc_grid_scripts() {
 	    wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array('moment','moment-timezone'), '1.0.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
+add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1003 );
 
 function btq_booking_tc_head_scripts(){
 	/** 

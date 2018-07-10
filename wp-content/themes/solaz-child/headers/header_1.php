@@ -56,6 +56,7 @@ $solaz_settings = solaz_check_theme_options();
 							</div>
 			            </div>
 			            <div id="account" class="tabcontent hidden-md hidden-sm hidden-lg">
+							<?php /*
 			            <?php 
 							if ( class_exists( 'WooCommerce' )) {
 								$myaccount_page_id = get_option('woocommerce_myaccount_page_id');
@@ -77,6 +78,8 @@ $solaz_settings = solaz_check_theme_options();
 								<?php endif; ?>									
 								
 							</ul>
+							*/?>
+							<?php /*echo do_shortcode('[btq-login]');*/ ?>
 			            </div>
 	                </div>
 	            <?php
@@ -214,19 +217,17 @@ $solaz_settings = solaz_check_theme_options();
 							));
 						}
 					}
+				?>
 
-				
-				?>	
-				    <?php if (class_exists('WP_Hotel_Booking')):?>	    
+					<?php if (class_exists('WP_Hotel_Booking')):?>	    
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
 			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
-			        		<div class="link-contact f_right main-bg display-inline-b">
+							<div class="link-contact f_right main-bg display-inline-b">
+							<?php /*echo do_shortcode('[btq-login]');*/ ?>
 			        			<?php if ($language == 'es'):?>	
 								<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a>
 								<?php else:?>
-								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>
-								</a>	
-															
+								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>			
 								<?php endif;?>
 			        		</div>
 			        	<?php endif;?>	
