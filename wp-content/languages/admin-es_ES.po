@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the WordPress - 4.9.x - Development - Administration package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-07-10 07:22:03+0000\n"
+"PO-Revision-Date: 2018-07-11 17:38:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -7770,7 +7770,7 @@ msgstr "Puedes establecer los tamaños máximos para las imágenes insertadas en
 
 #: wp-admin/edit-form-advanced.php:474
 msgid "<strong>Order</strong> &mdash; Pages are usually ordered alphabetically, but you can choose your own order by entering a number (1 for first, etc.) in this field."
-msgstr "<strong>Orden</strong> &mdash; Las paginas normalmente se ordenan alfabéticamente, pero puedes elegir tu propio orden introduciendo un número (1 para la primera, etc.) en este campo."
+msgstr "<strong>Orden</strong> &mdash; Las páginas normalmente se ordenan alfabéticamente, pero puedes elegir tu propio orden introduciendo un número (1 para la primera, etc.) en este campo."
 
 #: wp-admin/includes/file.php:1695
 msgid "Please enter your FTP or SSH credentials to proceed."
