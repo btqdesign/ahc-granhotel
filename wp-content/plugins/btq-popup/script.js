@@ -1,3 +1,3 @@
-jQuery(document).ready(function(){
-    jQuery('Top5razones').modal('show')
+$(document).ready(function(){
+    $('#Top5razones').modal('show')
 });
