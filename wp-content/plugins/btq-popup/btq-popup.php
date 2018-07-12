@@ -24,7 +24,7 @@ defined('ABSPATH') or die('No script kiddies please!');
 /** 
  * Establece el dominio correcto para la carga de traducciones
  */
-load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/languages');
+load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/languages');
 
 /**
  * Añade a WordPress los assets JS y CSS necesarios para el Grid.
@@ -36,9 +36,8 @@ load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/l
 function btq_login_scripts() {
     if (!is_admin()) {
 	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
-	    wp_enqueue_style( 'btq-login', plugins_url( 'estilos.css', __FILE__ ), array('solaz-child-style','bootstrap4'),'1.0');
 	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
-	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebase'), '1.0');
+      wp_enqueue_script( 'btq-login-js', plugins_url( 'script.js', __FILE__ ), array('firebase'), '1.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
@@ -49,16 +48,16 @@ add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
  * @author Saúl Díaz
  * @return void Widget de BTQ Login en VisualCompouser.
  */
-function btq_booking_login_VC() {
+function btq_popup() {
 	vc_map(array(
-		'name'     => __( 'BTQ Login', 'btq-login' ),
-		'base'     => 'btq-login',
+    'name'     => __( 'BTQ Popup', 'btq-popup' ),
+		'base'     => 'btq-popup',
 		'class'    => '',
-		'category' => __( 'Content', 'btq-login'),
+		'category' => __( 'Content', 'btq-popup'),
 		'icon'     => plugins_url( 'assets/images/iconos' . DIRECTORY_SEPARATOR . 'btqdesign-logo.png', __FILE__ )
 	));
 }
-add_action( 'vc_before_init', 'btq_booking_login_VC' );
+add_action( 'vc_before_init', 'btq_popup' );
 
 /**
  * Función del shortcode que imprime el BTQ Login en el frond-end.
@@ -66,7 +65,7 @@ add_action( 'vc_before_init', 'btq_booking_login_VC' );
  * @author Saúl Díaz
  * @return string Imprime el BTQ Booking TC
  */
-function btq_login_shortcode() {
+function btq_popup_shortcode() {
 	ob_start();
 	?>
 
@@ -90,11 +89,11 @@ function btq_login_shortcode() {
 	
 	return $out;
 } // function btq_login_shortcode()
-add_shortcode( 'btq-login', 'btq_login_shortcode' );
+add_shortcode( 'btq-login', 'btq_popup_shortcode' );
 
 
 
-function btq_login_modals() {
+function btq_popups() {
 	?>
 
       <!-- Modal -->
@@ -115,4 +114,4 @@ function btq_login_modals() {
 
 	<?php
 }
-add_action('wp_footer', 'btq_login_modals');
+add_action('wp_footer', 'btq_popups');
