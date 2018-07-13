@@ -48,7 +48,7 @@ add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
  * @author Saúl Díaz
  * @return void Widget de BTQ Login en VisualCompouser.
  */
-function btq_popup() {
+function btq_popup_VC() {
 	vc_map(array(
     'name'     => __( 'BTQ Popup', 'btq-popup' ),
 		'base'     => 'btq-popup',
@@ -57,7 +57,7 @@ function btq_popup() {
 		'icon'     => plugins_url( 'assets/images/iconos' . DIRECTORY_SEPARATOR . 'btqdesign-logo.png', __FILE__ )
 	));
 }
-add_action( 'vc_before_init', 'btq_popup' );
+add_action( 'vc_before_init', 'btq_popup_VC' );
 
 /**
  * Función del shortcode que imprime el BTQ Login en el frond-end.
@@ -93,7 +93,7 @@ add_shortcode( 'btq-login', 'btq_popup_shortcode' );
 
 
 
-function btq_popups() {
+function btq_popup() {
 	?>
 
       <!-- Modal -->
@@ -114,4 +114,4 @@ function btq_popups() {
 
 	<?php
 }
-add_action('wp_footer', 'btq_popups');
+add_action('wp_footer', 'btq_popup');
