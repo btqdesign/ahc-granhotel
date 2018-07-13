@@ -1,5 +1,4 @@
 jQuery(document).ready(function(){
-    setTimeout(function(){
-    jQuery('#Top5razones').modal('show')
-}, 9000);
+    jQuery('#Top5razones').modal('show').addClass('load').wait(9000).addClass('done');
 });
+
