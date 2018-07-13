@@ -68,6 +68,12 @@ function btq_popup() {
       <div class="modal fade" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
+            <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Top 5 Razones Para Reservar</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
             <div style="padding: 0px;" class="modal-body">
               <img src="<?php echo plugins_url( 'imagenes/pop_up_img.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
             </div>
