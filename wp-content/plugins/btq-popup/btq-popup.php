@@ -69,10 +69,10 @@ function btq_popup() {
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div style="padding: 0px;" class="modal-body">
-              <img src="imagenes/pop_up_img.jpg" alt="Top 5 razones por las que conviene reservar.">
+              <img src="<?php echo plugins_url( 'imagenes/pop_up_img.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
             </div>
             <div style="padding: 0px;" class="modal-footer">
-                <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="imagenes/btn_pop_up.jpg" alt="Top 5 razones por las que conviene reservar."></a>
+                <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
             </div>
           </div>
         </div>
