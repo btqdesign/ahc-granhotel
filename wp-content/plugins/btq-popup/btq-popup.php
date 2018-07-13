@@ -33,14 +33,14 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
  * @author Saúl Díaz
  * @return void Integra CSS y JS al frond-end del sitio.
  */
-function btq_login_scripts() {
+function btq_popup_scripts() {
     if (!is_admin()) {
 	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
 	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
       wp_enqueue_script( 'btq-login-js', plugins_url( 'script.js', __FILE__ ), array('firebase'), '1.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
+add_action( 'wp_enqueue_scripts', 'btq_popup_scripts', 1 );
 
 /**
  * Declara el Widget de BTQ Login en VisualCompouser.
@@ -89,7 +89,7 @@ function btq_popup_shortcode() {
 	
 	return $out;
 } // function btq_login_shortcode()
-add_shortcode( 'btq-login', 'btq_popup_shortcode' );
+add_shortcode( 'btq-popup', 'btq_popup_shortcode' );
 
 
 
