@@ -47,7 +47,7 @@ add_action( 'wp_enqueue_scripts', 'btq_popup_scripts', 1 );
  * Declara el Widget de BTQ Login en VisualCompouser.
  *
  * @author José Antonio del Carmen
- * @return void Widget de BTQ Login en VisualCompouser.
+ * @return void Widget de BTQ popup en VisualCompouser.
  */
 function btq_popup_VC() {
 	vc_map(array(
