@@ -64,37 +64,9 @@ add_action( 'vc_before_init', 'btq_popup_VC' );
  * @author Saúl Díaz
  * @return string Imprime el BTQ Booking TC
  */
-function btq_popup_shortcode() {
-	ob_start();
-	?>
-
-      <!-- Modal -->
-      <div class="modal fade" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div style="padding: 0px;" class="modal-body">
-              <img src="imagenes/pop_up_img.jpg" alt="Top 5 razones por las que conviene reservar.">
-            </div>
-            <div style="padding: 0px;" class="modal-footer">
-                <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="imagenes/btn_pop_up.jpg" alt="Top 5 razones por las que conviene reservar."></a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-	<?php
-	$out = ob_get_clean();
-	
-	return $out;
-} // function btq_login_shortcode()
-add_shortcode( 'btq-popup', 'btq_popup_shortcode' );
-
-
 
 function btq_popup() {
 	?>
-
       <!-- Modal -->
       <div class="modal fade" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
