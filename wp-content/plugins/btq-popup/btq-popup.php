@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name: BTQ Login
- * Plugin URI: http://btqdesign.com/plugins/btq-login/
- * Description: Login con redes sociales.
- * Version: 0.1.0
+ * Plugin Name: BTQ popup
+ * Plugin URI: https://hotel.idevol.net/wp-content/plugins/btq-popup/btq-popup.html
+ * Description: Popup autodesplegable.
+ * Version: 1.0
  * Author: BTQ Design
  * Author URI: http://btqdesign.com/
  * Requires at least: 4.9.6
@@ -30,7 +30,6 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
  * Añade a WordPress los assets JS y CSS necesarios para el Grid.
  *
  * @author José Antonio del Carmen
- * @author Saúl Díaz
  * @return void Integra CSS y JS al frond-end del sitio.
  */
 function btq_popup_scripts() {
