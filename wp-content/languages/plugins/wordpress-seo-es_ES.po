@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - Yoast SEO - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2018-07-11 17:41:05+0000\n"
+"PO-Revision-Date: 2018-07-13 14:46:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -423,7 +423,7 @@ msgstr "Descartar este aviso"
 
 #: languages/yoast-components.php:184
 msgid "Learn more about the Snippet Preview."
-msgstr "Aprende más sobre la vista previa del snippet"
+msgstr "Aprende más sobre la vista previa del snippet."
 
 #: languages/yoast-components.php:181
 msgid "This is a rendering of what this post might look like in Google's search results. "
@@ -1164,7 +1164,7 @@ msgstr "El análisis de legibilidad ofrece sugerencias para mejorar la estructur
 
 #: admin/views/tabs/dashboard/features.php:36
 msgid "Discover why readability is important for SEO."
-msgstr "Descubre porqué la legibilidad es importante para el SEO."
+msgstr "Descubre por qué la legibilidad es importante para el SEO."
 
 #: admin/views/tabs/dashboard/features.php:43
 msgid "The cornerstone content feature lets you to mark and filter cornerstone content on your website."
@@ -1172,11 +1172,11 @@ msgstr "La característica de contenido esencial te permite marcar y filtrar con
 
 #: admin/views/tabs/dashboard/features.php:44
 msgid "Find out how cornerstone content can help you improve your site structure."
-msgstr "Descubre como el contenido esencial puede ayudarte a mejorar la estructura de tu sitio."
+msgstr "Descubre cómo el contenido esencial puede ayudarte a mejorar la estructura de tu sitio."
 
 #: admin/views/tabs/dashboard/features.php:52
 msgid "Find out how the text link counter can enhance your SEO."
-msgstr "Descubre como el contador de enlaces de texto puede mejorar tu SEO."
+msgstr "Descubre cómo el contador de enlaces de texto puede mejorar tu SEO."
 
 #. translators: %s expands to Ryte.
 #: admin/views/tabs/dashboard/features.php:68
