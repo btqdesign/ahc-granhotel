@@ -63,27 +63,65 @@ add_action( 'vc_before_init', 'btq_popup_VC' );
 
 
 function btq_popup() {
+  $language = btq_popup_current_language_code();
 	?>
       <!-- Modal -->
       <div class="modal fade" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
+              <?php if ($language == 'es'):?> 
                   <h5 class="modal-title" id="exampleModalLongTitle">RAZONES PARA RESERVAR CON NOSOTROS</h5>
+                <?php else:?>
+                  <h5 class="modal-title" id="exampleModalLongTitle">REASONS TO BOOK WITH US</h5>
+              <?php endif;?>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
               </div>
             <div style="padding: 0px;" class="modal-body">
-              <img src="<?php echo plugins_url( 'imagenes/pop_up_img.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
+            <?php if ($language == 'es'):?>
+                <img src="<?php echo plugins_url( 'imagenes/pop_up_img_es.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
+              <?php else:?>
+               <img src="<?php echo plugins_url( 'imagenes/pop_up_img_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book.">
+            <?php endif;?>
             </div>
             <div style="padding: 0px;" class="modal-footer">
-                <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
+             <?php if ($language == 'es'):?>
+                 <a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_es.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
+                <?php else:?>
+                <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
+              <?php endif;?>
             </div>
           </div>
         </div>
       </div>
-
+    
 	<?php
 }
 add_action('wp_footer', 'btq_popup');
+
+/**
+ * Devuelve el código de idioma que se está utilizando.
+ *
+ * @author Saúl Díaz
+ * @return string Código de idioma que se está utilizando.
+ */
+function btq_popup_current_language_code() {
+
+  $wpml_current_language = apply_filters( 'wpml_current_language', NULL );
+  if (!empty($wpml_current_language)){
+    $language = $wpml_current_language;
+  }
+  elseif ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+    $language = ICL_LANGUAGE_CODE;
+  }
+  else {
+    $language = 'es';
+  }
+  
+  //Debug
+  //btq_booking_tc_log('languages', $language, TRUE);
+  
+  return $language;
+}
