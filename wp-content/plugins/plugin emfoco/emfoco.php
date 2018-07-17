@@ -68,3 +68,15 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
     });
 
 
+    function my_awesome_plugin_page() {
+        ?>
+          <div class="wrap">
+            <form action="options.php" method="post">
+              <?php
+              settings_fields( 'btq-emfoco-settings' );
+              do_settings_sections( 'btq-emfoco-settings' );
+              ?>
+            </form>
+          </div>
+        <?php
+       }
