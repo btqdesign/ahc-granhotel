@@ -60,7 +60,7 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
      * Register and add settings
      */
     add_action('admin_menu', function() {
-        add_options_page( 'My awesome plugin settings', 'my awesome plugin', 'manage_options', 'my-awesome-plugin', 'my_awesome_plugin_page' );
+        add_options_page( 'Btq Emfoco', 'Btq Emfoco', 'manage_options', 'Btq Emfoco', 'Btq emfoco pagina' );
     });
 
 
