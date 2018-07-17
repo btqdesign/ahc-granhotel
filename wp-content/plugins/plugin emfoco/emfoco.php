@@ -90,12 +90,12 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
                   </tr>
                   <tr>
                       <th>Comentario:</th>
-                      <td><textarea placeholder="Comentarios" name="map_option_2" rows="10" cols="50"><?php echo esc_attr( get_option('map_option_2') ); ?></textarea></td>
+                      <td><textarea placeholder="Comentarios" name="map_option_2" rows="6" cols="50"><?php echo esc_attr( get_option('map_option_2') ); ?></textarea></td>
                   </tr>
                 
                   <tr>
                       <th>Descripción del sector:</th>
-                      <td><textarea placeholder="Descripcion" name="map_option_2" rows="20" cols="50"><?php echo esc_attr( get_option('map_option_2') ); ?></textarea></td>
+                      <td><textarea placeholder="Descripcion" name="map_option_2" rows="10" cols="50"><?php echo esc_attr( get_option('map_option_2') ); ?></textarea></td>
                   </tr>
        
                   
