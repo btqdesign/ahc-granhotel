@@ -63,4 +63,8 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
         add_options_page( 'Btq Emfoco', 'Btq Emfoco', 'manage_options', 'Btq Emfoco', 'Btq emfoco pagina' );
     });
 
+    add_action( 'admin_init', function() {
+        register_setting( 'btq-emfoco-settings', 'map_name' );
+    });
+
 
