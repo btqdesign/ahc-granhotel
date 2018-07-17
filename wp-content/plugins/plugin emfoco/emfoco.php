@@ -18,6 +18,10 @@
  */
 
 
+// Exit if accessed directly
+defined('ABSPATH') or die('No script kiddies please!');
+
+
 /**
  * Añade a WordPress los assets JS y CSS necesarios para el Grid.
  *
