@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: BTQ popup
+ * Plugin Name: BTQ emfoco
  * Plugin URI: https://hotel.idevol.net/wp-content/plugins/btq-popup/btq-popup.html
- * Description: Popup autodesplegable.
+ * Description: Creador de post master
  * Version: 1.0
  * Author: BTQ Design
  * Author URI: http://btqdesign.com/
@@ -12,7 +12,7 @@
  * Text Domain: btq-login
  * Domain Path: /languages
  * 
- * @package btq-login
+ * @package btq-emfoco
  * @category Core
  * @author BTQ Design
  */
