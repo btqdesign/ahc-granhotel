@@ -64,9 +64,9 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
     });
 
     add_action( 'admin_init', function() {
-        register_setting( 'btq-emfoco-settings', 'map_option_1' );
-        register_setting( 'btq-emfoco-settings', 'map_option_2' );
-        register_setting( 'btq-emfoco-settings', 'map_option_3' );
+        register_setting( 'btq-emfoco-settings', 'Sector' );
+        register_setting( 'btq-emfoco-settings', 'Comentarios' );
+        register_setting( 'btq-emfoco-settings', 'Descripcion' );
         register_setting( 'btq-emfoco-settings', 'map_option_4' );
         register_setting( 'btq-emfoco-settings', 'map_option_5' );
         register_setting( 'btq-emfoco-settings', 'map_option_6' );
@@ -94,16 +94,16 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
                    
                   <tr>
                       <th>Nombre del sector:</th>
-                      <td><input type="text" placeholder="Nombre del sector" name="map_option_1" value="<?php echo esc_attr( get_option('map_option_1') ); ?>" size="50" /></td>
+                      <td><input type="text" placeholder="Nombre del sector" name="Sector" value="<?php echo esc_attr( get_option('Sector') ); ?>" size="50" /></td>
                   </tr>
                   <tr>
                       <th>Comentario:</th>
-                      <td><textarea placeholder="Comentarios" name="map_option_2" rows="6" cols="50"><?php echo esc_attr( get_option('map_option_2') ); ?></textarea></td>
+                      <td><textarea placeholder="Comentarios" name="Comentarios" rows="6" cols="50"><?php echo esc_attr( get_option('Comentarios') ); ?></textarea></td>
                   </tr>
                 
                   <tr>
                       <th>Descripción del sector:</th>
-                      <td><textarea placeholder="Descripcion" name="map_option_3" rows="10" cols="50"><?php echo esc_attr( get_option('map_option_3') ); ?></textarea></td>
+                      <td><textarea placeholder="Descripcion" name="Descripcion" rows="10" cols="50"><?php echo esc_attr( get_option('Descripcion') ); ?></textarea></td>
                   </tr>
        
        
