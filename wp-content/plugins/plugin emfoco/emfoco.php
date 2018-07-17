@@ -74,16 +74,16 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
 
     function create_posttype() {
  
-        register_post_type( 'movies',
+        register_post_type( 'Sectores',
         // CPT Options
             array(
                 'labels' => array(
-                    'name' => __( 'Movies' ),
-                    'singular_name' => __( 'Movie' )
+                    'name' => __( 'Sectores' ),
+                    'singular_name' => __( 'Sector' )
                 ),
                 'public' => true,
                 'has_archive' => true,
-                'rewrite' => array('slug' => 'movies'),
+                'rewrite' => array('slug' => 'Sectores'),
             )
         );
     }
