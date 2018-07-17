@@ -72,13 +72,23 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
         register_setting( 'btq-emfoco-settings', 'map_option_6' );
     });
 
-    add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+    function create_posttype() {
  
-        function add_my_post_types_to_query( $query ) {
-            if ( is_home() && $query->is_main_query() )
-                $query->set( 'post_type', array( 'post', 'movies' ) );
-            return $query;
+        register_post_type( 'movies',
+        // CPT Options
+            array(
+                'labels' => array(
+                    'name' => __( 'Movies' ),
+                    'singular_name' => __( 'Movie' )
+                ),
+                'public' => true,
+                'has_archive' => true,
+                'rewrite' => array('slug' => 'movies'),
+            )
+        );
     }
+    // Hooking up our function to theme setup
+    add_action( 'init', 'create_posttype' );
      
 
     function Btq_emfoco_pagina() {
