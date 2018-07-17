@@ -68,6 +68,20 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
     });
 
 
+    add_action('admin_menu', function() {
+        add_options_page( 'My awesome plugin settings', 'my awesome plugin', 'manage_options', 'my-awesome-plugin', 'my_awesome_plugin_page' );
+    });
+     
+     
+    add_action( 'admin_init', function() {
+        register_setting( 'my-awesome-plugin-settings', 'map_option_1' );
+        register_setting( 'my-awesome-plugin-settings', 'map_option_2' );
+        register_setting( 'my-awesome-plugin-settings', 'map_option_3' );
+        register_setting( 'my-awesome-plugin-settings', 'map_option_4' );
+        register_setting( 'my-awesome-plugin-settings', 'map_option_5' );
+        register_setting( 'my-awesome-plugin-settings', 'map_option_6' );
+    });
+
     function my_awesome_plugin_page() {
         ?>
           <div class="wrap">
