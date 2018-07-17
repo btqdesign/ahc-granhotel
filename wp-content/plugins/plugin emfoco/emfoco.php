@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: BTQ emfoco
- * Plugin URI: https://hotel.idevol.net/wp-content/plugins/btq-popup/btq-popup.html
+ * Plugin URI: https://hotel.idevol.net/wp-content/plugins/plugin%20emfoco/emfoco.php
  * Description: Creador de post master
  * Version: 1.0
  * Author: BTQ Design
@@ -9,7 +9,7 @@
  * Requires at least: 4.9.6
  * Tested up to: 4.9.6
  * 
- * Text Domain: btq-login
+ * Text Domain: btq-emfoco
  * Domain Path: /languages
  * 
  * @package btq-emfoco
@@ -21,10 +21,6 @@
 // Exit if accessed directly
 defined('ABSPATH') or die('No script kiddies please!');
 
-/** 
- * Establece el dominio correcto para la carga de traducciones
- */
-load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/languages');
 
 /**
  * Añade a WordPress los assets JS y CSS necesarios para el Grid.
