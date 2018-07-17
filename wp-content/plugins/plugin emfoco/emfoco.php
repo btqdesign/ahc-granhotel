@@ -60,29 +60,20 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
      * Register and add settings
      */
     add_action('admin_menu', function() {
-        add_options_page( 'Btq Emfoco', 'Btq Emfoco', 'manage_options', 'Btq Emfoco', 'Btq emfoco pagina' );
+        add_options_page( 'Btq Emfoco', 'Btq Emfoco', 'manage_options', 'Btq Emfoco', 'Btq_emfoco_pagina' );
     });
 
     add_action( 'admin_init', function() {
-        register_setting( 'btq-emfoco-settings', 'map_name' );
-    });
-
-
-    add_action('admin_menu', function() {
-        add_options_page( 'My awesome plugin settings', 'my awesome plugin', 'manage_options', 'my-awesome-plugin', 'my_awesome_plugin_page' );
+        register_setting( 'btq-emfoco-settings', 'map_option_1' );
+        register_setting( 'btq-emfoco-settings', 'map_option_2' );
+        register_setting( 'btq-emfoco-settings', 'map_option_3' );
+        register_setting( 'btq-emfoco-settings', 'map_option_4' );
+        register_setting( 'btq-emfoco-settings', 'map_option_5' );
+        register_setting( 'btq-emfoco-settings', 'map_option_6' );
     });
      
-     
-    add_action( 'admin_init', function() {
-        register_setting( 'my-awesome-plugin-settings', 'map_option_1' );
-        register_setting( 'my-awesome-plugin-settings', 'map_option_2' );
-        register_setting( 'my-awesome-plugin-settings', 'map_option_3' );
-        register_setting( 'my-awesome-plugin-settings', 'map_option_4' );
-        register_setting( 'my-awesome-plugin-settings', 'map_option_5' );
-        register_setting( 'my-awesome-plugin-settings', 'map_option_6' );
-    });
 
-    function my_awesome_plugin_page() {
+    function Btq_emfoco_pagina() {
         ?>
           <div class="wrap">
             <form action="options.php" method="post">
