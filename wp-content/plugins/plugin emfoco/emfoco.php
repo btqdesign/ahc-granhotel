@@ -71,6 +71,14 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
         register_setting( 'btq-emfoco-settings', 'map_option_5' );
         register_setting( 'btq-emfoco-settings', 'map_option_6' );
     });
+
+    add_action( 'pre_get_posts', 'add_my_post_types_to_query' );
+ 
+        function add_my_post_types_to_query( $query ) {
+            if ( is_home() && $query->is_main_query() )
+                $query->set( 'post_type', array( 'post', 'movies' ) );
+            return $query;
+    }
      
 
     function Btq_emfoco_pagina() {
@@ -98,7 +106,6 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
                       <td><textarea placeholder="Descripcion" name="map_option_3" rows="10" cols="50"><?php echo esc_attr( get_option('map_option_3') ); ?></textarea></td>
                   </tr>
        
-                  
        
                   <tr>
                       <td><?php submit_button(); ?></td>
