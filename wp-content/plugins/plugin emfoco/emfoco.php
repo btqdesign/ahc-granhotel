@@ -79,8 +79,8 @@ add_action( 'vc_before_init', 'btq_emfoco_VC' );
             <form action="options.php" method="post">
        
               <?php
-                settings_fields( 'my-awesome-plugin-settings' );
-                do_settings_sections( 'my-awesome-plugin-settings' );
+                settings_fields( 'btq-emfoco-settings' );
+                do_settings_sections( 'btq-emfoco-settings' );
               ?>
               <table>
                    
