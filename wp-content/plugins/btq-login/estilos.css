@@ -97,11 +97,12 @@
         border: 1px solid #c69807;
         cursor: pointer;
       }
-u{
+ul{
   text-decoration-color: #c69807; 
   color: #c69807
 }
 
+/* estilo nuevos botones
 .btq-login-btns {
   box-sizing: border-box;
   padding: 0px;
@@ -142,3 +143,4 @@ u{
 .btq-login-btns ul.btq-book-now li a:hover {
   background-color: blue;
 }
+*/
