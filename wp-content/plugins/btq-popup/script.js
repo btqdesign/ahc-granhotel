@@ -1,4 +1,8 @@
 jQuery(document).ready(function(){
-    jQuery('#Top5razones').modal('show')
+setTimeout(function(){
+            if(!Cookies.get('modalShown')) {
+    		jQuery('#Top5razones').modal('show')
+              Cookies.set('modalShown', true);
+            }
+    },9000);
 });
-
