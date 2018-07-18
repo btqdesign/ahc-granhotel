@@ -37,7 +37,7 @@ function btq_popup_scripts() {
 	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
 	    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
 	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
-	    wp_enqueue_script( 'btq-popup-js', plugins_url( 'script.js', __FILE__ ), array('firebase'), '1.0');
+	    wp_enqueue_script( 'btq-popup-js', plugins_url( 'script.js', __FILE__ ), array(), '1.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_popup_scripts', 1 );
