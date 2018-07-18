@@ -76,7 +76,7 @@ function btq_login_shortcode() {
 	<div id="botones_primarios"> 
 <!-- Button trigger modal -->
 
-      <ul class="mega-menu">
+      <ul class="mega-menu btq-menu-login">
         <li class="dib customlinks"><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav(); pestaña_inicio();"><?php _e('Log in','btq-login'); ?></a></li>
         <li><a type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2"><?php _e('Sign up','btq-login'); ?></a></li>  
       </ul>
