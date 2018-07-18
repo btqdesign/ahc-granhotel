@@ -76,6 +76,7 @@ ul#menu-header-menu, ul#menu-header-menu-terraza, ul#menu-header-menu-banquete, 
 .menu-header-menu-container, .menu-header-menu-terraza-container, .menu-header-menu-banquete-container, .menu-header-menu-terraza-en-container, .menu-header-menu-en-container {
 	padding-top: 17px;
 	max-width: 600px;
+	display: inline-block;
 }
 
 textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{

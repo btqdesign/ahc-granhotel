@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: BTQ popup
+ * Plugin Name: BTQ Popup
  * Plugin URI: https://hotel.idevol.net/wp-content/plugins/btq-popup/btq-popup.html
  * Description: Popup autodesplegable.
  * Version: 1.0
@@ -9,10 +9,10 @@
  * Requires at least: 4.9.6
  * Tested up to: 4.9.6
  * 
- * Text Domain: btq-login
+ * Text Domain: btq-popup
  * Domain Path: /languages
  * 
- * @package btq-login
+ * @package btq-popup
  * @category Core
  * @author BTQ Design
  */
@@ -35,7 +35,6 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
 function btq_popup_scripts() {
     if (!is_admin()) {
 	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
-	    wp_enqueue_script( 'firebase', 'https://www.gstatic.com/firebasejs/5.0.4/firebase.js', array(), '5.0.4');
 	    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
 	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
 	    wp_enqueue_script( 'btq-popup-js', plugins_url( 'script.js', __FILE__ ), array('firebase'), '1.0');
@@ -88,10 +87,10 @@ function btq_popup() {
             </div>
             <div style="padding: 0px;" class="modal-footer">
              <?php if ($language == 'es'):?>
-                 <a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_es.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
+                <a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_es.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
                 <?php else:?>
                 <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
-              <?php endif;?>
+                <?php endif;?>
             </div>
           </div>
         </div>
