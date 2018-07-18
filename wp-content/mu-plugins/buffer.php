@@ -39,8 +39,8 @@ add_filter('final_output', function($output) {
 	
 	// Optimizacion de cache, elimina query vars de version y ver
 	$patt = array(
-	'/(("|\')https?:\/\/((hotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\/[a-zA-Z0-9\._\/-]*\.(css|js))(\?(ver|version)=[a-zA-Z0-9%_.-]{1,8})("|\')/'
-	,'/(("|\')https?:\\\\\/\\\\\/((hotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\\\\\/[a-zA-Z0-9\._\\\\\/-]*\.(css|js))(\?(ver|version)=[a-zA-Z0-9%_.-]{1,8})("|\')/'
+	'/(("|\')https?:\/\/((granhotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\/[a-zA-Z0-9\._\/-]*\.(css|js))(\?(ver|version)=[a-zA-Z0-9%_.-]{1,8})("|\')/'
+	,'/(("|\')https?:\\\\\/\\\\\/((granhotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\\\\\/[a-zA-Z0-9\._\\\\\/-]*\.(css|js))(\?(ver|version)=[a-zA-Z0-9%_.-]{1,8})("|\')/'
 	);
 	$repl = array(
 	'${1}${9}'
@@ -52,7 +52,7 @@ add_filter('final_output', function($output) {
 });
 
 add_filter('wp_redirect', function($output) {
-	$output = str_replace('http://hotel.idevol.net', 'https://hotel.idevol.net', $output);
+	$output = str_replace('http://granhotel.idevol.net', 'https://granhotel.idevol.net', $output);
 	$output = str_replace('http://granhoteldelaciudaddemexico.com.mx', 'https://granhoteldelaciudaddemexico.com.mx', $output);
 	return $output;
 });
