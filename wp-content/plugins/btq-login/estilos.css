@@ -101,3 +101,42 @@ u{
   text-decoration-color: #c69807; 
   color: #c69807
 }
+
+.btq-login-btns {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  height: 60px;
+  background: red;
+  text-align: right;
+}
+.btq-login-btns ul.btq-menu-login,
+.btq-login-btns ul.btq-book-now {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.btq-login-btns ul.btq-menu-login li,
+.btq-login-btns ul.btq-book-now li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  line-height: 60px;
+}
+.btq-login-btns ul.btq-menu-login li a,
+.btq-login-btns ul.btq-book-now li a {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0 10px;
+  display: block;
+  line-height: 60px;
+  vertical-align: middle;
+  text-decoration: none;
+  color: white;
+}
+.btq-login-btns ul.btq-menu-login li a:hover,
+.btq-login-btns ul.btq-book-now li a:hover {
+  background-color: blue;
+}
