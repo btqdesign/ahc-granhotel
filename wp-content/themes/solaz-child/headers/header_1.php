@@ -49,11 +49,13 @@ $solaz_settings = solaz_check_theme_options();
 				                }
 				            }
 			                ?>
+			                <?php /*
 			                <div class="menu-main_menu-container btq-book-now">
 				                <ul id="menu-main_menu" class="mega-menu">
 					                <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6362"><a href="https://hotel.idevol.net/es/">Book Now</a></li>
 								</ul>
 							</div>
+							*/ ?>
 			            </div>
 			            <div id="account" class="tabcontent hidden-md hidden-sm hidden-lg">
 							<?php /*
