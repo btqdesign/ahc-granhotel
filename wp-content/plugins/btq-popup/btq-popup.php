@@ -90,7 +90,7 @@ function btq_popup() {
                 <a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_es.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
                 <?php else:?>
                 <a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/btn_pop_up_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
-              <?php endif;?>
+                <?php endif;?>
             </div>
           </div>
         </div>
