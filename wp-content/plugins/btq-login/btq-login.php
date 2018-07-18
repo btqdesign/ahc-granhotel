@@ -194,7 +194,7 @@ function btq_login_modals() {
               <!-- Aqui termina html para registro de usuario por correo -->     
               <div id="recuperado" class="loggedin-div">
               <h3><?php _e('Reset your password','btq-login'); ?></h3>
-                <br
+                <br>
                 <h5><?php _e('We have sent a password reset email to the email address you provided.','btq-login'); ?></h5>
               </div>
         </div>
