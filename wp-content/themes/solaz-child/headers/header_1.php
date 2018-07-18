@@ -79,7 +79,7 @@ $solaz_settings = solaz_check_theme_options();
 								
 							</ul>
 							*/?>
-							<?php echo do_shortcode('[btq-login]'); ?>
+							<?php /* echo do_shortcode('[btq-login]'); */ ?>
 			            </div>
 	                </div>
 	            <?php
@@ -219,6 +219,7 @@ $solaz_settings = solaz_check_theme_options();
 					}
 				?>
 
+				<?php /*
 				<div class="btq-login-btns">
 					<?php echo do_shortcode('[btq-login]');?>
 					<ul class="btq-book-now">
@@ -229,8 +230,9 @@ $solaz_settings = solaz_check_theme_options();
 						<?php endif; ?>
 					</ul>
 				</div>
+				*/ ?>
 					
-					<?php /*if (class_exists('WP_Hotel_Booking')):?>	    
+					<?php if (class_exists('WP_Hotel_Booking')):?>	    
 			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
 			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
 							<div class="link-contact f_right main-bg display-inline-b">
@@ -241,7 +243,7 @@ $solaz_settings = solaz_check_theme_options();
 								<?php endif;?>
 			        		</div>
 			        	<?php endif;?>	
-					<?php endif;*/?>	        		        	
+					<?php endif; ?>	        		        	
 	        </div>      	
         </div>  
 </div>
