@@ -116,7 +116,7 @@ function btq_login_modals() {
                     <div id="login_div" class="main-div">      
                         <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', __FILE__ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
                         <br>
-                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png"', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
+                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
                         <br>
                         <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="email_field" />
                         <input type="password" placeholder="<?php _e('Password','btq-login'); ?>" id="password_field" />
