@@ -110,6 +110,8 @@ u{
   height: 60px;
   background: red;
   text-align: right;
+  display: inline-block;
+  float: right;
 }
 .btq-login-btns ul.btq-menu-login,
 .btq-login-btns ul.btq-book-now {
