@@ -49,8 +49,9 @@ else {
 	';
 }
 
-$google_tag_manager_head = '';
-$google_tag_manager_body = '';
+//$google_tag_manager_head = '';
+//$google_tag_manager_body = '';
+
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
