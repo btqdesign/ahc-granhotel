@@ -100,14 +100,12 @@ $solaz_settings = solaz_check_theme_options();
 	            		<?php endif;?>
 	            	<?php endif; ?>
 	            <?php endif; ?>   	                 
-	            <?php 	                
-	            if ($solaz_settings['header-search']) {
-	                    $solaz_search_template = solaz_get_search_form();
-	                    echo '<div class="search-block-top">' .wp_kses($solaz_search_template, solaz_allow_html()) . '</div>';
-	                }  
-
-		        ?>    
-		            
+				<?php 	                
+				if ($solaz_settings['header-search']) {
+					$solaz_search_template = solaz_get_search_form();
+					echo '<div class="search-block-top">' .wp_kses($solaz_search_template, solaz_allow_html()) . '</div>';
+				}
+				?>
 	        </nav>  
 	        <div class="header-bottom">
 				<?php /*
