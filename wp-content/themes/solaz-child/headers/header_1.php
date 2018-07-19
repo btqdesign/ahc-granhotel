@@ -100,14 +100,12 @@ $solaz_settings = solaz_check_theme_options();
 	            		<?php endif;?>
 	            	<?php endif; ?>
 	            <?php endif; ?>   	                 
-	            <?php 	                
-	            if ($solaz_settings['header-search']) {
-	                    $solaz_search_template = solaz_get_search_form();
-	                    echo '<div class="search-block-top">' .wp_kses($solaz_search_template, solaz_allow_html()) . '</div>';
-	                }  
-
-		        ?>    
-		            
+				<?php 	                
+				if ($solaz_settings['header-search']) {
+					$solaz_search_template = solaz_get_search_form();
+					echo '<div class="search-block-top">' .wp_kses($solaz_search_template, solaz_allow_html()) . '</div>';
+				}
+				?>
 	        </nav>  
 	        <div class="header-bottom">
 				<?php /*
@@ -233,20 +231,20 @@ $solaz_settings = solaz_check_theme_options();
 					</ul>
 				</div>
 				*/ ?>
-					
-					<?php if (class_exists('WP_Hotel_Booking')):?>	    
-			        	<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
-			        		<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
-							<div class="link-contact f_right main-bg display-inline-b">
-			        			<?php if ($language == 'es'):?>	
+				
+				<?php if (class_exists('WP_Hotel_Booking')):?>
+					<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
+						<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
+						<div class="link-contact f_right main-bg display-inline-b">
+							<?php if ($language == 'es'):?>
 								<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a>
-								<?php else:?>
-								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>			
-								<?php endif;?>
-			        		</div>
-			        	<?php endif;?>	
-					<?php endif; ?>	        		        	
-	        </div>      	
-        </div>  
+							<?php else:?>
+								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>
+							<?php endif;?>
+						</div>
+					<?php endif;?>
+				<?php endif; ?>
+	        </div>
+        </div>
 </div>
 <!-- Menu -->
