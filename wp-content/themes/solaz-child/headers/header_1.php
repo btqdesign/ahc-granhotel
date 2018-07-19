@@ -223,7 +223,6 @@ $solaz_settings = solaz_check_theme_options();
 								<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a>
 							<?php else:?>
 								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>
-								</a>
 							<?php endif;?>
 						</div>
 					<?php endif;?>
