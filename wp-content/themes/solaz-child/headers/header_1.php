@@ -49,16 +49,13 @@ $solaz_settings = solaz_check_theme_options();
 				                }
 				            }
 			                ?>
-			                <?php /*
 			                <div class="menu-main_menu-container btq-book-now">
 				                <ul id="menu-main_menu" class="mega-menu">
 					                <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6362"><a href="https://hotel.idevol.net/es/">Book Now</a></li>
 								</ul>
 							</div>
-							*/ ?>
 			            </div>
 			            <div id="account" class="tabcontent hidden-md hidden-sm hidden-lg">
-							<?php /*
 			            <?php 
 							if ( class_exists( 'WooCommerce' )) {
 								$myaccount_page_id = get_option('woocommerce_myaccount_page_id');
@@ -80,8 +77,6 @@ $solaz_settings = solaz_check_theme_options();
 								<?php endif; ?>									
 								
 							</ul>
-							*/?>
-							<?php /* echo do_shortcode('[btq-login]'); */ ?>
 			            </div>
 	                </div>
 	            <?php
@@ -100,12 +95,14 @@ $solaz_settings = solaz_check_theme_options();
 	            		<?php endif;?>
 	            	<?php endif; ?>
 	            <?php endif; ?>   	                 
-				<?php 	                
-				if ($solaz_settings['header-search']) {
-					$solaz_search_template = solaz_get_search_form();
-					echo '<div class="search-block-top">' .wp_kses($solaz_search_template, solaz_allow_html()) . '</div>';
-				}
-				?>
+	            <?php 	                
+	            if ($solaz_settings['header-search']) {
+	                    $solaz_search_template = solaz_get_search_form();
+	                    echo '<div class="search-block-top">' .wp_kses($solaz_search_template, solaz_allow_html()) . '</div>';
+	                }  
+
+		        ?>    
+		            
 	        </nav>  
 	        <div class="header-bottom">
 				<?php /*
@@ -218,20 +215,6 @@ $solaz_settings = solaz_check_theme_options();
 						}
 					}
 				?>
-
-				<?php /*
-				<div class="btq-login-btns">
-					<?php echo do_shortcode('[btq-login]');?>
-					<ul class="btq-book-now">
-						<?php if ($language == 'es'): ?>	
-						<li><a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a></li>
-						<?php else: ?>
-						<li><a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a></li>
-						<?php endif; ?>
-					</ul>
-				</div>
-				*/ ?>
-				
 				<?php if (class_exists('WP_Hotel_Booking')):?>
 					<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
 						<?php $solaz_settings['header_book_link'] = (isset($solaz_settings['header_book_link']) && $solaz_settings['header_book_link']!='')? $solaz_settings['header_book_link']:'hola';?>
@@ -240,6 +223,7 @@ $solaz_settings = solaz_check_theme_options();
 								<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a>
 							<?php else:?>
 								<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>
+								</a>
 							<?php endif;?>
 						</div>
 					<?php endif;?>
