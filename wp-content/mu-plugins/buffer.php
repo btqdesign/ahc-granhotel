@@ -37,6 +37,11 @@ add_filter('final_output', function($output) {
 	$output = str_replace('https://docs.oasisopen.org', 'http://docs.oasisopen.org', $output);
 	$output = str_replace('https://www.sitemaps.org', 'http://www.sitemaps.org', $output);
 	
+	$output = str_replace(" type='text/javascript'", '', $output);
+	$output = str_replace(' type="text/javascript"', '', $output);
+	$output = str_replace(" type='text/css'", '', $output);
+	$output = str_replace(' type="text/css"', '', $output);
+
 	// Optimizacion de cache, elimina query vars de version y ver
 	$patt = array(
 	'/(("|\')https?:\/\/((granhotel\.idevol\.net)|(granhoteldelaciudaddemexico\.com\.mx))\/[a-zA-Z0-9\._\/-]*\.(css|js))(\?(ver|version)=[a-zA-Z0-9%_.-]{1,8})("|\')/'
