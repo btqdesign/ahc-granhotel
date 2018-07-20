@@ -1265,12 +1265,12 @@ function btq_booking_tc_grid_form($language = 'es') {
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo $str_arrival_date; ?>">
+								<input type="text" autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo $str_arrival_date; ?>">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo $str_departure_date; ?>">
+								<input type="text" autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo $str_departure_date; ?>">
 							</div>		
 						</div>
 					</div>
@@ -1345,7 +1345,7 @@ function btq_booking_tc_grid_scripts() {
 	    wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array('moment','moment-timezone'), '1.0.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1001 );
+add_action( 'wp_enqueue_scripts', 'btq_booking_tc_grid_scripts', 1003 );
 
 function btq_booking_tc_head_scripts(){
 	/** 
