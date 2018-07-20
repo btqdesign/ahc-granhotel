@@ -263,7 +263,7 @@ function solaz_scripts_styles() {
                 .header-v3:not(.is-sticky) #site-navigation{
                     border-top-color: {$solaz_settings['header3-menu_border']} !important;
                 }
-            }
+	    }
         ";         
     }    
     if(isset($solaz_settings['header2-bg']) || isset($solaz_settings['header2-menu_color'])){

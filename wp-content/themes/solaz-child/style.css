@@ -71,9 +71,12 @@ Text Domain:  solaz-child
 ul#menu-header-menu, ul#menu-header-menu-terraza, ul#menu-header-menu-banquete, ul#menu-header-menu-terraza-en, ul#menu-header-menu-en {
 	height: 50px;
 	padding-top: 5px;
+	max-width: 600px;
 }
 .menu-header-menu-container, .menu-header-menu-terraza-container, .menu-header-menu-banquete-container, .menu-header-menu-terraza-en-container, .menu-header-menu-en-container {
-    padding-top: 17px;
+	padding-top: 17px;
+	max-width: 600px;
+	/*display: inline-block;*/
 }
 
 textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
@@ -112,5 +115,9 @@ textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
 	.header-v1 .languges-flags + .search-block-top {
 		right: 55px !important;
 	}
+}
+
+.forcefullwidth_wrapper_tp_banner, .wpb_row{
+	z-index: -10000000000 !important;
 }
 
