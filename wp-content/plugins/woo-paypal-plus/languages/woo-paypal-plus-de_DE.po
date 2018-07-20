@@ -1,0 +1,583 @@
+# Copyright (C) 2016 PayPal Plus for WooCommerce
+# This file is distributed under the same license as the PayPal Plus for WooCommerce package.
+msgid ""
+msgstr ""
+"Project-Id-Version: PayPal Plus for WooCommerce 1.0.2\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/woo-paypal-plus\n"
+"POT-Creation-Date: 2016-10-03 15:37+0200\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-10-03 16:06+0200\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.9\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+#: admin/class-woo-paypal-plus-admin.php:95
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin/class-woo-paypal-plus-admin.php:96
+msgid "Docs"
+msgstr "Dokumentation"
+
+#: admin/class-woo-paypal-plus-admin.php:97
+msgid "Support"
+msgstr "Support"
+
+#: admin/class-woo-paypal-plus-admin.php:98
+msgid "Write a Review"
+msgstr "Eine Rezension schreiben"
+
+#: includes/class-woo-paypal-plus-gateway.php:29
+#: includes/class-woo-paypal-plus-gateway.php:161
+#: includes/class-woo-paypal-plus-gateway.php:226
+#: includes/class-woo-paypal-plus-gateway.php:232
+msgid "PayPal Plus"
+msgstr "PayPal Plus"
+
+#: includes/class-woo-paypal-plus-gateway.php:72
+#: includes/class-woo-paypal-plus-gateway.php:352
+msgid ""
+"Händler hat die Forderung gegen Sie im Rahmen eines laufenden "
+"Factoringvertrages an die PayPal (Europe) S.àr.l. et Cie, S.C.A. abgetreten. "
+"Zahlungen mit schuldbefreiender Wirkung können nur an die PayPal (Europe) S."
+"àr.l. et Cie, S.C.A. geleistet werden."
+msgstr ""
+"Händler hat die Forderung gegen Sie im Rahmen eines laufenden "
+"Factoringvertrages an die PayPal (Europe) S.àr.l. et Cie, S.C.A. abgetreten. "
+"Zahlungen mit schuldbefreiender Wirkung können nur an die PayPal (Europe) S."
+"àr.l. et Cie, S.C.A. geleistet werden."
+
+#: includes/class-woo-paypal-plus-gateway.php:80
+#: includes/class-woo-paypal-plus-gateway.php:373
+msgid ""
+"Please transfere the complete amount to the bank account provided below."
+msgstr "Bitte überweisen Sie den Gesamtbetrag auf das unten aufgeführte Konto."
+
+#: includes/class-woo-paypal-plus-gateway.php:87
+msgid "Enter payment details"
+msgstr "Zahlungsdaten eingeben"
+
+#: includes/class-woo-paypal-plus-gateway.php:162
+msgid ""
+"PayPal PLUS is a solution where PayPal offers PayPal, Credit Card and ELV as "
+"individual payment options on the payment selection page. The available "
+"payment methods are provided in a PayPal hosted iFrame."
+msgstr ""
+"PayPal PLUS ist eine Zahlungslösung von PayPal. Dies beinhaltet PayPal, "
+"Kreditkarte und Lastschrift als eigene Zahlungsmethoden. Alle verfügbaren "
+"Zahlungsmethoden werden über ein iFrame von PayPal bereitgestellt."
+
+#: includes/class-woo-paypal-plus-gateway.php:168
+msgid "PayPal PLUS Disabled"
+msgstr "PayPal PLUS ausgeschaltet"
+
+#: includes/class-woo-paypal-plus-gateway.php:168
+msgid ""
+"No experience profile id. Check Client ID and Secret ID and then save "
+"settings to create a new experience profile."
+msgstr ""
+"Keine \"Experience Profile ID\" gefunden. Prüfen Sie die Client- sowie die "
+"SecretID und speichern Sie die Einstellungen um eine neues Experience Profil "
+"zu erstellen."
+
+#: includes/class-woo-paypal-plus-gateway.php:176
+msgid "Gateway Disabled"
+msgstr "Gateway deaktiviert"
+
+#: includes/class-woo-paypal-plus-gateway.php:176
+msgid ""
+"PayPal Plus does not support your store currency (Supports: EUR, CAD, BRL, "
+"MXN)."
+msgstr ""
+"PayPal Plus bietet keine Unterstützung für Ihre Shop-Währung (unterstützt: "
+"EUR, CAD, BRL, MXN)."
+
+#: includes/class-woo-paypal-plus-gateway.php:213
+msgid ""
+"This image requires an SSL host.  If your site is not running on https:// "
+"you may upload your image to <a target=\"_blank\" href=\"http://www.sslpic."
+"com\">www.sslpic.com</a> and enter the image URL here."
+msgstr ""
+"Dieses Bild erfordert einen SSL-Host.  Wenn Ihre Website nicht auf https:// "
+"ausgeführt wird, Sie können Ihr Bild auf <a target=\"_blank\" href=\"http://"
+"www.sslpic.com\">www.sslpic.com</a> hochladen und die Bild-URL hier eingeben."
+
+#: includes/class-woo-paypal-plus-gateway.php:217
+msgid "Enable/Disable"
+msgstr "Aktivieren/Deaktivieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:219
+msgid "Enable PayPal Plus"
+msgstr "PayPal Plus aktivieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:223
+msgid "Title"
+msgstr "Titel"
+
+#: includes/class-woo-paypal-plus-gateway.php:225
+msgid "This controls the title which the user sees during checkout."
+msgstr ""
+"Hier wird der Titel eingestellt, den der Benutzer während des "
+"Zahlungsprozesses an der Kasse sieht."
+
+#: includes/class-woo-paypal-plus-gateway.php:229
+msgid "Description"
+msgstr "Beschreibung"
+
+#: includes/class-woo-paypal-plus-gateway.php:231
+msgid "This controls the description which the user sees during checkout."
+msgstr ""
+"Dies legt die Beschreibung fest, die der Besucher während dem "
+"Zahlungsvorgang sieht."
+
+#: includes/class-woo-paypal-plus-gateway.php:235
+msgid "PayPal Account Country"
+msgstr "PayPal-Konto Land"
+
+#: includes/class-woo-paypal-plus-gateway.php:246
+msgid "PayPal Sandbox"
+msgstr "PayPal Sandbox"
+
+#: includes/class-woo-paypal-plus-gateway.php:248
+msgid "Enable PayPal Sandbox"
+msgstr "Aktiviere PayPal Sandbox-Modus"
+
+#: includes/class-woo-paypal-plus-gateway.php:250
+msgid ""
+"The PayPal sandbox can be used to test payments. Sign up for a developer "
+"account <a href=\"%s\">here</a>"
+msgstr ""
+"PayPal Sandbox kann verwendet werden, um Zahlungen zu testen. Registrieren "
+"Sie sich <a href=\"%s\">hier</a> für ein Entwickler-Konto."
+
+#: includes/class-woo-paypal-plus-gateway.php:253
+msgid "Sandbox Client ID"
+msgstr "Sandbox Client ID"
+
+#: includes/class-woo-paypal-plus-gateway.php:260
+msgid "Sandbox Secret ID"
+msgstr "Sandbox Secret ID"
+
+#: includes/class-woo-paypal-plus-gateway.php:262
+msgid "Enter your Sandbox PayPal Rest API Secret ID."
+msgstr "Geben Sie hier Ihre Sandbox PayPal Rest API Secret ID ein."
+
+#: includes/class-woo-paypal-plus-gateway.php:267
+msgid "Sandbox Experience Profile ID"
+msgstr "Sandbox Experience Profile ID"
+
+#: includes/class-woo-paypal-plus-gateway.php:269
+#: includes/class-woo-paypal-plus-gateway.php:290
+msgid "Leave empty, The API will generate automatically."
+msgstr "Leer lassen, die API wird automatisch generiert."
+
+#: includes/class-woo-paypal-plus-gateway.php:274
+msgid "Live Client ID"
+msgstr "Live Client ID"
+
+#: includes/class-woo-paypal-plus-gateway.php:281
+msgid "Live Secret ID"
+msgstr "Live Secret ID"
+
+#: includes/class-woo-paypal-plus-gateway.php:283
+msgid "Enter your PayPal Rest API Secret ID."
+msgstr "Geben Sie hier Ihre PayPal Rest API Secret ID ein."
+
+#: includes/class-woo-paypal-plus-gateway.php:288
+msgid "Experience Profile ID"
+msgstr "Experience Profile ID"
+
+#: includes/class-woo-paypal-plus-gateway.php:295
+msgid "Invoice Prefix"
+msgstr "Rechnungspräfix"
+
+#: includes/class-woo-paypal-plus-gateway.php:297
+msgid ""
+"Please enter a prefix for your invoice numbers. If you use your PayPal "
+"account for multiple stores ensure this prefix is unique as PayPal will not "
+"allow orders with the same invoice number."
+msgstr ""
+"Bitte geben Sie ein Präfix für Ihre Rechnungsnummern ein. Falls Sie Ihr "
+"PayPal-Konto für mehrere Shops verwenden, stellen Sie bitte sicher, dass das "
+"Präfix einzigartig ist, sonst wird PayPal keine Bestellungen mit identischer "
+"Rechnungsnummer akzeptieren."
+
+#: includes/class-woo-paypal-plus-gateway.php:302
+msgid "Cancel Page"
+msgstr "Abgebrochen Seite"
+
+#: includes/class-woo-paypal-plus-gateway.php:303
+msgid ""
+"Sets the page users will be returned to if they click the Cancel link on the "
+"PayPal checkout pages."
+msgstr ""
+"Leitet die Besucher, die den Zahlungsvorgang bei PayPal abgebrochen haben "
+"zur hier angegebenen Seite weiter"
+
+#: includes/class-woo-paypal-plus-gateway.php:309
+msgid "Brand Name"
+msgstr "Firmenname"
+
+#: includes/class-woo-paypal-plus-gateway.php:311
+msgid ""
+"This will be displayed as your brand / company name on the PayPal checkout "
+"pages."
+msgstr ""
+"Dies erscheint als Ihre Marke / Firmennamen auf den PayPal-Checkout-Seiten."
+
+#: includes/class-woo-paypal-plus-gateway.php:315
+msgid "PayPal Checkout Logo (190x60px)"
+msgstr "PayPal Checkout Logo (190x60px)"
+
+#: includes/class-woo-paypal-plus-gateway.php:317
+msgid "Set the URL for a logo to be displayed on the PayPal checkout pages."
+msgstr "Setzt die URL für ein Logo auf den PayPal-Checkout-Seiten."
+
+#: includes/class-woo-paypal-plus-gateway.php:321
+#: includes/class-woo-paypal-plus-gateway.php:323
+msgid "Disable Shipping Requirements"
+msgstr "Versandmöglichkeit deaktivieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:325
+msgid ""
+"Check this option to remove shipping options during checkout. This is "
+"typically used when selling digital goods that do not require shipping"
+msgstr ""
+"Aktivieren Sie diese Option, falls Sie keinen Versand anbieten. Dies wird "
+"meistens beim Verkauf von Digitalen Gütern verwendet."
+
+#: includes/class-woo-paypal-plus-gateway.php:328
+msgid "Auto Cancel / Refund Orders "
+msgstr "Auto-abbrechen / Bestellungen erstatten"
+
+#: includes/class-woo-paypal-plus-gateway.php:330
+msgid ""
+"Allows you to cancel and refund orders that do not meet PayPal's Seller "
+"Protection criteria."
+msgstr ""
+"Erlaubt Ihnen Bestellungen zu stornieren, die nicht den PayPal Käuferschutz "
+"Richtlinien zustimmen"
+
+#: includes/class-woo-paypal-plus-gateway.php:334
+msgid "Do *not* have PayPal Seller Protection"
+msgstr "Keinen PayPal Käuferschutz aktivieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:335
+msgid "Do *not* have PayPal Unauthorized Payment Protection"
+msgstr "Keinen Autorisierten Zahlungsschutz aktivieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:336
+msgid "Do not cancel any orders"
+msgstr "Keine Bestellungen stornieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:341
+msgid "Order Canceled/Refunded Email Notifications"
+msgstr "Bestellung storniert/erstattet e-Mail-Benachrichtigungen"
+
+#: includes/class-woo-paypal-plus-gateway.php:342
+msgid "Enable buyer email notifications for Order canceled/refunded"
+msgstr ""
+"E-Mail-Benachrichtigungen aktivieren, falls die Bestellung storniert oder "
+"zurückerstattet wurde."
+
+#: includes/class-woo-paypal-plus-gateway.php:344
+msgid ""
+"This will send buyer email notifications for Order canceled/refunded when "
+"Auto Cancel / Refund Orders option is selected."
+msgstr ""
+"Dies wird eine e-Mail Benachrichtigung an den Käufer senden, falls die "
+"Bestellung storniert/erstattet wurde und Auto storno/erstattung für "
+"Bestellungen ausgewählt ist."
+
+#: includes/class-woo-paypal-plus-gateway.php:349
+msgid "Legal Note for PAY UPON INVOICE Payment"
+msgstr "Rechtlicher Hinweis für die Bezahlung auf Rechnung"
+
+#: includes/class-woo-paypal-plus-gateway.php:351
+msgid "legal note that will be added to the thank you page and emails."
+msgstr ""
+"Rechtliche Hinweise, die auf der Seite \"Vielen Dank\" und in e-Mails "
+"eingefügt werden."
+
+#: includes/class-woo-paypal-plus-gateway.php:356
+msgid "Ratenzahlung"
+msgstr "Ratenzahlung"
+
+#: includes/class-woo-paypal-plus-gateway.php:358
+msgid "Enable Ratenzahlung"
+msgstr "Ratenzahlung aktivierung"
+
+#: includes/class-woo-paypal-plus-gateway.php:360
+msgid ""
+"Ratenzahlung Powered by PayPal. If this is active on your PayPal Plus "
+"account you can enable it here to include it during checkout.  More "
+"information available <a target=\"_blank\" href=\"%s\">here</a>."
+msgstr ""
+"Wenn sie Ratenzahlung in Ihrem PayPal Konto aktiviert haben, dann können Sie "
+"hier einen Haken setzen, um Ratenzahlung anbieten zu können. Weitere "
+"Informationen finden Sie <a target=\"_blank\" href=\"%s\">hier</a>."
+
+#: includes/class-woo-paypal-plus-gateway.php:363
+msgid "Third Party Payment Methods"
+msgstr "Drittanbieter-Zahlungsmethoden"
+
+#: includes/class-woo-paypal-plus-gateway.php:365
+msgid "Enable Third Party Payment Methods"
+msgstr "Aktivieren sie Drittanbieter-Zahlungsmethoden"
+
+#: includes/class-woo-paypal-plus-gateway.php:367
+msgid "Replace WooCommerce payment gateway options with the PayPal Plus iFrame"
+msgstr ""
+"Ersetzen Sie die WooCommerce Zahlungs-Gateway-Optionen mit dem PayPal Plus "
+"iFrame"
+
+#: includes/class-woo-paypal-plus-gateway.php:370
+msgid "Pay upon Invoice Instructions"
+msgstr "Anweisungen zum Zahlen per Rechnung"
+
+#: includes/class-woo-paypal-plus-gateway.php:372
+msgid ""
+"Pay upon Invoice Instructions that will be added to the thank you page and "
+"emails."
+msgstr "Anweisungen, die zur „Danke“-Seite und zu E-Mails hinzugefügt werden."
+
+#: includes/class-woo-paypal-plus-gateway.php:377
+msgid "Debug Log"
+msgstr "Debug Protokoll"
+
+#: includes/class-woo-paypal-plus-gateway.php:379
+msgid "Enable logging"
+msgstr "Protokollieren aktivieren"
+
+#: includes/class-woo-paypal-plus-gateway.php:381
+msgid ""
+"Log PayPal events, such as Secured Token requests, inside <code>%s</code>"
+msgstr ""
+"Protokollieren Sie PayPal Ereignisse wie z.B. gesicherte Tokenanforderungen "
+"in <code>%s</code>"
+
+#: includes/class-woo-paypal-plus-gateway.php:515
+#: includes/class-woo-paypal-plus-gateway.php:519
+#: includes/class-woo-paypal-plus-gateway.php:529
+#: includes/class-woo-paypal-plus-gateway.php:534
+#: includes/class-woo-paypal-plus-gateway.php:539
+#: includes/class-woo-paypal-plus-gateway.php:637
+#: includes/class-woo-paypal-plus-gateway.php:641
+#: includes/class-woo-paypal-plus-gateway.php:754
+#: includes/class-woo-paypal-plus-gateway.php:1171
+#: includes/class-woo-paypal-plus-gateway.php:1175
+msgid "Error processing checkout. Please try again. "
+msgstr "Fehler im Bestellvorgang. Versuchen Sie es bitte erneut."
+
+#: includes/class-woo-paypal-plus-gateway.php:601
+msgid ""
+"Thank you for your order. We are now redirecting you to PayPal to make "
+"payment."
+msgstr ""
+"Vielen Dank für Ihre Bestellung. Wir leiten Sie nun an PayPal weiter für "
+"die Bezahlung."
+
+#: includes/class-woo-paypal-plus-gateway.php:671
+msgid ""
+"Transaction did not meet our Seller Protection requirements. Cancelling and "
+"refunding order."
+msgstr ""
+"Transaktion erfüllen nicht unseren Verkäuferschutz Anforderungen. "
+"Stornierung und Rückerstattung wird eingeleitet."
+
+#: includes/class-woo-paypal-plus-gateway.php:675
+#: includes/class-woo-paypal-plus-gateway.php:678
+msgid "PayPal Plus payment declined due to our Seller Protection Settings"
+msgstr ""
+"PayPal Plus Zahlung abgelehnt aufgrund unserer Verkäuferschutzeinstellungen"
+
+#: includes/class-woo-paypal-plus-gateway.php:675
+#: includes/class-woo-paypal-plus-gateway.php:678
+msgid "Order #"
+msgstr "Auftrag #"
+
+#: includes/class-woo-paypal-plus-gateway.php:680
+msgid ""
+"There was a problem processing your order. Please contact customer support."
+msgstr ""
+"Es gab ein Problem, die Bearbeitung Ihrer Bestellung. Kontaktieren Sie "
+"Kundensupport."
+
+#: includes/class-woo-paypal-plus-gateway.php:682
+msgid ""
+"Thank you for your recent order. Unfortunately it has been cancelled and "
+"refunded. Please contact our customer support team."
+msgstr ""
+"Vielen Dank für Ihre letzte Bestellung. Leider wurde Sie abgebrochen und "
+"erstattet. Bitte kontaktieren Sie unser Support-Team."
+
+#: includes/class-woo-paypal-plus-gateway.php:688
+msgid "Response: %s"
+msgstr "Antwort: %s"
+
+#: includes/class-woo-paypal-plus-gateway.php:721
+msgid "PayPal Reason code: %s."
+msgstr "PayPal Ursachencode: %s."
+
+#: includes/class-woo-paypal-plus-gateway.php:725
+msgid "PayPal Plus payment completed"
+msgstr "PayPal Plus Zahlung abgeschlossen"
+
+#: includes/class-woo-paypal-plus-gateway.php:727
+msgid "%s payment approved! Trnsaction ID: %s"
+msgstr "%s Zahlung genehmigt! Transsaktions-ID: %s"
+
+#: includes/class-woo-paypal-plus-gateway.php:730
+msgid "Awaiting payment"
+msgstr "Zahlung erwartet"
+
+#: includes/class-woo-paypal-plus-gateway.php:758
+msgid "Error processing checkout. Please try again."
+msgstr "Fehler im Bestellvorgang. Versuchen Sie es bitte erneut."
+
+#: includes/class-woo-paypal-plus-gateway.php:1008
+msgid "Place order"
+msgstr "Bestellung aufgeben"
+
+#: includes/class-woo-paypal-plus-gateway.php:1200
+#: includes/class-woo-paypal-plus-gateway.php:1269
+msgid "PayPal Bank Details"
+msgstr "PayPal Bankverbindung"
+
+#: includes/class-woo-paypal-plus-gateway.php:1205
+msgid "Bank name:"
+msgstr "Name der Bank:"
+
+#: includes/class-woo-paypal-plus-gateway.php:1211
+msgid "Account holder name:"
+msgstr "Name des Kontoinhabers:"
+
+#: includes/class-woo-paypal-plus-gateway.php:1217
+msgid "IBAN:"
+msgstr "IBAN:"
+
+#: includes/class-woo-paypal-plus-gateway.php:1223
+msgid "BIC:"
+msgstr "BIC:"
+
+#: includes/class-woo-paypal-plus-gateway.php:1229
+msgid "Payment due date:"
+msgstr "Fälligkeitsdatum der Zahlung"
+
+#: includes/class-woo-paypal-plus-gateway.php:1235
+msgid "Reference:"
+msgstr "Zahlungsreferenz:"
+
+#: includes/class-woo-paypal-plus-gateway.php:1275
+msgid "Bank name"
+msgstr "Name der Bank"
+
+#: includes/class-woo-paypal-plus-gateway.php:1279
+msgid "Account holder name"
+msgstr "Name des Kontoinhabers"
+
+#: includes/class-woo-paypal-plus-gateway.php:1283
+msgid "IBAN"
+msgstr "IBAN"
+
+#: includes/class-woo-paypal-plus-gateway.php:1287
+msgid "BIC"
+msgstr "BIC"
+
+#: includes/class-woo-paypal-plus-gateway.php:1291
+msgid "Payment due date"
+msgstr "Fälligkeitsdatum der Zahlung"
+
+#: includes/class-woo-paypal-plus-gateway.php:1295
+msgid "Reference"
+msgstr "Zahlungsreferenz"
+
+#: includes/class-woo-paypal-plus-gateway.php:1542
+#: includes/class-woo-paypal-plus-gateway.php:1549
+msgid "Error trying to create experience profile ID."
+msgstr "Fehler beim Versuch, die Experience Profile ID zu erstellen."
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:105
+msgid "Validation error: PayPal currencies do not match (code %s)."
+msgstr "Validierungsfehler: Paypal-Währungen stimmen nicht überein. (Code %s)."
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:118
+msgid "Validation error: PayPal amounts do not match (gross %s)."
+msgstr "Validierungsfehler: PayPal-Beträge stimmen nicht überein (brutto %s)."
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:138
+msgid "IPN payment completed"
+msgstr "IPN Zahlung abgeschlossen"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:143
+msgid "Payment pending: %s"
+msgstr "Zahlung ausstehend: %s"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:162
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:199
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:212
+msgid "Payment %s via IPN."
+msgstr "Zahlung %s via IPN."
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:201
+msgid "Payment for order %s refunded"
+msgstr "Die Zahlung für die Bestellung %s wurde zurückerstattet"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:201
+msgid "Order #%s has been marked as refunded - PayPal reason code: %s"
+msgstr ""
+"Bestellung %s wurde als „rückerstattet“ markiert – PayPal Ursachencode: %s"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:214
+msgid "Payment for order %s reversed"
+msgstr "Zahlung für Bestellung %s storniert"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:214
+msgid ""
+"Order #%s has been marked on-hold due to a reversal - PayPal reason code: %s"
+msgstr ""
+"Bestellung %s wurde aufgrund einer Stornierung als „wartend“ markiert –"
+"PayPal reason code: %s"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:225
+msgid "Reversal cancelled for order #%s"
+msgstr "Stornierung abgebrochen für Bestellung %s"
+
+#: includes/class-woo-paypal-plus-paypal-ipn-handler.php:225
+msgid ""
+"Order #%s has had a reversal cancelled. Please check the status of payment "
+"and update the order status accordingly here: %s"
+msgstr ""
+"Für die Bestellung %s wurde eine Stornierung abgebrochen. Bitte überprüfen "
+"Sie  den Zahlungsstatus und aktualisieren Sie den Bestellstatus "
+"entsprechend unter: %s"
+
+#. Plugin Name of the plugin/theme
+msgid "PayPal Plus for WooCommerce"
+msgstr "PayPal Plus für WooCommerce"
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.angelleye.com/product/woocommerce-paypal-plus-plugin/"
+msgstr "http://www.angelleye.com/product/woocommerce-paypal-plus-plugin/"
+
+#. Description of the plugin/theme
+msgid ""
+"PayPal PLUS is a solution where PayPal offers PayPal, Credit Card and ELV as "
+"individual payment options on the payment selection page, loaded within a "
+"PayPal hosted iFrame."
+msgstr ""
+"PayPal PLUS ist eine Zahlungslösung von PayPal. Dies beinhaltet PayPal, "
+"Kreditkarte und Lastschrift als eigene Zahlungsmethoden. Alle verfügbaren "
+"Zahlungsmethoden werden über ein iFrame von PayPal bereitgestellt."
+
+#. Author of the plugin/theme
+msgid "Angell EYE"
+msgstr "Angell EYE"
+
+#. Author URI of the plugin/theme
+msgid "http://www.angelleye.com/"
+msgstr "http://www.angelleye.com/"
