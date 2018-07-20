@@ -215,6 +215,36 @@ Please upgrade your version of WP Google Maps to version 6.0.27 as it includes m
 
 == Changelog ==
 
+= 7.10.22 :- 2018-07-18 :- Medium priority =
+* Added filter wpgmza_localized_strings
+* Added beginnings for REST API
+* Added scroll animation when edit marker is clicked
+* Fixed UTF-8 characters not being decoded into PHPs native charset before passing them to loadHTML in GDPR compliance module
+* Fixed edit marker button not re-enabled following unsuccessful geocode
+
+= 7.10.21 :- 2018-07-09 :- Medium priority =
+* Added MySQL version check and dropped ST_ function prefixes for versions < 8.0
+* Fixed markers not appearing front end and back end marker table empty for servers running old MySQL versions
+
+= 7.10.20 :- 2018-07-05 :- Low priority =
+* Added hook for new GDPR tab content
+* Added JavaScript for VGM GDPR controls
+* Fixed WPGMZA\DOMDocument::saveInnerBody not saving text nodes
+
+= 7.10.19 - 2018-07-05 :- Medium Priority =
+* Added new event "userlocationfound" dispatched from WPGMZA.events
+* Added fall back to convert UTF-8 to HTML entities on installations without multibyte functions available
+* Changed GDPR settings UI, removed redundant compliance setting, added default notice
+* Fixed media="1" attribute not validating
+* Fixed nominatim geocoder not giving expected response to callback
+* Fixed ScriptLoader module always enqueuing FontAwesome 4.*
+* Fixed debug code breaking WP Migrate DB integration
+* Fixed custom fields blank in marker listing
+* Replaced deprecated MySQL functions with ST_ functions
+* Replaced deprecated jQuery(window).load functions
+* Removed Google autocomplete when using OpenLayers
+* Removed protocol from marker icons / fixed marker icons disappear after switching to https://
+
 = 7.10.18 - 2018-07-02 :- Medium Priority =
 * Fixed GDPR back end warning appearing when GDPR compliance is enabled
 

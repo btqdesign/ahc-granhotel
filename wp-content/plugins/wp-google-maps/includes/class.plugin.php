@@ -2,22 +2,6 @@
 
 namespace WPGMZA;
 
-/*class MyCustomGlobalSettings extends GlobalSettings
-{
-	public function __construct()
-	{
-		GlobalSettings::__construct();
-		
-		var_dump("It works!");
-		exit;
-	}
-	
-	protected static function createInstanceDelegate()
-	{
-		return new MyCustomGlobalSettings();
-	}
-}*/
-
 class Plugin
 {
 	const PAGE_MAP_LIST			= "map-list";
@@ -34,12 +18,18 @@ class Plugin
 	public $settings;
 	
 	protected $scriptLoader;
+	protected $restAPI;
 	
+	private $mysqlVersion = null;
 	private $cachedVersion = null;
 	private $legacySettings;
 	
 	public function __construct()
 	{
+		global $wpdb;
+		
+		$this->mysqlVersion = $wpdb->get_var('SELECT VERSION()');
+		
 		$this->legacySettings = get_option('WPGMZA_OTHER_SETTINGS');
 		if(!$this->legacySettings)
 			$this->legacySettings = array();
@@ -72,8 +62,14 @@ class Plugin
 		}
 		
 		$this->settings = (object)array_merge($this->legacySettings, $settings);
+		
+		$this->restAPI = new RestAPI();
+		
 		if(!empty($this->settings->wpgmza_maps_engine))
 			$this->settings->engine = $this->settings->wpgmza_maps_engine;
+		
+		if(!empty($_COOKIE['wpgmza-developer-mode']))
+			$this->settings->developer_mode = true;
 		
 		add_action('wp_enqueue_scripts', function() {
 			Plugin::$enqueueScriptsFired = true;
@@ -85,6 +81,27 @@ class Plugin
 		
 		if($this->settings->engine == 'open-layers')
 			require_once(plugin_dir_path(__FILE__) . 'open-layers/class.nominatim-geocode-cache.php');
+	}
+	
+	public function __get($name)
+	{
+		switch($name)
+		{
+			case "spatialFunctionPrefix":
+				$result = '';
+				
+				if(!empty($this->mysqlVersion))
+				{
+					$majorVersion = (int)preg_match('/^\d+/', $this->mysqlVersion);
+					if($majorVersion >= 8)
+						$result = 'ST_';
+				}
+				
+				return $result;
+				break;
+		}
+		
+		return $this->{$name};
 	}
 	
 	public function loadScripts()
