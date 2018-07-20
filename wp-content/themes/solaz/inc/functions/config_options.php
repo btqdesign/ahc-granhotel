@@ -260,7 +260,7 @@ function solaz_scripts_styles() {
     if(isset($solaz_settings['header3-menu_border'])){
         $solaz_custom_css .= "
             @media (min-width:1199px){
-                ..header-v3:not(.is-sticky) #site-navigation{
+                .header-v3:not(.is-sticky) #site-navigation{
                     border-top-color: {$solaz_settings['header3-menu_border']} !important;
                 }
             }
