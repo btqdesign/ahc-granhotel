@@ -35,10 +35,10 @@ load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/l
  */
 function btq_login_scripts() {
 	if (!is_admin()) {
-		wp_enqueue_style( 'btq-login', plugins_url( 'estilos.css', __FILE__ ), array('solaz-child-style'),'1.0');
+		wp_enqueue_style( 'btq-login', plugins_url( 'assets/css/estilos.css', __FILE__ ), array('solaz-child-style'),'1.0');
 		wp_enqueue_script( 'firebase-app', 'https://www.gstatic.com/firebasejs/5.0.1/firebase-app.js', array(), '5.0.1');
 		wp_enqueue_script( 'firebase-auth', 'https://www.gstatic.com/firebasejs/5.0.1/firebase-auth.js', array(), '5.0.1');
-		wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebase-app','firebase-auth'), '1.0');
+		wp_enqueue_script( 'btq-login-js', plugins_url( 'assets/js/scripts.js', __FILE__ ), array('firebase-app','firebase-auth'), '1.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
@@ -111,9 +111,9 @@ function btq_login_modals() {
                 </div>
                 <div class="modal-body">    
                     <div id="login_div" class="main-div">      
-                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', __FILE__ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
+                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'assets/images/fb.png', __FILE__ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
                         <br>
-                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
+                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'assets/images/google.png', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
                         <br>
                         <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="email_field" />
                         <input type="password" placeholder="<?php _e('Password','btq-login'); ?>" id="password_field" />
