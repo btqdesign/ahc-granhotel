@@ -595,7 +595,7 @@ function btq_booking_admin_rooms($hotelCode) {
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Room Type Code', 'btq-booking'); ?></th><th><?php _e('Room Type Name', 'btq-booking'); ?></th><th><?php _e('Folder With Pictures','btq-booking');?></th></tr>
+		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Room Type Code','btq-booking'); ?></th><th><?php _e('Room Type Name','btq-booking'); ?></th><th><?php _e('Folder With Pictures','btq-booking');?></th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
