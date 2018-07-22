@@ -539,15 +539,19 @@ function btq_booking_admin_packages($hotelCode) {
 	}
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Rate Plan Code','btq-booking'); ?></th><th><?php _e('Rate Plan Name','btq-booking'); ?></th></tr>
+		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Rate Plan Code','btq-booking'); ?></th><th><?php _e('Rate Plan Name','btq-booking'); ?></th><th><?php _e('Folder With Pictures','btq-booking'); ?></th></tr>
 	<?php
 	foreach($arrayRatePlan as $elementRatePlan){			
 		$RatePlanCode = $elementRatePlan['!RatePlanCode'];
 		//$roomRate = $arrayRoomRate[$RatePlanCode];
 		//$roomTypeCode = $roomRate['!RoomTypeCode'];
 		//$roomType = $arrayRoomType[$roomTypeCode];
+		
+		$images_packages_path   = 'assets/images/packages/';
+		$images_dir = plugin_dir_path( __FILE__ ) . $images_packages_path . $RatePlanCode;
+		$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
 		?>
-		<tr><td style="background-color: #EEE;"><?php echo $RatePlanCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td></tr>
+		<tr><td style="background-color: #EEE;"><?php echo $RatePlanCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td><td align="center" style="background-color: #EEE;"><?php echo $folder_with_pictures; ?></td></tr>
 		<?php
 	}
 	?>
