@@ -144,15 +144,15 @@ add_action( 'admin_menu', 'btq_booking_admin_menu' );
  * Declara los ajustes y opciones del plug-in
  */
 function btq_booking_register_settings() {
-	register_setting('btq-booking-settings', 'btq_booking_soap_sales_channel_info_id');
-	register_setting('btq-booking-settings', 'btq_booking_soap_username');
-	register_setting('btq-booking-settings', 'btq_booking_soap_password');
-	register_setting('btq-booking-settings', 'btq_booking_soap_to_action_pals');
-	register_setting('btq-booking-settings', 'btq_booking_soap_to_action_full');
-	register_setting('btq-booking-settings', 'btq_booking_hotel_code_us', array('type' => 'integer'));
-	register_setting('btq-booking-settings', 'btq_booking_hotel_code_es', array('type' => 'integer'));
-	register_setting('btq-booking-settings', 'btq_booking_hotel_themeid_us', array('type' => 'integer'));
-	register_setting('btq-booking-settings', 'btq_booking_hotel_themeid_es', array('type' => 'integer'));
+	register_setting('btq-booking-settings', 'btq_booking_tc_soap_sales_channel_info_id');
+	register_setting('btq-booking-settings', 'btq_booking_tc_soap_username');
+	register_setting('btq-booking-settings', 'btq_booking_tc_soap_password');
+	register_setting('btq-booking-settings', 'btq_booking_tc_soap_to_action_pals');
+	register_setting('btq-booking-settings', 'btq_booking_tc_soap_to_action_full');
+	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_code_us', array('type' => 'integer'));
+	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_code_es', array('type' => 'integer'));
+	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_themeid_us', array('type' => 'integer'));
+	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_themeid_es', array('type' => 'integer'));
 	register_setting('btq-booking-settings', 'btq_booking_color_principal');
 }
 
@@ -176,40 +176,40 @@ function btq_booking_admin_settings_page() {
 						<td><input type="text" id="btq_booking_color_principal" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking'); ?></label></th>
-						<td><input type="text" class="regular-text" id="btq_booking_soap_sales_channel_info_id" name="btq_booking_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking'); ?></label></th>
+						<td><input type="text" class="regular-text" id="btq_booking_tc_soap_sales_channel_info_id" name="btq_booking_tc_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_soap_username"><?php _e('Username', 'btq-booking'); ?></label></th>
-						<td><input type="text" class="regular-text" id="btq_booking_soap_username" name="btq_booking_soap_username" value="<?php echo esc_attr( get_option('btq_booking_soap_username') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_soap_username"><?php _e('Username', 'btq-booking'); ?></label></th>
+						<td><input type="text" class="regular-text" id="btq_booking_tc_soap_username" name="btq_booking_tc_soap_username" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_username') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_soap_password"><?php _e('Password', 'btq-booking'); ?></label></th>
-						<td><input type="password" class="regular-text" id="btq_booking_soap_password" name="btq_booking_soap_password" value="<?php echo esc_attr( get_option('btq_booking_soap_password') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_soap_password"><?php _e('Password', 'btq-booking'); ?></label></th>
+						<td><input type="password" class="regular-text" id="btq_booking_tc_soap_password" name="btq_booking_tc_soap_password" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_password') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_soap_to_action_pals"><?php _e('SOAP Action PALS To', 'btq-booking'); ?></label></th>
-						<td><input type="url" class="regular-text" id="btq_booking_soap_to_action_pals" name="btq_booking_soap_to_action_pals" value="<?php echo esc_attr( get_option('btq_booking_soap_to_action_pals') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_soap_to_action_pals"><?php _e('SOAP Action PALS To', 'btq-booking'); ?></label></th>
+						<td><input type="url" class="regular-text" id="btq_booking_tc_soap_to_action_pals" name="btq_booking_tc_soap_to_action_pals" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_to_action_pals') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_soap_to_action_full"><?php _e('SOAP Action FULL To', 'btq-booking'); ?></label></th>
-						<td><input type="url" class="regular-text" id="btq_booking_soap_to_action_full" name="btq_booking_soap_to_action_full" value="<?php echo esc_attr( get_option('btq_booking_soap_to_action_full') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_soap_to_action_full"><?php _e('SOAP Action FULL To', 'btq-booking'); ?></label></th>
+						<td><input type="url" class="regular-text" id="btq_booking_tc_soap_to_action_full" name="btq_booking_tc_soap_to_action_full" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_to_action_full') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_hotel_code_us"><?php _e('Hotel code english language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" id="btq_booking_hotel_code_us" name="btq_booking_hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_hotel_code_us') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_hotel_code_us"><?php _e('Hotel code english language', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_tc_hotel_code_us" name="btq_booking_tc_hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_us') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_hotel_code_es"><?php _e('Hotel code spanish language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" id="btq_booking_hotel_code_es" name="btq_booking_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_code_es') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_hotel_code_es"><?php _e('Hotel code spanish language', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_tc_hotel_code_es" name="btq_booking_tc_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_code_es') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_hotel_themeid_us"><?php _e('Theme id english language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" id="btq_booking_hotel_themeid_us" name="btq_booking_hotel_themeid_us" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_us') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_hotel_themeid_us"><?php _e('Theme id english language', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_tc_hotel_themeid_us" name="btq_booking_tc_hotel_themeid_us" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_themeid_us') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
-						<th scope="row"><label for="btq_booking_hotel_themeid_es"><?php _e('Theme id spanish language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" id="btq_booking_hotel_themeid_es" name="btq_booking_hotel_themeid_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_es') ); ?>" /></td>
+						<th scope="row"><label for="btq_booking_tc_hotel_themeid_es"><?php _e('Theme id spanish language', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_tc_hotel_themeid_es" name="btq_booking_tc_hotel_themeid_es" value="<?php echo esc_attr( get_option('btq_booking_tc_hotel_themeid_es') ); ?>" /></td>
 					</tr>
 				</tbody>
 			</table>
@@ -267,7 +267,7 @@ function btq_booking_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEn
 	
 	if ($typeQuery == 'packages'){
 		// Paquete
-		$wsaTo = esc_attr( get_option('btq_booking_soap_to_action_full') ); /* https://ota2.ihotelier.com/OTA_Seamless/services/FullDataService */
+		$wsaTo = esc_attr( get_option('btq_booking_tc_soap_to_action_full') ); /* https://ota2.ihotelier.com/OTA_Seamless/services/FullDataService */
 		$wsaAction = 'FULL';
 		
 		$soapBody = '
@@ -277,7 +277,7 @@ function btq_booking_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEn
 					<Source>
 						<RequestorID ID="1" Type="1" />
 						<BookingChannel Type="18">
-							<CompanyName Code="'. esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ) .'" />
+							<CompanyName Code="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 						</BookingChannel>
 					</Source>
 				</POS>
@@ -310,7 +310,7 @@ function btq_booking_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEn
 	}
 	else{
 		// Habitaciones
-		$wsaTo = esc_attr( get_option('btq_booking_soap_to_action_pals') ); /* https://ota2.ihotelier.com/OTA_Seamless/services/PropertyAvailabilityService */
+		$wsaTo = esc_attr( get_option('btq_booking_tc_soap_to_action_pals') ); /* https://ota2.ihotelier.com/OTA_Seamless/services/PropertyAvailabilityService */
 		$wsaAction = 'PALS';
 		
 		$soapBody = '
@@ -320,7 +320,7 @@ function btq_booking_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEn
 					<Source>
 						<RequestorID ID="1" Type="1" />
 						<BookingChannel Type="18">
-							<CompanyName Code="'. esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ) .'" />
+							<CompanyName Code="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 						</BookingChannel>
 					</Source>
 				</POS>
@@ -364,7 +364,7 @@ function btq_booking_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEn
 			<wsa:To>'. $wsaTo .'</wsa:To>
 			<wsa:Action>'. $wsaAction .'</wsa:Action>
 			<wsa:From>
-				<SalesChannelInfo ID="'. esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ) .'" />
+				<SalesChannelInfo ID="'. esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ) .'" />
 			</wsa:From>
 			<wsse:Security>
 				<wsu:Timestamp>
@@ -372,8 +372,8 @@ function btq_booking_soap_query_string($hotelCode, $dateRangeStart, $dateRangeEn
 					<wsu:Expires>2011-12-25T16:12:46+05:30</wsu:Expires>
 				</wsu:Timestamp>
 				<wsse:UsernameToken>
-					<wsse:Username>'. esc_attr( get_option('btq_booking_soap_username') ) .'</wsse:Username>
-					<wsse:Password>'. esc_attr( get_option('btq_booking_soap_password') ) .'</wsse:Password>
+					<wsse:Username>'. esc_attr( get_option('btq_booking_tc_soap_username') ) .'</wsse:Username>
+					<wsse:Password>'. esc_attr( get_option('btq_booking_tc_soap_password') ) .'</wsse:Password>
 				</wsse:UsernameToken>
 			</wsse:Security>
 		</soap:Header>';
@@ -524,11 +524,11 @@ function btq_booking_admin_packages_page(){
 		
 		<div style="background-color: white; padding: 10px;">
 			<h2><?php _e('Spanish','btq-booking')?></h2>
-			<?php btq_booking_admin_packages(esc_attr( get_option('btq_booking_hotel_code_es') )); ?>
+			<?php btq_booking_admin_packages(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
 		<div style="background-color: white; padding: 10px; margin-top: 10px;">
 			<h2><?php _e('English','btq-booking')?></h2>
-			<?php btq_booking_admin_packages(esc_attr( get_option('btq_booking_hotel_code_us') )); ?>
+			<?php btq_booking_admin_packages(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
 	</div><!-- wrap -->
 <?php
@@ -616,11 +616,11 @@ function btq_booking_admin_rooms_page() {
 		
 		<div style="background-color: white; padding: 10px;">
 			<h2><?php _e('Spanish','btq-booking')?></h2>
-			<?php btq_booking_admin_rooms(esc_attr( get_option('btq_booking_hotel_code_es') )); ?>
+			<?php btq_booking_admin_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
 		<div style="background-color: white; padding: 10px; margin-top: 10px;">
 			<h2><?php _e('English','btq-booking')?></h2>
-			<?php btq_booking_admin_rooms(esc_attr( get_option('btq_booking_hotel_code_us') )); ?>
+			<?php btq_booking_admin_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
 	</div><!-- wrap -->
 <?php
@@ -695,7 +695,7 @@ function btq_booking_generate_unavailable_dates_status(){
 	foreach($dates as $date){
 		$dayRangeStart = $date->format('Y-m-d');
 		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-		$result = btq_booking_soap_query_status(esc_attr(get_option('btq_booking_hotel_code_es')), $dayRangeStart, $dayRangeEnd);
+		$result = btq_booking_soap_query_status(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd);
 		if (isset($result['Errors'])){
 			$errors = $result['Errors'];
 			$description = 'Error Code: '. $errors['Error']['!Code'] .' - '. $errors['Error']['!ShortText'];
@@ -733,7 +733,7 @@ function btq_booking_generate_unavailable_dates(){
 	foreach($dates as $date){
 		$dayRangeStart = $date->format('Y-m-d');
 		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-		if (btq_booking_soap_query(esc_attr(get_option('btq_booking_hotel_code_es')), $dayRangeStart, $dayRangeEnd) === FALSE){
+		if (btq_booking_soap_query(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd) === FALSE){
 			$datesUnavailable[] = $dayRangeStart;
 		}
 	}
@@ -826,14 +826,14 @@ function btq_booking_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd
 	
 	switch($language){
 		case 'es':
-			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_es') );
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_es') );
 			$currency     = 'MXN';
-			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_es') );
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_es') );
 		break;
 		case 'en':
-			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_us') );
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') );
 			$currency     = 'USD';
-			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_us') );
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') );
 		break;
 	}
 	
@@ -1025,14 +1025,14 @@ function btq_booking_grid_packages($language = 'es', $dateRangeStart, $dateRange
 	
 	switch($language){
 		case 'es':
-			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_es') );
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_es') );
 			$currency     = 'MXN';
-			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_es') );
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_es') );
 		break;
 		case 'en':
-			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_us') );
+			$hotelCode    = esc_attr( get_option('btq_booking_tc_hotel_code_us') );
 			$currency     = 'USD';
-			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_us') );
+			$themeid      = esc_attr( get_option('btq_booking_tc_hotel_themeid_us') );
 		break;
 	}
 	
