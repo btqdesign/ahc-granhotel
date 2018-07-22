@@ -1249,7 +1249,7 @@ function btq_booking_grid_form($language = 'es') {
 							<div class="form-group">
 								<select class="btq-select" id="btq-num-adults" name="btq-num-adults">
 									<?php for ($i = 1; $i <= 9; $i ++) { ?>
-									<option value="<?php echo $i; ?>"><?php printf( _n( 'An adult', '%s adults', $i, 'btq-booking' ), number_format_i18n($i) ); ?></option>
+										<option value="<?php echo $i; ?>"><?php printf( _n('An adult', '%s adults', $i, 'btq-booking'), number_format_i18n($i) ); ?></option>
 									<?php } ?>
 								</select>
 							</div>
@@ -1258,7 +1258,11 @@ function btq_booking_grid_form($language = 'es') {
 							<div class="form-group">
 								<select class="btq-select" id="btq-num-children" name="btq-num-children">
 									<?php for ($i = 0; $i <= 9; $i ++) { ?>
-									<option value="<?php echo $i; ?>"><?php printf( _n( 'A child', '%s children', $i, 'btq-booking' ), number_format_i18n($i) ); ?></option>
+										<?php if ($i == 0): ?>
+											<option value="<?php echo $i; ?>"><?php _e('Without children', 'btq-booking'); ?></option>
+										<?php else:?>
+											<option value="<?php echo $i; ?>"><?php printf( _n('A child', '%s children', $i, 'btq-booking'), number_format_i18n($i) ); ?></option>
+										<?php endif;?>
 									<?php } ?>
 								</select>
 							</div>
@@ -1270,7 +1274,7 @@ function btq_booking_grid_form($language = 'es') {
 					<div class="form-group">
 						<select class="btq-select" id="btq-num-rooms" name="btq-num-rooms">
 							<?php for ($i = 1; $i <= 9; $i ++) { ?>
-							<option value="<?php echo $i; ?>"><?php printf( _n( 'A room', '%s rooms', $i, 'btq-booking' ), number_format_i18n($i) ); ?></option>
+								<option value="<?php echo $i; ?>"><?php printf( _n('A room', '%s rooms', $i, 'btq-booking'), number_format_i18n($i) ); ?></option>
 							<?php } ?>
 						</select>
 					</div>

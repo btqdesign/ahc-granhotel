@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BTQ Booking\n"
-"POT-Creation-Date: 2018-07-22 01:39-0500\n"
-"PO-Revision-Date: 2018-07-22 01:40-0500\n"
+"POT-Creation-Date: 2018-07-22 01:49-0500\n"
+"PO-Revision-Date: 2018-07-22 01:49-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: btq-booking.php:85 btq-booking.php:86 btq-booking.php:1381
+#: btq-booking.php:85 btq-booking.php:86 btq-booking.php:1385
 msgid "BTQ Booking"
 msgstr ""
 
@@ -185,25 +185,29 @@ msgid_plural "%s adults"
 msgstr[0] "Un adulto"
 msgstr[1] "%s adultos"
 
-#: btq-booking.php:1261
+#: btq-booking.php:1262
+msgid "Without children"
+msgstr "Sin niños"
+
+#: btq-booking.php:1264
 #, php-format
 msgid "A child"
 msgid_plural "%s children"
 msgstr[0] "Un niño"
 msgstr[1] "%s niños"
 
-#: btq-booking.php:1273
+#: btq-booking.php:1277
 #, php-format
 msgid "A room"
 msgid_plural "%s rooms"
 msgstr[0] "Una habitación"
 msgstr[1] "%s habitaciones"
 
-#: btq-booking.php:1281
+#: btq-booking.php:1285
 msgid "Search"
 msgstr "Buscar"
 
-#: btq-booking.php:1292
+#: btq-booking.php:1296
 msgid ""
 "* Remember that having an advance reservation will always be a better option "
 "(rates shown at 90 days)."
@@ -211,7 +215,7 @@ msgstr ""
 "* Recuerda que tener una reservación anticipada siempre será una mejor "
 "opción (tarifas mostradas a 90 días)."
 
-#: btq-booking.php:1384
+#: btq-booking.php:1388
 msgid "Content"
 msgstr "Contenido"
 
