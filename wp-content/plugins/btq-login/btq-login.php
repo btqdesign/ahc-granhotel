@@ -63,8 +63,9 @@ add_action( 'vc_before_init', 'btq_booking_login_VC' );
 /**
  * Función del shortcode que imprime el BTQ Login en el frond-end.
  *
+ * @author José Antonio del Carmen
  * @author Saúl Díaz
- * @return string Imprime el BTQ Booking TC
+ * @return string Imprime el BTQ Login
  */
 function btq_login_shortcode() {
 	ob_start();
@@ -92,7 +93,12 @@ function btq_login_shortcode() {
 add_shortcode( 'btq-login', 'btq_login_shortcode' );
 
 
-
+/**
+ * Función que imprime los modals en el footer del sitio.
+ *
+ * @author José Antonio del Carmen
+ * @return string Imprime los modals en el footer del sitio
+ */
 function btq_login_modals() {
 	?>
 	<div id="botones_primarios_modals"> 
