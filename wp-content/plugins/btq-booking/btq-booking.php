@@ -95,25 +95,27 @@ add_filter( "plugin_action_links_$plugin", 'btq_booking_add_settings_link' );
  */
 function btq_booking_admin_menu() {
     if(btq_booking_tc_validate_saved_settings()){
-	    $function_menu  = 'btq_booking_admin_rooms_page';
+	    $menu_slug      = 'btq_booking_rooms';
+	    $menu_function  = 'btq_booking_admin_rooms_page';
     }
     else {
-	    $function_menu  = 'btq_booking_admin_settings_page';
+	    $menu_slug      = 'btq_booking_settings';
+	    $menu_function  = 'btq_booking_admin_settings_page';
     }
     
     add_menu_page(
         __('BTQ Booking', 'btq-booking'),
         __('BTQ Booking', 'btq-booking'),
         'manage_options',
-        'btq_booking_menu',
-        $function_menu,
+        $menu_slug,
+        $menu_function,
         'dashicons-building',
         100
     );
     
     if(btq_booking_tc_validate_saved_settings()){
 	    add_submenu_page(
-	    	'btq_booking_menu', 
+	    	$menu_slug, 
 	    	__('Rooms', 'btq-booking'), 
 	    	__('Rooms', 'btq-booking'), 
 	    	'manage_options', 
@@ -121,7 +123,7 @@ function btq_booking_admin_menu() {
 	    	'btq_booking_admin_rooms_page'
 	    );
 	    add_submenu_page(
-	    	'btq_booking_menu', 
+	    	$menu_slug, 
 	    	__('Packages', 'btq-booking'), 
 	    	__('Packages', 'btq-booking'), 
 	    	'manage_options', 
@@ -129,7 +131,7 @@ function btq_booking_admin_menu() {
 	    	'btq_booking_admin_packages_page'
 	    );
 	    add_submenu_page(
-	    	'btq_booking_menu', 
+	    	$menu_slug, 
 	    	__('Dates without availability', 'btq-booking'), 
 	    	__('Dates without availability', 'btq-booking'), 
 	    	'manage_options', 
@@ -139,7 +141,7 @@ function btq_booking_admin_menu() {
     }
     
     add_submenu_page(
-    	'btq_booking_menu', 
+    	$menu_slug, 
     	__('Settings', 'btq-booking'), 
     	__('Settings', 'btq-booking'), 
     	'manage_options', 
