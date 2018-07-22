@@ -33,12 +33,11 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
  * @return void Integra CSS y JS al frond-end del sitio.
  */
 function btq_popup_scripts() {
-    if (!is_admin()) {
-	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
-      wp_enqueue_script( 'firebase', 'https://www.gstatic.com/firebasejs/5.0.4/firebase.js', array(), '5.0.4');
-      wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
-	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
-	    wp_enqueue_script( 'btq-popup-js', plugins_url( 'script.js', __FILE__ ), array('firebase'), '1.0');
+	if (!is_admin()) {
+		wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
+		wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
+		wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
+		wp_enqueue_script( 'btq-popup-js', plugins_url( 'script.js', __FILE__ ), array(), '1.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_popup_scripts');
