@@ -172,6 +172,10 @@ function btq_booking_admin_settings_page() {
 			<table class="form-table">
 				<tbody>
 					<tr valign="top">
+						<th scope="row"><label for="btq_booking_color_principal"><?php _e('Default color', 'btq-booking'); ?></label></th>
+						<td><input type="text" id="btq_booking_color_principal" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
+					</tr>
+					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking'); ?></label></th>
 						<td><input type="text" class="regular-text" id="btq_booking_soap_sales_channel_info_id" name="btq_booking_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ); ?>" /></td>
 					</tr>
@@ -206,10 +210,6 @@ function btq_booking_admin_settings_page() {
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_hotel_themeid_es"><?php _e('Theme id spanish language', 'btq-booking'); ?></label></th>
 						<td><input type="number" class="regular-text" id="btq_booking_hotel_themeid_es" name="btq_booking_hotel_themeid_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_es') ); ?>" /></td>
-					</tr>
-					<tr valign="top">
-						<th scope="row"><label for="btq_booking_color_principal"><?php _e('Default color', 'btq-booking'); ?></label></th>
-						<td><input type="text" id="btq_booking_color_principal" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
 					</tr>
 				</tbody>
 			</table>
