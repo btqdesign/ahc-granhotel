@@ -40,7 +40,7 @@ function btq_popup_scripts() {
 		wp_enqueue_script( 'btq-popup', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-popup.js', __FILE__ ), array(), '1.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_popup_scripts');
+add_action( 'wp_enqueue_scripts', 'btq_popup_scripts', 1009);
 
 /**
  * Declara el Widget de BTQ Login en VisualCompouser.
