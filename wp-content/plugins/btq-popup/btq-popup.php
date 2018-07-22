@@ -6,8 +6,8 @@
  * Version: 1.0
  * Author: BTQ Design
  * Author URI: http://btqdesign.com/
- * Requires at least: 4.9.6
- * Tested up to: 4.9.6
+ * Requires at least: 4.9.7
+ * Tested up to: 4.9.7
  * 
  * Text Domain: btq-popup
  * Domain Path: /languages
@@ -37,7 +37,7 @@ function btq_popup_scripts() {
 		wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
 		wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
 		wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
-		wp_enqueue_script( 'btq-popup-js', plugins_url( 'script.js', __FILE__ ), array(), '1.0');
+		wp_enqueue_script( 'btq-popup', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-popup.js', __FILE__ ), array(), '1.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_popup_scripts');
@@ -59,10 +59,14 @@ function btq_popup_VC() {
 }
 add_action( 'vc_before_init', 'btq_popup_VC' );
 
-
-
+/*
+ * Añade el popup modal en el footer de la página.
+ *
+ * @author José Antonio del Carmen
+ * @return string Imprime el código html del popup modal.
+ */
 function btq_popup() {
-  $language = btq_popup_current_language_code();
+	$language = btq_popup_current_language_code();
 	?>
       <!-- Modal -->
       <div class="modal fade" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -95,7 +99,6 @@ function btq_popup() {
           </div>
         </div>
       </div>
-    
 	<?php
 }
 add_action('wp_footer', 'btq_popup');
@@ -118,9 +121,6 @@ function btq_popup_current_language_code() {
   else {
     $language = 'es';
   }
-  
-  //Debug
-  //btq_booking_tc_log('languages', $language, TRUE);
   
   return $language;
 }
