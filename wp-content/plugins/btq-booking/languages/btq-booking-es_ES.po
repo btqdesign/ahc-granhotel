@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: BTQ Booking\n"
 "POT-Creation-Date: 2018-07-22 01:49-0500\n"
-"PO-Revision-Date: 2018-07-22 01:49-0500\n"
+"PO-Revision-Date: 2018-07-22 14:42-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -104,11 +104,11 @@ msgstr "Inglés"
 
 #: btq-booking.php:529
 msgid "Room Type Code"
-msgstr ""
+msgstr "Código de tipo de habitación"
 
 #: btq-booking.php:529
 msgid "Room Type Name"
-msgstr ""
+msgstr "Nombre de la habitación"
 
 #: btq-booking.php:529
 msgid "Folder With Pictures"
