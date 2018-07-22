@@ -1341,7 +1341,7 @@ function btq_booking_tc_grid_scripts() {
     if (!is_admin()) {
 	    wp_enqueue_style( 'btq-booking-tc-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'estilos.css', __FILE__ ), 'solaz-child-style','1.0.0');
 	    wp_enqueue_script( 'moment', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment.min.js', __FILE__ ), array(), '2.21.0', true);
-	    wp_enqueue_script( 'moment-timezone', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment-timezone.js', __FILE__ ), array('moment'), ' 0.5.17', true);
+	    wp_enqueue_script( 'moment-timezone', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment-timezone.js', __FILE__ ), array('moment'), '0.5.17', true);
 	    wp_enqueue_script( 'btq-booking-tc-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'app.js', __FILE__ ), array('moment','moment-timezone'), '1.0.0');
 	}
 }
