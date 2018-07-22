@@ -94,47 +94,61 @@ add_filter( "plugin_action_links_$plugin", 'btq_booking_add_settings_link' );
  * 		WordPress.
  */
 function btq_booking_admin_menu() {
+    if(btq_booking_tc_validate_saved_settings()){
+	    $menu_slug = 'btq_booking_rooms';
+	    $function  = 'btq_booking_admin_rooms_page';
+    }
+    else {
+	    $menu_slug = 'btq_booking_settings';
+	    $function  = 'btq_booking_admin_settings_page';
+    }
+    
     add_menu_page(
         __('BTQ Booking', 'btq-booking'),
         __('BTQ Booking', 'btq-booking'),
         'manage_options',
-        'btq_booking_rooms',
-        'btq_booking_admin_rooms_page',
+        $menu_slug,
+        $function,
         'dashicons-building',
         100
     );
+    
+    if(btq_booking_tc_validate_saved_settings()){
+	    add_submenu_page(
+	    	'btq_booking_rooms', 
+	    	__('Rooms', 'btq-booking'), 
+	    	__('Rooms', 'btq-booking'), 
+	    	'manage_options', 
+	    	'btq_booking_rooms',
+	    	'btq_booking_admin_rooms_page'
+	    );
+	    add_submenu_page(
+	    	'btq_booking_rooms', 
+	    	__('Packages', 'btq-booking'), 
+	    	__('Packages', 'btq-booking'), 
+	    	'manage_options', 
+	    	'btq_booking_packages',
+	    	'btq_booking_admin_packages_page'
+	    );
+	    add_submenu_page(
+	    	'btq_booking_rooms', 
+	    	__('Dates without availability', 'btq-booking'), 
+	    	__('Dates without availability', 'btq-booking'), 
+	    	'manage_options', 
+	    	'btq_booking_unavailable_dates',
+	    	'btq_booking_admin_generate_unavailable_dates_page'
+	    );
+    }
+    
     add_submenu_page(
-    	'btq_booking_rooms', 
-    	__('Rooms', 'btq-booking'), 
-    	__('Rooms', 'btq-booking'), 
-    	'manage_options', 
-    	'btq_booking_rooms',
-    	'btq_booking_admin_rooms_page'
-    );
-    add_submenu_page(
-    	'btq_booking_rooms', 
-    	__('Packages', 'btq-booking'), 
-    	__('Packages', 'btq-booking'), 
-    	'manage_options', 
-    	'btq_booking_packages',
-    	'btq_booking_admin_packages_page'
-    );
-    add_submenu_page(
-    	'btq_booking_rooms', 
-    	__('Dates without availability', 'btq-booking'), 
-    	__('Dates without availability', 'btq-booking'), 
-    	'manage_options', 
-    	'btq_booking_unavailable_dates',
-    	'btq_booking_admin_generate_unavailable_dates_page'
-    );
-    add_submenu_page(
-    	'btq_booking_rooms', 
+    	$menu_slug, 
     	__('Settings', 'btq-booking'), 
     	__('Settings', 'btq-booking'), 
     	'manage_options', 
     	'btq_booking_settings',
     	'btq_booking_admin_settings_page'
     );
+    
     /* Manda a llamar la funcion para declarar los ajustes y opciones del plug-in */
     add_action( 'admin_init', 'btq_booking_register_settings' );
 }
@@ -219,15 +233,45 @@ function btq_booking_admin_settings_page() {
 <?php
 }
 
-
-function btq_booking_admin_scripts( $hook ) {
+/**
+ * Añade scripts personalizados en las páginas de ajustes.
+ *
+ * @author Saúl Díaz
+ * @param array $hook Arreglo con los enlaces bajo el titulo del plugin.
+ * @return void
+ */
+function btq_booking_admin_scripts($hook) {
     if(is_admin()) {      
         // Color Picker
         wp_enqueue_style('wp-color-picker'); 
         wp_enqueue_script('btq-booking-admin-js', plugins_url('assets/js' . DIRECTORY_SEPARATOR . 'btq-booking-admin.js', __FILE__), array('wp-color-picker'), false, true); 
     }
 }
-add_action( 'admin_enqueue_scripts', 'btq_booking_admin_scripts' );
+add_action('admin_enqueue_scripts', 'btq_booking_admin_scripts');
+
+/**
+ * Valida que las opciones necesarias esten almacenadas en la base de datos.
+ *
+ * @author Saúl Díaz
+ * @return bool Devuelve true en caso de que las opciones estan almacenadas.
+ */
+function btq_booking_tc_validate_saved_settings() {
+	$out = true;
+	if (
+		get_option('btq_booking_tc_soap_sales_channel_info_id') === false
+		|| get_option('btq_booking_tc_soap_username') === false
+		|| get_option('btq_booking_tc_soap_password') === false
+		|| get_option('btq_booking_tc_soap_to_action_pals') === false
+		|| get_option('btq_booking_tc_soap_to_action_full') === false
+		|| get_option('btq_booking_tc_hotel_code_us') === false
+		|| get_option('btq_booking_tc_hotel_code_es') === false
+		|| get_option('btq_booking_tc_hotel_themeid_us') === false
+		|| get_option('btq_booking_tc_hotel_themeid_es') === false
+	){
+		$out = false;
+	}
+	return $out;
+}
 
 /**
  * Genera un arreglo con las fechas de los días entre dos fechas distintas.
