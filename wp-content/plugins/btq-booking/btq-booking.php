@@ -69,6 +69,19 @@ function btq_booking_log($file_name, $var, $same_file = false){
 	}
 }
 
+/**
+ * Añade el enlace de ajustes en la pagina de plugins
+ * 
+ * @author Saúl Díaz
+ * @return void Añade el enlace de ajustes en la pagina de plugins
+ */
+function btq_booking_add_settings_link($links) {
+    $settings_link = '<a href="options-general.php?page=btq_booking_settings">' . __( 'Settings' ) . '</a>';
+    array_push( $links, $settings_link );
+  	return $links;
+}
+$plugin = plugin_basename( __FILE__ );
+add_filter( "plugin_action_links_$plugin", 'btq_booking_add_settings_link' );
 
 /**
  * Genera un elemento en el menú del escritorio del wp-admin de WordPress.
