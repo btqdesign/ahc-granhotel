@@ -34,9 +34,9 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
  */
 function btq_popup_scripts() {
 	if (!is_admin()) {
-		wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
+		//wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
 		//wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
-		wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
+		//wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
 		wp_enqueue_script( 'btq-popup', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-popup.js', __FILE__ ), array(), '1.0');
 	}
 }
