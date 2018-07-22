@@ -181,7 +181,7 @@ function btq_booking_admin_settings_page() {
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_password"><?php _e('Password', 'btq-booking'); ?></label></th>
-						<td><input type="password" name="btq_booking_soap_password" value="<?php echo esc_attr( get_option('btq_booking_soap_password') ); ?>" /></td>
+						<td><input type="password" class="regular-text" name="btq_booking_soap_password" value="<?php echo esc_attr( get_option('btq_booking_soap_password') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_to_action_pals"><?php _e('SOAP Action PALS To', 'btq-booking'); ?></label></th>
