@@ -171,7 +171,7 @@ jQuery(document).ready(function(){
 		jQuery.post(
 		    '/wp-admin/admin-ajax.php', 
 		    {
-				'action' : 'btq_booking_tc_grid_packages',
+				'action' : 'btq_booking_grid_packages',
 				'data' : {
 					btq_packages_init : 'OK'
 				}
@@ -201,7 +201,7 @@ jQuery(document).ready(function(){
 		jQuery.post(
 		    '/wp-admin/admin-ajax.php', 
 		    {
-				'action' : 'btq_booking_tc_grid_rooms',
+				'action' : 'btq_booking_grid_rooms',
 				'data' : {
 					btq_rooms_init : 'OK'
 				}
@@ -231,7 +231,7 @@ jQuery(document).ready(function(){
 		jQuery.post(
 		    '/wp-admin/admin-ajax.php', 
 		    {
-				'action' : 'btq_booking_tc_grid',
+				'action' : 'btq_booking_grid',
 				'data' : {
 					btq_date_start   : moment( jQuery('#btq-date-start').datepicker('getDate') ).tz('America/Mexico_City').format('YYYY-MM-DD'), 
 					btq_date_end     : moment( jQuery('#btq-date-end').datepicker('getDate')   ).tz('America/Mexico_City').format('YYYY-MM-DD'),
