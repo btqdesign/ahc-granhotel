@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BTQ Booking\n"
-"POT-Creation-Date: 2018-07-22 00:43-0500\n"
-"PO-Revision-Date: 2018-07-22 00:43-0500\n"
+"POT-Creation-Date: 2018-07-22 01:20-0500\n"
+"PO-Revision-Date: 2018-07-22 01:21-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_ES\n"
@@ -16,21 +16,21 @@ msgstr ""
 "X-Poedit-WPHeader: btq-booking.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
-"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #. Plugin Name of the plugin/theme
-#: btq-booking.php:85 btq-booking.php:86 btq-booking.php:1414
+#: btq-booking.php:85 btq-booking.php:86 btq-booking.php:1392
 msgid "BTQ Booking"
 msgstr ""
 
-#: btq-booking.php:95 btq-booking.php:96
+#: btq-booking.php:95 btq-booking.php:96 btq-booking.php:1226
 msgid "Rooms"
 msgstr "Habitaciones"
 
-#: btq-booking.php:103 btq-booking.php:104
+#: btq-booking.php:103 btq-booking.php:104 btq-booking.php:1229
 msgid "Packages"
 msgstr "Paquetes"
 
@@ -154,7 +154,43 @@ msgstr "Disponible"
 msgid "Description"
 msgstr "Descripción"
 
-#: btq-booking.php:1417
+#: btq-booking.php:753
+msgid "View more"
+msgstr "Ver más"
+
+#: btq-booking.php:967 btq-booking.php:1179
+msgid "Book Now"
+msgstr "Reserve Ahora"
+
+#: btq-booking.php:1218
+msgid "Select a PACKAGE or ROOM"
+msgstr "Seleccione un PAQUETE o HABITACIÓN"
+
+#: btq-booking.php:1232
+msgid "Top rated"
+msgstr "Mejor valorados"
+
+#: btq-booking.php:1246
+msgid "Check-in"
+msgstr "Fecha de Llegada"
+
+#: btq-booking.php:1251
+msgid "Check-out"
+msgstr "Fecha de salida"
+
+#: btq-booking.php:1292
+msgid "Search"
+msgstr "Buscar"
+
+#: btq-booking.php:1303
+msgid ""
+"* Remember that having an advance reservation will always be a better option "
+"(rates shown at 90 days)."
+msgstr ""
+"* Recuerda que tener una reservación anticipada siempre será una mejor "
+"opción (tarifas mostradas a 90 días)."
+
+#: btq-booking.php:1395
 msgid "Content"
 msgstr "Contenido"
 
@@ -178,12 +214,6 @@ msgstr ""
 #~| msgid "Booking TravelClick"
 #~ msgid "Test query rooms on TravelClick"
 #~ msgstr "Booking TravelClick"
-
-#~ msgid "Select a PACKAGE or ROOM"
-#~ msgstr "Seleccione un PAQUETE o HABITACIÓN"
-
-#~ msgid "Top Rated"
-#~ msgstr "Mejor Valorados"
 
 #~ msgid "Arrival Date"
 #~ msgstr "Día de llegada"
@@ -211,13 +241,6 @@ msgstr ""
 
 #~ msgid "Check your dates-rate to stay"
 #~ msgstr "Consulta las tarifas para hospedarte"
-
-#~ msgid ""
-#~ "* Remember that having an advance reservation will always be a better "
-#~ "option (rates shown at 90 days)"
-#~ msgstr ""
-#~ "* Recuerda que tener una reservación anticipada siempre será una mejor "
-#~ "opción (tarifas mostradas a 90 días)"
 
 #~ msgid "Booking TC"
 #~ msgstr "Booking TC"

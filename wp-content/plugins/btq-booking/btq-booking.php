@@ -526,7 +526,7 @@ function btq_booking_admin_rooms($hotelCode) {
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Room Type Code', 'btq-booking'); ?></th><th><?php _e('Room Type Name', 'btq-booking'); ?></th><th><?php _e('Folder With Pictures');?></th></tr>
+		<tr align="center" style="background-color: #333; color: white;"><th><?php _e('Room Type Code', 'btq-booking'); ?></th><th><?php _e('Room Type Name', 'btq-booking'); ?></th><th><?php _e('Folder With Pictures','btq-booking');?></th></tr>
 	<?php
 	foreach($RoomType as $elementRoomType){
 		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
@@ -729,8 +729,6 @@ add_action('btq_booking_generate_unavailable_dates_event', 'btq_booking_generate
 function btq_booking_grid_split_description($description, $language = 'es'){
 	if(!empty($description) && is_string($description)){
 		
-		$str_view_more = ($language == 'es')?'Ver más':'View more';
-		
 		$descriptionStripTags = strip_tags($description);
 		$wordsArray = explode(' ', $descriptionStripTags);
 		
@@ -752,7 +750,7 @@ function btq_booking_grid_split_description($description, $language = 'es'){
 		<div>
 			<?php echo $textFirst . ' '; ?> 
 			<?php if(!empty($textLast)){ ?>
-			<a class="vermas"><?php echo $str_view_more; ?></a>
+			<a class="vermas"><?php _e('View more', 'btq-booking'); ?></a>
 			<span class="texto_recorrido" style="display:none"><?php echo $textLast; ?></span>
 			<?php } ?>
 		</div>
@@ -806,13 +804,11 @@ function btq_booking_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd
 			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_es') );
 			$currency     = 'MXN';
 			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_es') );
-			$str_book_now = 'Reservar Ahora';
 		break;
 		case 'en':
 			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_us') );
 			$currency     = 'USD';
 			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_us') );
-			$str_book_now = 'Book Now';
 		break;
 	}
 	
@@ -968,7 +964,7 @@ function btq_booking_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd
 					<h3 align="center">$<?php echo $precio . ' ' . $currency; ?>/noche</h3>
 					<hr class="linea"/>
 					
-					<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $themeid ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $childrens; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/room','_blank');"><?php echo $str_book_now; ?></button>
+					<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $themeid ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $childrens; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/room','_blank');"><?php _e('Book Now', 'btq-booking'); ?></button>
 				</article>
 				
 			</section>
@@ -1007,13 +1003,11 @@ function btq_booking_grid_packages($language = 'es', $dateRangeStart, $dateRange
 			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_es') );
 			$currency     = 'MXN';
 			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_es') );
-			$str_book_now = 'Reservar Ahora';
 		break;
 		case 'en':
 			$hotelCode    = esc_attr( get_option('btq_booking_hotel_code_us') );
 			$currency     = 'USD';
 			$themeid      = esc_attr( get_option('btq_booking_hotel_themeid_us') );
-			$str_book_now = 'Book Now';
 		break;
 	}
 	
@@ -1182,7 +1176,7 @@ function btq_booking_grid_packages($language = 'es', $dateRangeStart, $dateRange
 					<h3 align="center">$<?php echo $precio . ' ' . $currency; ?>/noche</h3>
 					<hr class="linea"/>
 					
-					<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $themeid ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');"><?php echo $str_book_now; ?></button>
+					<button type="button" class="btn btq-btn" onclick="window.open('https://reservations.travelclick.com/<?php echo $hotelCode ?>?themeid=<?php echo $themeid ?>&amp;datein=<?php echo date_format(date_create($dateRangeStart), "m/d/Y");?>&amp;dateout=<?php echo date_format(date_create($dateRangeEnd), "m/d/Y");?>&amp;roomtypeid=<?php echo $roomTypeCode; ?>&amp;packageid=<?php echo $RatePlanCode; ?>&amp;adults=<?php echo $adults; ?>&amp;children=<?php echo $children; ?>&amp;rooms=<?php echo $rooms ?>&amp;currency=<?php echo $currency?>#/accommodation/package','_blank');"><?php _e('Book Now', 'btq-booking'); ?></button>
 				</article>
 				
 			</section>
@@ -1205,30 +1199,14 @@ function btq_booking_grid_packages($language = 'es', $dateRangeStart, $dateRange
  */
 function btq_booking_grid_form($language = 'es') {
 	if ($language == 'en'){
-		$str_seleccion = 'Select a PACKAGE or ROOM';
-		$str_room = 'Rooms';
-		$str_packages = 'Packages';
-		$str_top_rated = 'Top rated';
-		$str_arrival_date = 'Check-in';
-		$str_departure_date = 'Check-out';
-		$str_search = 'Search';
 		$str_adult = 'Adults: ';
 		$str_children = 'Children: ';
 		$str_rooms = 'Rooms: ';
-		$str_90days = '* Remember that having an advance reservation will always be a better option (rates shown at 90 days)';
 	}
 	else {
-		$str_seleccion = 'Selecciona PAQUETE o HABITACIÓN';
-		$str_room = 'Habitaciones';
-		$str_packages = 'Paquetes';
-		$str_top_rated = 'Mejor calificadas';
-		$str_arrival_date = 'Fecha de llegada';
-		$str_departure_date = 'Fecha de salida';
-		$str_search = 'Buscar';
 		$str_adult = 'Adultos: ';
 		$str_children = 'Niños: ';
 		$str_rooms = 'Habitaciones: ';
-		$str_90days = '* Recuerda que tener una reservación anticipada siempre será una mejor opción (tarifas mostradas a 90 días)';
 	}
 	
 	$iconos_dir = 'assets/images/iconos';
@@ -1237,7 +1215,7 @@ function btq_booking_grid_form($language = 'es') {
 		
 		<section class="row">
 			<article class="col-md-12">
-				<h5 class="hosp"><?php echo $str_seleccion; ?></h5>
+				<h5 class="hosp"><?php _e('Select a PACKAGE or ROOM', 'btq-booking'); ?></h5>
 			</article>
 		</section>
 
@@ -1245,13 +1223,13 @@ function btq_booking_grid_form($language = 'es') {
 
 		<section class="row">
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-rooms" name="btq-btn-rooms" class="btn btn-default btq-btn"><?php echo $str_room; ?></button>
+				<button id="btq-btn-rooms" name="btq-btn-rooms" class="btn btn-default btq-btn"><?php _e('Rooms', 'btq-booking'); ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-packages" name="btq-btn-rooms" class="btn btq-btn"><?php echo $str_packages; ?></button>
+				<button id="btq-btn-packages" name="btq-btn-rooms" class="btn btq-btn"><?php _e('Packages', 'btq-booking'); ?></button>
 			</div>
 			<div class="col-xs-12 col-md-4">
-				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><?php echo $str_top_rated; ?></button>
+				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><?php _e('Top rated', 'btq-booking'); ?></button>
 			</div>
 		</section>
 		
@@ -1265,12 +1243,12 @@ function btq_booking_grid_form($language = 'es') {
 					<div class="row">
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input type="text" autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo $str_arrival_date; ?>">
+								<input type="text" autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo _e('Check-in', 'btq-booking'); ?>">
 							</div>
 						</div>
 						<div class="col-xs-6">
 							<div class="form-group">
-								<input type="text" autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo $str_departure_date; ?>">
+								<input type="text" autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo _e('Check-out', 'btq-booking'); ?>">
 							</div>		
 						</div>
 					</div>
@@ -1311,7 +1289,7 @@ function btq_booking_grid_form($language = 'es') {
 				
 				<article class="col-xs-12 col-md-2">	
 					<input type="hidden" id="btq-type-query" name="btq-type-query" value="rooms">				
-					<button class="btn btq-btn" name="btq-search" id="btq-search"><?php echo $str_search ; ?></button>
+					<button class="btn btq-btn" name="btq-search" id="btq-search"><?php echo _e('Search', 'btq-booking') ; ?></button>
 				</article>
 			
 			</form>
@@ -1322,7 +1300,7 @@ function btq_booking_grid_form($language = 'es') {
 		
 		<section class="row">
 			<article class="col-md-12">
-				<p class="recordatorio"><?php echo $str_90days; ?></p>
+				<p class="recordatorio"><?php echo _e('* Remember that having an advance reservation will always be a better option (rates shown at 90 days).', 'btq-booking'); ?></p>
 			</article>
 			<hr class="linea"/>
 		</section>
