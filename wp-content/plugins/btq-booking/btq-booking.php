@@ -173,43 +173,43 @@ function btq_booking_admin_settings_page() {
 				<tbody>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking'); ?></label></th>
-						<td><input type="text" class="regular-text" name="btq_booking_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ); ?>" /></td>
+						<td><input type="text" class="regular-text" id="btq_booking_soap_sales_channel_info_id" name="btq_booking_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_soap_sales_channel_info_id') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_username"><?php _e('Username', 'btq-booking'); ?></label></th>
-						<td><input type="text" class="regular-text" name="btq_booking_soap_username" value="<?php echo esc_attr( get_option('btq_booking_soap_username') ); ?>" /></td>
+						<td><input type="text" class="regular-text" id="btq_booking_soap_username" name="btq_booking_soap_username" value="<?php echo esc_attr( get_option('btq_booking_soap_username') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_password"><?php _e('Password', 'btq-booking'); ?></label></th>
-						<td><input type="password" class="regular-text" name="btq_booking_soap_password" value="<?php echo esc_attr( get_option('btq_booking_soap_password') ); ?>" /></td>
+						<td><input type="password" class="regular-text" id="btq_booking_soap_password" name="btq_booking_soap_password" value="<?php echo esc_attr( get_option('btq_booking_soap_password') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_to_action_pals"><?php _e('SOAP Action PALS To', 'btq-booking'); ?></label></th>
-						<td><input type="url" class="regular-text" name="btq_booking_soap_to_action_pals" value="<?php echo esc_attr( get_option('btq_booking_soap_to_action_pals') ); ?>" /></td>
+						<td><input type="url" class="regular-text" id="btq_booking_soap_to_action_pals" name="btq_booking_soap_to_action_pals" value="<?php echo esc_attr( get_option('btq_booking_soap_to_action_pals') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_soap_to_action_full"><?php _e('SOAP Action FULL To', 'btq-booking'); ?></label></th>
-						<td><input type="url" class="regular-text" name="btq_booking_soap_to_action_full" value="<?php echo esc_attr( get_option('btq_booking_soap_to_action_full') ); ?>" /></td>
+						<td><input type="url" class="regular-text" id="btq_booking_soap_to_action_full" name="btq_booking_soap_to_action_full" value="<?php echo esc_attr( get_option('btq_booking_soap_to_action_full') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_hotel_code_us"><?php _e('Hotel code english language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" name="btq_booking_hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_hotel_code_us') ); ?>" /></td>
+						<td><input type="number" class="regular-text" id="btq_booking_hotel_code_us" name="btq_booking_hotel_code_us" value="<?php echo esc_attr( get_option('btq_booking_hotel_code_us') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_hotel_code_es"><?php _e('Hotel code spanish language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" name="btq_booking_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_code_es') ); ?>" /></td>
+						<td><input type="number" class="regular-text" id="btq_booking_hotel_code_es" name="btq_booking_hotel_code_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_code_es') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_hotel_themeid_us"><?php _e('Theme id english language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" name="btq_booking_hotel_themeid_us" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_us') ); ?>" /></td>
+						<td><input type="number" class="regular-text" id="btq_booking_hotel_themeid_us" name="btq_booking_hotel_themeid_us" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_us') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_hotel_themeid_es"><?php _e('Theme id spanish language', 'btq-booking'); ?></label></th>
-						<td><input type="number" class="regular-text" name="btq_booking_hotel_themeid_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_es') ); ?>" /></td>
+						<td><input type="number" class="regular-text" id="btq_booking_hotel_themeid_es" name="btq_booking_hotel_themeid_es" value="<?php echo esc_attr( get_option('btq_booking_hotel_themeid_es') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_color_principal"><?php _e('Default color', 'btq-booking'); ?></label></th>
-						<td><input type="text" class="regular-text" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
+						<td><input type="text" class="regular-text" id="btq_booking_color_principal" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
 					</tr>
 				</tbody>
 			</table>
@@ -218,6 +218,16 @@ function btq_booking_admin_settings_page() {
 	</div><!-- wrap -->
 <?php
 }
+
+
+function btq_booking_admin_scripts( $hook ) {
+    if(is_admin()) {      
+        // Color Picker
+        wp_enqueue_style('wp-color-picker'); 
+        wp_enqueue_script('btq-booking-admin-js', plugins_url('assets/js' . DIRECTORY_SEPARATOR . 'btq-booking-admin.js', __FILE__), array('wp-color-picker'), false, true); 
+    }
+}
+add_action( 'admin_enqueue_scripts', 'btq_booking_admin_scripts' );
 
 /**
  * Genera un arreglo con las fechas de los días entre dos fechas distintas.
