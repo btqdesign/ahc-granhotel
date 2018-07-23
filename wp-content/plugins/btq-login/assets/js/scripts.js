@@ -162,7 +162,7 @@ function recuperar_contrasena(){
 
 
 // Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
-function pestaña_registro(){
+function pestana_registro(){
 	document.getElementById("registro").style.display = "inline-block";
 	document.getElementById("login_div").style.display = "none";
 }
@@ -170,14 +170,14 @@ function pestaña_registro(){
 
 
 // Aqui inicia la funcion para ocultar cualquier pestaña y mostrar la de inicio
-function pestaña_inicio(){
+function pestana_inicio(){
 	document.getElementById("login_div").style.display = "block";
 	document.getElementById("user_div").style.display = "none";
 	document.getElementById("registro").style.display = "none";  
 }
 // Aqui termina la funcion para ocultar cualquier pestaña y mostrar la de inicio
 
-function pestaña_recuperar(){
+function pestana_recuperar(){
 	document.getElementById("recuperar").style.display = "block";
 	document.getElementById("login_div").style.display = "none";
 	document.getElementById("user_div").style.display = "none";
