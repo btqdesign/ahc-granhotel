@@ -700,11 +700,11 @@ function btq_booking_admin_rooms_page() {
 	<div class="wrap">
 		<h1><?php _e('Rooms on TravelClick', 'btq-booking'); ?></h1>
 		
-		<div style="background-color: white; padding: 10px;">
+		<div>
 			<h2><?php _e('Spanish','btq-booking')?></h2>
 			<?php btq_booking_admin_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
-		<div style="background-color: white; padding: 10px; margin-top: 10px;">
+		<div>
 			<h2><?php _e('English','btq-booking')?></h2>
 			<?php btq_booking_admin_rooms(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
