@@ -612,29 +612,33 @@ function btq_booking_admin_rooms($hotelCode) {
 	$RoomType = $response['RoomStays']['RoomStay']['RoomTypes']['RoomType'];
 	
 	?>
-	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr align="center" style="background-color: #333; color: white;">
-			<th><?php _e('Room Type Code','btq-booking'); ?></th>
-			<th><?php _e('Room Type Name','btq-booking'); ?></th>
-			<th><?php _e('Folder With Pictures','btq-booking'); ?></th>
-		</tr>
-	<?php
-	foreach($RoomType as $elementRoomType){
-		$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
-		
-		$images_rooms_path   = 'assets/images/rooms/';
-		$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $elementRoomType['!RoomTypeCode'];
-		$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
-		
-		?>
-		<tr>
-			<td style="background-color: #EEE;"><?php echo $elementRoomType['!RoomTypeCode']; ?></td>
-			<td style="background-color: #EEE;"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td>
-			<td align="center" style="background-color: #EEE;"><?php echo $folder_with_pictures; ?></td>
-		</tr>
+	<table class="wp-list-table widefat fixed striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th scope="col"><?php _e('Room Type Code','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Room Type Name','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Folder With Pictures','btq-booking'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
 		<?php
-	}
-	?>
+		foreach($RoomType as $elementRoomType){
+			$RoomAmenities[] = $elementRoomType['Amenities']['Amenity'];
+			
+			$images_rooms_path   = 'assets/images/rooms/';
+			$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $elementRoomType['!RoomTypeCode'];
+			$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
+			
+			?>
+			<tr>
+				<td scope="col"><?php echo $elementRoomType['!RoomTypeCode']; ?></td>
+				<td scope="col"><?php echo htmlentities($elementRoomType['!RoomTypeName']); ?></td>
+				<td scope="col"><?php echo $folder_with_pictures; ?></td>
+			</tr>
+			<?php
+		}
+		?>
+		</tbody>
 	</table>
 	
 	<?php
