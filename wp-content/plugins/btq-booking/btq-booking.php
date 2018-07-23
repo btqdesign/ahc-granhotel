@@ -541,9 +541,9 @@ function btq_booking_admin_packages($hotelCode) {
 	<table class="widefat fixed" cellspacing="0">
 		<thead>
 			<tr>
-				<th><?php _e('Rate Plan Code','btq-booking'); ?></th>
-				<th><?php _e('Rate Plan Name','btq-booking'); ?></th>
-				<th><?php _e('Folder With Pictures','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Rate Plan Code','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Rate Plan Name','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Folder With Pictures','btq-booking'); ?></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -559,9 +559,9 @@ function btq_booking_admin_packages($hotelCode) {
 			$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
 			?>
 			<tr>
-				<td><?php echo $RatePlanCode; ?></td>
-				<td><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td>
-				<td><?php echo $folder_with_pictures; ?></td>
+				<td scope="col"><?php echo $RatePlanCode; ?></td>
+				<td scope="col"><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td>
+				<td scope="col"><?php echo $folder_with_pictures; ?></td>
 			</tr>
 			<?php
 		}
@@ -569,9 +569,9 @@ function btq_booking_admin_packages($hotelCode) {
 		</tbody>
 		<tfoot>
 			<tr>
-				<th class="manage-column column-cb check-column" scope="col"></th>
-				<th class="manage-column column-columnname" scope="col"></th>
-				<th class="manage-column column-columnname num" scope="col"></th>
+				<th scope="col"></th>
+				<th scope="col"></th>
+				<th scope="col"></th>
 			</tr>
 		</tfoot>
 	</table>
