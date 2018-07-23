@@ -654,33 +654,37 @@ function btq_booking_admin_rooms($hotelCode) {
 	//$amenitiesUnique = array_unique($amenities);
 	
 	?>
-	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center">
-			<th><?php _e('Amenity Code', 'btq-booking'); ?></th>
-			<th><?php _e('Amenity Name', 'btq-booking'); ?></th>
-			<th><?php _e('Amenity Icon', 'btq-booking'); ?></th>
-		</tr>
-	<?php
-	$images_amenity_path = 'assets/images/amenity/';
-	
-	foreach($amenities as $amenitieCode => $amenitieName){
-		$amenitieFileName = btq_booking_amenity_icon_name($amenitieCode);
-		if (!empty($amenitieFileName)) {
-			$image_icono_url = plugins_url( $images_amenity_path . $amenitieFileName, __FILE__ );
-			$amenityIcon = '<img src="' . $image_icono_url . '" alt="' . htmlentities($amenitieName) . '" title="' . htmlentities($amenitieName) . '">';
-		}
-		else {
-			$amenityIcon = 'No';
+	<table class="wp-list-table widefat fixed striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th scope="col"><?php _e('Amenity Code', 'btq-booking'); ?></th>
+				<th scope="col"><?php _e('Amenity Name', 'btq-booking'); ?></th>
+				<th scope="col"><?php _e('Amenity Icon', 'btq-booking'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+		$images_amenity_path = 'assets/images/amenity/';
+		
+		foreach($amenities as $amenitieCode => $amenitieName){
+			$amenitieFileName = btq_booking_amenity_icon_name($amenitieCode);
+			if (!empty($amenitieFileName)) {
+				$image_icono_url = plugins_url( $images_amenity_path . $amenitieFileName, __FILE__ );
+				$amenityIcon = '<img src="' . $image_icono_url . '" alt="' . htmlentities($amenitieName) . '" title="' . htmlentities($amenitieName) . '">';
+			}
+			else {
+				$amenityIcon = 'No';
+			}
+			?>
+			<tr>
+				<td scope="col"><?php echo $amenitieCode; ?></td>
+				<td scope="col"><?php echo htmlentities($amenitieName); ?></td>
+				<td scope="col"><?php echo $amenityIcon; ?></td>
+			</tr>
+			<?php
 		}
 		?>
-		<tr>
-			<td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td>
-			<td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td>
-			<td align="center" style="background-color: #EEE;"><?php echo $amenityIcon; ?></td>
-		</tr>
-		<?php
-	}
-	?>
+		</tbody>
 	</table>
 	<?php
 }
