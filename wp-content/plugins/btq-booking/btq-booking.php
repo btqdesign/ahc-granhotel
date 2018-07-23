@@ -645,7 +645,11 @@ function btq_booking_admin_rooms($hotelCode) {
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Amenity Code', 'btq-booking'); ?></th><th><?php _e('Amenity Name', 'btq-booking'); ?></th><th><?php _e('Amenity Icon', 'btq-booking'); ?></th></tr>
+		<tr style="background-color: #333; color: white;" align="center">
+			<th><?php _e('Amenity Code', 'btq-booking'); ?></th>
+			<th><?php _e('Amenity Name', 'btq-booking'); ?></th>
+			<th><?php _e('Amenity Icon', 'btq-booking'); ?></th>
+		</tr>
 	<?php
 	$images_amenity_path = 'assets/images/amenity/';
 	
@@ -659,7 +663,11 @@ function btq_booking_admin_rooms($hotelCode) {
 			$amenityIcon = 'No';
 		}
 		?>
-		<tr><td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td><td align="center" style="background-color: #EEE;"><?php echo $amenityIcon; ?></td></tr>
+		<tr>
+			<td style="background-color: #EEE;"><?php echo $amenitieCode; ?></td>
+			<td style="background-color: #EEE;"><?php echo htmlentities($amenitieName); ?></td>
+			<td align="center" style="background-color: #EEE;"><?php echo $amenityIcon; ?></td>
+		</tr>
 		<?php
 	}
 	?>
@@ -753,7 +761,11 @@ function btq_booking_generate_unavailable_dates_status(){
 	
 	?>
 	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center"><th><?php _e('Date', 'btq-booking'); ?></th><th><?php _e('Available', 'btq-booking'); ?></th><th><?php _e('Description', 'btq-booking'); ?></th></tr>
+		<tr style="background-color: #333; color: white;" align="center">
+			<th><?php _e('Date', 'btq-booking'); ?></th>
+			<th><?php _e('Available', 'btq-booking'); ?></th>
+			<th><?php _e('Description', 'btq-booking'); ?></th>
+		</tr>
 	<?php
 	
 	foreach($dates as $date){
@@ -771,7 +783,11 @@ function btq_booking_generate_unavailable_dates_status(){
 			$description = '';
 		}
 		?>
-		<tr><td style="background-color: #EEE;"><?php echo $dayRangeStart; ?></td><td style="background-color: #EEE;"><?php echo $is_available; ?></td><td style="background-color: #EEE;"><?php echo htmlentities($description); ?></td></tr>
+		<tr>
+			<td style="background-color: #EEE;"><?php echo $dayRangeStart; ?></td>
+			<td style="background-color: #EEE;"><?php echo $is_available; ?></td>
+			<td style="background-color: #EEE;"><?php echo htmlentities($description); ?></td>
+		</tr>
 		<?php
 	}
 	?>
