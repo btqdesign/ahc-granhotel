@@ -567,13 +567,6 @@ function btq_booking_admin_packages($hotelCode) {
 		}
 		?>
 		</tbody>
-		<tfoot>
-			<tr>
-				<th scope="col"></th>
-				<th scope="col"></th>
-				<th scope="col"></th>
-			</tr>
-		</tfoot>
 	</table>
 	<?php
 }
