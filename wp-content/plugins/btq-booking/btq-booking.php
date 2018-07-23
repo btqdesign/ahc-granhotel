@@ -538,7 +538,7 @@ function btq_booking_admin_packages($hotelCode) {
 		}
 	}
 	?>
-	<table class="wp-list-table widefat fixed" cellspacing="0">
+	<table class="wp-list-table widefat fixed striped" cellspacing="0">
 		<thead>
 			<tr>
 				<th scope="col"><?php _e('Rate Plan Code','btq-booking'); ?></th>
