@@ -546,13 +546,6 @@ function btq_booking_admin_packages($hotelCode) {
 				<th><?php _e('Folder With Pictures','btq-booking'); ?></th>
 			</tr>
 		</thead>
-		<tfoot>
-			<tr>
-				<th class="manage-column column-cb check-column" scope="col"></th>
-				<th class="manage-column column-columnname" scope="col"></th>
-				<th class="manage-column column-columnname num" scope="col"></th>
-			</tr>
-		</tfoot>
 		<tbody>
 		<?php
 		foreach($arrayRatePlan as $elementRatePlan){			
@@ -574,6 +567,13 @@ function btq_booking_admin_packages($hotelCode) {
 		}
 		?>
 		</tbody>
+		<tfoot>
+			<tr>
+				<th class="manage-column column-cb check-column" scope="col"></th>
+				<th class="manage-column column-columnname" scope="col"></th>
+				<th class="manage-column column-columnname num" scope="col"></th>
+			</tr>
+		</tfoot>
 	</table>
 	<?php
 }
@@ -586,18 +586,20 @@ function btq_booking_admin_packages($hotelCode) {
  */
 function btq_booking_admin_packages_page(){
 ?>
+	<!-- wrap -->
 	<div class="wrap">
 		<h1><?php _e('Packages on TravelClick', 'btq-booking'); ?></h1>
 		
-		<div style="background-color: white; padding: 10px;">
+		<div>
 			<h2><?php _e('Spanish','btq-booking')?></h2>
 			<?php btq_booking_admin_packages(esc_attr( get_option('btq_booking_tc_hotel_code_es') )); ?>
 		</div>
-		<div style="background-color: white; padding: 10px; margin-top: 10px;">
+		<div>
 			<h2><?php _e('English','btq-booking')?></h2>
 			<?php btq_booking_admin_packages(esc_attr( get_option('btq_booking_tc_hotel_code_us') )); ?>
 		</div>
-	</div><!-- wrap -->
+	</div>
+	<!-- wrap -->
 <?php
 }
 
