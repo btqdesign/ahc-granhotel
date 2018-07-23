@@ -538,31 +538,42 @@ function btq_booking_admin_packages($hotelCode) {
 		}
 	}
 	?>
-	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr align="center" style="background-color: #333; color: white;">
-			<th><?php _e('Rate Plan Code','btq-booking'); ?></th>
-			<th><?php _e('Rate Plan Name','btq-booking'); ?></th>
-			<th><?php _e('Folder With Pictures','btq-booking'); ?></th>
-		</tr>
-	<?php
-	foreach($arrayRatePlan as $elementRatePlan){			
-		$RatePlanCode = $elementRatePlan['!RatePlanCode'];
-		//$roomRate = $arrayRoomRate[$RatePlanCode];
-		//$roomTypeCode = $roomRate['!RoomTypeCode'];
-		//$roomType = $arrayRoomType[$roomTypeCode];
-		
-		$images_packages_path   = 'assets/images/packages/';
-		$images_dir = plugin_dir_path( __FILE__ ) . $images_packages_path . $RatePlanCode;
-		$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
-		?>
-		<tr>
-			<td style="background-color: #EEE;"><?php echo $RatePlanCode; ?></td>
-			<td style="background-color: #EEE;"><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td>
-			<td align="center" style="background-color: #EEE;"><?php echo $folder_with_pictures; ?></td>
-		</tr>
+	<table class="widefat fixed" cellspacing="0">
+		<thead>
+			<tr>
+				<th><?php _e('Rate Plan Code','btq-booking'); ?></th>
+				<th><?php _e('Rate Plan Name','btq-booking'); ?></th>
+				<th><?php _e('Folder With Pictures','btq-booking'); ?></th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th class="manage-column column-cb check-column" scope="col"></th>
+				<th class="manage-column column-columnname" scope="col"></th>
+				<th class="manage-column column-columnname num" scope="col"></th>
+			</tr>
+		</tfoot>
+		<tbody>
 		<?php
-	}
-	?>
+		foreach($arrayRatePlan as $elementRatePlan){			
+			$RatePlanCode = $elementRatePlan['!RatePlanCode'];
+			//$roomRate = $arrayRoomRate[$RatePlanCode];
+			//$roomTypeCode = $roomRate['!RoomTypeCode'];
+			//$roomType = $arrayRoomType[$roomTypeCode];
+			
+			$images_packages_path   = 'assets/images/packages/';
+			$images_dir = plugin_dir_path( __FILE__ ) . $images_packages_path . $RatePlanCode;
+			$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
+			?>
+			<tr>
+				<td><?php echo $RatePlanCode; ?></td>
+				<td><?php echo htmlentities($elementRatePlan['!RatePlanName']); ?></td>
+				<td><?php echo $folder_with_pictures; ?></td>
+			</tr>
+			<?php
+		}
+		?>
+		</tbody>
 	</table>
 	<?php
 }
