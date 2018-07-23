@@ -138,17 +138,6 @@
 
 
 
-
-		<div id="botones_primarios"> 
-			<!-- Button trigger modal -->
-			<ul class="mega-menu btq-menu-login">
-				<li class="dib customlinks"><a type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" onclick="closeNav(); pestaña_inicio();">Iniciar Sesión</a></li>
-				<li><a type="button" onclick="pestaña_registro(); closeNav();" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter2">Registro</a></li>  
-			</ul>
-		</div>
-
-
-
 		<div id="botones_primarios_modals"> 
 			<!-- Button trigger modal -->
 			
@@ -157,26 +146,26 @@
 					<div class="modal-dialog modal-dialog-centered" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+								<h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Login','btq-login'); ?></h5>
 								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 									<span aria-hidden="true">&times;</span>
 								</button>
 							</div>
 							<div class="modal-body">    
 								<div id="login_div" class="main-div">      
-									<button onclick="facebook_login()" data-dismiss="modal"><img src="assets/images/fb.png"/>Continuar con Facebook</button>
+									<button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'assets/images/fb.png', __FILE__ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
 									<br>
-									<button onclick="google_login()" data-dismiss="modal"><img src="assets/images/google.png"/>Continuar con Google</button>
+									<button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'assets/images/google.png', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
 									<br>
-									<input type="email" placeholder="Correo" id="email_field" />
-									<input type="password" placeholder="Contraseña" id="password_field" />
-									<button onclick="login()" data-dismiss="modal">iniciar Sesión</button>
+									<input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="email_field" />
+									<input type="password" placeholder="<?php _e('Password','btq-login'); ?>" id="password_field" />
+									<button onclick="login()" data-dismiss="modal"><?php _e('Log in to your account','btq-login'); ?></button>
 								<!-- Aqui termina la pestaña de inicio -->
 								</div>
 							</div>
 							<div class="modal-footer">
-								<p>No eres miembro?<u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal">Registrate</u></p>
-								<p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">Olvidaste tu contraseña?</p>
+								<p><?php _e('Not a member?','btq-login'); ?><u onclick="pestaña_registro()" data-toggle="modal" data-target="#exampleModalCenter2" data-dismiss="modal"><?php _e('Sing up','btq-login'); ?></u></p>
+								<p style="color: #c69807;" onclick="pestaña_recuperar()" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal"><?php _e('Forgot your password?','btq-login'); ?></p>
 							</div>
 						</div>
 					</div>
