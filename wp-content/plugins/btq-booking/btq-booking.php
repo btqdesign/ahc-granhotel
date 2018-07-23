@@ -641,6 +641,8 @@ function btq_booking_admin_rooms($hotelCode) {
 		</tbody>
 	</table>
 	
+	<hr>
+	
 	<?php
 	
 	for ($i = 0; $i < count($RoomAmenities); $i++){
