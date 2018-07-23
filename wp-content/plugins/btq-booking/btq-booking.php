@@ -715,21 +715,6 @@ function btq_booking_admin_rooms_page() {
 }
 
 /**
- * Genera el JSON de los días no disponibles.
- *
- * @author Saúl Díaz
- * @return void Genera la pagina de depuración.
- */
-function btq_booking_admin_generate_unavailable_dates_page() {
-?>
-	<div class="wrap">
-		<h1><?php _e('Generate Unavailable Dates TravelClick','btq-booking'); ?></h1>
-		<?php btq_booking_generate_unavailable_dates_status(); ?>
-	</div><!-- wrap -->
-<?php
-}
-
-/**
  * Cuando el plugin sea desactibado eliminara el Hook de la tarea programada.
  *
  * La tarea programada que se ejecuta para generar el archivo JSON con las fechas
@@ -812,6 +797,21 @@ function btq_booking_generate_unavailable_dates_status(){
 	
 	$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
 	file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
+}
+
+/**
+ * Genera el JSON de los días no disponibles.
+ *
+ * @author Saúl Díaz
+ * @return void Genera la pagina de depuración.
+ */
+function btq_booking_admin_generate_unavailable_dates_page() {
+?>
+	<div class="wrap">
+		<h1><?php _e('Generate Unavailable Dates TravelClick','btq-booking'); ?></h1>
+		<?php btq_booking_generate_unavailable_dates_status(); ?>
+	</div><!-- wrap -->
+<?php
 }
 
 /**
