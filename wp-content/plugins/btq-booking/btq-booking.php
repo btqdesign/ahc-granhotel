@@ -1648,13 +1648,18 @@ add_action( 'wp_ajax_nopriv_btq_booking_grid_rooms', 'btq_booking_grid_rooms_aja
  */
 function btq_booking_grid_date_start() {
 	$unavailableJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-unavailable.json';
-	$unavailableJSON = file_get_contents($unavailableJSON_file);
-	$unavailableDatesArray = json_decode($unavailableJSON);
-	for($days = 90; $days < 120; $days++){
-		$date_start = date('Y-m-d', ( time() + (60*60*24*$days) ));
-		if (array_search($date_start, $unavailableDatesArray) === FALSE){
-			return $date_start;
+	if (file_exists($unavailableJSON_file)) {
+		$unavailableJSON = file_get_contents($unavailableJSON_file);
+		$unavailableDatesArray = json_decode($unavailableJSON);
+		for($days = 90; $days < 120; $days++){
+			$date_start = date('Y-m-d', ( time() + (60*60*24*$days) ));
+			if (array_search($date_start, $unavailableDatesArray) === FALSE){
+				return $date_start;
+			}
 		}
+	}
+	else{
+		return date('Y-m-d', ( time() + (60*60*24*90) ));
 	}
 }
 
