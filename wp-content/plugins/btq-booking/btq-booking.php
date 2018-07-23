@@ -724,10 +724,7 @@ function btq_booking_admin_generate_unavailable_dates_page() {
 ?>
 	<div class="wrap">
 		<h1><?php _e('Generate Unavailable Dates TravelClick','btq-booking'); ?></h1>
-		
-		<div style="background-color: white; padding: 10px;">
-			<?php btq_booking_generate_unavailable_dates_status(); ?>
-		</div>
+		<?php btq_booking_generate_unavailable_dates_status(); ?>
 	</div><!-- wrap -->
 <?php
 }
@@ -776,37 +773,40 @@ function btq_booking_generate_unavailable_dates_status(){
 	$datesUnavailable = array();
 	
 	?>
-	<table cellpadding="3" cellspacing="2" border="1" style="margin-top: 10px; border-color: #333;">
-		<tr style="background-color: #333; color: white;" align="center">
-			<th><?php _e('Date', 'btq-booking'); ?></th>
-			<th><?php _e('Available', 'btq-booking'); ?></th>
-			<th><?php _e('Description', 'btq-booking'); ?></th>
-		</tr>
-	<?php
-	
-	foreach($dates as $date){
-		$dayRangeStart = $date->format('Y-m-d');
-		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-		$result = btq_booking_soap_query_status(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd);
-		if (isset($result['Errors'])){
-			$errors = $result['Errors'];
-			$description = 'Error Code: '. $errors['Error']['!Code'] .' - '. $errors['Error']['!ShortText'];
-			$is_available = __('No','btq-booking');
-			$datesUnavailable[] = $dayRangeStart;
-		}
-		else {
-			$is_available = __('Yes','btq-booking');
-			$description = '';
+	<table class="wp-list-table widefat fixed striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th scope="col"><?php _e('Date', 'btq-booking'); ?></th>
+				<th scope="col"><?php _e('Available', 'btq-booking'); ?></th>
+				<th scope="col"><?php _e('Description', 'btq-booking'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+		foreach($dates as $date){
+			$dayRangeStart = $date->format('Y-m-d');
+			$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
+			$result = btq_booking_soap_query_status(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd);
+			if (isset($result['Errors'])){
+				$errors = $result['Errors'];
+				$description = 'Error Code: '. $errors['Error']['!Code'] .' - '. $errors['Error']['!ShortText'];
+				$is_available = __('No','btq-booking');
+				$datesUnavailable[] = $dayRangeStart;
+			}
+			else {
+				$is_available = __('Yes','btq-booking');
+				$description = '';
+			}
+			?>
+			<tr>
+				<td scope="col"><?php echo $dayRangeStart; ?></td>
+				<td scope="col"><?php echo $is_available; ?></td>
+				<td scope="col"><?php echo htmlentities($description); ?></td>
+			</tr>
+			<?php
 		}
 		?>
-		<tr>
-			<td style="background-color: #EEE;"><?php echo $dayRangeStart; ?></td>
-			<td style="background-color: #EEE;"><?php echo $is_available; ?></td>
-			<td style="background-color: #EEE;"><?php echo htmlentities($description); ?></td>
-		</tr>
-		<?php
-	}
-	?>
+		</tbody>
 	</table>
 	<?php
 	
