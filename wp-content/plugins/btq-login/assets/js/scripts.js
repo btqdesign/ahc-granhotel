@@ -1,13 +1,5 @@
 // Aqui se inicializa firebase
-var config = {
-	apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
-	authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
-	databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
-	projectId: "btq-ahm-gran-hotel",
-	storageBucket: "btq-ahm-gran-hotel.appspot.com",
-	messagingSenderId: "241886061865"
-};
-firebase.initializeApp(config);
+
 
 
 
@@ -22,7 +14,6 @@ firebase.auth().onAuthStateChanged(function(user){
 		
 		if (user != null) {
 			document.getElementById("botones_primarios").style.display = "none";
-			document.getElementById("botones_primarios_modals").style.display = "none";
 			var email_id = user.email;
 			var name = user.displayName;
 			if(name == null ) document.getElementById("user_para").innerHTML = email_id;
@@ -67,7 +58,6 @@ function login(){
 		var errorCode = error.code;
 		var errorMessage = error.message;
 		document.getElementById("botones_primarios").style.display = "none";
-		document.getElementById("botones_primarios_modals").style.display = "none";
 	});
 	
 	document.getElementById("user_div").style.display = "block";
@@ -82,7 +72,6 @@ function logout(){
 	firebase.auth().signOut().then(function() {
 		//Si cierra sesion correctamente
 		document.getElementById("botones_primarios").style.display = "block";
-		document.getElementById("botones_primarios_modals").style.display = "block";
 	}).catch(function(error) {
 		//Si sucede algun error
 	});
@@ -101,7 +90,6 @@ function google_login(){
 		var user = result.user;
 		// Si no se obtiene el token correctamente se ejecuta la siguiente funcion
 		document.getElementById("botones_primarios").style.display = "none";
-		document.getElementById("botones_primarios_modals").style.display = "none";
 	}).catch(function(error) {
 		// Errores en caso de no recibir el token correctamente
 		var errorCode = error.code;
@@ -127,7 +115,6 @@ function facebook_login(){
 		var user = result.user;
 		// En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
 		document.getElementById("botones_primarios").style.display = "none";
-		document.getElementById("botones_primarios_modals").style.display = "none";
 	}).catch(function(error) {
 		// Errores en caso de no iniciar sesion
 		var errorCode = error.code;
