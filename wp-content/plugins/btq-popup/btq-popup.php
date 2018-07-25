@@ -35,9 +35,10 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
 function btq_popup_scripts() {
 	if (!is_admin()) {
 		wp_enqueue_script( 'btq-popup', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-popup.js', __FILE__ ), array(), '1.0');
+		wp_enqueue_style( 'btq-booking-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'btq-style.css', __FILE__ ), 'solaz-child-style','1.0.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_popup_scripts');
+add_action( 'wp_enqueue_scripts', 'btq_popup_scripts',1004);
 
 /*
  * Añade el popup modal en el footer de la página.
