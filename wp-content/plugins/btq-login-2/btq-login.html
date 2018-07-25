@@ -53,7 +53,7 @@
                 </div>
                 <div class="modal-footer">
                     <p>No eres miembro?<u data-toggle="modal" data-target="#Registrarse" data-dismiss="modal">Registrate</u></p>
-                    <p style="color: #c69807;" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">Olvidaste la contraseña?</p>
+                    <p style="color: #c69807;" data-toggle="modal" data-target="#Restablecimiento" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
                 </div>
             </div>
             </div>
@@ -79,7 +79,7 @@
                         <h3>Registrate con tu correo: </h3>
                         <input type="email" placeholder="Correo" id="new_email_field" required/>
                         <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                        <button onclick="nuevo_usuario()" data-dismiss="modal">Finaliza tu registro </button>
+                        <button data-dismiss="modal">Finaliza tu registro </button>
                     </div>
                     <!-- Aqui termina html para registro de usuario por correo -->   
                     <div id="registro_completado" class="loggedin-div">
@@ -89,7 +89,7 @@
                     </div>  
                     <div class="modal-footer">
                         <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#IniciarSesion" data-dismiss="modal">Inicia Sesión</u></p>
-                        <p style="color: #c69807;" data-toggle="modal" data-target="#exampleModalCenter3" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
+                        <p style="color: #c69807;" data-toggle="modal" data-target="#Restablecimiento" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
                     </div>  
                 </div>
             </div>
@@ -98,6 +98,38 @@
     <!-- Aqui termina el modal del Registro -->
 
 
+    <!-- Aqui inicia el modal de restablecimiento de contraseña -->
+    <div class="modal fade" id="Restablecimiento" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Restablecer Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">    
+                    <!-- Aqui inicia html para registro de usuario por correo --> 
+                    <div id="recuperar" class="loggedin-div">
+                        <h3>Ingresa tu correo: </h3>
+                        <input type="email" placeholder="Correo" id="recover_email_field" required/>
+                        <button onclick="recuperar_contrasena()">Restablecer tu contraseña </button>
+                    </div>
+                    <!-- Aqui termina html para registro de usuario por correo -->     
+                    <div id="recuperado" class="loggedin-div">
+                        <h3>Restablecimiento de Contraseña: </h3>
+                        <br>
+                        <h5>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#IniciarSesion" data-dismiss="modal">Inicia Sesión</u></p>
+                    <p>No eres miembro?<u data-toggle="modal" data-target="#Registrarse" data-dismiss="modal">Registrate</u></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Aqui termina el modal de restablecimiento de contraseña -->
 
     <!-- Div final -->
     </div>
