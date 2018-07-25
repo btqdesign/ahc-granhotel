@@ -118,15 +118,14 @@ function google_login(){
 // Aqui inicia funcion para iniciar sesion con facebook
 function facebook_login(){
 	var provider = new firebase.auth.FacebookAuthProvider();
-	firebase.auth().signInWithPopup(provider).then(function(result) {
-		// This gives you a Facebook Access Token. You can use it to access the Facebook API.
-		var token = result.credential.accessToken;
+	firebase.auth().getRedirectResult().then(function(result) {
+		if (result.credential) {
+		  // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+		  var token = result.credential.accessToken;
+		  // ...
+		}
 		// The signed-in user info.
 		var user = result.user;
-		// ...
-		document.getElementById("user_div").style.display = "block";
-		document.getElementById("botones_primarios").style.display = "none";
-
 	  }).catch(function(error) {
 		// Handle Errors here.
 		var errorCode = error.code;
