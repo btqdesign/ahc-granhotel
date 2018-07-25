@@ -14,8 +14,21 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="assets/js/scripts.js"></script>
 
-
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
+        authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
+        databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
+        projectId: "btq-ahm-gran-hotel",
+        storageBucket: "btq-ahm-gran-hotel.appspot.com",
+        messagingSenderId: "241886061865"
+      };
+      firebase.initializeApp(config);
+    </script>
 
     <title>Login</title>
 
@@ -47,7 +60,7 @@
                         <button data-dismiss="modal"><img src="assets/images/google.png"/>Continuar con Google</button><br>                                
                         <input type="email" placeholder="Correo" id="email_field" />
                         <input type="password" placeholder="Contraseña" id="password_field" />
-                        <button data-dismiss="modal">Ingresa a tu cuenta.</button>
+                        <button onclick="login_EP();" data-dismiss="modal">Ingresa a tu cuenta.</button>
                     <!-- Aqui termina la pestaña de inicio -->
                     </div>
                 </div>
@@ -79,7 +92,7 @@
                         <h3>Registrate con tu correo: </h3>
                         <input type="email" placeholder="Correo" id="new_email_field" required/>
                         <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                        <button data-dismiss="modal">Finaliza tu registro </button>
+                        <button onclick="registro();" data-dismiss="modal">Finaliza tu registro </button>
                     </div>
                     <!-- Aqui termina html para registro de usuario por correo -->   
                     <div id="registro_completado" class="loggedin-div">
@@ -116,7 +129,7 @@
                         <button onclick="recuperar_contrasena()">Restablecer tu contraseña </button>
                     </div>
                     <!-- Aqui termina html para registro de usuario por correo -->     
-                    <div id="recuperado" class="loggedin-div">
+                    <div id="restablecimiento_exitoso" class="loggedin-div">
                         <h3>Restablecimiento de Contraseña: </h3>
                         <br>
                         <h5>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h5>
