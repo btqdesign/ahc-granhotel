@@ -1,3 +1,15 @@
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCtLM3jDV56v-lH11hDDTa5QJ14HOoAbRk",
+    authDomain: "btq-ahc-gran-hotel.firebaseapp.com",
+    databaseURL: "https://btq-ahc-gran-hotel.firebaseio.com",
+    projectId: "btq-ahc-gran-hotel",
+    storageBucket: "",
+    messagingSenderId: "246798186593"
+  };
+  firebase.initializeApp(config);
+
+
 
 // Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 firebase.auth().onAuthStateChanged(function(user){
