@@ -17,8 +17,19 @@
 		   <!-- Scripts Personalizados -->
 		   <script src="assets/js/scripts.js"></script>
 		   <!-- Inicializacion de firebase -->
-		   <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
-		
+			<script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+			<script>
+			// Initialize Firebase
+			var config = {
+				apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
+				authDomain: "btq-ahm-gran-hotel.firebaseapp.com",
+				databaseURL: "https://btq-ahm-gran-hotel.firebaseio.com",
+				projectId: "btq-ahm-gran-hotel",
+				storageBucket: "btq-ahm-gran-hotel.appspot.com",
+				messagingSenderId: "241886061865"
+			};
+			firebase.initializeApp(config);
+			</script>
 		
 		<title>BTQ Login Test</title>
 	</head>
