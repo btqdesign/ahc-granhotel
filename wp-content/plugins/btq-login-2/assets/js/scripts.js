@@ -9,6 +9,8 @@
     messagingSenderId: "241886061865"
   };
   firebase.initializeApp(config);
+  var rootRef = firebase.database().ref();
+
 
 
 
