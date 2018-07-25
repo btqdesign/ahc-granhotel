@@ -90,6 +90,7 @@ function google_login(){
 		var user = result.user;
 		// Si no se obtiene el token correctamente se ejecuta la siguiente funcion
 		document.getElementById("botones_primarios").style.display = "none";
+		document.getElementById("user_div").style.display = "block";
 	}).catch(function(error) {
 		// Errores en caso de no recibir el token correctamente
 		var errorCode = error.code;
@@ -115,6 +116,7 @@ function facebook_login(){
 		var user = result.user;
 		// En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
 		document.getElementById("botones_primarios").style.display = "none";
+		document.getElementById("user_div").style.display = "block";
 	}).catch(function(error) {
 		// Errores en caso de no iniciar sesion
 		var errorCode = error.code;
@@ -123,7 +125,6 @@ function facebook_login(){
 		var email = error.email;
 		// La credencial Auth ya esta usada
 		var credential = error.credential;
-		window.alert=errorMessage;
 		// ...
 	});
 }
