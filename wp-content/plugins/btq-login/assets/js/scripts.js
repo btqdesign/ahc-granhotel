@@ -117,6 +117,7 @@ function google_login(){
 
 // Aqui inicia funcion para iniciar sesion con facebook
 function facebook_login(){
+	var provider = new firebase.auth.FacebookAuthProvider();
 	firebase.auth().signInWithPopup(provider).then(function(result) {
 		// This gives you a Facebook Access Token. You can use it to access the Facebook API.
 		var token = result.credential.accessToken;
