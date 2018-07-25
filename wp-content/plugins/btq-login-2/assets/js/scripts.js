@@ -24,7 +24,7 @@ firebase.auth().onAuthStateChanged(function(user){
 
 function registro(){
     var newuserEmail = document.getElementById("new_email_field").value;
-    var newuserPass = document.getElementById("new_password_field").value;
+    var newuserPassword = document.getElementById("new_password_field").value;
     
     firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPassword).catch(function(error) {
     // Handle Errors here.
