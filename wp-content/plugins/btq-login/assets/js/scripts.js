@@ -123,6 +123,7 @@ function facebook_login(){
 		var email = error.email;
 		// La credencial Auth ya esta usada
 		var credential = error.credential;
+		window.alert=errorMessage;
 		// ...
 	});
 }
