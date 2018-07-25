@@ -117,27 +117,26 @@ function google_login(){
 
 // Aqui inicia funcion para iniciar sesion con facebook
 function facebook_login(){
-	var provider = new firebase.auth.FacebookAuthProvider();
 	firebase.auth().signInWithPopup(provider).then(function(result) {
-		// Te da el token de inicio de sesion de facebook
+		// This gives you a Facebook Access Token. You can use it to access the Facebook API.
 		var token = result.credential.accessToken;
-		// Obtiene la informacion del usuario
+		// The signed-in user info.
 		var user = result.user;
-		// En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
-		document.getElementById("botones_primarios").style.display = "none";
-		document.getElementById("user_div").style.display = "block";
-	}).catch(function(error) {
-		// Errores en caso de no iniciar sesion
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		// El correo ya esta registrado en la base de datos
-		var email = error.email;
-		// La credencial Auth ya esta usada
-		var credential = error.credential;
 		// ...
 		document.getElementById("user_div").style.display = "block";
-	});
-}
+		document.getElementById("botones_primarios").style.display = "none";
+
+	  }).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		var errorMessage = error.message;
+		// The email of the user's account used.
+		var email = error.email;
+		// The firebase.auth.AuthCredential type that was used.
+		var credential = error.credential;
+		// ...
+	  });
+	}
 // Aqui termina funcion para iniciar sesion con facebook
 
 
