@@ -35,9 +35,10 @@ load_plugin_textdomain('btq-popup', false, basename( dirname( __FILE__ ) ) . '/l
 function btq_popup_scripts() {
 	if (!is_admin()) {
 		wp_enqueue_script( 'btq-popup', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-popup.js', __FILE__ ), array(), '1.0');
+		wp_enqueue_style( 'btq-popup-css', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'btq-style.css', __FILE__ ), array(),'1.0.0');
 	}
 }
-add_action( 'wp_enqueue_scripts', 'btq_popup_scripts');
+add_action( 'wp_enqueue_scripts', 'btq_popup_scripts',1004);
 
 /*
  * Añade el popup modal en el footer de la página.
@@ -50,7 +51,7 @@ function btq_popup() {
 	?>
 	<!-- BTQ Popup -->
 	<div class="modal fade" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-dialog modal-dialog-centered btq-popup" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
 					<?php if ($language == 'es'): ?> 
