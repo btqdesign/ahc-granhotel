@@ -112,9 +112,10 @@ var provider = new firebase.auth.GoogleAuthProvider();
     var token = result.credential.accessToken;
     // Te da la informacion del usuario
     var user = result.user;
-    // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
+    document.getElementById("user_div").style.display = "block";
     document.getElementById("botones_primarios").style.display = "none";
     document.getElementById("botones_primarios_modals").style.display = "none";
+        // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
     var errorCode = error.code;
@@ -143,9 +144,10 @@ function facebook_login(){
     var token = result.credential.accessToken;
     // Obtiene la informacion del usuario
     var user = result.user;
-    // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
+    document.getElementById("user_div").style.display = "block";
     document.getElementById("botones_primarios").style.display = "none";
     document.getElementById("botones_primarios_modals").style.display = "none";
+        // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
   }).catch(function(error) {
     // Errores en caso de no iniciar sesion
     var errorCode = error.code;
