@@ -59,6 +59,7 @@ function nuevo_usuario(){
       // Errores en caso de que no se pueda registrar
       var errorCode = error.code;
       var errorMessage = error.message; 
+      window.alert("Error:" + error.message);
       });
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
@@ -125,6 +126,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Si la credencial de auth ya esta usada.
     var credential = error.credential;
     // ...
+    window.alert("Error:" + error.message);
 });
 }
 //Aqui termina funcion para iniciar sesion con google
