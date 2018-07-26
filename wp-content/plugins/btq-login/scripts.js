@@ -157,7 +157,7 @@ function facebook_login(){
     // La credencial Auth ya esta usada
     var credential = error.credential;
     // ...
-    window.alert=error.message;
+    window.alert("Error:" + error.message);
   });
 }
 //Aqui termina funcion para iniciar sesion con facebook
