@@ -2,7 +2,7 @@
 /**
  * Plugin Name: BTQ Booking
  * Plugin URI: http://btqdesign.com/plugins/btq-booking/
- * Description: Booking TravelClick
+ * Description: Booking TravelClick & Internet Power Hotel
  * Version: 1.0
  * Author: BTQ Design
  * Author URI: http://btqdesign.com/
@@ -70,13 +70,186 @@ function btq_booking_log($file_name, $var, $same_file = false){
 }
 
 /**
+ * Grid del booking con los datos de habitaciones disponibles devueltos de la consulta a TravelClick.
+ *
+ * Genera en formato HTML con las etiquetas con clases CSS de Bootstrap el resultado
+ * de la consulta a TraveClick.
+ * 
+ * @author Saúl Díaz
+ * @author José del Carmen
+ * @param string $language Código de idioma.
+ * @param string $dateRangeStart Fecha del día de llegada.
+ * @param string $dateRangeEnd Fecha del día de salida.
+ * @param string $typeQuery Tipo de consulta: habitaciones o paquetes.
+ * @param int $rooms Cantidad de habitaciones.
+ * @param int $adults Cantidad de adultos.
+ * @param int $childrens Cantidad de niños.
+ * @param string $availRatesOnly Valor booleano 'true' o 'false' para
+ *		la consulta de habitaciones disponibles.
+ * @return string HTML del Grid de habitaciones.
+ */
+function btq_booking_iph_grid_rooms($language = 'es', $checkIn, $checkOut, $rooms = 1, $adults = 1, $childrens = 0){
+	
+	if ($language == 'es') {
+		$languageISO = 'es-MX';
+		$currency = 'MXN';
+	}
+	else if ($language == 'en') {
+		$languageISO = 'en-US';
+		$currency = 'USD';
+	}
+	else {
+		$languageISO = 'en-US';
+		$currency = 'USD';
+	}
+	
+	$rooms = btq_booking_iph_query(
+		esc_attr( get_option('btq_booking_iph_app') ),
+		esc_attr( get_option('btq_booking_iph_property_number') ),
+		esc_attr( get_option('btq_booking_iph_partner_id') ),
+		$languageISO,
+		$checkIn,
+		$checkOut,
+		$currency,
+		$rooms,
+		$adults,
+		$childrens
+	);
+	
+	// Debug
+	//btq_booking_log('iph-rooms', $rooms);
+	
+	if ($rooms !== FALSE) {
+		$images_rooms_path = 'assets/images/rooms/';
+		$images_iconos_path = 'assets/images/iconos/';
+		
+		foreach($rooms as $room){
+			if ($room['total'] != '0.00' && $room['show'] == true) {			
+				$roomSlug = sanitize_title($room['roomName']);
+				$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $roomSlug;
+				?>
+				
+				<section class="row">
+					
+				<?php
+				if (btq_booking_folder_with_pictures($images_dir)) {
+					$images = btq_booking_grid_get_images($images_dir);
+					?>
+					<article class="col-md-5">
+						<div id="btq-carousel-<?php echo $roomSlug; ?>" class="carousel slide" data-ride="carousel">
+							<!-- Indicators -->
+							<ol class="carousel-indicators">
+							<?php 
+							$count_img = 0;
+							foreach ($images as $im) {
+							$class_active = ($count_img == 0) ? ' class="active"' : '';
+							?>
+								<li data-target="#btq-carousel-<?php echo $roomSlug; ?>" data-slide-to="<?php echo $count_img; ?>"<?php echo $class_active; ?>></li>
+							<?php
+							$count_img++;
+							}
+							?>
+							</ol>
+							
+							<!-- Wrapper for slides -->
+							<div class="carousel-inner">
+							<?php
+							$count_img = 1;
+							foreach ($images as $image_name) {
+							$image_url = plugins_url( $images_rooms_path . $roomSlug . DIRECTORY_SEPARATOR . $image_name, __FILE__ );
+							$class_active = ($count_img == 1) ? ' active' : '';
+							?> 
+								<div class="item<?php echo $class_active?>">
+									<img src="<?php echo $image_url; ?>" alt="Habitaciones">
+								</div>
+							<?php
+							$count_img++;
+							}
+							?>
+							</div>
+		
+							<!-- Left and right controls -->
+							<a class="left carousel-control" href="#btq-carousel-<?php echo $roomSlug; ?>" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+								<span class="sr-only">Anterior</span>
+							</a>
+							<a class="right carousel-control" href="#btq-carousel-<?php echo $roomSlug; ?>" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+								<span class="sr-only">Siguiente</span>
+							</a>
+						</div>
+					</article>
+					<?php
+				}
+				else{
+				?>
+					<article class="col-md-2">
+						<img src="<?php echo $room['img']; ?>" style="width: 100%; height: auto; margin-top: 27px;">
+					</article>
+				<?php
+				}
+				?>
+					<?php if (btq_booking_folder_with_pictures($images_dir)) { ?>
+					<article class="col-md-4">
+					<?php } else { ?>
+					<article class="col-md-7">
+					<?php } ?>
+						<h3 class="titulo"><?php echo $room['roomName'] ?></h3>
+						<?php btq_booking_grid_split_description($room['roomDescription'], $language); ?>
+									
+						<hr class="linealetras" />
+						
+						<img src="<?php echo plugins_url( $images_iconos_path . 'icon_like.png', __FILE__ ); ?>" alt="Like" width="25" height="25">
+						<img src="<?php echo plugins_url( $images_iconos_path . 'icon_heart_uns.png', __FILE__ ); ?>" alt="Heart" width="25" height="25">
+					</article>
+					
+					<article class="col-md-3 grisfondo">
+						<?php if ($room['showPromotion'] == true): ?>
+						<form>
+							<hr class="linea"/>
+							<?php if(!empty($room['descPromotion'])):?>
+							<label class="radio-inline">
+								<input type="radio" name="optradio"><?php echo $room['descPromotion']; ?><br>
+								<span>$<?php echo  $room['promotion'] . ' ' . $currency; ?></span><br>
+								$<?php echo  $room['total'] . ' ' . $currency; ?>
+							</label>
+							<?php else: ?>
+							<label class="radio-inline">
+								<span>$<?php echo  $room['promotion'] . ' ' . $currency; ?></span><br>
+							</label>
+							<?php endif; ?>
+							<hr class="linea"/>
+						</form>
+						<?php endif; ?>
+						
+						<h3 align="center">$<?php echo $room['total'] . ' ' . $currency; ?>/noche</h3>
+						<hr class="linea"/>
+						
+						<button type="button" class="btn btq-btn" onclick="window.open('<?php echo $room['url']; ?>','_blank');"><?php _e('Book Now', 'btq-booking'); ?></button>
+					</article>
+					
+				</section>
+				
+				<hr class="lineaabajo" />
+				<?php
+				$i++;
+				$precio = 0;
+			} // if ($room['total'] != '0.00' && $room['show'] == true)
+			else {
+				error_log('Error - Room: ' . $room['roomName'] . ', Check-in: ' . $checkIn . ', Check-out: ' . $checkOut . ', Total: ' . $room['total'] . ', Show: ' . $room['show'] . ', URL: ' . $room['url']);
+			}
+		} // foreach($arrayRoomType as $elementRoomType)
+	} // if ($rooms !== FALSE)
+} // function btq_booking_iph_grid_rooms()
+
+/**
  * Añade el enlace de ajustes en la pagina de plugins
  * 
  * @author Saúl Díaz
  * @return void Añade el enlace de ajustes en la pagina de plugins
  */
 function btq_booking_add_settings_link($links) {
-    $settings_link = '<a href="admin.php?page=btq_booking_settings">' . __( 'Settings' ) . '</a>';
+    $settings_link = '<a href="admin.php?page=btq_booking_settings">' . __('Settings','btq-booking') . '</a>';
     array_unshift( $links, $settings_link );
   	return $links;
 }
@@ -94,9 +267,13 @@ add_filter( "plugin_action_links_$plugin", 'btq_booking_add_settings_link' );
  * 		WordPress.
  */
 function btq_booking_admin_menu() {
-    if(btq_booking_tc_validate_saved_settings()){
+	if(btq_booking_tc_validate_saved_settings()){
 	    $menu_slug      = 'btq_booking_rooms';
-	    $menu_function  = 'btq_booking_admin_rooms_page';
+	    $menu_function  = 'btq_booking_tc_admin_rooms_page';
+    }
+    elseif(btq_booking_iph_validate_saved_settings()){
+	    $menu_slug      = 'btq_booking_rooms';
+	    $menu_function  = 'btq_booking_iph_admin_rooms_page';
     }
     else {
 	    $menu_slug      = 'btq_booking_settings';
@@ -120,7 +297,7 @@ function btq_booking_admin_menu() {
 	    	__('Rooms', 'btq-booking'), 
 	    	'manage_options', 
 	    	'btq_booking_rooms',
-	    	'btq_booking_admin_rooms_page'
+	    	'btq_booking_tc_admin_rooms_page'
 	    );
 	    add_submenu_page(
 	    	$menu_slug, 
@@ -128,7 +305,7 @@ function btq_booking_admin_menu() {
 	    	__('Packages', 'btq-booking'), 
 	    	'manage_options', 
 	    	'btq_booking_packages',
-	    	'btq_booking_admin_packages_page'
+	    	'btq_booking_tc_admin_packages_page'
 	    );
 	    add_submenu_page(
 	    	$menu_slug, 
@@ -136,7 +313,25 @@ function btq_booking_admin_menu() {
 	    	__('Dates without availability', 'btq-booking'), 
 	    	'manage_options', 
 	    	'btq_booking_unavailable_dates',
-	    	'btq_booking_admin_generate_unavailable_dates_page'
+	    	'btq_booking_tc_admin_generate_unavailable_dates_page'
+	    );
+    }
+    elseif(btq_booking_iph_validate_saved_settings()){
+	    add_submenu_page(
+	    	$menu_slug, 
+	    	__('Rooms', 'btq-booking'), 
+	    	__('Rooms', 'btq-booking'), 
+	    	'manage_options', 
+	    	'btq_booking_rooms',
+	    	'btq_booking_iph_admin_rooms_page'
+	    );
+	    add_submenu_page(
+	    	$menu_slug, 
+	    	__('Debugger', 'btq-booking'), 
+	    	__('Debugger', 'btq-booking'), 
+	    	'manage_options', 
+	    	'btq_booking_iph_debug',
+	    	'btq_booking_iph_debug_page'
 	    );
     }
     
@@ -155,9 +350,409 @@ function btq_booking_admin_menu() {
 add_action( 'admin_menu', 'btq_booking_admin_menu' );
 
 /**
+ * Genera la respuesta AJAX del la consulta al booking de TravelClick e Internet Power Hotel.
+ *
+ * @author Saúl Díaz
+ * @return string Resultado de la consulta al booking de TravelClick e Internet Power Hotel.
+ */
+function btq_booking_admin_grid_ajax() {
+	// Debug Log
+	//btq_booking_log('ajax-post', $_POST);
+	
+	if (isset(
+		$_POST['data'],
+		$_POST['data']['btq_date_start'],
+		$_POST['data']['btq_date_end'],
+		$_POST['data']['btq_type_query'],
+		$_POST['data']['btq_num_rooms'],
+		$_POST['data']['btq_num_adults'],
+		$_POST['data']['btq_num_children']
+	)){
+		$post_data = $_POST['data'];
+		
+		if ($post_data['btq_type_query'] == 'rooms'){
+			/*
+			if (btq_booking_tc_validate_saved_settings()) {
+				btq_booking_tc_grid_rooms(
+					btq_booking_grid_current_language_code(), 
+					$post_data['btq_date_start'],
+					$post_data['btq_date_end'],
+					$post_data['btq_type_query'],
+					$post_data['btq_num_rooms'],
+					$post_data['btq_num_adults'],
+					$post_data['btq_num_children']
+				);
+			}
+			else
+			*/
+			if(btq_booking_iph_validate_saved_settings()){
+				?>
+				<div>
+					<h2><?php _e('Spanish','btq-booking')?></h2>
+					<?php btq_booking_iph_admin_rooms_table('es', $post_data['btq_date_start'], $post_data['btq_date_end'],$post_data['btq_num_rooms'],$post_data['btq_num_adults'],$post_data['btq_num_children']); ?>
+				</div>
+				<div>
+					<h2><?php _e('English','btq-booking')?></h2>
+					<?php btq_booking_iph_admin_rooms_table('en', $post_data['btq_date_start'], $post_data['btq_date_end'],$post_data['btq_num_rooms'],$post_data['btq_num_adults'],$post_data['btq_num_children']); ?>
+				</div>
+				<?php
+			}
+		}
+		elseif ($post_data['btq_type_query'] == 'debug'){
+			if(btq_booking_iph_validate_saved_settings()){
+				btq_booking_iph_debug_result(
+					$post_data['btq_date_start'],
+					$post_data['btq_date_end'],
+					$post_data['btq_num_rooms'],
+					$post_data['btq_num_adults'],
+					$post_data['btq_num_children']
+				);
+			}
+		}
+		/*
+		elseif ($post_data['btq_type_query'] == 'packages'){
+			btq_booking_grid_packages(
+				btq_booking_grid_current_language_code(), 
+				$post_data['btq_date_start'],
+				$post_data['btq_date_end'],
+				$post_data['btq_type_query'],
+				$post_data['btq_num_rooms'],
+				$post_data['btq_num_adults'],
+				$post_data['btq_num_children']
+			);
+		}
+		*/
+		else {
+			echo '';
+		}
+	}
+	else {
+		echo '';
+	}
+	wp_die();
+}
+add_action( 'wp_ajax_btq_booking_admin_grid', 'btq_booking_admin_grid_ajax' );
+
+function btq_admin_booking_form($checkinDatepicker, $checkoutDatepicker, $typeQuery = 'rooms'){
+	?>
+		<form id="btq-admin-booking-form">
+			<div class="tablenav top">
+				<div class="alignleft actions">
+					<label class="screen-reader-text" for="btq-date-start"><?php _e('Check-In'); ?></label>
+					<input class="datepicker" type="text"  autocomplete="off" name="btq-date-start" id="btq-date-start" value="<?php echo $checkinDatepicker; ?>">
+					
+					<label class="screen-reader-text" for="btq-date-end"><?php _e('Check-Out'); ?></label>
+					<input class="datepicker" type="text"  autocomplete="off" name="btq-date-end" id="btq-date-end" value="<?php echo $checkoutDatepicker; ?>">
+					
+					<label class="screen-reader-text" for="btq-num-adults"><?php _e('Adults'); ?></label>
+					<select name="btq-num-adults" id="btq-num-adults">					
+						<?php for ($i = 1; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php printf( _n('%s adult', '%s adults', $i, 'btq-booking'), number_format_i18n($i) ); ?></option>
+						<?php } ?>
+					</select>
+					
+					<label class="screen-reader-text" for="btq-num-children"><?php _e('Children'); ?></label>
+					<select name="btq-num-children" id="btq-num-children">
+						<?php for ($i = 0; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php printf( _n('%s child', '%s children', $i, 'btq-booking'), number_format_i18n($i) ); ?></option>
+						<?php } ?>
+					</select>
+					
+					<label class="screen-reader-text" for="btq-num-rooms"><?php _e('Rooms'); ?></label>
+					<select name="btq-num-rooms" id="btq-num-rooms">
+						<?php for ($i = 1; $i <= 9; $i ++) { ?>
+							<option value="<?php echo $i; ?>"><?php printf( _n('%s room', '%s rooms', $i, 'btq-booking'), number_format_i18n($i) ); ?></option>
+						<?php } ?>
+					</select>
+					
+					<input  type="hidden" name="btq-type-query" id="btq-type-query" value="<?php echo $typeQuery; ?>">
+					
+					<input type="button" name="btq-admin-search" id="btq-admin-search" class="button" value="<?php _e('Search','btq-booking'); ?>">
+				</div>
+				<br class="clear">
+			</div>
+		</form>
+	<?php
+}
+
+function btq_booking_iph_admin_rooms_page(){
+	$checkin  = btq_booking_grid_date_start();
+	$checkout = btq_booking_grid_date_end(btq_booking_grid_date_start());
+
+	$checkinDatepicker  = date('d/m/Y', strtotime($checkin));
+	$checkoutDatepicker = date('d/m/Y', strtotime($checkout));
+	?>
+	<!-- wrap -->
+	<div class="wrap">
+		<h1><?php _e('Rooms on Internet Power Hotel', 'btq-booking'); ?></h1>
+		
+		<?php btq_admin_booking_form($checkinDatepicker, $checkoutDatepicker, 'rooms'); ?>
+		
+		<div id="btq-booking-admin-result">
+			<div>
+				<h2><?php _e('Spanish','btq-booking')?></h2>
+				<?php btq_booking_iph_admin_rooms_table('es', $checkin, $checkout); ?>
+			</div>
+			<div>
+				<h2><?php _e('English','btq-booking')?></h2>
+				<?php btq_booking_iph_admin_rooms_table('en', $checkin, $checkout); ?>
+			</div>
+		</div>
+	</div>
+	<!-- wrap -->
+	<?php
+}
+
+function btq_booking_iph_admin_rooms_table($language, $checkIn, $checkOut, $rooms = 1, $adults = 1, $children = 0){
+	if ($language == 'es') {
+		$languageISO = 'es-MX';
+		$currency = 'MXN';
+	}
+	else if ($language == 'en') {
+		$languageISO = 'en-US';
+		$currency = 'USD';
+	}
+	else {
+		$languageISO = 'en-US';
+		$currency = 'USD';
+	}
+	
+	$rooms = btq_booking_iph_query(
+		esc_attr( get_option('btq_booking_iph_app') ),
+		esc_attr( get_option('btq_booking_iph_property_number') ),
+		esc_attr( get_option('btq_booking_iph_partner_id') ),
+		$languageISO,
+		$checkIn,
+		$checkOut,
+		$currency,
+		$rooms,
+		$adults,
+		$children
+	);
+	?>
+	<table class="wp-list-table widefat fixed striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th scope="col"><?php _e('Room Name','btq-booking'); ?><hr><?php _e('Show','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Link','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Total','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Promotion','btq-booking'); ?><hr><?php _e('Show','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Folder With Pictures','btq-booking'); ?></th>
+				<th scope="col"><?php _e('Picture','btq-booking'); ?></th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+		foreach($rooms as $room){
+			$images_rooms_path = 'assets/images/rooms/';
+			$roomSlug = sanitize_title($room['roomName']);
+			$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $roomSlug;
+			$folder_with_pictures = (btq_booking_folder_with_pictures($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
+			$show = ($room['show']) ? __('Yes','btq-booking') : __('No','btq-booking');
+			$showPromotion = ($room['showPromotion']) ? __('Yes','btq-booking') : __('No','btq-booking');
+			?>
+			<tr>
+				<td scope="col"><?php echo htmlentities($room['roomName']); ?><hr><?php echo $show; ?></td>
+				<td scope="col"><a href="<?php echo $room['url']; ?>" target="_blank"><?php _e('Book Now','btq-booking'); ?></a></td>
+				<td scope="col"><?php echo '$'.htmlentities($room['total']).' '.$currency; ?></td>
+				<td scope="col"><?php echo '$'.htmlentities($room['promotion']).' '.$currency; ?><hr><?php echo $show; ?></td>
+				<td scope="col"><?php echo $folder_with_pictures; ?></td>
+				<td scope="col"><img src="<?php echo $room['img']; ?>"></td>
+			</tr>
+			<?php
+		}
+		?>
+		</tbody>
+	</table>
+	<?php
+}
+
+function btq_booking_iph_debug_result($btq_date_start, $btq_date_end, $btq_num_rooms = 1, $btq_num_adults = 1, $btq_num_children = 0){
+	?>
+		<h2><?php _e('Spanish', 'btq-booking'); ?></h2>
+		<h3><?php _e('URL', 'btq-booking'); ?></h3>
+		<textarea class="large-text" rows="4" style="background-color: white; font-family: monospace;" onclick="this.focus();this.select();document.execCommand('copy');" readonly="readonly" name="url-es" id="url-es"><?php 
+			echo htmlentities( 
+				btq_booking_iph_query_url(
+					esc_attr( get_option('btq_booking_iph_app') ),
+					esc_attr( get_option('btq_booking_iph_property_number') ),
+					esc_attr( get_option('btq_booking_iph_partner_id') ),
+					'es-MX',
+					$btq_date_start,
+					$btq_date_end,
+					'MXN',
+					$btq_num_rooms,
+					$btq_num_adults,
+					$btq_num_children
+				) 
+			); 
+		?></textarea>
+		
+		<h3><?php _e('Result', 'btq-booking'); ?></h3>
+		<?php
+		$result = btq_booking_iph_query(
+			esc_attr( get_option('btq_booking_iph_app') ),
+			esc_attr( get_option('btq_booking_iph_property_number') ),
+			esc_attr( get_option('btq_booking_iph_partner_id') ),
+			'es-MX',
+			$btq_date_start,
+			$btq_date_end,
+			'MXN',
+			$btq_num_rooms,
+			$btq_num_adults,
+			$btq_num_children
+		);
+		$resultVarExport = var_export($result, TRUE);
+		?>
+		<pre style="background: white; padding: 5px;"><?php echo htmlentities($resultVarExport); ?></pre>
+		
+		<h2><?php _e('English', 'btq-booking'); ?></h2>
+		<h3><?php _e('URL', 'btq-booking'); ?></h3>
+		<textarea class="large-text" rows="4" style="background-color: white; font-family: monospace;" onclick="this.focus();this.select();document.execCommand('copy');" readonly="readonly" name="url-en" id="url-en"><?php 
+			echo htmlentities( 
+				btq_booking_iph_query_url(
+					esc_attr( get_option('btq_booking_iph_app') ),
+					esc_attr( get_option('btq_booking_iph_property_number') ),
+					esc_attr( get_option('btq_booking_iph_partner_id') ),
+					'en-US',
+					$btq_date_start,
+					$btq_date_end,
+					'USD',
+					$btq_num_rooms,
+					$btq_num_adults,
+					$btq_num_children
+				) 
+			); 
+		?></textarea>
+		
+		<h3><?php _e('Result', 'btq-booking'); ?></h3>
+		<?php
+		$result_en = btq_booking_iph_query(
+			esc_attr( get_option('btq_booking_iph_app') ),
+			esc_attr( get_option('btq_booking_iph_property_number') ),
+			esc_attr( get_option('btq_booking_iph_partner_id') ),
+			'en-US',
+			$btq_date_start,
+			$btq_date_end,
+			'USD',
+			$btq_num_rooms,
+			$btq_num_adults,
+			$btq_num_children
+		);
+		$resultEnVarExport = var_export($result_en, TRUE);
+		?>
+		<pre style="background: white; padding: 5px;"><?php echo htmlentities($resultEnVarExport); ?></pre>
+	<?php
+}
+
+function btq_booking_iph_debug_page(){
+	$checkin  = btq_booking_grid_date_start();
+	$checkout = btq_booking_grid_date_end(btq_booking_grid_date_start());
+
+	$checkinDatepicker  = date('d/m/Y', strtotime($checkin));
+	$checkoutDatepicker = date('d/m/Y', strtotime($checkout));
+	?>
+	<div class="wrap">
+		<h1><?php _e('Internet Power Hotel Debugger', 'btq-booking'); ?></h1>
+		<?php btq_admin_booking_form($checkinDatepicker, $checkoutDatepicker, 'debug'); ?>
+		
+		<div id="btq-booking-admin-result">
+		<?php 
+			btq_booking_iph_debug_result(
+				$checkin,
+				$checkout,
+				1,
+				1,
+				0
+			);
+		?>
+		</div>
+	</div>
+	<?php
+}
+
+/**
+ * Genera la URL de consulta al booking de Internet Power.
+ *
+ * La URL devuelve un JSON con las habitaciones
+ * 
+ * @author Saúl Díaz
+ * @param string $app Código de app
+ * @param string $propertyNumber Número de propiedad
+ * @param string $partnerId Identificador de asociado
+ * @param string $lang Código ISO de idioma
+ * @param string $checkIn Fecha de entrada
+ * @param string $checkOut Fecha de salida
+ * @param string $currency Código ISO de moneda
+ * @param int $rooms Número de habitaciones
+ * @param int $adults Número de adultos
+ * @param int $children Número de niños
+ * @return string URL a consultar
+ */
+function btq_booking_iph_query_url($app, $propertyNumber, $partnerId, $lang, $checkIn, $checkOut, $currency, $rooms, $adults, $children){
+	//https://secure.internetpower.com.mx/portals/DinamicRooms/Request.ashx?propertyNumber=6422&currency=USD&app=ValleDeMexico&Rooms=1&PartnerId=2689&StartDay=1&Nights=1&adults=1&lang=en-US&CheckIn=20180424&CheckOut=20180425&Children=0
+	$dateCheckIn  = new DateTime($checkIn);
+	$dateCheckOut = new DateTime($checkOut);
+	if ($dateCheckIn < $dateCheckOut) {
+		$nights = $dateCheckOut->diff($dateCheckIn)->format("%a"); 
+		$url = 
+			'https://secure.internetpower.com.mx/portals/DinamicRooms/Request.ashx?'
+			.'propertyNumber=' . $propertyNumber
+			.'&currency=' . $currency
+			.'&app=' . $app
+			.'&Rooms=' . $rooms
+			.'&PartnerId=' . $partnerId
+			.'&StartDay=1'
+			.'&Nights=' . $nights
+			.'&adults=' . $adults
+			.'&lang=' . $lang
+			.'&CheckIn=' . str_replace('-', '', $checkIn)
+			.'&CheckOut=' . str_replace('-', '', $checkOut)
+			.'&Children='.$children;
+		
+		// Debug
+		//btq_booking_log('btq_booking_iph_query_url', $url, true);
+		
+		return $url;
+	}
+	else {
+		return FALSE;
+	}
+}
+
+function btq_booking_iph_query($app, $propertyNumber, $partnerId, $lang, $checkIn, $checkOut, $currency, $rooms, $adults, $children){
+	$urlQuery = btq_booking_iph_query_url($app, $propertyNumber, $partnerId, $lang, $checkIn, $checkOut, $currency, $rooms, $adults, $children);
+	$resultJSON = file_get_contents($urlQuery);
+	$resultArray = json_decode($resultJSON, true);
+	
+	$rooms = array();
+	foreach($resultArray['Rooms'] as $room){
+		$room['url'] = btq_booking_iph_url_correct($room['url'], $checkIn, $checkOut);
+		$rooms[] = $room;
+	}
+	return $rooms;
+}
+
+function btq_booking_iph_url_correct($url, $checkIn, $checkOut){
+	$patt = array(
+		'/(CheckIn=)([0-9]{0,8})(&)/',
+		'/(CheckOut=)([0-9]{0,8})(&)/'
+	);
+	$repl = array(
+		'${1}' . str_replace('-', '', $checkIn)  . '${3}',
+		'${1}' . str_replace('-', '', $checkOut) . '${3}'
+	);
+	$output = preg_replace($patt, $repl, $url);  
+	return $output;
+}
+
+/**
  * Declara los ajustes y opciones del plug-in
  */
 function btq_booking_register_settings() {
+	register_setting('btq-booking-settings', 'btq_booking_color_principal');
+	register_setting('btq-booking-settings', 'btq_booking_service');
+	
 	register_setting('btq-booking-settings', 'btq_booking_tc_soap_sales_channel_info_id');
 	register_setting('btq-booking-settings', 'btq_booking_tc_soap_username');
 	register_setting('btq-booking-settings', 'btq_booking_tc_soap_password');
@@ -167,7 +762,10 @@ function btq_booking_register_settings() {
 	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_code_es', array('type' => 'integer'));
 	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_themeid_us', array('type' => 'integer'));
 	register_setting('btq-booking-settings', 'btq_booking_tc_hotel_themeid_es', array('type' => 'integer'));
-	register_setting('btq-booking-settings', 'btq_booking_color_principal');
+	
+	register_setting('btq-booking-settings', 'btq_booking_iph_property_number', array('type' => 'integer'));
+	register_setting('btq-booking-settings', 'btq_booking_iph_app');
+	register_setting('btq-booking-settings', 'btq_booking_iph_partner_id', array('type' => 'integer'));
 }
 
 /**
@@ -189,6 +787,17 @@ function btq_booking_admin_settings_page() {
 						<th scope="row"><label for="btq_booking_color_principal"><?php _e('Default color', 'btq-booking'); ?></label></th>
 						<td><input type="text" id="btq_booking_color_principal" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
 					</tr>
+					<tr valign="top">
+						<th scope="row"><?php _e('Booking service', 'btq-booking'); ?></th>
+						<td>
+							<input type="radio" id="btq_booking_service_tc" name="btq_booking_service" value="tc" <?php checked('tc', get_option('btq_booking_service')); ?>><label for="btq_booking_service_tc">Travel Click</label><br>
+							<input type="radio" id="btq_booking_service_iph" name="btq_booking_service" value="iph" <?php checked('iph', get_option('btq_booking_service')); ?>><label for="btq_booking_service_iph">Internet Power Hotel</label>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="form-table hide" id="btq_booking_tc_form_settings">
+				<tbody>
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_tc_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking'); ?></label></th>
 						<td><input type="text" class="regular-text" id="btq_booking_tc_soap_sales_channel_info_id" name="btq_booking_tc_soap_sales_channel_info_id" value="<?php echo esc_attr( get_option('btq_booking_tc_soap_sales_channel_info_id') ); ?>" /></td>
@@ -227,6 +836,22 @@ function btq_booking_admin_settings_page() {
 					</tr>
 				</tbody>
 			</table>
+			<table class="form-table hide" id="btq_booking_iph_form_settings">
+				<tbody>
+					<tr valign="top">
+						<th scope="row"><label for="btq_booking_iph_property_number"><?php _e('Property number', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_iph_property_number" name="btq_booking_iph_property_number" value="<?php echo esc_attr( get_option('btq_booking_iph_property_number') ); ?>" /></td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><label for="btq_booking_iph_app"><?php _e('App', 'btq-booking'); ?></label></th>
+						<td><input type="text" class="regular-text" id="btq_booking_iph_app" name="btq_booking_iph_app" value="<?php echo esc_attr( get_option('btq_booking_iph_app') ); ?>" /></td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><label for="btq_booking_iph_partner_id"><?php _e('Partner ID', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_iph_partner_id" name="btq_booking_iph_partner_id" value="<?php echo esc_attr( get_option('btq_booking_iph_partner_id') ); ?>" /></td>
+					</tr>
+				</tbody>
+			</table>
 			<?php submit_button(); ?>
 		</form>
 	</div><!-- wrap -->
@@ -242,33 +867,115 @@ function btq_booking_admin_settings_page() {
  */
 function btq_booking_admin_scripts($hook) {
     if(is_admin()) {      
-        // Color Picker
-        wp_enqueue_style('wp-color-picker'); 
-        wp_enqueue_script('btq-booking-admin-js', plugins_url('assets/js' . DIRECTORY_SEPARATOR . 'btq-booking-admin.js', __FILE__), array('wp-color-picker'), false, true); 
+    	// Color Picker
+		wp_enqueue_style('wp-color-picker'); 
+		
+		// Datepicker
+        wp_enqueue_script('jquery-ui-datepicker');
+        wp_register_style('jquery-ui', 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css');
+        wp_enqueue_style('jquery-ui');
+        
+        // moment
+        wp_enqueue_script('moment', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment.min.js', __FILE__ ), array(), '2.21.0', true);
+		wp_enqueue_script('moment-timezone', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment-timezone.js', __FILE__ ), array('moment'), '0.5.17', true);
+		
+		wp_enqueue_script('btq-booking-admin-js', plugins_url('assets/js' . DIRECTORY_SEPARATOR . 'btq-booking-admin.js', __FILE__), array('wp-color-picker','moment','moment-timezone'), false, true);
     }
 }
 add_action('admin_enqueue_scripts', 'btq_booking_admin_scripts');
 
 /**
- * Valida que las opciones necesarias esten almacenadas en la base de datos.
+ * Valida que las opciones necesarias para Travel Click esten almacenadas en la base de datos.
  *
  * @author Saúl Díaz
  * @return bool Devuelve true en caso de que las opciones estan almacenadas.
  */
 function btq_booking_tc_validate_saved_settings() {
 	$out = true;
-	if (
-		get_option('btq_booking_tc_soap_sales_channel_info_id') === false
-		|| get_option('btq_booking_tc_soap_username') === false
-		|| get_option('btq_booking_tc_soap_password') === false
-		|| get_option('btq_booking_tc_soap_to_action_pals') === false
-		|| get_option('btq_booking_tc_soap_to_action_full') === false
-		|| get_option('btq_booking_tc_hotel_code_us') === false
-		|| get_option('btq_booking_tc_hotel_code_es') === false
-		|| get_option('btq_booking_tc_hotel_themeid_us') === false
-		|| get_option('btq_booking_tc_hotel_themeid_es') === false
-	){
-		$out = false;
+	if (get_option('btq_booking_service') !== false) {
+		if (get_option('btq_booking_service') != 'tc'){
+			$out = false;
+		}
+		elseif (
+			empty( get_option('btq_booking_tc_soap_sales_channel_info_id') )
+			|| empty( get_option('btq_booking_tc_soap_username') )
+			|| empty( get_option('btq_booking_tc_soap_password') )
+			|| empty( get_option('btq_booking_tc_soap_to_action_pals') )
+			|| empty( get_option('btq_booking_tc_soap_to_action_full') )
+			|| empty( get_option('btq_booking_tc_hotel_code_us') )
+			|| empty( get_option('btq_booking_tc_hotel_code_es') )
+			|| empty( get_option('btq_booking_tc_hotel_themeid_us') )
+			|| empty( get_option('btq_booking_tc_hotel_themeid_es') )
+		){
+			$out = false;
+		}
+	}
+	else{
+		if (
+			get_option('btq_booking_tc_soap_sales_channel_info_id') === false
+			|| get_option('btq_booking_tc_soap_username') === false
+			|| get_option('btq_booking_tc_soap_password') === false
+			|| get_option('btq_booking_tc_soap_to_action_pals') === false
+			|| get_option('btq_booking_tc_soap_to_action_full') === false
+			|| get_option('btq_booking_tc_hotel_code_us') === false
+			|| get_option('btq_booking_tc_hotel_code_es') === false
+			|| get_option('btq_booking_tc_hotel_themeid_us') === false
+			|| get_option('btq_booking_tc_hotel_themeid_es') === false
+		){
+			$out = false;
+		}
+		elseif (
+			empty( get_option('btq_booking_tc_soap_sales_channel_info_id') )
+			|| empty( get_option('btq_booking_tc_soap_username') )
+			|| empty( get_option('btq_booking_tc_soap_password') )
+			|| empty( get_option('btq_booking_tc_soap_to_action_pals') )
+			|| empty( get_option('btq_booking_tc_soap_to_action_full') )
+			|| empty( get_option('btq_booking_tc_hotel_code_us') )
+			|| empty( get_option('btq_booking_tc_hotel_code_es') )
+			|| empty( get_option('btq_booking_tc_hotel_themeid_us') )
+			|| empty( get_option('btq_booking_tc_hotel_themeid_es') )
+		){
+			$out = false;
+		}
+	}
+	return $out;
+}
+
+/**
+ * Valida que las opciones necesarias para Internet Power Hotel esten almacenadas en la base de datos.
+ *
+ * @author Saúl Díaz
+ * @return bool Devuelve true en caso de que las opciones estan almacenadas.
+ */
+function btq_booking_iph_validate_saved_settings() {
+	$out = true;
+	if (get_option('btq_booking_service') !== false) {
+		if (get_option('btq_booking_service') != 'iph'){
+			$out = false;
+		}
+		elseif (
+			empty( get_option('btq_booking_iph_property_number') )
+			|| empty( get_option('btq_booking_iph_app') )
+			|| empty( get_option('btq_booking_iph_partner_id') )
+		){
+			$out = false;
+		}
+	}
+	else{
+		if (
+			get_option('btq_booking_iph_property_number') === false
+			|| get_option('btq_booking_iph_app') === false
+			|| get_option('btq_booking_tc_soap_password') === false
+		){
+			$out = false;
+		}
+		elseif (
+			empty( get_option('btq_booking_iph_property_number') )
+			|| empty( get_option('btq_booking_iph_app') )
+			|| empty( get_option('btq_booking_iph_partner_id') )
+		){
+			$out = false;
+		}
 	}
 	return $out;
 }
@@ -556,7 +1263,7 @@ function btq_booking_admin_packages($hotelCode) {
 			
 			$images_packages_path   = 'assets/images/packages/';
 			$images_dir = plugin_dir_path( __FILE__ ) . $images_packages_path . $RatePlanCode;
-			$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
+			$folder_with_pictures = (btq_booking_folder_with_pictures($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
 			?>
 			<tr>
 				<td scope="col"><?php echo $RatePlanCode; ?></td>
@@ -572,12 +1279,48 @@ function btq_booking_admin_packages($hotelCode) {
 }
 
 /**
+ * Determina si una ruta contiene imagenes, de lo contrario intenta crear la carpeta
+ *
+ * @author Saúl Díaz
+ * @param $path Ruta de la carpeta con imagenes
+ * @return mixed Devuelve false en caso de no tener imagenes, true en caso de si tener imagenes e intenta crear la carpeta
+ */
+function btq_booking_folder_with_pictures($path){
+	if (!file_exists($path)) {
+		mkdir($path, 0755);
+	}
+	
+	if(!is_dir($path)){
+		$out = false;
+	}
+	else{
+		$files = scandir($path);
+		$images = array();
+		
+		foreach ($files as $file) {
+			if (!is_dir($path . DIRECTORY_SEPARATOR . $file)){
+				if (preg_match('/^.*\.(jpg|jpeg|png|gif)$/', $file) !== FALSE) array_push($images, $file);
+			}
+		}
+		
+		if(empty($images)){
+			$out = false;
+		}
+		else{
+			$out = true;
+		}
+	}
+	
+	return $out;
+}
+
+/**
  * Genera la página para probar la carga de información de los paquetes.
  *
  * @author Saúl Díaz
  * @return void Genera la pagina de depuración.
  */
-function btq_booking_admin_packages_page(){
+function btq_booking_tc_admin_packages_page(){
 ?>
 	<!-- wrap -->
 	<div class="wrap">
@@ -627,7 +1370,7 @@ function btq_booking_admin_rooms($hotelCode) {
 			
 			$images_rooms_path   = 'assets/images/rooms/';
 			$images_dir = plugin_dir_path( __FILE__ ) . $images_rooms_path . $elementRoomType['!RoomTypeCode'];
-			$folder_with_pictures = (is_dir($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
+			$folder_with_pictures = (btq_booking_folder_with_pictures($images_dir)) ? __('Yes','btq-booking') : __('No','btq-booking');
 			
 			?>
 			<tr>
@@ -697,7 +1440,7 @@ function btq_booking_admin_rooms($hotelCode) {
  * @author Saúl Díaz
  * @return void Genera la pagina de depuración.
  */
-function btq_booking_admin_rooms_page() {
+function btq_booking_tc_admin_rooms_page() {
 ?>
 	<div class="wrap">
 		<h1><?php _e('Rooms on TravelClick', 'btq-booking'); ?></h1>
@@ -723,7 +1466,7 @@ function btq_booking_admin_rooms_page() {
  * @author Saúl Díaz
  * @return void
  */
-function btq_booking_generate_unavailable_dates_deactivation() {
+function btq_booking_tc_generate_unavailable_dates_deactivation() {
 	wp_clear_scheduled_hook('btq_booking_generate_unavailable_dates_event');
 }
 register_deactivation_hook(__FILE__, 'btq_booking_generate_unavailable_dates_deactivation');
@@ -738,7 +1481,7 @@ register_deactivation_hook(__FILE__, 'btq_booking_generate_unavailable_dates_dea
  * @author Saúl Díaz
  * @return void 
  */
-function btq_booking_generate_unavailable_dates_activation() {
+function btq_booking_tc_generate_unavailable_dates_activation() {
     if (! wp_next_scheduled ( 'btq_booking_generate_unavailable_dates_event' )) {
 		wp_schedule_event(time(), 'hourly', 'btq_booking_generate_unavailable_dates_event');
     }
@@ -751,7 +1494,7 @@ register_activation_hook(__FILE__, 'btq_booking_generate_unavailable_dates_activ
  * @author Saúl Díaz
  * @return mixed Archivo JSON y tabala
  */
-function btq_booking_generate_unavailable_dates_status(){
+function btq_booking_tc_generate_unavailable_dates_status(){
 	$dateRangeStart = date('Y-m-d');
 	$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
 	$dates = btq_booking_grid_dates($dateRangeStart, $dateRangeEnd);
@@ -805,11 +1548,11 @@ function btq_booking_generate_unavailable_dates_status(){
  * @author Saúl Díaz
  * @return void Genera la pagina de depuración.
  */
-function btq_booking_admin_generate_unavailable_dates_page() {
+function btq_booking_tc_admin_generate_unavailable_dates_page() {
 ?>
 	<div class="wrap">
 		<h1><?php _e('Generate Unavailable Dates TravelClick','btq-booking'); ?></h1>
-		<?php btq_booking_generate_unavailable_dates_status(); ?>
+		<?php btq_booking_tc_generate_unavailable_dates_status(); ?>
 	</div><!-- wrap -->
 <?php
 }
@@ -820,24 +1563,26 @@ function btq_booking_admin_generate_unavailable_dates_page() {
  * @author Saúl Díaz
  * @return file Archivo JSON
  */
-function btq_booking_generate_unavailable_dates(){
-	$dateRangeStart = date('Y-m-d');
-	$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
-	$dates = btq_booking_grid_dates($dateRangeStart, $dateRangeEnd);
-	$datesUnavailable = array();
-	
-	foreach($dates as $date){
-		$dayRangeStart = $date->format('Y-m-d');
-		$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
-		if (btq_booking_soap_query(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd) === FALSE){
-			$datesUnavailable[] = $dayRangeStart;
+function btq_booking_tc_generate_unavailable_dates(){
+	if(btq_booking_tc_validate_saved_settings()){
+		$dateRangeStart = date('Y-m-d');
+		$dateRangeEnd   = date('Y-m-d', strtotime($dateRangeStart . ' + 1 year'));
+		$dates = btq_booking_grid_dates($dateRangeStart, $dateRangeEnd);
+		$datesUnavailable = array();
+		
+		foreach($dates as $date){
+			$dayRangeStart = $date->format('Y-m-d');
+			$dayRangeEnd   = date('Y-m-d', strtotime($date->format('Y-m-d') . ' + 1 day'));
+			if (btq_booking_soap_query(esc_attr(get_option('btq_booking_tc_hotel_code_es')), $dayRangeStart, $dayRangeEnd) === FALSE){
+				$datesUnavailable[] = $dayRangeStart;
+			}
 		}
+		
+		$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
+		file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
 	}
-	
-	$js_dir = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR ;
-	file_put_contents( $js_dir . 'btq-unavailable.json', json_encode($datesUnavailable) );
 }
-add_action('btq_booking_generate_unavailable_dates_event', 'btq_booking_generate_unavailable_dates');
+add_action('btq_booking_generate_unavailable_dates_event', 'btq_booking_tc_generate_unavailable_dates');
 
 /**
  * Genera la descripción con las estiquetas HTML necesarias para el link "Ver más".
@@ -918,7 +1663,7 @@ function btq_booking_grid_get_images($path) {
  *		la consulta de habitaciones disponibles.
  * @return string HTML del Grid de habitaciones.
  */
-function btq_booking_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
+function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd, $typeQuery = 'rooms', $rooms = 1, $adults = 1, $childrens = 0, $availRatesOnly = 'true'){
 	
 	switch($language){
 		case 'es':
@@ -1096,7 +1841,7 @@ function btq_booking_grid_rooms($language = 'es', $dateRangeStart, $dateRangeEnd
 			$precio = 0;
 		} // foreach($arrayRoomType as $elementRoomType)
 	} // if ($response !== FALSE)
-} // function btq_booking_grid_rooms()
+} // function btq_booking_tc_grid_rooms()
 
 /**
  * Grid del booking con los datos de paquetes disponibles devueltos de la consulta a TravelClick.
@@ -1320,25 +2065,34 @@ function btq_booking_grid_packages($language = 'es', $dateRangeStart, $dateRange
  */
 function btq_booking_grid_form($language = 'es') {	
 	$iconos_dir = 'assets/images/iconos';
+	
+	if(btq_booking_tc_validate_saved_settings()){
+		$css_class_col_md = ' col-md-4';
+	}
+	elseif(btq_booking_iph_validate_saved_settings()){
+		$css_class_col_md = ' col-md-6';
+	}
 	?>
 		<hr class="linea"/>	
 		
 		<section class="row">
 			<article class="col-md-12">
-				<h5 class="hosp"><?php _e('Select a PACKAGE or ROOM', 'btq-booking'); ?></h5>
+				<h5 class="hosp"><?php _e('CHECK THE RATE OF YOUR STAY', 'btq-booking'); ?></h5>
 			</article>
 		</section>
 
 		<hr class="linea" />
-
+		
 		<section class="row">
-			<div class="col-xs-12 col-md-4">
+			<div class="col-xs-12<?php echo $css_class_col_md; ?>">
 				<button id="btq-btn-rooms" name="btq-btn-rooms" class="btn btn-default btq-btn"><?php _e('Rooms', 'btq-booking'); ?></button>
 			</div>
+			<?php if (btq_booking_tc_validate_saved_settings()) { ?>
 			<div class="col-xs-12 col-md-4">
 				<button id="btq-btn-packages" name="btq-btn-rooms" class="btn btq-btn"><?php _e('Packages', 'btq-booking'); ?></button>
 			</div>
-			<div class="col-xs-12 col-md-4">
+			<?php } ?>
+			<div class="col-xs-12<?php echo $css_class_col_md; ?>">
 				<button id="btq-btn-top" name="btq-btn-top" class="btn btq-btn"><?php _e('Top rated', 'btq-booking'); ?></button>
 			</div>
 		</section>
@@ -1439,28 +2193,10 @@ function btq_booking_grid_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'btq_booking_grid_scripts', 1003 );
 
+/**
+ * Integra CSS denstro de la pagina 
+ */
 function btq_booking_head_scripts(){
-	/** 
-	 * CSS personalizado dentro de <head>
-	 * Estilos del BTQ Booking TC Grid
-	 *
-	 * Datepicker
-	 * 
-	 * #cb6666  Rosado rojo
-	 * #222     Negro
-	 * #cbd08c  Amarillo limon
-	 * #666     Gris
-	 * #C69807  Dorado - Gran Hotel
-	 * #fff     Balnco
-	 *
-	 *
-	 *
-	 * Grid
-	 *
-	 * #BDBDBD  Gris claro
-	 * #666     Gris
-	 * #C69807  Dorado - Gran Hotel
-	 */
 	if (!is_admin()) {
 	    ?>
 	    <style type="text/css">
@@ -1527,11 +2263,20 @@ function btq_booking_grid_shortcode() {
 	?>
 	<div id="btq-booking-grid">
 		<?php
-		btq_booking_grid_rooms(
-			btq_booking_grid_current_language_code(),
-			btq_booking_grid_date_start(),
-			btq_booking_grid_date_end(btq_booking_grid_date_start())
-		);
+		if (btq_booking_tc_validate_saved_settings()){
+			btq_booking_tc_grid_rooms(
+				btq_booking_grid_current_language_code(),
+				btq_booking_grid_date_start(),
+				btq_booking_grid_date_end(btq_booking_grid_date_start())
+			);
+		}
+		elseif(btq_booking_iph_validate_saved_settings()){
+			btq_booking_iph_grid_rooms(
+				btq_booking_grid_current_language_code(), 
+				btq_booking_grid_date_start(), 
+				btq_booking_grid_date_end(btq_booking_grid_date_start())
+			);
+		}
 		?>
 	</div>
 	</div>
@@ -1543,10 +2288,10 @@ function btq_booking_grid_shortcode() {
 add_shortcode( 'btq-booking-grid', 'btq_booking_grid_shortcode' );
 
 /**
- * Genera la respuesta AJAX del la consulta al booking de TravelClick.
+ * Genera la respuesta AJAX del la consulta al booking de TravelClick e Internet Power Hotel.
  *
  * @author Saúl Díaz
- * @return string Resultado de la consulta al booking de TravelClick.
+ * @return string Resultado de la consulta al booking de TravelClick e Internet Power Hotel.
  */
 function btq_booking_grid_ajax() {
 	// Debug Log
@@ -1564,15 +2309,27 @@ function btq_booking_grid_ajax() {
 		$post_data = $_POST['data'];
 		
 		if ($post_data['btq_type_query'] == 'rooms'){
-			btq_booking_grid_rooms(
-				btq_booking_grid_current_language_code(), 
-				$post_data['btq_date_start'],
-				$post_data['btq_date_end'],
-				$post_data['btq_type_query'],
-				$post_data['btq_num_rooms'],
-				$post_data['btq_num_adults'],
-				$post_data['btq_num_children']
-			);
+			if (btq_booking_tc_validate_saved_settings()) {
+				btq_booking_tc_grid_rooms(
+					btq_booking_grid_current_language_code(), 
+					$post_data['btq_date_start'],
+					$post_data['btq_date_end'],
+					$post_data['btq_type_query'],
+					$post_data['btq_num_rooms'],
+					$post_data['btq_num_adults'],
+					$post_data['btq_num_children']
+				);
+			}
+			elseif(btq_booking_iph_validate_saved_settings()){
+				btq_booking_iph_grid_rooms(
+					btq_booking_grid_current_language_code(),
+					$post_data['btq_date_start'],
+					$post_data['btq_date_end'],
+					$post_data['btq_num_rooms'],
+					$post_data['btq_num_adults'],
+					$post_data['btq_num_children']
+				);
+			}
 		}
 		elseif ($post_data['btq_type_query'] == 'packages'){
 			btq_booking_grid_packages(
@@ -1592,6 +2349,7 @@ function btq_booking_grid_ajax() {
 	else {
 		echo '';
 	}
+	wp_die();
 }
 add_action( 'wp_ajax_btq_booking_grid', 'btq_booking_grid_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_grid', 'btq_booking_grid_ajax' );
@@ -1626,11 +2384,20 @@ add_action( 'wp_ajax_nopriv_btq_booking_grid_packages', 'btq_booking_grid_packag
  */
 function btq_booking_grid_rooms_ajax() {	
 	if (isset($_POST['data']['btq_rooms_init'])) {
-		btq_booking_grid_rooms(
-			btq_booking_grid_current_language_code(),
-			btq_booking_grid_date_start(),
-			btq_booking_grid_date_end(btq_booking_grid_date_start())
-		);
+		if(btq_booking_tc_validate_saved_settings()){
+			btq_booking_tc_grid_rooms(
+				btq_booking_grid_current_language_code(),
+				btq_booking_grid_date_start(),
+				btq_booking_grid_date_end(btq_booking_grid_date_start())
+			);
+		}
+		elseif(btq_booking_iph_validate_saved_settings()){
+			btq_booking_iph_grid_rooms(
+				btq_booking_grid_current_language_code(),
+				btq_booking_grid_date_start(),
+				btq_booking_grid_date_end(btq_booking_grid_date_start())
+			);
+		}
 	}
 	else {
 		echo '';
