@@ -751,6 +751,7 @@ function btq_booking_iph_url_correct($url, $checkIn, $checkOut){
  */
 function btq_booking_register_settings() {
 	register_setting('btq-booking-settings', 'btq_booking_color_principal');
+	register_setting('btq-booking-settings', 'btq_booking_early_days');
 	register_setting('btq-booking-settings', 'btq_booking_service');
 	
 	register_setting('btq-booking-settings', 'btq_booking_tc_soap_sales_channel_info_id');
@@ -786,6 +787,10 @@ function btq_booking_admin_settings_page() {
 					<tr valign="top">
 						<th scope="row"><label for="btq_booking_color_principal"><?php _e('Default color', 'btq-booking'); ?></label></th>
 						<td><input type="text" id="btq_booking_color_principal" name="btq_booking_color_principal" value="<?php echo esc_attr( get_option('btq_booking_color_principal') ); ?>" /></td>
+					</tr>
+					<tr valign="top">
+						<th scope="row"><label for="btq_booking_early_days"><?php _e('Early days to get the best price', 'btq-booking'); ?></label></th>
+						<td><input type="number" class="regular-text" id="btq_booking_early_days" name="btq_booking_early_days" value="<?php echo esc_attr( get_option('btq_booking_early_days') ); ?>" /></td>
 					</tr>
 					<tr valign="top">
 						<th scope="row"><?php _e('Booking service', 'btq-booking'); ?></th>
