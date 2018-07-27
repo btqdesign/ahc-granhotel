@@ -1481,7 +1481,7 @@ register_deactivation_hook(__FILE__, 'btq_booking_generate_unavailable_dates_dea
  * @author Saúl Díaz
  * @return void 
  */
-function btq_booking_tc_generate_unavailable_dates_activation() {
+function btq_booking_generate_unavailable_dates_activation() {
     if (! wp_next_scheduled ( 'btq_booking_generate_unavailable_dates_event' )) {
 		wp_schedule_event(time(), 'hourly', 'btq_booking_generate_unavailable_dates_event');
     }
