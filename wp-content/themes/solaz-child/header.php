@@ -45,7 +45,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-	<?php echo $google_tag_manager_head; ?>
+	<?php echo $GoogleTagManagerHead; ?>
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="profile" href="http://gmpg.org/xfn/11" />
@@ -74,7 +74,7 @@ if (is_404() ) {
 }
 ?>
 <body <?php body_class(); ?>>
-	<?php echo $google_tag_manager_body; ?>
+	<?php echo $GoogleTagManagerBody; ?>
     <?php echo solaz_pre_loader();?>
 	<div id="page" class="hfeed site <?php if(!$solaz_remove_space){echo 'remove_space';}?> 
                                      <?php if(!$solaz_remove_space_br){echo 'remove_space_br';}?> 
