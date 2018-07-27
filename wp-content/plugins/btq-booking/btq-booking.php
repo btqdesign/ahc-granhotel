@@ -797,9 +797,9 @@ function btq_booking_admin_settings_page() {
 				</tbody>
 			</table>
 			
-			<div id="btq_booking_tc_form_settings">
+			<div id="btq_booking_tc_form_settings" class="hide">
 				<h3><?php _e('Tavel Click Settings'); ?></h3>
-				<table class="form-table hide">
+				<table class="form-table">
 					<tbody>
 						<tr valign="top">
 							<th scope="row"><label for="btq_booking_tc_soap_sales_channel_info_id"><?php _e('Sales channel info ID', 'btq-booking'); ?></label></th>
@@ -841,9 +841,9 @@ function btq_booking_admin_settings_page() {
 				</table>
 			</div>
 			
-			<div id="btq_booking_iph_form_settings">
+			<div id="btq_booking_iph_form_settings" class="hide">
 				<h3><?php _e('Internet Power Hotel Settings')?></h3>
-				<table class="form-table hide">
+				<table class="form-table">
 					<tbody>
 						<tr valign="top">
 							<th scope="row"><label for="btq_booking_iph_property_number"><?php _e('Property number', 'btq-booking'); ?></label></th>
