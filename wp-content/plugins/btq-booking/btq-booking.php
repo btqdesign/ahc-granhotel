@@ -1705,6 +1705,7 @@ function btq_booking_tc_grid_rooms($language = 'es', $dateRangeStart, $dateRange
 		$images_amenity_path = 'assets/images/amenity/';
 		$images_iconos_path = 'assets/images/iconos/';
 		
+		$precio = 0;
 		$i = 0;
 		foreach($arrayRoomType as $elementRoomType){
 			$roomTypeCode = $elementRoomType['!RoomTypeCode'];
