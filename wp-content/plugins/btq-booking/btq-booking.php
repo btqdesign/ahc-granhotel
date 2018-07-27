@@ -1466,7 +1466,7 @@ function btq_booking_tc_admin_rooms_page() {
  * @author Saúl Díaz
  * @return void
  */
-function btq_booking_tc_generate_unavailable_dates_deactivation() {
+function btq_booking_generate_unavailable_dates_deactivation() {
 	wp_clear_scheduled_hook('btq_booking_generate_unavailable_dates_event');
 }
 register_deactivation_hook(__FILE__, 'btq_booking_generate_unavailable_dates_deactivation');
