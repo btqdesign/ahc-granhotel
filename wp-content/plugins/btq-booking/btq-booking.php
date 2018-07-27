@@ -2183,7 +2183,7 @@ function btq_booking_grid_form($language = 'es') {
 		
 		<section class="row">
 			<article class="col-md-12">
-				<p class="recordatorio"><?php printf( esc_html__( '* Remember that having an advance reservation will always be a better option (rates shown at %d days).', 'btq-booking' ), esc_attr(get_option('btq_booking_early_days')) );?></p>
+				<p class="recordatorio"><?php printf( esc_html__( '* Remember that having an advance reservation will always be a better option (rates shown at %d days).', 'btq-booking' ), esc_attr(get_option('btq_booking_early_days')) ); ?></p>
 			</article>
 			<hr class="linea"/>
 		</section>
