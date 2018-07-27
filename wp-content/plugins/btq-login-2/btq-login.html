@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" type="text/css" href="assets/css/estilos.css">    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Scripts Personalizados -->
+    <script src="assets/js/scripts.js"></script>
+    <!-- Inicializacion de firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+
+    <title>Login</title>
+
+  </head>
+
+
+
+
+  <body>
+    <!-- Div inicial -->
+    <div>
+        <!-- Aqui inicia el modal del Inicio de Sesiòn -->
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#IniciarSesion">Iniciar Sesión</button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="IniciarSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Iniciar Sesión</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                     <div class="main-div">      
+                         <button data-dismiss="modal"><img src="assets/images/fb.png"/>Continuar con Facebook</button><br>
+                        <button data-dismiss="modal"><img src="assets/images/google.png"/>Continuar con Google</button><br>                                
+                        <input type="email" placeholder="Correo" id="email_field" />
+                        <input type="password" placeholder="Contraseña" id="password_field" />
+                        <button onclick="login_EP();" data-dismiss="modal">Ingresa a tu cuenta.</button>
+                    <!-- Aqui termina la pestaña de inicio -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p>No eres miembro?<u data-toggle="modal" data-target="#Registrarse" data-dismiss="modal">Registrate</u></p>
+                    <p style="color: #c69807;" data-toggle="modal" data-target="#Restablecimiento" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
+                </div>
+            </div>
+            </div>
+        </div>
+    <!-- Aqui termina el modal del Inicio de Sesiòn -->
+
+
+    
+    <!-- Aqui inicia el modal del Registro -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registrarse">Registrarse</button>
+    <!-- Modal -->
+    <div class="modal fade" id="Registrarse" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Registrate</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">    
+                    <div class="loggedin-div">
+                        <h3>Registrate con tu correo: </h3>
+                        <input type="email" placeholder="Correo" id="new_email_field" required/>
+                        <input type="password" placeholder="Contraseña" id="new_password_field" required/>
+                        <button onclick="registro();" data-dismiss="modal">Finaliza tu registro </button>
+                    </div>
+                    <!-- Aqui termina html para registro de usuario por correo -->   
+                    <div id="registro_completado" class="loggedin-div">
+                        <h3>Registro exitoso: </h3>
+                        <br>
+                        <h5>Tu registro se ha completado correctamente, hemos iniciado sesión automaticamente por ti.</h5>
+                    </div>  
+                    <div class="modal-footer">
+                        <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#IniciarSesion" data-dismiss="modal">Inicia Sesión</u></p>
+                        <p style="color: #c69807;" data-toggle="modal" data-target="#Restablecimiento" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Aqui termina el modal del Registro -->
+
+
+    <!-- Aqui inicia el modal de restablecimiento de contraseña -->
+    <div class="modal fade" id="Restablecimiento" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Restablecer Contraseña</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">    
+                    <!-- Aqui inicia html para registro de usuario por correo --> 
+                    <div id="recuperar" class="loggedin-div">
+                        <h3>Ingresa tu correo: </h3>
+                        <input type="email" placeholder="Correo" id="recover_email_field" required/>
+                        <button onclick="recuperar_contrasena()">Restablecer tu contraseña </button>
+                    </div>
+                    <!-- Aqui termina html para registro de usuario por correo -->     
+                    <div id="restablecimiento_exitoso" class="loggedin-div">
+                        <h3>Restablecimiento de Contraseña: </h3>
+                        <br>
+                        <h5>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h5>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#IniciarSesion" data-dismiss="modal">Inicia Sesión</u></p>
+                    <p>No eres miembro?<u data-toggle="modal" data-target="#Registrarse" data-dismiss="modal">Registrate</u></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Aqui termina el modal de restablecimiento de contraseña -->
+
+    <!-- Div final -->
+    </div>
+  </body>
+</html>

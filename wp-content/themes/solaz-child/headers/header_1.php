@@ -214,8 +214,6 @@ $solaz_settings = solaz_check_theme_options();
 							));
 						}
 					}
-
-				
 				?>	
 				<?php if (class_exists('WP_Hotel_Booking')):?>	    
 					<?php if(isset($solaz_settings['header_book_text']) && $solaz_settings['header_book_text'] !=''):?>
@@ -230,6 +228,6 @@ $solaz_settings = solaz_check_theme_options();
 					<?php endif;?>	
 				<?php endif;?>	        		        	
 	        </div>      	
-        </div>  
+        </div>
 </div>
 <!-- Menu -->

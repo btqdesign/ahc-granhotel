@@ -36,6 +36,7 @@ add_filter('final_output', function($output) {
 	$output = str_replace('https://schemas.xmlsoap.org', 'http://schemas.xmlsoap.org', $output);
 	$output = str_replace('https://docs.oasisopen.org', 'http://docs.oasisopen.org', $output);
 	$output = str_replace('https://www.sitemaps.org', 'http://www.sitemaps.org', $output);
+	$output = str_replace('https://ogp.me', 'http://ogp.me', $output);
 	
 	$output = str_replace(" type='text/javascript'", '', $output);
 	$output = str_replace(' type="text/javascript"', '', $output);

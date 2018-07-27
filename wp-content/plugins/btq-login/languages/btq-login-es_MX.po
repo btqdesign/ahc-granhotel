@@ -1,0 +1,133 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: BTQ Login\n"
+"POT-Creation-Date: 2018-07-04 13:54-0500\n"
+"PO-Revision-Date: 2018-07-04 13:57-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_MX\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.8\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: btq-login.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;"
+"_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#. Plugin Name of the plugin/theme
+#: btq-login.php:57
+msgid "BTQ Login"
+msgstr "BTQ Login"
+
+#: btq-login.php:60
+msgid "Content"
+msgstr "Contenido"
+
+#: btq-login.php:80 btq-login.php:181
+msgid "Log in"
+msgstr "Iniciar sesión"
+
+#: btq-login.php:81 btq-login.php:124 btq-login.php:182
+msgid "Sign up"
+msgstr "Registro"
+
+#: btq-login.php:89
+msgid "Login"
+msgstr "Iniciar Sesión"
+
+#: btq-login.php:96
+msgid "Continue with Facebook"
+msgstr "Continuar con Facebook"
+
+#: btq-login.php:98
+msgid "Continue with Google"
+msgstr "Continuar con Google"
+
+#: btq-login.php:100 btq-login.php:134 btq-login.php:170
+msgid "Email"
+msgstr "Correo"
+
+#: btq-login.php:101 btq-login.php:135
+msgid "Password"
+msgstr "Contraseña"
+
+#: btq-login.php:102
+msgid "Log in to your account"
+msgstr "Acceder a tu cuenta"
+
+#: btq-login.php:107 btq-login.php:182
+msgid "Not a member?"
+msgstr "¿No estás registrado?"
+
+#: btq-login.php:107
+msgid "Sing up"
+msgstr "Registrarse"
+
+#: btq-login.php:108 btq-login.php:145
+msgid "Forgot your password?"
+msgstr "¿Has olvidado tu contraseña?"
+
+#: btq-login.php:133
+msgid "Register with your email"
+msgstr "Regístrese con su correo electrónico"
+
+#: btq-login.php:136
+msgid "Finalize your registration"
+msgstr "Finaliza tu registro"
+
+#: btq-login.php:140
+msgid "Successful registration"
+msgstr "Registro exitoso"
+
+#: btq-login.php:142
+msgid ""
+"Your registration has been completed correctly, we have logged in "
+"automatically for you."
+msgstr "Su registro se ha completado,"
+
+#: btq-login.php:160 btq-login.php:171 btq-login.php:175
+msgid "Reset your password"
+msgstr "Recuperar contraseña"
+
+#: btq-login.php:169
+msgid "Enter your Email"
+msgstr "Introduzca su Email"
+
+#: btq-login.php:177
+msgid "We have sent a password reset email to the email address you provided."
+msgstr "Hemos enviado a tu email un enlace para restablecer tu contraseña."
+
+#: btq-login.php:181
+msgid "Are you already a member?"
+msgstr "¿Ya eres miembro?"
+
+#: btq-login.php:193
+msgid "Welcome user: "
+msgstr "Bienvenido Usuario: "
+
+#: btq-login.php:195
+msgid "Log out"
+msgstr "Cerrar sesión"
+
+#. Plugin URI of the plugin/theme
+msgid "http://btqdesign.com/plugins/btq-login/"
+msgstr "http://btqdesign.com/plugins/btq-login/"
+
+#. Description of the plugin/theme
+msgid "Login con redes sociales."
+msgstr "Redes sociales"
+
+#. Author of the plugin/theme
+msgid "BTQ Design"
+msgstr "BTQ Design"
+
+#. Author URI of the plugin/theme
+msgid "http://btqdesign.com/"
+msgstr "http://btqdesign.com/"
