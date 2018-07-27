@@ -751,7 +751,7 @@ function btq_booking_iph_url_correct($url, $checkIn, $checkOut){
  */
 function btq_booking_register_settings() {
 	register_setting('btq-booking-settings', 'btq_booking_color_principal');
-	register_setting('btq-booking-settings', 'btq_booking_early_days');
+	register_setting('btq-booking-settings', 'btq_booking_early_days', array('type' => 'integer'));
 	register_setting('btq-booking-settings', 'btq_booking_service');
 	
 	register_setting('btq-booking-settings', 'btq_booking_tc_soap_sales_channel_info_id');
@@ -2183,7 +2183,7 @@ function btq_booking_grid_form($language = 'es') {
 		
 		<section class="row">
 			<article class="col-md-12">
-				<p class="recordatorio"><?php echo _e('* Remember that having an advance reservation will always be a better option (rates shown at 90 days).', 'btq-booking'); ?></p>
+				<p class="recordatorio"><?php printf( esc_html__( '* Remember that having an advance reservation will always be a better option (rates shown at %d days).', 'btq-booking' ), esc_attr(get_option('btq_booking_early_days')) );?></p>
 			</article>
 			<hr class="linea"/>
 		</section>
@@ -2423,17 +2423,19 @@ add_action( 'wp_ajax_btq_booking_grid_rooms', 'btq_booking_grid_rooms_ajax' );
 add_action( 'wp_ajax_nopriv_btq_booking_grid_rooms', 'btq_booking_grid_rooms_ajax' );
 
 /**
- * Devuelve la fecha de llegada disponible a 90 días o más.
+ * Devuelve la fecha de llegada disponible a la opcion btq_booking_early_days días.
  *
  * @autor Saúl Díaz
- * @return string Fecha de llegada disponible a 90 días o más.
+ * @return string Fecha de llegada disponible a btq_booking_early_days días.
  */
 function btq_booking_grid_date_start() {
+	$earlyDays = get_option('btq_booking_early_days', 90);
+	
 	$unavailableJSON_file = plugin_dir_path( __FILE__ ) . 'assets' . DIRECTORY_SEPARATOR . 'js' . DIRECTORY_SEPARATOR . 'btq-unavailable.json';
 	if (file_exists($unavailableJSON_file)) {
 		$unavailableJSON = file_get_contents($unavailableJSON_file);
 		$unavailableDatesArray = json_decode($unavailableJSON);
-		for($days = 90; $days < 120; $days++){
+		for($days = $earlyDays; $days < 120; $days++){
 			$date_start = date('Y-m-d', ( time() + (60*60*24*$days) ));
 			if (array_search($date_start, $unavailableDatesArray) === FALSE){
 				return $date_start;
@@ -2441,7 +2443,7 @@ function btq_booking_grid_date_start() {
 		}
 	}
 	else{
-		return date('Y-m-d', ( time() + (60*60*24*90) ));
+		return date('Y-m-d', ( time() + (60*60*24*$earlyDays) ));
 	}
 }
 
