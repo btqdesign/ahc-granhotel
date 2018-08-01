@@ -89,7 +89,7 @@ jQuery(document).ready(function(){
 	    "minDate": moment(),
 	    "autoApply": true,
 	    "isInvalidDate": function(date) {
-			console.log(moment(date).format();)
+			console.log(moment(date).format());
 			return true;
 		}
 	});
