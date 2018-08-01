@@ -52,7 +52,41 @@ jQuery(document).ready(function(){
 	});
 	*/
 	
-	jQuery('#btq-date-range').daterangepicker();
+	jQuery('#btq-date-range').daterangepicker({
+		"locale": {
+	        "format": "DD/MM/YYYY",
+	        "separator": " - ",
+	        "applyLabel": "Establecer",
+	        "cancelLabel": "Cancelar",
+	        "fromLabel": "From",
+	        "toLabel": "To",
+	        "customRangeLabel": "Custom",
+	        "daysOfWeek": [
+	            "Dom",
+	            "Lun",
+	            "Mar",
+	            "Mie",
+	            "Jue",
+	            "Vie",
+	            "Sab"
+	        ],
+	        "monthNames": [
+	            "Enero",
+	            "Febrero",
+	            "Marzo",
+	            "Abril",
+	            "Mayo",
+	            "Junio",
+	            "Julio",
+	            "Augostot",
+	            "Septiembre",
+	            "Octubre",
+	            "Noviembre",
+	            "Diciembre"
+	        ],
+	        "firstDay": 1
+	    }
+	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
 		
