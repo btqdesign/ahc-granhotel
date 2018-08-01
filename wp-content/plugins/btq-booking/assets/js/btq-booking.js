@@ -91,10 +91,12 @@ jQuery(document).ready(function(){
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
-		jQuery('#btq-date-range').data('daterangepicker').setIsInvalidDate(function(date){
-			console.log(moment(date).format('YYYY-MM-DD'));
-			var string = moment(date).format('YYYY-MM-DD');
-			return data.indexOf(string) == -1 ;
+		jQuery('#btq-date-range').daterangepicker({
+			isInvalidDate: function(date){
+				console.log(moment(date).format('YYYY-MM-DD'));
+				var string = moment(date).format('YYYY-MM-DD');
+				return data.indexOf(string) == -1 ;
+			}
 		});
 		/*
 		jQuery('#btq-date-start').datepicker('option', {
