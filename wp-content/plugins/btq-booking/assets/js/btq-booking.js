@@ -95,7 +95,7 @@ jQuery(document).ready(function(){
 			isInvalidDate: function(date){
 				console.log(moment(date).format('YYYY-MM-DD'));
 				var string = moment(date).format('YYYY-MM-DD');
-				return data.indexOf(string) == -1 ;
+				return data.indexOf(string) != -1 ;
 			}
 		});
 		/*
