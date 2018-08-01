@@ -51,8 +51,7 @@ jQuery(document).ready(function(){
 		changeYear: true
 	});
 	*/
-	
-	jQuery('#btq-date-range').daterangepicker({
+	var daterangepickerConfig = {
 		"locale": {
 	        "format": "DD/MM/YYYY",
 	        "separator": " - ",
@@ -88,12 +87,8 @@ jQuery(document).ready(function(){
 	    },
 	    "minDate": moment(),
 	    "autoApply": true
-	});
-	
-	console.log('daterangepicker data:');
-	console.log(jQuery('#btq-date-range').data('daterangepicker'));
-		
-	daterangepickerConfig = jQuery('#btq-date-range').data('daterangepicker');
+	}
+	jQuery('#btq-date-range').daterangepicker(daterangepickerConfig);
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
 		var daterangepickerConfigNew = Object.assign(daterangepickerConfig, {
@@ -103,9 +98,6 @@ jQuery(document).ready(function(){
 				return data.indexOf(string) != -1 ;
 			}
 		});
-		
-		console.log('daterangepickerNew data:');
-		console.log(daterangepickerConfigNew);
 		
 		jQuery('#btq-date-range').daterangepicker(daterangepickerConfigNew);
 		/*
