@@ -85,7 +85,8 @@ jQuery(document).ready(function(){
 	            "Diciembre"
 	        ],
 	        "firstDay": 1
-	    }
+	    },
+	    "minDate": "+0d",
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
