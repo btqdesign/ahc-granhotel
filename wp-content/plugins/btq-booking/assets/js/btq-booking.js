@@ -18,6 +18,7 @@ jQuery(document).ready(function(){
 	
 	moment.tz.add('America/Mexico_City|LMT MST CST CDT CWT|6A.A 70 60 50 50|012121232324232323232323232323232323232323232323232323232323232323232323232323232323232323232323232|-1UQF0 deL0 8lc0 17c0 10M0 1dd0 gEn0 TX0 3xd0 Jb0 6zB0 SL0 e5d0 17b0 1Pff0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 1fB0 WL0 1fB0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0|20e6');
 	
+	/*
 	jQuery('#btq-date-start').datepicker({
 		dateFormat: 'dd/mm/yy',
 		minDate: '+0d',
@@ -49,8 +50,13 @@ jQuery(document).ready(function(){
 		minDate: '+1d',
 		changeYear: true
 	});
+	*/
+	
+	jQuery('#btq-date-range').daterangepicker();
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
+		
+		/*
 		jQuery('#btq-date-start').datepicker('option', {
 			beforeShowDay: function(date){
 				var string = jQuery.datepicker.formatDate('yy-mm-dd', date);
@@ -80,6 +86,7 @@ jQuery(document).ready(function(){
     		}
 		})
 		.datepicker('refresh');
+		*/
 	}).fail(function( jqxhr, textStatus, error ) {
 		console.log(textStatus);
 	});

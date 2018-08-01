@@ -2120,6 +2120,8 @@ function btq_booking_grid_form($language = 'es') {
 					
 				<article class="col-xs-12 col-md-4">
 					<div class="row">
+						<input type="text" autocomplete="off" class="btq-input" id="btq-date-range" name="btq-date-range" placeholder="<?php echo _e('Select dates', 'btq-booking'); ?>">
+						<!--
 						<div class="col-xs-6">
 							<div class="form-group">
 								<input type="text" autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo _e('Check-in', 'btq-booking'); ?>">
@@ -2130,6 +2132,7 @@ function btq_booking_grid_form($language = 'es') {
 								<input type="text" autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo _e('Check-out', 'btq-booking'); ?>">
 							</div>		
 						</div>
+						-->
 					</div>
 				</article>
 				
@@ -2200,10 +2203,14 @@ function btq_booking_grid_form($language = 'es') {
  */
 function btq_booking_grid_scripts() {
     if (!is_admin()) {
+	    
+	    wp_enqueue_style( 'daterangepicker', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'daterangepicker.css', __FILE__ ), array(),'3.0.3');
 	    wp_enqueue_style( 'btq-booking-grid', plugins_url( 'assets/css' . DIRECTORY_SEPARATOR . 'style.css', __FILE__ ), 'solaz-child-style','1.0.0');
+	    wp_enqueue_script('jquery');
 	    wp_enqueue_script( 'moment', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment.min.js', __FILE__ ), array(), '2.21.0', true);
 	    wp_enqueue_script( 'moment-timezone', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'moment-timezone.js', __FILE__ ), array('moment'), '0.5.17', true);
-	    wp_enqueue_script( 'btq-booking-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-booking.js', __FILE__ ), array('moment','moment-timezone'), '1.0.0');
+	    wp_enqueue_script( 'daterangepicker', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'daterangepicker.js', __FILE__ ), array('moment','jquery'), '3.0.3', true);
+	    wp_enqueue_script( 'btq-booking-grid-js', plugins_url( 'assets/js' . DIRECTORY_SEPARATOR . 'btq-booking.js', __FILE__ ), array('moment','moment-timezone','daterangepicker'), '1.0.0');
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_booking_grid_scripts', 1003 );
