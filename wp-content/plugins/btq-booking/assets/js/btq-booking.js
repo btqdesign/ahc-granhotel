@@ -94,7 +94,6 @@ jQuery(document).ready(function(){
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
 		var daterangepickerConfigNew = Object.assign(daterangepickerConfig, {
 			isInvalidDate: function(date){
-				console.log(moment(date).format('YYYY-MM-DD'));
 				var string = moment(date).format('YYYY-MM-DD');
 				return data.indexOf(string) != -1 ;
 			}
