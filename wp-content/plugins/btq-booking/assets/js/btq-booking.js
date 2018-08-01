@@ -87,7 +87,12 @@ jQuery(document).ready(function(){
 	        "firstDay": 1
 	    },
 	    "minDate": moment(),
-	    "autoApply": true
+	    "autoApply": true,
+	    "isInvalidDate": function(date) {
+			var disabled_start = moment('11/08/2018', 'MM/DD/YYYY');
+			var disabled_end = moment('11/08/2018', 'MM/DD/YYYY');
+			return date.isAfter(disabled_start) && date.isBefore(disabled_end);
+		}
 	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
