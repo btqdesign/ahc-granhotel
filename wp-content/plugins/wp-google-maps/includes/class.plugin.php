@@ -90,12 +90,8 @@ class Plugin
 			case "spatialFunctionPrefix":
 				$result = '';
 				
-				if(!empty($this->mysqlVersion))
-				{
-					$majorVersion = (int)preg_match('/^\d+/', $this->mysqlVersion);
-					if($majorVersion >= 8)
-						$result = 'ST_';
-				}
+				if(!empty($this->mysqlVersion) && preg_match('/^\d+/', $this->mysqlVersion, $majorVersion) && (int)$majorVersion[0] > 8)
+					$result = 'ST_';
 				
 				return $result;
 				break;
@@ -202,6 +198,11 @@ class Plugin
 	public function isUsingMinifiedScripts()
 	{
 		return empty($this->settings->developer_mode);
+	}
+	
+	public function isInDeveloperMode()
+	{
+		return !(empty($this->settings->developer_mode) && !isset($_COOKIE['wpgmza-developer-mode']));
 	}
 	
 	public function isProVersion()

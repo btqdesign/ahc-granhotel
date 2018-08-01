@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.23
+Version: 7.10.24
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,14 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.24 :- Low Priority
+ * Added regex callback for class autoloader for installations where token_get_all is not available
+ * Added spatial function prefix to spatial data migration function
+ * Added lat and lng properties to GoogleGeocoder result (for Pro 5 & UGM compatibility)
+ * Altered Map module to deserialize other_settings and merge into the map settings object
+ * Altered parent:: to \Exception:: in CSS selector parser
+ * Fixed version detection for MySQL 8
+ *
  * 7.10.23 :- 2018-07-23 :- Low priority
  * Fixed REST API endpoint URL incorrect for installations in subfolders
  * Fixed WPGMZA\Parent not found
@@ -2765,6 +2773,7 @@ function wpgmaps_tag_basic( $atts ) {
     $map_align = $res->alignment;
 
     $wpgmza_settings = get_option("WPGMZA_OTHER_SETTINGS");
+	
     if (isset($wpgmza_settings['wpgmza_settings_marker_pull']) && $wpgmza_settings['wpgmza_settings_marker_pull'] == '0') {
     } else {
         /* only check if marker file exists if they are using the XML method */
@@ -2786,7 +2795,10 @@ function wpgmaps_tag_basic( $atts ) {
 		$map_attributes .= "data-shortcode-height='{$atts["height"]}' ";
 	
 	// This is a hack and should be fixed by using DOMDocument
-	$escaped = esc_attr(json_encode($res));
+	$settings_attribute_data = clone $res;
+	$settings_attribute_data->other_settings = unserialize($settings_attribute_data->other_settings);
+	
+	$escaped = esc_attr(json_encode($settings_attribute_data));
 	$attr = str_replace('\\\\%', '%', $escaped);
 	//$attr = stripslashes($attr);
 	
@@ -2796,8 +2808,9 @@ function wpgmaps_tag_basic( $atts ) {
     else if ($map_align == "2") { $map_align = "margin-left:auto !important; margin-right:auto; !important; align:center;"; }
     else if ($map_align == "3") { $map_align = "float:right;"; }
     else if ($map_align == "4") { $map_align = ""; }
-    $map_style = "style=\"display:block; overflow:auto; width:".$res->map_width."".$map_width_type."; height:".$res->map_height."".$map_height_type."; $map_align\"";
-
+	
+    $map_style = "style=\"display:block; overflow:auto; width:".$res->map_width."".$map_width_type."; height:".$res->map_height."".$map_height_type."; $map_align $map_border_style\"";
+	
     $map_other_settings = maybe_unserialize($res->other_settings);
     $sl_data = "";
     if (isset($map_other_settings['store_locator_enabled']) && $map_other_settings['store_locator_enabled'] == 1) {
@@ -4357,7 +4370,7 @@ function wpgmaps_settings_page_basic() {
 
     if (isset($wpgmza_settings['wpgmza_settings_remove_api'])) { $wpgmza_remove_api = $wpgmza_settings['wpgmza_settings_remove_api']; }
     if (isset($wpgmza_settings['wpgmza_force_greedy_gestures'])) { $wpgmza_force_greedy_gestures = $wpgmza_settings['wpgmza_force_greedy_gestures']; }
-    
+	
     if (isset($wpgmza_settings['wpgmza_settings_map_scroll'])) { $wpgmza_settings_map_scroll = $wpgmza_settings['wpgmza_settings_map_scroll']; }
     if (isset($wpgmza_settings['wpgmza_settings_map_draggable'])) { $wpgmza_settings_map_draggable = $wpgmza_settings['wpgmza_settings_map_draggable']; }
     if (isset($wpgmza_settings['wpgmza_settings_map_clickzoom'])) { $wpgmza_settings_map_clickzoom = $wpgmza_settings['wpgmza_settings_map_clickzoom']; }
@@ -4675,8 +4688,7 @@ function wpgmaps_settings_page_basic() {
             $ret .= "                           <div class='switch'><input name='wpgmza_force_greedy_gestures' type='checkbox' class='cmn-toggle cmn-toggle-yes-no' id='wpgmza_force_greedy_gestures' value='yes' $wpgmza_force_greedy_gestures_checked /> <label for='wpgmza_force_greedy_gestures' data-on='".__("Yes", "wp-google-maps")."' data-off='".__("No", "wp-google-maps")."'></label></div> " . __("Removes the need to use two fingers to move the map on mobile devices", "wp-google-maps");
             $ret .= "                    </td>";
             $ret .= "                </tr>";
-
-
+			
             $ret .= "            </table>";
             $ret = apply_filters("wpgooglemaps_map_settings_output_bottom",$ret,$wpgmza_settings);
 
@@ -6728,6 +6740,7 @@ if (function_exists('wpgmza_register_pro_version')) {
     }
 
     add_shortcode( 'wpgmza', 'wpgmaps_tag_pro' );
+	
 } else {
     add_action('admin_head', 'wpgmaps_admin_javascript_basic',19);
     add_action('wp_ajax_add_marker', 'wpgmaps_action_callback_basic');
@@ -6741,6 +6754,7 @@ if (function_exists('wpgmza_register_pro_version')) {
     add_action('template_redirect','wpgmaps_check_shortcode');
     // add_action('wp_footer', 'wpgmaps_user_javascript_basic');
     add_shortcode( 'wpgmza', 'wpgmaps_tag_basic' );
+	
 }
 
 
@@ -7678,6 +7692,7 @@ if(!function_exists('wpgmza_migrate_spatial_data'))
 {
 	function wpgmza_migrate_spatial_data() {
 		
+		global $wpgmza;
 		global $wpdb;
 		global $wpgmza_tblname;
 		
@@ -7687,7 +7702,7 @@ if(!function_exists('wpgmza_migrate_spatial_data'))
 		if($wpdb->get_var("SELECT COUNT(id) FROM $wpgmza_tblname WHERE latlng IS NULL LIMIT 1") == 0)
 			return; // Nothing to migrate
 		
-		$wpdb->query("UPDATE ".$wpgmza_tblname." SET latlng=PointFromText(CONCAT('POINT(', CAST(lat AS DECIMAL(18,10)), ' ', CAST(lng AS DECIMAL(18,10)), ')'))");
+		$wpdb->query("UPDATE ".$wpgmza_tblname." SET latlng={$wpgmza->spatialFunctionPrefix}PointFromText(CONCAT('POINT(', CAST(lat AS DECIMAL(18,10)), ' ', CAST(lng AS DECIMAL(18,10)), ')'))");
 	}
 	
 	add_action('init', 'wpgmza_migrate_spatial_data', 1);
