@@ -90,12 +90,12 @@ jQuery(document).ready(function(){
 	    "autoApply": true
 	});
 	
+	console.log('daterangepicker data:');
+	console.log(jQuery('#btq-date-range').data('daterangepicker'));
+		
+	daterangepickerConfig = jQuery('#btq-date-range').data('daterangepicker');
+	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
-		console.log('daterangepicker data:');
-		console.log(jQuery('#btq-date-range').data('daterangepicker'));
-		
-		daterangepickerConfig = jQuery('#btq-date-range').data('daterangepicker');
-		
 		var daterangepickerConfigNew = Object.assign(daterangepickerConfig, {
 			isInvalidDate: function(date){
 				console.log(moment(date).format('YYYY-MM-DD'));
@@ -103,6 +103,9 @@ jQuery(document).ready(function(){
 				return data.indexOf(string) != -1 ;
 			}
 		});
+		
+		console.log('daterangepickerNew data:');
+		console.log(daterangepickerConfigNew);
 		
 		jQuery('#btq-date-range').daterangepicker(daterangepickerConfigNew);
 		/*
