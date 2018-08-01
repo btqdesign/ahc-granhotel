@@ -85,10 +85,11 @@ jQuery(document).ready(function(){
 	        ],
 	        "firstDay": 1
 	    },
-	    "minDate": moment(),
-	    "autoApply": true
+	    "minDate": moment()
 	}
-	jQuery('#btq-date-range').daterangepicker(daterangepickerConfig);
+	jQuery('#btq-date-range').daterangepicker(daterangepickerConfig, function(start, end, label) {
+		console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+	});
 	
 	jQuery.getJSON( '/wp-content/plugins/btq-booking/assets/js/btq-unavailable.json', {}).done(function(data) {
 		var daterangepickerConfigNew = Object.assign(daterangepickerConfig, {
@@ -99,7 +100,9 @@ jQuery(document).ready(function(){
 			}
 		});
 		
-		jQuery('#btq-date-range').daterangepicker(daterangepickerConfigNew);
+		jQuery('#btq-date-range').daterangepicker(daterangepickerConfigNew, function(start, end, label) {
+			console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+		});
 		/*
 		jQuery('#btq-date-start').datepicker('option', {
 			beforeShowDay: function(date){
