@@ -9,20 +9,17 @@ var config = {
 };
 firebase.initializeApp(config);
 
-//Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 
+//Funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
   // Usuario con sesion iniciada
-
   document.getElementById("user_div").style.display = "block";
   document.getElementById("login_div").style.display = "none";
-
   var user = firebase.auth().currentUser;
 
   if(user != null){
     document.getElementById("botones_primarios").style.display = "none";
-    document.getElementById("botones_primarios_modals").style.display = "none";
     var email_id = user.email;
     var name = user.displayName;
     if(name == null )
@@ -30,16 +27,11 @@ if (user) {
     else
     document.getElementById("user_para").innerHTML = name + "<br/> " +  email_id;
   }
-
 } else {
   // Si el usuario no tiene la sesion iniciada
-
-  document.getElementById("user_div").style.display = "none";
   document.getElementById("login_div").style.display = "block";
-
 }
 });
-
 //Aqui termina la funcion para mantener la sesion iniciada cuando se cierra la pestaña o navegador
 
 
@@ -115,7 +107,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
     var user = result.user;
     document.getElementById("user_div").style.display = "block";
     document.getElementById("botones_primarios").style.display = "none";
-    document.getElementById("botones_primarios_modals").style.display = "none";
         // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
@@ -146,10 +137,9 @@ function facebook_login(){
     var token = result.credential.accessToken;
     // Obtiene la informacion del usuario
     var user = result.user;
-    document.getElementById("user_div").style.display = "block";
     document.getElementById("botones_primarios").style.display = "none";
-    document.getElementById("botones_primarios_modals").style.display = "none";
-        // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
+    document.getElementById("user_div").style.display = "block";
+    // En caso de no iniciar sesion correctamente se ejecuta la siguiente funcion
   }).catch(function(error) {
     // Errores en caso de no iniciar sesion
     var errorCode = error.code;
@@ -178,9 +168,7 @@ function recuperar_contrasena(){
     });
     document.getElementById("recuperado").style.display = "block";
     document.getElementById("recuperar").style.display = "none";
-    document.getElementById("login_div").style.display = "none";
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("registro").style.display = "none";  
+  
 }
 
 
