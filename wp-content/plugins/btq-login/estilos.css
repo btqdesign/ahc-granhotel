@@ -101,6 +101,10 @@ ul{
   color: #c69807
 }
 
+.hidden{
+  display: none;
+}
+
 /* estilo nuevos botones
 .btq-login-btns {
   box-sizing: border-box;
