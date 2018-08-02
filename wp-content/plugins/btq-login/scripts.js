@@ -186,6 +186,17 @@ function recuperar_contrasena(){
 
 
 
+var input = document.getElementByClass("Input");
+input.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+        document.getElementByClass("Boton").click();
+    }
+});
+
+
+
+
   //Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
 function pestaña_registro(){
   document.getElementById("registro").style.display = "inline-block";
