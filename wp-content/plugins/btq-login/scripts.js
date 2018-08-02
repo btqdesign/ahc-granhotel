@@ -185,10 +185,10 @@ function recuperar_contrasena(){
 
 
 
-$(document).ready(function(){
-  $('.Input').keypress(function(e){
+jQuery(document).ready(function(){
+  jQuery('.Input').keypress(function(e){
     if(e.keyCode==13)
-    $('.Boton').click();
+    jQuery('.Boton').click();
   });
 });
 
