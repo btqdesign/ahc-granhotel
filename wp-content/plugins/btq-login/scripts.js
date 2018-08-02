@@ -185,18 +185,12 @@ function recuperar_contrasena(){
 
 
 
-
-var input = document.getElementsByClassName("Input");
-input.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode === 13) {
-      for (var i = 0 ; i < comment.length; i++) {
-        document.getElementsByClassName("Boton").click();
-     }
-    }
+jQuery(document).ready(function(){
+  jQuery('.Input').keypress(function(e){
+    if(e.keyCode==13)
+    jQuery('.Boton').click();
+  });
 });
-
-
 
 
   //Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
