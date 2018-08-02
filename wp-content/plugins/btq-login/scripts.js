@@ -66,8 +66,6 @@ function login(){
       var errorCode = error.code;
       var errorMessage = error.message;
       document.getElementById("botones_primarios").style.display = "none";
-      document.getElementById("botones_primarios_modals").style.display = "none";
-
     });
     document.getElementById("user_div").style.display = "block";
 }
@@ -82,8 +80,7 @@ function logout(){
     firebase.auth().signOut().then(function() {
       //Si cierra sesion correctamente
       document.getElementById("user_div").style.display = "none";
-      document.getElementById("botones_primarios").style.display = "none";
-      document.getElementById("botones_primarios_modals").style.display = "none";
+      document.getElementById("botones_primarios").style.display = "block";
     }).catch(function(error) {
       //Si sucede algun error
     });
@@ -104,7 +101,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
     var user = result.user;
     document.getElementById("user_div").style.display = "block";
     document.getElementById("botones_primarios").style.display = "none";
-    document.getElementById("botones_primarios_modals").style.display = "none";
         // Si no se obtiene el token correctamente se ejecuta la siguiente funcion
     }).catch(function(error) {
     // Errores en caso de no recibir el token correctamente
