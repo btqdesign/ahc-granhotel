@@ -32,7 +32,8 @@
                   </button>
                 </div>
                 <div class="modal-body">    
-                    <div id="login_div" class="main-div">      
+                    <div id="login_div" class="main-div">  
+                      <form>  
                         <button onclick="facebook_login()" data-dismiss="modal"><img src="fb.png"/> Continuar con Facebook </button>
                         <br>
                         <button onclick="google_login()" data-dismiss="modal"><img src="google.png"/>  Continuar con Google </button>
@@ -40,7 +41,7 @@
                         <input class="Input" type="email" placeholder="Correo" id="email_field" required/>
                         <input class="Input" type="password" placeholder="Contraseña" id="password_field" required/>
                         <button class="Boton" onclick="login()" data-dismiss="modal">Ingresa a tu cuenta </button>
-                        <!-- Aqui termina la pestaña de inicio -->
+                      </form>  
                     </div>
                 </div>
                 <div class="modal-footer">
