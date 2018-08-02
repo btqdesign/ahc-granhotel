@@ -96,14 +96,16 @@
         border: 1px solid #c69807;
         cursor: pointer;
       }
-ul{
-  text-decoration-color: #c69807; 
-  color: #c69807
-}
+      div > div > div > div > u, .Fotter_Text{
+          text-decoration: underline;
+          text-decoration-color: #c69807;
+          color: #c69807
+      }
 
-.hidden{
-  display: none;
-}
+      .hidden{
+        display: none;
+      }
+
 
 /* estilo nuevos botones
 .btq-login-btns {
