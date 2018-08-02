@@ -14,9 +14,7 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
   // Usuario con sesion iniciada
-  document.getElementById("user_div").style.display = "block";
   var user = firebase.auth().currentUser;
-
   if(user != null){
     document.getElementById("botones_primarios").style.display = "none";
     var email_id = user.email;
