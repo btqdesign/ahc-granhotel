@@ -186,11 +186,11 @@ function recuperar_contrasena(){
 
 
 
-var input = document.getElementByClass("Input");
+var input = document.getElementsByClassName("Input");
 input.addEventListener("keyup", function(event) {
     event.preventDefault();
     if (event.keyCode === 13) {
-        document.getElementByClass("Boton").click();
+      document.getElementsByClassName("Boton").click();
     }
 });
 
