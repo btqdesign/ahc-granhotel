@@ -96,7 +96,7 @@
         border: 1px solid #c69807;
         cursor: pointer;
       }
-      div > div > div > div > u, .Fotter_Text{
+      u, .Fotter_Text{
           text-decoration: underline;
           text-decoration-color: #c69807;
           color: #c69807
