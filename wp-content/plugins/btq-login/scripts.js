@@ -15,7 +15,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
   // Usuario con sesion iniciada
   document.getElementById("user_div").style.display = "block";
-  document.getElementById("login_div").style.display = "none";
   var user = firebase.auth().currentUser;
 
   if(user != null){
@@ -84,7 +83,9 @@ function logout(){
     firebase.auth().signOut();
     firebase.auth().signOut().then(function() {
       //Si cierra sesion correctamente
-      document.getElementById("user_div").style.display = "block";
+      document.getElementById("user_div").style.display = "none";
+      document.getElementById("botones_primarios").style.display = "none";
+      document.getElementById("botones_primarios_modals").style.display = "none";
     }).catch(function(error) {
       //Si sucede algun error
     });
