@@ -191,28 +191,3 @@ jQuery(document).ready(function(){
     jQuery('.Boton').click();
   });
 });
-
-
-  //Aqui inicia la funcion para ocultar la pestaña de inicio y mostrar la de registro
-function pestaña_registro(){
-  document.getElementById("registro").style.display = "inline-block";
-  document.getElementById("login_div").style.display = "none";
-}
-  //Aqui termina la funcion para ocultar la pestaña de inicio y mostrar la de registro
-
-
-  //Aqui inicia la funcion para ocultar cualquier pestaña y mostrar la de inicio
-function pestaña_inicio(){
-document.getElementById("login_div").style.display = "block";
-document.getElementById("user_div").style.display = "none";
-document.getElementById("registro").style.display = "none";  
-}
-    //Aqui termina la funcion para ocultar cualquier pestaña y mostrar la de inicio
-
-function pestaña_recuperar(){
-  document.getElementById("recuperar").style.display = "block";
-  document.getElementById("login_div").style.display = "none";
-  document.getElementById("user_div").style.display = "none";
-  document.getElementById("registro").style.display = "none";  
-  document.getElementById("recuperado").style.display = "none";
-}
