@@ -96,11 +96,18 @@
         border: 1px solid #c69807;
         cursor: pointer;
       }
-      u, .Fotter_Text{
+      u{
           text-decoration: underline;
           text-decoration-color: #c69807;
-          color: #c69807
+          color: #c69807;
+          float: left;
       }
+
+      .Fotter_Text{
+        text-decoration: underline;
+        text-decoration-color: #c69807;
+        color: #c69807;
+    }
 
       .hidden{
         display: none;
