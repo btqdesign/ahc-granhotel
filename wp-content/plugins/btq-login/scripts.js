@@ -39,7 +39,7 @@ if (user) {
 function nuevo_usuario(){
 
   document.getElementById("registro").style.display = "none";  
-  document.getElementsById("registro_completado").style.display = "block";
+  document.getElementById("registro_completado").style.display = "block";
   
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
