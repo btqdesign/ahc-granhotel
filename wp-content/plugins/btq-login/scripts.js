@@ -48,7 +48,6 @@ function nuevo_usuario(){
         var l = document.getElementById("contador");
         window.setInterval(function(){
           if ( n > -1){
-          l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
           n--;
             }
         },1000);
