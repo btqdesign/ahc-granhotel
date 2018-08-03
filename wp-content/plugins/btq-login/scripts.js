@@ -52,7 +52,7 @@ function nuevo_usuario(){
         //var user = firebase.auth().currentUser;
         //logUser(user); // Optional
 
-      document.getElementById("registro").style.display = "none";
+      document.getElementById("registro_form").style.display = "none";
       document.getElementById("registro_completado").style.display = "block";   
       
       var n = 10;
