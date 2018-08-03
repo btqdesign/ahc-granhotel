@@ -67,10 +67,14 @@ function nuevo_usuario(){
         l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
         n--;
           }
-      },1000);    
-      jQuery('#Registro').modal('hide')
-
+      },1000);
+      setTimeout( function(){
+        jQuery('#Registro').modal('hide');
         document.getElementById("user_div").style.display = "block";
+      },10000);
+      
+
+        
       
     }, function(error) {
         // Handle Errors here.
