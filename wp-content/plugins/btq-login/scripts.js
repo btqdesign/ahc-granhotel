@@ -56,7 +56,7 @@ function nuevo_usuario(){
           l.innerHTML = n;
           n--;
         });
-      },10000);
+      },10);
       jQuery('#Registro').modal('hide')
       document.getElementById("user_div").style.display = "block";
 }
