@@ -58,9 +58,8 @@ function nuevo_usuario(){
           l.innerHTML = n;
           n--;
         });
-      jQuery('#Registro').modal('hide')
       },1000);
-
+      jQuery('#Registro').modal('hide')
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
