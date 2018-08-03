@@ -56,10 +56,11 @@ function nuevo_usuario(){
         l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
         n--;
           }
-          jQuery('#Registro').modal('hide')
-          document.getElementById("user_div").style.display = "block"; 
+      },1000);
     
-      },1000);  
+      jQuery('#Registro').modal('hide')
+      document.getElementById("user_div").style.display = "block"; 
+    
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
