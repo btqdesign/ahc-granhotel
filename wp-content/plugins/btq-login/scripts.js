@@ -47,8 +47,6 @@ function nuevo_usuario(){
       window.alert("Error:" + error.message);
       });
 
-      document.getElementById("registro").style.display = "none";
-      document.getElementById("registro_completado").style.display = "block";   
       var n = 10;
       var l = document.getElementById("contador");
       window.setInterval(function(){
@@ -57,6 +55,12 @@ function nuevo_usuario(){
         n--;
           }
       },1000);
+
+      document.getElementById("registro").style.display = "none";
+      document.getElementById("registro_completado").style.display = "block";   
+
+
+
           document.getElementById("user_div").style.display = "block"; 
     
 }
