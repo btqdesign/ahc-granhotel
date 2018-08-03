@@ -43,13 +43,19 @@ function nuevo_usuario(){
   
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
-
       firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
       // Errores en caso de que no se pueda registrar
       var errorCode = error.code;
       var errorMessage = error.message; 
       window.alert("Error:" + error.message);
       });
+      await sleep(10000);
+      var n = 10000;
+      var l = document.getElementById("contador");
+      window.setInterval(function(){
+        l.innerHTML = n;
+        n--;
+      },1000);
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
