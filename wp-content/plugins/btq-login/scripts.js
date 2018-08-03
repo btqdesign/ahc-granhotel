@@ -36,11 +36,7 @@ if (user) {
 
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
-function nuevo_usuario(){
-
-  document.getElementById("registro").style.display = "none";  
-  document.getElementById("registro_completado").style.display = "block";
-  
+function nuevo_usuario(){  
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
       firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
@@ -49,13 +45,19 @@ function nuevo_usuario(){
       var errorMessage = error.message; 
       window.alert("Error:" + error.message);
       });
-      await sleep(10000);
+
+      setTimeout(function(){
+        jQuery('#Registro').modal('hide')
+      },1000);
+
       var n = 10000;
       var l = document.getElementById("contador");
       window.setInterval(function(){
         l.innerHTML = n;
         n--;
       },1000);
+      document.getElementById("registro").style.display = "none";  
+      document.getElementById("registro_completado").style.display = "block";    
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
