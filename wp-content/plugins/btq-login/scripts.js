@@ -37,8 +37,6 @@ if (user) {
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
-      document.getElementById("registro").style.display = "none";  
-      document.getElementById("registro_completado").style.display = "block";    
 
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
@@ -49,15 +47,18 @@ function nuevo_usuario(){
       window.alert("Error:" + error.message);
       });
 
+
+      document.getElementById("registro").style.display = "none";  
+      document.getElementById("registro_completado").style.display = "block";    
+
       setTimeout(function(){
-        while ( n > 0){
         var n = 10;
         var l = document.getElementById("contador");
         window.setInterval(function(){
           l.innerHTML = n;
           n--;
         });
-      }
+      jQuery('#Registro').modal('hide')
       },1000);
 
 }
