@@ -47,15 +47,15 @@ function nuevo_usuario(){
       });
 
       setTimeout(function(){
+        var n = 10000;
+        var l = document.getElementById("contador");
+        window.setInterval(function(){
+          l.innerHTML = n;
+          n--;
+        },1000);
         jQuery('#Registro').modal('hide')
-      },1000);
+      },10000);
 
-      var n = 10000;
-      var l = document.getElementById("contador");
-      window.setInterval(function(){
-        l.innerHTML = n;
-        n--;
-      },1000);
       document.getElementById("registro").style.display = "none";  
       document.getElementById("registro_completado").style.display = "block";    
 }
