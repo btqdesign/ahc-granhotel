@@ -36,7 +36,7 @@ if (user) {
 
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
-function nuevo_usuario(){  
+function nuevo_usuario(){
       document.getElementById("registro").style.display = "none";  
       document.getElementById("registro_completado").style.display = "block";    
 
@@ -49,14 +49,17 @@ function nuevo_usuario(){
       window.alert("Error:" + error.message);
       });
 
+      var n = 10;
       setTimeout(function(){
-        var n = 10;
+        while (n > 0){
         var l = document.getElementById("contador");
         window.setInterval(function(){
           l.innerHTML = n;
           n--;
         },1000);
+      }
       },10000);
+    
       jQuery('#Registro').modal('hide')
       document.getElementById("user_div").style.display = "block";
 
