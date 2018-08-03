@@ -56,10 +56,7 @@ function nuevo_usuario(){
         l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
         n--;
           }
-      },1000);
-      document.getElementById("registro_completado").style.display = "block";   
-
-    
+      },1000);    
       jQuery('#Registro').modal('hide')
       document.getElementById("user_div").style.display = "block"; 
     
