@@ -47,7 +47,6 @@ function nuevo_usuario(){
       window.alert("Error:" + error.message);
       });
 
-      function registro_exitoso(){
       document.getElementById("registro").style.display = "none";
       document.getElementById("registro_completado").style.display = "block";   
       var n = 10;
@@ -58,7 +57,7 @@ function nuevo_usuario(){
         n--;
           }
       },1000);
-    }
+    
       jQuery('#Registro').modal('hide')
       document.getElementById("user_div").style.display = "block"; 
     
