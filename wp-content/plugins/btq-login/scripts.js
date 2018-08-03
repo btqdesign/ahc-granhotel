@@ -50,9 +50,9 @@ function nuevo_usuario(){
       });
 
       setTimeout(function(){
+        while ( n > 0){
         var n = 10;
         var l = document.getElementById("contador");
-        while ( n > 0){
         window.setInterval(function(){
           l.innerHTML = n;
           n--;
