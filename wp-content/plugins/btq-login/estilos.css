@@ -102,7 +102,7 @@
           color: #c69807;
       }
 
-      #registro_completado{
+      #registro_completado, #contraseña_restaurada{
         display: none;
       }
 
