@@ -4,6 +4,7 @@
       <!-- Inicializacion de Firebase -->
       <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js"></script>
+      
       <!-- Css Personalizado -->
       <link rel="stylesheet" type="text/css" href="estilos.css">
       <!-- Css Bootstrap -->
@@ -56,7 +57,7 @@
 
 
 
-          <button id="botones" type="button" onclick="pestaña_registro()" class="btn btn-primary" data-toggle="modal" data-target="#Registro">Registro</button>
+          <button id="botones" type="button" class="btn btn-primary" data-toggle="modal" data-target="#Registro">Registro</button>
           <!-- Modal -->
       <div class="modal fade" id="Registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -74,7 +75,7 @@
                     <h3>Registrate con tu correo: </h3>
                     <input type="email" placeholder="Correo" id="new_email_field" required/>
                     <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                    <button onclick="nuevo_usuario()" data-dismiss="modal">Finaliza tu registro </button>
+                    <button onclick="nuevo_usuario()">Finaliza tu registro </button>
                   </div>
                   <!-- Aqui termina html para registro de usuario por correo -->   
                   <div class="hidden">
