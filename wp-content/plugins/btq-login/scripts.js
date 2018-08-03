@@ -50,7 +50,7 @@ function nuevo_usuario(){
       });
 
       setTimeout(function(){
-        var n = 10000;
+        var n = 10;
         var l = document.getElementById("contador");
         window.setInterval(function(){
           l.innerHTML = n;
