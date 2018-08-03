@@ -58,6 +58,7 @@ function nuevo_usuario(){
 
       document.getElementById("registro").style.display = "none";
       document.getElementById("registro_completado").style.display = "block";   
+      /*
       var n = 10;
       var l = document.getElementById("contador");
       window.setInterval(function(){
@@ -68,7 +69,8 @@ function nuevo_usuario(){
       },1000);    
       jQuery('#Registro').modal('hide')
 
-        document.getElementById("user_div").style.display = "block"; 
+        document.getElementById("user_div").style.display = "block";
+        */
     }, function(error) {
         // Handle Errors here.
         var errorCode = error.code;
