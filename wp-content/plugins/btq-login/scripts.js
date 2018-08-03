@@ -37,16 +37,6 @@ if (user) {
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
-
-      var newuserEmail = document.getElementById("new_email_field").value;
-      var newuserPass = document.getElementById("new_password_field").value;
-      firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
-      // Errores en caso de que no se pueda registrar
-      var errorCode = error.code;
-      var errorMessage = error.message; 
-      window.alert("Error:" + error.message);
-      });
-
       document.getElementById("registro").style.display = "none";
       document.getElementById("registro_completado").style.display = "block";   
       var n = 10;
@@ -57,7 +47,21 @@ function nuevo_usuario(){
         n--;
           }
       },1000);    
+      jQuery('#Registro').modal('hide')
       document.getElementById("user_div").style.display = "block"; 
+
+
+
+      var newuserEmail = document.getElementById("new_email_field").value;
+      var newuserPass = document.getElementById("new_password_field").value;
+      firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
+      // Errores en caso de que no se pueda registrar
+      var errorCode = error.code;
+      var errorMessage = error.message; 
+      window.alert("Error:" + error.message);
+      });
+
+
     
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
