@@ -44,7 +44,14 @@ function nuevo_usuario(){
       var newuserPass = document.getElementById("new_password_field").value;
       
       firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
-      
+        var n = 10;
+        var l = document.getElementById("contador");
+        window.setInterval(function(){
+          if ( n > -1){
+          l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
+          n--;
+            }
+        },1000);
        setTimeout( function(){
           jQuery('#Registro').modal('hide');
           document.getElementById("user_div").style.display = "block";
