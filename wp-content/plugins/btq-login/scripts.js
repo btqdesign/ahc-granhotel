@@ -53,12 +53,11 @@ function nuevo_usuario(){
       var n = 10;
         var l = document.getElementById("contador");
         window.setInterval(function(){
+          while( n > 0){
           l.innerHTML = n;
           n--;
-          setTimeout(function(){
+        }
             jQuery('#Registro').modal('hide')
-    
-          },10000);
         },1000);
 
 
