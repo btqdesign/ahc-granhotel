@@ -53,13 +53,25 @@ function nuevo_usuario(){
 
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
+      
+      /*
       firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).catch(function(error) {
       // Errores en caso de que no se pueda registrar
       var errorCode = error.code;
       var errorMessage = error.message; 
       window.alert("Error:" + error.message);
-      document.getElementById("user_div").style.display = "block"; 
-      });    
+      });*/
+      
+    firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
+        //var user = firebase.auth().currentUser;
+        //logUser(user); // Optional
+        document.getElementById("user_div").style.display = "block"; 
+    }, function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        window.alert("Error:" + errorMessage);
+    });
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 
