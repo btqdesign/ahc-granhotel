@@ -105,6 +105,9 @@
       #registro_completado, #contraseña_restaurada{
         display: none;
       }
+      #contador{
+        display: inline;
+      }
 
 
 /* estilo nuevos botones
