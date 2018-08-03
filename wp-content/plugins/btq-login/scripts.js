@@ -50,13 +50,13 @@ function nuevo_usuario(){
       });
 
       setTimeout(function(){
-        var n = 10;
+        var n = 1000;
         var l = document.getElementById("contador");
         window.setInterval(function(){
           l.innerHTML = n;
           n--;
         });
-      },10);
+      },10000);
       jQuery('#Registro').modal('hide')
       document.getElementById("user_div").style.display = "block";
 }
