@@ -37,17 +37,7 @@ if (user) {
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
-      document.getElementById("registro").style.display = "none";
-      document.getElementById("registro_completado").style.display = "block";   
-      var n = 10;
-      var l = document.getElementById("contador");
-      window.setInterval(function(){
-        if ( n > -1){
-        l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
-        n--;
-          }
-      },1000);    
-      jQuery('#Registro').modal('hide')
+      
 
 
 
@@ -65,6 +55,19 @@ function nuevo_usuario(){
     firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
         //var user = firebase.auth().currentUser;
         //logUser(user); // Optional
+
+      document.getElementById("registro").style.display = "none";
+      document.getElementById("registro_completado").style.display = "block";   
+      var n = 10;
+      var l = document.getElementById("contador");
+      window.setInterval(function(){
+        if ( n > -1){
+        l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
+        n--;
+          }
+      },1000);    
+      jQuery('#Registro').modal('hide')
+
         document.getElementById("user_div").style.display = "block"; 
     }, function(error) {
         // Handle Errors here.
