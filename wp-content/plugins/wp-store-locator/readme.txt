@@ -4,8 +4,8 @@ Contributors: tijmensmit
 Donate link: https://www.paypal.me/tijmensmit
 Tags: google maps, store locator, business locations, geocoding, stores, geo, zipcode locator, dealer locater, geocode, gmaps, google map, google map plugin, location finder, map tools, shop locator, wp google map
 Requires at least: 3.7
-Tested up to: 4.9.4
-Stable tag: 2.2.15
+Tested up to: 4.9.8
+Stable tag: 2.2.16
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -125,6 +125,9 @@ If you find a plugin or theme that causes a conflict, please report it on the [s
 4. The plugin settings
 
 == Changelog ==
+
+= 2.2.16, August 14, 2018 =
+* Changed: Set the Google Maps API version to 3.33 to prevent [weekly API updates](https://developers.google.com/maps/documentation/javascript/versions) from suddenly breaking the map. You can overwrite the version number with the wpsl_gmap_api_version filter.
 
 = 2.2.15, May 24, 2018 =
 * Added: Included a 'Export Location Data' button in the admin editor to make it easier to handle possible GDPR data access requests. If you want to, then you can hide it with [this](https://wpstorelocator.co/document/wpsl_enable_export_option/) filter.

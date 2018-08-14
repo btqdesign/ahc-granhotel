@@ -50,6 +50,11 @@ function wpsl_get_gmap_api_params( $api_key_type, $geocode_params = false ) {
         $api_params .= '&libraries=places';
     }
 
+    if ( $api_key_type == 'browser_key' ) {
+        $api_version = apply_filters( 'wpsl_gmap_api_version', '3.33' );
+        $api_params .= '&v=' . $api_version;
+    }
+
     return apply_filters( 'wpsl_gmap_api_params', $api_params );
 }
 
