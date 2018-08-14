@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.24
+Version: 7.10.25
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,7 +11,10 @@ Domain Path: /languages
 */
 
 /*
- * 7.10.24 :- Low Priority
+ * 7.10.25 :- 2018-08-10 :- Low priority
+ * Fixed "Undefined variable" notice
+ *
+ * 7.10.24 :- 2018-08-01 :- Low Priority
  * Added regex callback for class autoloader for installations where token_get_all is not available
  * Added spatial function prefix to spatial data migration function
  * Added lat and lng properties to GoogleGeocoder result (for Pro 5 & UGM compatibility)
@@ -2809,7 +2812,7 @@ function wpgmaps_tag_basic( $atts ) {
     else if ($map_align == "3") { $map_align = "float:right;"; }
     else if ($map_align == "4") { $map_align = ""; }
 	
-    $map_style = "style=\"display:block; overflow:auto; width:".$res->map_width."".$map_width_type."; height:".$res->map_height."".$map_height_type."; $map_align $map_border_style\"";
+    $map_style = "style=\"display:block; overflow:auto; width:".$res->map_width."".$map_width_type."; height:".$res->map_height."".$map_height_type."; $map_align\"";
 	
     $map_other_settings = maybe_unserialize($res->other_settings);
     $sl_data = "";
