@@ -3,7 +3,7 @@ Contributors: WPGMaps, NickDuncan, CodeCabin_, DylanAuty, PerryRylance
 Donate link: http://www.wpgmaps.com
 Tags: google maps, maps, map, map markers, google map, google maps plugin, wp google maps, wp google map, map plugin, directions, google map plugin, map widget
 Requires at least: 3.5
-Tested up to: 4.9.7
+Tested up to: 4.9.8
 Requires PHP: 5.3
 Stable tag: trunk
 License: GPLv2
@@ -215,6 +215,28 @@ We no longer support timthumb and we have opted to remove it from WP Google Maps
 Please upgrade your version of WP Google Maps to version 6.0.27 as it includes multiple security improvements.
 
 == Changelog ==
+
+= 7.10.27 :- 2018-08-17 :- Low priority =
+* Added wpgmza_xml_cache_generated filter
+* Added wpgmza_xml_cache_saved action
+* Improved return_polyline_array function making edit polyline page more robust
+* Fixed Google API loading before consent given when "Require consent before load" checked
+
+= 7.10.26 :- 2018-08-15 :- Low priority =
+* Improved Google API error handling back end, module issues more comprehensive alerts
+* GoogleAPIErrorHandler moved to /js/v8/google-api-error-handler.js
+* Added CSS fix for recent Google UI changes (Buttons in triplicate)
+
+= 7.10.25 :- 2018-08-10 :- Low priority =
+* Fixed "Undefined variable" notice
+
+= 7.10.24 :- 2018-07-31 :- Low Priority =
+* Added regex callback for class autoloader for installations where token_get_all is not available
+* Added spatial function prefix to spatial data migration function
+* Added lat and lng properties to GoogleGeocoder result (for Pro 5 & UGM compatibility)
+* Altered Map module to deserialize other_settings and merge into the map settings object
+* Altered parent:: to \Exception:: in CSS selector parser
+* Fixed version detection for MySQL 8
 
 = 7.10.23 :- 2018-07-23 :- Medium priority =
 * Fixed REST API endpoint URL incorrect for installations in subfolders

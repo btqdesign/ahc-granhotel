@@ -114,6 +114,9 @@ class GoogleMapsAPILoader
 		if(GoogleMapsAPILoader::$googleAPILoadCalled)
 			return;
 		
+		if(!$this->isIncludeAllowed())
+			return;
+		
 		$params = $this->getGoogleMapsAPIParams();
 		
 		$suffix = $params['suffix'];
@@ -140,6 +143,9 @@ class GoogleMapsAPILoader
 	
 	public function enqueueGoogleMaps()
 	{
+		if(!$this->isIncludeAllowed())
+			return;
+		
 		wp_enqueue_script('wpgmza_api_call');
 	}
 	

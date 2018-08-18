@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.25
+Version: 7.10.27
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,10 +11,21 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.27 :- 2018-08-17 :- Low priority
+ * Added wpgmza_xml_cache_generated filter
+ * Added wpgmza_xml_cache_saved action
+ * Improved return_polyline_array function making edit polyline page more robust
+ * Fixed Google API loading before consent given when "Require consent before load" checked
+ *
+ * 7.10.26 :- 2018-08-15 :- Low priority
+ * Improved Google API error handling back end, module issues more comprehensive alerts
+ * GoogleAPIErrorHandler moved to /js/v8/google-api-error-handler.js
+ * Added CSS fix for recent Google UI changes (Buttons in triplicate)
+ *
  * 7.10.25 :- 2018-08-10 :- Low priority
  * Fixed "Undefined variable" notice
  *
- * 7.10.24 :- 2018-08-01 :- Low Priority
+ * 7.10.24 :- 2018-07-31 :- Low Priority
  * Added regex callback for class autoloader for installations where token_get_all is not available
  * Added spatial function prefix to spatial data migration function
  * Added lat and lng properties to GoogleGeocoder result (for Pro 5 & UGM compatibility)
@@ -1691,6 +1702,7 @@ function wpgmaps_admin_javascript_basic() {
                     }
                     ?>
                 ];
+				
                 var WPGM_PathLine_<?php echo $poly_id; ?> = new google.maps.Polyline({
                   path: WPGM_PathLineData_<?php echo $poly_id; ?>,
                   strokeColor: "<?php echo $linecolor; ?>",
@@ -2211,28 +2223,21 @@ function wpgmaps_update_xml_file($mapid = false) {
     
     $xml_marker_location = wpgmza_return_marker_path(); 
     
-    if (is_multisite()) {
-        global $blog_id;
-        if ($dom->save($xml_marker_location.$blog_id.'-'.$mapid.'markers.xml') == FALSE) {
-          return new WP_Error( 'db_query_error', __( 'Could not save XML file' ), "Could not save marker XML file (".$xml_marker_location.$blog_id."-".$mapid."markers.xml) for Map ID $mapid" );
-        }
-    } else {
-        
-
-        /* PREVIOUS VERSION HANDLING */
-        if (function_exists('wpgmza_register_pro_version')) {
-            $prov = get_option("WPGMZA_PRO");
-            $wpgmza_pro_version = $prov['version'];
-            if ($dom->save($xml_marker_location.$mapid.'markers.xml') == FALSE) {
-                return new WP_Error( 'db_query_error', __( 'Could not save XML file' ), "Could not save marker XML file (".$xml_marker_location.$mapid."markers.xml) for Map ID $mapid" );
-            }
-        }
-        else {
-            if ($dom->save($xml_marker_location.$mapid.'markers.xml') == FALSE) {
-                return new WP_Error( 'db_query_error', __( 'Could not save XML file' ), "Could not save marker XML file (".$xml_marker_location.$mapid."markers.xml) for Map ID $mapid" );
-            }
-        }
-    }
+	$dom = apply_filters('wpgmza_xml_cache_generated', $dom);
+	
+	if(is_multisite())
+	{
+		global $blog_id;
+		$dest = $xml_marker_location.$blog_id.'-'.$mapid.'markers.xml';
+	}
+	else
+		$dest = $xml_marker_location.$mapid.'markers.xml';
+	
+	if(!$dom->save($dest))
+		return new WP_Error( 'db_query_error', __( 'Could not save XML file' ), "Could not save marker XML file ($dest) for Map ID $mapid" );
+	
+	do_action('wpgmza_xml_cache_saved', $dest);
+	
     return true;
    
 }
@@ -2836,18 +2841,25 @@ function wpgmaps_tag_basic( $atts ) {
 	});*/
 
 	$core_dependencies = array('wpgmza');
-	if(!empty($wpgmza_settings['wpgmza_settings_remove_api']))
+	
+	$apiLoader = new WPGMZA\GoogleMapsAPILoader();
+	// if(!empty($wpgmza_settings['wpgmza_settings_remove_api']))
+		
+	if($apiLoader->isIncludeAllowed())
+	{
 		$core_dependencies[] = 'wpgmza_api_call';
+		
+		if($wpgmza->settings->engine == 'google-maps')
+		{
+			wp_enqueue_script('wpgmza_canvas_layer_options', plugin_dir_url(__FILE__) . 'lib/CanvasLayerOptions.js', array('wpgmza_api_call'));
+			wp_enqueue_script('wpgmza_canvas_layer', plugin_dir_url(__FILE__) . 'lib/CanvasLayer.js', array('wpgmza_api_call'));
+		}
+	}
     
 	//$googleMapsAPILoader = new WPGMZA\GoogleMapsAPILoader();
 	//if(!$googleMapsAPILoader->isIncludeAllowed())
 		//wp_deregister_script('wpgmza_api_call');
 	
-	if($wpgmza->settings->engine == 'google-maps')
-	{
-		wp_enqueue_script('wpgmza_canvas_layer_options', plugin_dir_url(__FILE__) . 'lib/CanvasLayerOptions.js', array('wpgmza_api_call'));
-		wp_enqueue_script('wpgmza_canvas_layer', plugin_dir_url(__FILE__) . 'lib/CanvasLayer.js', array('wpgmza_api_call'));
-	}
     wp_enqueue_script('wpgmaps_core', plugins_url('/js/wpgmaps.js',__FILE__), $core_dependencies, $wpgmza_version.'b' , false);
 	
 	$wpgmza->loadScripts();
