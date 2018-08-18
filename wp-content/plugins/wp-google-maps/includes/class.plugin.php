@@ -95,6 +95,12 @@ class Plugin
 				
 				return $result;
 				break;
+				
+			case "gdprCompliance":
+				// Temporary shim
+				global $wpgmzaGDPRCompliance;
+				return $wpgmzaGDPRCompliance;
+				break;
 		}
 		
 		return $this->{$name};
