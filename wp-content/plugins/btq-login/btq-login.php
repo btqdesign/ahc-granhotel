@@ -42,7 +42,7 @@ function btq_login_scripts() {
       wp_enqueue_script( 'firebase-auth', 'https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js', array(), '5.0.4');
       
 
-      wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebase'), '1.0');
+      wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array(), '1.0');
 
 
       wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), '3.3.1', $in_footer = true);
