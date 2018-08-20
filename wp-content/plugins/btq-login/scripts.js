@@ -160,6 +160,7 @@ function google_login(){
 
 var provider = new firebase.auth.GoogleAuthProvider();
   document.getElementById("register_success").style.display = "none";
+
   firebase.auth().signInWithPopup(provider).then(function(result) {
     // Te da el token de google. Se usa para iniciar en la api
     var token = result.credential.accessToken;
@@ -177,6 +178,7 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Si la credencial de auth ya esta usada.
     var credential = error.credential;
     // ...
+    document.getElementById("user_already_exist_fb").style.display = "block";
 });
 }
 //Aqui termina funcion para iniciar sesion con google
@@ -210,6 +212,7 @@ function facebook_login(){
     // La credencial Auth ya esta usada
     var credential = error.credential;
     // ...
+    document.getElementById("user_already_exist_fb").style.display = "block";
   });
 }
 //Aqui termina funcion para iniciar sesion con facebook
@@ -227,13 +230,3 @@ function recuperar_contrasena(){
       document.getElementById("recover_fail").style.display = "block";
     });
 }
-
-
-
-/*jQuery(document).ready(function(){
-  jQuery('.Input').keypress(function(e){
-    if(e.keyCode==13)
-    jQuery('.Boton').click();
-  });
-});
-*/

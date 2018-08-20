@@ -103,7 +103,7 @@
         color: #c69807;
       }
 
-      #registro_completado, #contraseña_restaurada, #email_void, #pass_invalid, #user_non_exist, #user_already_exist, #internal_error, #user_already_exist_register, #email_void_register, #passwords_dont_match, #internal_error_register, #register_success, #password_length, #recover_success, #recover_fail{
+      #registro_completado, #contraseña_restaurada, #email_void, #pass_invalid, #user_non_exist, #user_already_exist, #internal_error, #user_already_exist_register, #email_void_register, #passwords_dont_match, #internal_error_register, #register_success, #password_length, #recover_success, #recover_fail, #user_already_exist_fb, #user_already_exist_google{
         display: none;
       }
       

@@ -34,9 +34,15 @@
                 </div>
                 <div class="modal-body">    
                     <div id="login_div" class="main-div">  
-                      <form>  
+                      <form>
+                        <div id="user_already_exist_fb" class="alert alert-danger" role="alert">
+                              El correo ya esta registrado con otra forma de autenticación.
+                        </div>
                         <button onclick="facebook_login()" data-dismiss="modal"><img src="fb.png"/> Continuar con Facebook </button>
                         <br>
+                        <div id="user_already_exist_google" class="alert alert-danger" role="alert">
+                            El correo ya esta registrado con otra forma de autenticación.
+                      </div>
                         <button onclick="google_login()" data-dismiss="modal"><img src="google.png"/>  Continuar con Google </button>
                         <br>
                         <div id="email_void" class="alert alert-danger" role="alert">
