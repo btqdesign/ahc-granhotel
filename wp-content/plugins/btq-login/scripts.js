@@ -92,7 +92,7 @@ function login(){
         document.getElementById("pass_invalid").style.display = "block";
 
 
-        jQuery( "Iniciar_Sesion" ).click();
+        jQuery( "#botones" ).click();
       });
 }
   //aqui termina login con correo y contraseña
