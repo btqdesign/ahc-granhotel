@@ -45,6 +45,7 @@ function nuevo_usuario(){
 
       if(newuserPass == newuserPassConfirmation){
         firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
+          jQuery('#Registro').modal('hide');
           document.getElementById("botones_primarios").style.display = "none";
           document.getElementById("registro").style.display = "none";
           document.getElementById("register_success").style.display = "block";
