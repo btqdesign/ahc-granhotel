@@ -24,7 +24,7 @@ if (user) {
     if(name == null )
     document.getElementById("user_para").innerHTML = email_id;
     else
-    document.getElementById("user_para").innerHTML = name + "<br/> " +  email_id;
+    document.getElementById("user_para").innerHTML = name + ", " +  email_id;
   }
 } else {
   // Si el usuario no tiene la sesion iniciada
@@ -56,6 +56,14 @@ function nuevo_usuario(){
           document.getElementById("registro").style.display = "none";
           document.getElementById("register_success").style.display = "block";
           document.getElementById("user_div").style.display = "block";
+          var user = firebase.auth().currentUser;
+
+          user.sendEmailVerification().then(function() {
+            // Email sent.
+          }).catch(function(error) {
+            // An error happened.
+            console.log="Error";
+          });
 
       }, function(error) {
           // Handle Errors here.
