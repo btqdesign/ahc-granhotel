@@ -80,7 +80,7 @@ function btq_login_modals() {
         <u data-toggle="modal" data-target="#Iniciar_Sesion"><?php _e('Log in ','btq-login'); ?></u>
           
           <!-- Modal -->
-          <div class="modal fade" id="Iniciar_Sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal hide fade in" data-backdrop="false" id="Iniciar_Sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
