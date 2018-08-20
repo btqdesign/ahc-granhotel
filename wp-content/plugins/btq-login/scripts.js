@@ -103,7 +103,6 @@ function login(){
         // Errores en caso de que no pueda iniciar sesion
         var errorCode = error.code;
         var errorMessage = error.message;
-        window.alert(error.message);
 
         if(error.message == "The email address is badly formatted." )
         document.getElementById("email_void").style.display = "block";
@@ -122,8 +121,6 @@ function login(){
 
         setTimeout(function(){
           jQuery('#Iniciar_Sesion').modal('show');
-          //jQuery( "#botones" ).click();
-          console.log("click boton");
         }, 1500);
         
       });
@@ -170,7 +167,6 @@ var provider = new firebase.auth.GoogleAuthProvider();
     // Si la credencial de auth ya esta usada.
     var credential = error.credential;
     // ...
-    window.alert("Error:" + error.message);
 });
 }
 //Aqui termina funcion para iniciar sesion con google
@@ -202,7 +198,6 @@ function facebook_login(){
     // La credencial Auth ya esta usada
     var credential = error.credential;
     // ...
-    window.alert("Error:" + error.message);
   });
 }
 //Aqui termina funcion para iniciar sesion con facebook
@@ -213,14 +208,12 @@ function recuperar_contrasena(){
 
     var auth = firebase.auth();
     var emailAddress =  document.getElementById("recover_email_field").value; ;
-
     auth.sendPasswordResetEmail(emailAddress).then(function() {
-      // Email sent.
+      document.getElementById("recover_success").style.display = "block";
     }).catch(function(error) {
       // An error happened.
+      document.getElementById("recover_fail").style.display = "block";
     });
-    document.getElementById("recuperado").style.display = "block";
-    document.getElementById("recuperar").style.display = "none";  
 }
 
 

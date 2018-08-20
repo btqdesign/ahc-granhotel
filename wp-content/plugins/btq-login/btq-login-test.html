@@ -142,15 +142,16 @@
               <!-- Aqui inicia html para registro de usuario por correo --> 
               <div id="recuperar" class="loggedin-div">
                 <h3>Ingresa tu correo: </h3>
+                <div id="recover_success" class="alert alert-success" role="alert">
+                    Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.
+                </div>
+                <div id="recover_fail" class="alert alert-danger" role="alert">
+                    No hemos podido enviar el correo de restauración de contraseña, intentalo mas tarde.
+                </div>
                 <input type="email" placeholder="Correo" id="recover_email_field" required/>
                 <button onclick="recuperar_contrasena()">Restablecer tu contraseña </button>
               </div>
               <!-- Aqui termina html para registro de usuario por correo -->     
-              <div id="contraseña_restaurada">
-                <h3>Restablecimiento de Contraseña: </h3>
-                <br
-                <h5>Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.</h5>
-              </div>
         </div>
         <div class="modal-footer">
           <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#Iniciar_Sesion" data-dismiss="modal">Inicia Sesión</u></p>
