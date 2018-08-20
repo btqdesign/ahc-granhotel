@@ -44,27 +44,38 @@ function nuevo_usuario(){
 
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
-      
-      firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
-        var n = 10;
-        var l = document.getElementById("contador");
-        window.setInterval(function(){
-          if ( n > -1){
-          l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
-          n--;
-            }
-        },1000);
-       setTimeout( function(){
-          jQuery('#Registro').modal('hide');
-          document.getElementById("user_div").style.display = "block";
-      },10000);
-      
-    }, function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        window.alert("Error:" + errorMessage);
-    });
+
+      if(new_password_field == password_field_confirmation){
+        firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
+          var n = 10;
+          var l = document.getElementById("contador");
+          window.setInterval(function(){
+            if ( n > -1){
+            l.innerHTML = "Esta ventana se cerrara automaticamente en: " + n;
+            n--;
+              }
+          },1000);
+         setTimeout( function(){
+            jQuery('#Registro').modal('hide');
+            document.getElementById("user_div").style.display = "block";
+        },10000);
+        
+      }, function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          window.alert("Error:" + errorMessage);
+  
+          if(error.message == "The email address is badly formatted." )
+          document.getElementById("email_void_register").style.display = "block";
+  
+          if(error.code == "auth/email-already-exists")
+          document.getElementById("user_already_exist_register").style.display = "block";
+  
+          
+      });}else{
+        document.getElementById("passwords_dont_match").style.display = "block";
+      }
 }
 //Aqui termina la funcion de registrar un nuevo usuario con email y pass
 

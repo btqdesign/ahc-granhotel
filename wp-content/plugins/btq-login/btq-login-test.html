@@ -54,7 +54,6 @@
                         <div id="internal_error" class="alert alert-danger" role="alert">
                               Algo salió mal, vuelve a intentarlo mas tarde.
                         </div>
-                        
                           <form>
                               <input type="email" class="Input" placeholder="Correo" id="email_field" required>
                               <input type="password" class="Input" placeholder="Contraseña" id="password_field" required>
@@ -91,8 +90,27 @@
                   <!-- Aqui inicia html para registro de usuario por correo --> 
                   <div id="registro" class="loggedin-div">
                     <h3>Registrate con tu correo: </h3>
+                    <div id="email_void_register" class="alert alert-danger" role="alert">
+                          El campo de correo esta vacio o no tiene el formato adecuado.
+                    </div>
+                    <div id="user_already_exist_register" class="alert alert-danger" role="alert">
+                          El correo ya esta registrado con otra forma de autenticación.
+                    </div>
+                    <div id="passwords_dont_match" class="alert alert-danger" role="alert">
+                          Las contraseñas no coinciden.
+                    </div>
+
+
+
+
+
+                    <div id="internal_error_register" class="alert alert-danger" role="alert">
+                          Algo salió mal, vuelve a intentarlo mas tarde.
+                    </div>
+
                     <input type="email" placeholder="Correo" id="new_email_field" required/>
                     <input type="password" placeholder="Contraseña" id="new_password_field" required/>
+                    <input type="password" placeholder="Confirma tu contraseña" id="password_field_confirmation" required/>
                     <button onclick="nuevo_usuario()">Finaliza tu registro </button>
                   </div>
                   <!-- Aqui termina html para registro de usuario por correo -->   
