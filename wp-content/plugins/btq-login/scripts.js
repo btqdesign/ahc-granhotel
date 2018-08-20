@@ -89,6 +89,9 @@ function login(){
         if(error.message == "The email address is badly formatted." )
         document.getElementById("email_void").style.display = "block";
 
+        if(error.message == "The password is invalid or the user does not have a password." )
+        document.getElementById("pass_void").style.display = "block";
+
       });
 }
   //aqui termina login con correo y contraseña
