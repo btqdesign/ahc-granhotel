@@ -39,6 +39,12 @@ if (user) {
 
 //Aqui inicia la funcion de registrar un nuevo usuario con email y pass
 function nuevo_usuario(){
+      document.getElementById("email_void_register").style.display = "none";
+      document.getElementById("user_already_exist_register").style.display = "none";
+      document.getElementById("password_length").style.display = "none";
+      document.getElementById("internal_error_register").style.display = "none";
+      document.getElementById("passwords_dont_match").style.display = "none";
+
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
       var newuserPassConfirmation = document.getElementById("password_field_confirmation").value;
@@ -55,7 +61,6 @@ function nuevo_usuario(){
           // Handle Errors here.
           var errorCode = error.code;
           var errorMessage = error.message;
-          window.alert("Error:" + errorMessage);
   
           if(error.message == "The email address is badly formatted." )
           document.getElementById("email_void_register").style.display = "block";
@@ -68,7 +73,7 @@ function nuevo_usuario(){
 
           if(error.code == "auth/internal-error")
           document.getElementById("internal_error_register").style.display = "block";
-
+          
       });}else{
         document.getElementById("passwords_dont_match").style.display = "block";
       }
