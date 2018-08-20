@@ -172,6 +172,13 @@
             "wpgmza"
         ]
     },
+    "wpgmza-google-ui-compatibility": {
+        "src": "js\/v8\/compatibility\/google-ui-compatibility.js",
+        "pro": false,
+        "dependencies": [
+            "wpgmza"
+        ]
+    },
     "wpgmza-google-circle": {
         "src": "js\/v8\/google-maps\/google-circle.js",
         "pro": false,
