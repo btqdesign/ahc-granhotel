@@ -83,6 +83,7 @@ function login(){
         // Errores en caso de que no pueda iniciar sesion
         var errorCode = error.code;
         var errorMessage = error.message;
+        window.alert(error.message);
       });
 }
   //aqui termina login con correo y contraseña
