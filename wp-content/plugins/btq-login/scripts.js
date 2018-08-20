@@ -84,6 +84,11 @@ function login(){
         var errorCode = error.code;
         var errorMessage = error.message;
         window.alert(error.message);
+        document.getElementById("login_div").style.display = "block";
+
+        if(error.message == "The email address is badly formatted." )
+        document.getElementById("email_void").style.display = "block";
+
       });
 }
   //aqui termina login con correo y contraseña
