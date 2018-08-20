@@ -63,6 +63,9 @@ function nuevo_usuario(){
           if(error.code == "auth/email-already-exists")
           document.getElementById("user_already_exist_register").style.display = "block";
   
+          if(error.message == "Password should be at least 6 characters" )
+          document.getElementById("password_length").style.display = "block";
+
           
       });}else{
         document.getElementById("passwords_dont_match").style.display = "block";
