@@ -93,6 +93,7 @@ function nuevo_usuario(){
  //login con correo y contraseña
 function login(){
 
+    document.getElementById("register_success").style.display = "none";
     document.getElementById("email_void").style.display = "none";
     document.getElementById("pass_invalid").style.display = "none";
     document.getElementById("user_non_exist").style.display = "none";
@@ -158,6 +159,7 @@ function logout(){
 function google_login(){
 
 var provider = new firebase.auth.GoogleAuthProvider();
+  document.getElementById("register_success").style.display = "none";
   firebase.auth().signInWithPopup(provider).then(function(result) {
     // Te da el token de google. Se usa para iniciar en la api
     var token = result.credential.accessToken;
@@ -186,6 +188,8 @@ var provider = new firebase.auth.GoogleAuthProvider();
 //Aqui inicia funcion para iniciar sesion con facebook
 
 function facebook_login(){
+  document.getElementById("register_success").style.display = "none";
+
 
   var provider = new firebase.auth.FacebookAuthProvider();
   
