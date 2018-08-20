@@ -90,7 +90,7 @@ function login(){
         document.getElementById("email_void").style.display = "block";
 
         if(error.message == "The password is invalid or the user does not have a password." )
-        document.getElementById("pass_void").style.display = "block";
+        document.getElementById("pass_invalid").style.display = "block";
 
       });
 }
