@@ -93,11 +93,15 @@ function login(){
         if(error.message == "The password is invalid or the user does not have a password." )
         document.getElementById("pass_invalid").style.display = "block";
 
+        if(error.message == "There is no user record corresponding to this identifier. The user may have been deleted." )
+        document.getElementById("user_non_exist").style.display = "block";
+
+
         setTimeout(function(){
           jQuery('#Iniciar_Sesion').modal('show');
           //jQuery( "#botones" ).click();
           console.log("click boton");
-        }, 3000);
+        }, 1500);
         
       });
 }
