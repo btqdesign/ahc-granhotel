@@ -73,7 +73,7 @@ function nuevo_usuario(){
 
           if(error.code == "auth/internal-error")
           document.getElementById("internal_error_register").style.display = "block";
-          
+
       });}else{
         document.getElementById("passwords_dont_match").style.display = "block";
       }
@@ -84,6 +84,12 @@ function nuevo_usuario(){
 
  //login con correo y contraseña
 function login(){
+
+    document.getElementById("email_void").style.display = "none";
+    document.getElementById("pass_invalid").style.display = "none";
+    document.getElementById("user_non_exist").style.display = "none";
+    document.getElementById("user_already_exist").style.display = "none";
+    document.getElementById("internal_error").style.display = "none";
 
     var userEmail = document.getElementById("email_field").value;
     var userPass = document.getElementById("password_field").value;
