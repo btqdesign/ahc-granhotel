@@ -97,7 +97,10 @@ function login(){
         document.getElementById("user_non_exist").style.display = "block";
 
         if(error.code == "auth/email-already-exists")
+        document.getElementById("user_already_exist").style.display = "block";
 
+        if(error.code == "auth/internal-error")
+        document.getElementById("internal_error").style.display = "block";
 
         setTimeout(function(){
           jQuery('#Iniciar_Sesion').modal('show');

@@ -102,7 +102,7 @@
           color: #c69807;
       }
 
-      #registro_completado, #contraseña_restaurada, #email_void, #pass_invalid, #user_non_exist, #user_already_exist{
+      #registro_completado, #contraseña_restaurada, #email_void, #pass_invalid, #user_non_exist, #user_already_exist,#internal_error{
         display: none;
       }
       
