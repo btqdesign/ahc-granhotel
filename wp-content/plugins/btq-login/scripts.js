@@ -91,8 +91,10 @@ function login(){
         if(error.message == "The password is invalid or the user does not have a password." )
         document.getElementById("pass_invalid").style.display = "block";
 
-
+        jQuery('#Iniciar_Sesion').modal('show');
+        /*
         jQuery( "#botones" ).click();
+        */
         console.log("click");
       });
 }
