@@ -66,7 +66,9 @@ function nuevo_usuario(){
           if(error.message == "Password should be at least 6 characters" )
           document.getElementById("password_length").style.display = "block";
 
-          
+          if(error.code == "auth/internal-error")
+          document.getElementById("internal_error_register").style.display = "block";
+
       });}else{
         document.getElementById("passwords_dont_match").style.display = "block";
       }
