@@ -1,3 +1,5 @@
+jQuery(document).ready(function(){
+
 // Aqui se inicializa firebase
 var config = {
 	apiKey: "AIzaSyAJKAc_-VwG7Lt_LeSjbNnr8LEzms1WJxk",
@@ -202,3 +204,5 @@ function recuperar_contrasena(){
   });
 });
 */
+
+});
