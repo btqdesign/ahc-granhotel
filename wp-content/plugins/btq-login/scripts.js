@@ -96,6 +96,8 @@ function login(){
         if(error.message == "There is no user record corresponding to this identifier. The user may have been deleted." )
         document.getElementById("user_non_exist").style.display = "block";
 
+        if(error.code == "auth/email-already-exists")
+
 
         setTimeout(function(){
           jQuery('#Iniciar_Sesion').modal('show');
