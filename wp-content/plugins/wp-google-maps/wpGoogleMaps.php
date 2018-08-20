@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.27
+Version: 7.10.28
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,10 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.28 :- 2018-08-20 :- Low priority
+ * Fixed engine being switched to OpenLayers following saving settings on a fresh install
+ * Added CSS fix for recent Google UI changes for MacOS / iOS + Safari
+ *
  * 7.10.27 :- 2018-08-17 :- Low priority
  * Added wpgmza_xml_cache_generated filter
  * Added wpgmza_xml_cache_saved action
@@ -4648,8 +4652,8 @@ function wpgmaps_settings_page_basic() {
 			
 			";
 			
-			$use_google_maps_selected 		= (isset($wpgmza_settings['wpgmza_maps_engine']) && $wpgmza_settings['wpgmza_maps_engine'] == 'google-maps' ? 'selected="selected"' : "");
-			$use_open_street_map_selected 	= (empty($wpgmza_settings['wpgmza_maps_engine']) || $wpgmza_settings['wpgmza_maps_engine'] == 'open-layers' ? 'selected="selected"' : "");
+			$use_google_maps_selected			= (empty($wpgmza_settings['wpgmza_maps_engine']) || $wpgmza_settings['wpgmza_maps_engine'] == 'google-maps' ? 'selected="selected"' : "");
+			$use_open_street_map_selected 		= (isset($wpgmza_settings['wpgmza_maps_engine']) && $wpgmza_settings['wpgmza_maps_engine'] == 'open-layers' ? 'selected="selected"' : "");
 			
 			$ret .= "
 			
