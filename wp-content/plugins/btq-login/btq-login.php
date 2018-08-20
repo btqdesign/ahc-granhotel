@@ -36,13 +36,20 @@ load_plugin_textdomain('btq-login', false, basename( dirname( __FILE__ ) ) . '/l
 function btq_login_scripts() {
     if (!is_admin()) {
 	    wp_enqueue_style( 'bootstrap4', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css', 'solaz-child-style','4.1.1');
-	    wp_enqueue_style( 'btq-login', plugins_url( 'estilos.css', __FILE__ ), array('solaz-child-style','bootstrap4'),'1.0');
-      wp_enqueue_script( 'firebase', 'https://www.gstatic.com/firebasejs/5.0.4/firebase.js', array(), '5.0.4');
+      wp_enqueue_style( 'btq-login', plugins_url( 'estilos.css', __FILE__ ), array('solaz-child-style','bootstrap4'),'1.0');
+      
       wp_enqueue_script( 'firebase-app', 'https://www.gstatic.com/firebasejs/4.12.1/firebase-app.js', array(), '5.0.4');
-	    wp_enqueue_script( 'firebase.auth', 'https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js', array(), '5.0.4');
-	    wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
-	    wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
-	    wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebase'), '1.0');
+      wp_enqueue_script( 'firebase-auth', 'https://www.gstatic.com/firebasejs/4.12.1/firebase-auth.js', array(), '5.0.4');
+      
+
+      wp_enqueue_script( 'btq-login-js', plugins_url( 'scripts.js', __FILE__ ), array('firebase'), '1.0');
+
+
+      wp_enqueue_script( 'jquery', 'https://code.jquery.com/jquery-3.3.1.slim.min.js', array(), '3.3.1');
+      wp_enqueue_script( 'popper', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js', array(), '1.14.3');
+      wp_enqueue_script( 'bootstrap4js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js', array(), '4.1.1');
+
+
 	}
 }
 add_action( 'wp_enqueue_scripts', 'btq_login_scripts', 1 );
