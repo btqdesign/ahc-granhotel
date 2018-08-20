@@ -179,6 +179,9 @@ var provider = new firebase.auth.GoogleAuthProvider();
     var credential = error.credential;
     // ...
     document.getElementById("user_already_exist_fb").style.display = "block";
+    setTimeout(function(){
+      jQuery('#Iniciar_Sesion').modal('show');
+    }, 1500);
 });
 }
 //Aqui termina funcion para iniciar sesion con google
@@ -213,6 +216,9 @@ function facebook_login(){
     var credential = error.credential;
     // ...
     document.getElementById("user_already_exist_fb").style.display = "block";
+    setTimeout(function(){
+      jQuery('#Iniciar_Sesion').modal('show');
+    }, 1500);
   });
 }
 //Aqui termina funcion para iniciar sesion con facebook
