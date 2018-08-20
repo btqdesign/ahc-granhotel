@@ -93,6 +93,7 @@ function login(){
 
 
         jQuery( "#botones" ).click();
+        console.log("click");
       });
 }
   //aqui termina login con correo y contraseña
