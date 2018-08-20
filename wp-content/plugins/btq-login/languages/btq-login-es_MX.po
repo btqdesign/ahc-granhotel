@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: BTQ Login\n"
-"POT-Creation-Date: 2018-08-20 15:41-0500\n"
-"PO-Revision-Date: 2018-08-20 15:42-0500\n"
+"POT-Creation-Date: 2018-08-20 15:48-0500\n"
+"PO-Revision-Date: 2018-08-20 15:49-0500\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: es_MX\n"
@@ -76,8 +76,8 @@ msgid "Log in to your account"
 msgstr "Acceder a tu cuenta"
 
 #: btq-login.php:129 btq-login.php:216
-msgid "Not a member?"
-msgstr "¿No estás registrado?"
+msgid "Not a member? "
+msgstr "¿No estás registrado? "
 
 #: btq-login.php:129 btq-login.php:139 btq-login.php:145 btq-login.php:216
 msgid "Sign up"
@@ -104,8 +104,8 @@ msgid "Finalize your registration"
 msgstr "Finaliza tu registro"
 
 #: btq-login.php:177 btq-login.php:215
-msgid "Already a member?"
-msgstr "¿Ya eres usuario?"
+msgid "Already a member? "
+msgstr "¿Ya eres usuario? "
 
 #: btq-login.php:177 btq-login.php:215
 msgid "Log in"
@@ -141,7 +141,7 @@ msgstr ""
 
 #: btq-login.php:230
 msgid "Welcome: "
-msgstr "Bienvenido:"
+msgstr "Bienvenido: "
 
 #: btq-login.php:232
 msgid "Log out"
