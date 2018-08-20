@@ -1,4 +1,4 @@
-jQuery(document).ready(function(){
+
 
 // Aqui se inicializa firebase
 var config = {
@@ -93,11 +93,14 @@ function login(){
         if(error.message == "The password is invalid or the user does not have a password." )
         document.getElementById("pass_invalid").style.display = "block";
 
+        jQuery(document).ready(function(){
         jQuery('#Iniciar_Sesion').modal('show');
         /*
         jQuery( "#botones" ).click();
         */
-        console.log("click");
+        console.log("click boton");
+        console.log(jQuery);
+        });
       });
 }
   //aqui termina login con correo y contraseña
@@ -204,5 +207,3 @@ function recuperar_contrasena(){
   });
 });
 */
-
-});
