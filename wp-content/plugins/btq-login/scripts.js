@@ -41,8 +41,9 @@ if (user) {
 function nuevo_usuario(){
       var newuserEmail = document.getElementById("new_email_field").value;
       var newuserPass = document.getElementById("new_password_field").value;
+      var newuserPassConfirmation = document.getElementById("password_field_confirmation").value;
 
-      if(new_password_field == password_field_confirmation){
+      if(newuserPass == newuserPassConfirmation){
         firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
           document.getElementById("botones_primarios").style.display = "none";
           document.getElementById("registro").style.display = "none";
