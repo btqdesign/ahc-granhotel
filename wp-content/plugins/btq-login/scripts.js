@@ -93,14 +93,12 @@ function login(){
         if(error.message == "The password is invalid or the user does not have a password." )
         document.getElementById("pass_invalid").style.display = "block";
 
-        jQuery(document).ready(function(){
-        jQuery('#Iniciar_Sesion').modal('show');
-        /*
-        jQuery( "#botones" ).click();
-        */
-        console.log("click boton");
-        console.log(jQuery);
-        });
+        setTimeout(function(){
+          jQuery('#Iniciar_Sesion').modal('show');
+          //jQuery( "#botones" ).click();
+          console.log("click boton");
+        }, 3000);
+        
       });
 }
   //aqui termina login con correo y contraseña
