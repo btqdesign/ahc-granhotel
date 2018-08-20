@@ -74,11 +74,16 @@ function login(){
     var userEmail = document.getElementById("email_field").value;
     var userPass = document.getElementById("password_field").value;
 
-    firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-      // Errores en caso de que no pueda iniciar sesion
-      var errorCode = error.code;
-      var errorMessage = error.message;
-    });
+    firebase.auth().signInWithEmailAndPassword(userEmail, userPass)
+      .then(function(firebaseUser) {
+        document.getElementById("botones_primarios").style.display = "none";
+        document.getElementById("user_div").style.display = "block";
+      })
+      .catch(function(error) {
+        // Errores en caso de que no pueda iniciar sesion
+        var errorCode = error.code;
+        var errorMessage = error.message;
+      });
 }
   //aqui termina login con correo y contraseña
 
