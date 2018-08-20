@@ -95,12 +95,12 @@ function btq_login_modals() {
                           <div id="user_already_exist_fb" class="alert alert-danger" role="alert">
                                 <?php _e('The email is already registered with another form of authentication.','btq-login'); ?>
                           </div>
-                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', _FILE_ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
+                        <button onclick="facebook_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'fb.png', __FILE__ ); ?>"/><?php _e('Continue with Facebook','btq-login'); ?></button>
                         <br>
                           <div id="user_already_exist_google" class="alert alert-danger" role="alert">
                                 <?php _e('The email is already registered with another form of authentication.','btq-login'); ?>
                         </div>
-                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png', _FILE_ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
+                        <button onclick="google_login()" data-dismiss="modal"><img src="<?php echo plugins_url( 'google.png', __FILE__ ); ?>"/><?php _e('Continue with Google','btq-login'); ?></button>
                         <br>
                           <div id="email_void" class="alert alert-danger" role="alert">
                                 <?php _e('The mail field is empty or does not have the proper format.','btq-login'); ?>
@@ -138,7 +138,7 @@ function btq_login_modals() {
 
           <u data-toggle="modal" data-target="#Registro"><?php _e('Sign up','btq-login'); ?></u>
           <!-- Modal -->
-      <div class="modal fade" id="Registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal hide fade in" data-backdrop="false" id="Registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -186,7 +186,7 @@ function btq_login_modals() {
 
 
       <!-- Modal -->
-  <div class="modal fade" id="Restablecer_Pass" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal hide fade in" data-backdrop="false" id="Restablecer_Pass" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
