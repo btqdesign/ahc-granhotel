@@ -71,14 +71,14 @@ function btq_login_modals() {
 
       <div id="botones_primarios"> 
         <!-- Button trigger modal -->
-        <u data-toggle="modal" data-target="#Iniciar_Sesion"><?php _e('Log in: ','btq-login'); ?></u>
+        <u data-toggle="modal" data-target="#Iniciar_Sesion"><?php _e('Log in ','btq-login'); ?></u>
           
           <!-- Modal -->
           <div class="modal fade" id="Iniciar_Sesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Log in: ','btq-login'); ?></h5>
+                  <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Log in ','btq-login'); ?></h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
