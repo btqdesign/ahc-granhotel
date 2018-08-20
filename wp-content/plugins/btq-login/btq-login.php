@@ -120,9 +120,8 @@ function btq_login_modals() {
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <p>¿No eres miembro? <u data-toggle="modal" data-target="#Registro" data-dismiss="modal">Registrate</u></p>
-                  <p class="Footer_Text" data-toggle="modal" data-target="#Restablecer_Pass" data-dismiss="modal">¿Olvidaste tu contraseña?</p>
-
+                  <p><?php _e('Not a member?','btq-login'); ?><u data-toggle="modal" data-target="#Registro" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?><</u></p>
+                  <p class="Footer_Text" data-toggle="modal" data-target="#Restablecer_Pass" data-dismiss="modal"><?php _e('Did you forget your password?','btq-login'); ?></p>
                 </div>
               </div>
             </div>
@@ -131,13 +130,13 @@ function btq_login_modals() {
 
 
 
-          <u data-toggle="modal" data-target="#Registro">Registro</u>
+          <u data-toggle="modal" data-target="#Registro"><?php _e('Sign up','btq-login'); ?></u>
           <!-- Modal -->
       <div class="modal fade" id="Registro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Registrate</h5>
+              <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Sign up','btq-login'); ?></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -146,35 +145,31 @@ function btq_login_modals() {
             <div class="modal-body">    
                   <!-- Aqui inicia html para registro de usuario por correo --> 
                   <div id="registro" class="loggedin-div">
-                    <h3>Registrate con tu correo: </h3>
+                    <h3><?php _e('Register with your mail:','btq-login'); ?></h3>
                     <div id="email_void_register" class="alert alert-danger" role="alert">
-                          El campo de correo esta vacio o no tiene el formato adecuado.
+                          <?php _e('The mail field is empty or does not have the proper format.','btq-login'); ?>
                     </div>
                     <div id="user_already_exist_register" class="alert alert-danger" role="alert">
-                          El correo ya esta registrado con otra forma de autenticación.
+                          <?php _e('The email is already registered with another form of authentication.','btq-login'); ?>
                     </div>
                     <div id="passwords_dont_match" class="alert alert-danger" role="alert">
-                          Las contraseñas no coinciden.
+                          <?php _e('The email and password do not match.','btq-login'); ?>
                     </div>
                     <div id="password_length" class="alert alert-danger" role="alert">
-                        La contraseña debe tener almenos 6 caracteres.
+                          <?php _e('The password must be at least 6 characters.','btq-login'); ?>
                     </div>
-
-
-
-
                     <div id="internal_error_register" class="alert alert-danger" role="alert">
-                          Algo salió mal, vuelve a intentarlo mas tarde.
+                          <?php _e('Something went wrong, try again later.','btq-login'); ?>
                     </div>
 
-                    <input type="email" placeholder="Correo" id="new_email_field" required/>
-                    <input type="password" placeholder="Contraseña" id="new_password_field" required/>
-                    <input type="password" placeholder="Confirma tu contraseña" id="password_field_confirmation" required/>
-                    <button onclick="nuevo_usuario()">Finaliza tu registro </button>
+                    <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="new_email_field" required/>
+                    <input type="password" placeholder="<?php _e('Password','btq-login'); ?>" id="new_password_field" required/>
+                    <input type="password" placeholder="<?php _e('Confirm your password','btq-login'); ?>" id="password_field_confirmation" required/>
+                    <button onclick="nuevo_usuario()"><?php _e('Finalize your registration','btq-login'); ?></button>
                   </div>
                   <div class="modal-footer">
-                    <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#Iniciar_Sesion" data-dismiss="modal">Inicia Sesión</u></p>
-                    <p class="Footer_Text" class="Footer_Text" data-toggle="modal" data-target="#Restablecer_Pass" data-dismiss="modal">¿Olvidaste tu contraseña?</p> 
+                    <p><?php _e('Already a member?','btq-login'); ?><u data-toggle="modal" data-target="#Iniciar_Sesion" data-dismiss="modal"><?php _e('Log in','btq-login'); ?></u></p>
+                    <p class="Footer_Text" data-toggle="modal" data-target="#Restablecer_Pass" data-dismiss="modal"><?php _e('Did you forget your password?','btq-login'); ?></p>
                   </div>  
             </div>
           </div>
@@ -189,7 +184,7 @@ function btq_login_modals() {
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Restablecer Contraseña</h5>
+          <h5 class="modal-title" id="exampleModalLongTitle"><?php _e('Restore password','btq-login'); ?></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -198,21 +193,21 @@ function btq_login_modals() {
         <div class="modal-body">    
               <!-- Aqui inicia html para registro de usuario por correo --> 
               <div id="recuperar" class="loggedin-div">
-                <h3>Ingresa tu correo: </h3>
+                <h3><?php _e('Enter your email:','btq-login'); ?></h3>
                 <div id="recover_success" class="alert alert-success" role="alert">
-                    Hemos enviado un correo de restablecimiento de contraseña al correo que nos proporcionaste.
+                      <?php _e('We have sent a password reset email to the email address you provided.','btq-login'); ?>
                 </div>
                 <div id="recover_fail" class="alert alert-danger" role="alert">
-                    No hemos podido enviar el correo de restauración de contraseña, intentalo mas tarde.
+                      <?php _e('We were unable to send the password restoration email, try again later.','btq-login'); ?>
                 </div>
-                <input type="email" placeholder="Correo" id="recover_email_field" required/>
-                <button onclick="recuperar_contrasena()">Restablecer tu contraseña </button>
+                <input type="email" placeholder="<?php _e('Email','btq-login'); ?>" id="recover_email_field" required/>
+                <button onclick="recuperar_contrasena()"><?php _e('Restore password','btq-login'); ?></button>
               </div>
               <!-- Aqui termina html para registro de usuario por correo -->     
         </div>
         <div class="modal-footer">
-          <p>¿Ya eres miembro? <u data-toggle="modal" data-target="#Iniciar_Sesion" data-dismiss="modal">Inicia Sesión</u></p>
-          <p>¿No eres miembro? <u data-toggle="modal" data-target="#Registro" data-dismiss="modal">Registrate</u></p>
+          <p><?php _e('Already a member?','btq-login'); ?><u data-toggle="modal" data-target="#Iniciar_Sesion" data-dismiss="modal"><?php _e('Log in','btq-login'); ?></u></p>
+          <p><?php _e('Not a member?','btq-login'); ?><u data-toggle="modal" data-target="#Registro" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?><</u></p>
         </div>
       </div>
     </div>
@@ -224,11 +219,11 @@ function btq_login_modals() {
       <!-- Aqui inicia html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
       <div id="user_div" class="loggedin-div">
           <div id="register_success" class="alert alert-success" role="alert">
-              Tu registro se ha completado correctamente, hemos iniciado sesion automaticamente por ti.
+              <?php _e('Your registration has been completed correctly, we have logged in automatically for you.','btq-login'); ?>
           </div>            
-        <h3>Bienvenido: </h3>
+        <h3><?php _e('Welcome: ','btq-login'); ?></h3>
         <p id="user_para"></p>
-        <button onclick="logout()">Cerrar Sesión</button>
+        <button onclick="logout()"><?php _e('Log out','btq-login'); ?></button>
       </div>
       <!-- Aqui termina html en caso de iniciar sesion con cualquier metodo, muestra esta pestaña -->
 
