@@ -126,7 +126,7 @@ function btq_login_modals() {
                     </div>
                 </div>
                 <div class="modal-footer">
-                  <p><?php _e('Not a member?','btq-login'); ?><u data-toggle="modal" data-target="#Registro" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?></u></p>
+                  <p><?php _e('Not a member? ','btq-login'); ?><u data-toggle="modal" data-target="#Registro" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?></u></p>
                   <p class="Footer_Text" data-toggle="modal" data-target="#Restablecer_Pass" data-dismiss="modal"><?php _e('Did you forget your password?','btq-login'); ?></p>
                 </div>
               </div>
@@ -213,7 +213,7 @@ function btq_login_modals() {
         </div>
         <div class="modal-footer">
           <p><?php _e('Already a member? ','btq-login'); ?><u data-toggle="modal" data-target="#Iniciar_Sesion" data-dismiss="modal"><?php _e('Log in','btq-login'); ?></u></p>
-          <p><?php _e('Not a member?','btq-login'); ?><u data-toggle="modal" data-target="#Registro" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?></u></p>
+          <p><?php _e('Not a member? ','btq-login'); ?><u data-toggle="modal" data-target="#Registro" data-dismiss="modal"><?php _e('Sign up','btq-login'); ?></u></p>
         </div>
       </div>
     </div>
