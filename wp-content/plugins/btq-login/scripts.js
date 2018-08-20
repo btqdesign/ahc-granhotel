@@ -92,7 +92,7 @@ function login(){
         document.getElementById("pass_invalid").style.display = "block";
 
 
-        
+        jQuery( "#Iniciar_Sesion" ).click();
         document.getElementById("Iniciar_Sesion").style.display = "block";
       });
 }
