@@ -47,6 +47,7 @@ function nuevo_usuario(){
         firebase.auth().createUserWithEmailAndPassword(newuserEmail, newuserPass).then(function(user) {
           document.getElementById("botones_primarios").style.display = "none";
           document.getElementById("registro").style.display = "none";
+          document.getElementById("register_success").style.display = "block";
           document.getElementById("user_div").style.display = "block";
 
       }, function(error) {
