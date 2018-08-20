@@ -78,9 +78,7 @@ function login(){
       // Errores en caso de que no pueda iniciar sesion
       var errorCode = error.code;
       var errorMessage = error.message;
-      document.getElementById("botones_primarios").style.display = "none";
     });
-    document.getElementById("user_div").style.display = "block";
 }
   //aqui termina login con correo y contraseña
 
