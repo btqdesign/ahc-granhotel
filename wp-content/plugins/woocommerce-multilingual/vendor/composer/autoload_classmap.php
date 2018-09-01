@@ -469,6 +469,7 @@ return array(
     'WCML_WPSEO' => $baseDir . '/compatibility/class-wcml-wpseo.php',
     'WCML_Widgets' => $baseDir . '/inc/class-wcml-widgets.php',
     'WCML_WooCommerce_Rest_API_Support' => $baseDir . '/inc/class-wcml-woocommerce-rest-api-support.php',
+    'WCML_Woo_Var_Table' => $baseDir . '/compatibility/class-wcml-woo-var-table.php',
     'WCML_Wpb_Vc' => $baseDir . '/compatibility/class-wcml-wpb-vc.php',
     'WCML_YITH_WCQV' => $baseDir . '/compatibility/class-wcml-yith-wcqv.php',
     'WCML_gravityforms' => $baseDir . '/compatibility/class-wcml-gravityforms.php',

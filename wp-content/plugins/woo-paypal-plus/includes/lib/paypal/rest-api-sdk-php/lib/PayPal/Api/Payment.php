@@ -569,6 +569,7 @@ class Payment extends PayPalResourceModel
     public function create($apiContext = null, $restCall = null)
     {
         $payLoad = $this->toJSON();
+        $payLoad = apply_filters('angelleye_application_context_filter', $payLoad);
         $json = self::executeCall(
             "/v1/payments/payment",
             "POST",

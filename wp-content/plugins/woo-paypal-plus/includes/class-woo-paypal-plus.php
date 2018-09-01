@@ -56,7 +56,7 @@ class Woo_Paypal_Plus {
     public function __construct() {
 
         $this->plugin_name = 'woo-paypal-plus';
-        $this->version = '1.0.12';
+        $this->version = '1.1.4';
 
         $this->load_dependencies();
         $this->set_locale();
@@ -151,6 +151,8 @@ class Woo_Paypal_Plus {
             $this->loader->add_action( 'woocommerce_billing_fields', $plugin_admin , 'angelleye_paypal_plus_br_woocommerce_billing_fields', 10, 1 );
         }
         $this->loader->add_filter( 'pre_set_site_transient_update_plugins', $plugin_admin , 'angelleye_paypal_plus_pre_set_site_transient_update_plugins', 10, 2 );
+        $this->loader->add_action('woocommerce_email_subject_customer_paid_for_order', $plugin_admin, 'angelleye_email_subject_customer_paid_for_order', 99, 2);
+        $this->loader->add_action('woocommerce_email_heading_customer_paid_for_order', $plugin_admin, 'angelleye_email_heading_customer_paid_for_order', 99, 2);
     }
 
     /**

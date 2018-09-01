@@ -10,7 +10,7 @@
  * Plugin Name:       PayPal Plus for WooCommerce
  * Plugin URI:        http://www.angelleye.com/product/woocommerce-paypal-plus-plugin/
  * Description:       PayPal PLUS is a solution where PayPal offers PayPal, Credit Card and ELV as individual payment options on the payment selection page, loaded within a PayPal hosted iFrame.
- * Version:           1.0.12
+ * Version:           1.1.4
  * Author:            Angell EYE
  * Author URI:        http://www.angelleye.com/
  * License:           GNU General Public License v3.0

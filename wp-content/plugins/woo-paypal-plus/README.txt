@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: paypal, plus, woocommerce
 Requires at least: 3.0.1
 Tested up to: 4.7.4
-Stable tag: 1.0.12
+Stable tag: 1.1.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,14 +16,37 @@ PayPal PLUS is a solution where PayPal offers PayPal, Credit Card and ELV as ind
 
 == Changelog ==
 
-= 1.1.0 = xx.xx.2017 =
-* Feature - Adds PayPal Ratenkauf for WooCommerce compatibility. [#114]
+= 1.1.4 - 08.18.2018 =
+* Feature - Adds credit card logos to PayPal Plus gateway in Woo checkout page. [PPFW-9]
+* Tweak - Adjusts Experience Profile integration based on latest PayPal SDK updates. [PPFW-1]
+* Tweak - Removes unnecessary request data. [PPFW-7]
+* Fix - Resolves a conflict with Woo Germanized causing duplicate emails to be triggered. [PPFW-11]
+* Fix - Resolves a screen size conflict with the latest version of WooCommerce. [PPFW-18]
+* Fix - Resolves a problem with the Credit Card Icon upload button not functioning properly. [PPFW-19]
+* Fix - Resolves an issue where Woo Germanized would sometimes result in duplicate order emails getting sent. [PPFW-21]
+
+= 1.1.3 - 09.02.2017 =
+* Fix - Resolves a conflict with refunds when Woo Germanized is enabled. [#141]
+
+= 1.1.2 - 08.25.2017 =
+* Fix - Resolves an issue with orders where the setting for decimal places in WooCommerce settings is 0. [#139]
+
+= 1.1.1 - 08.22.2017 =
+* Tweak - Order review page adjustments. [#138]
+* Fix - Resolves an issue with order totals in some scenarios. [#129]
+
+= 1.1.0 - 08.11.2017 =
+* Feature - Adds PayPal Ratenzahlung for WooCommerce compatibility. [#114]
 * Feature - Adds an option to disable Germanized email adjustments so it works more smoothly with PayPal Plus. [#98]
 * Feature - Adds Pay by Invoice details to PDF invoice sent by PDF Invoices and Packing Slips plugin. [#123]
 * Tweak - Adjustments to Mexico / Brazil integration for Plus. [#115]
 * Tweak - Adjustments for better WPML compatibility. [#90]
 * Tweak - Deletes database settings when plugin is uninstalled. [#102]
 * Tweak - Allows you to enable PayPal Plus even with unsupported currency set in WC, but provides a notice that you'll need to use a currency conversion plugin. [#116]
+* Tweak - Show the transaction ID on the success page after a completed sale. [#131]
+* Tweak - Updates German language files. [#132]
+* Tweak - Adds Spanish and Portuguese language files. [#134]
+* Tweak - Removes miniBrowser option in JS to avoid mobile conflicts. [#135]
 * Fix - Resolves issue where additional fees added to an order caused errors. [#127]
 * Fix - Resolves issues with information links. [#122]
 * Fix - Resolves a problem with the gateway title not displaying correctly on the front-end during checkout. [#86]

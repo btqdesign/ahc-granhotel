@@ -24,7 +24,7 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
 
     public function __construct() {
         $this->id = 'paypal_plus';
-        $this->icon = apply_filters('woocommerce_paypal_plus_icon', '');
+        
         $this->has_fields = true;
         $this->home_url = is_ssl() ? home_url('/', 'https') : home_url('/');
         $this->relay_response_url = WC()->api_request_url( 'Woo_Paypal_Plus_Gateway' );
@@ -51,6 +51,11 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         $this->debug = 'yes' === $this->get_option( 'debug', 'no' );
         $this->log_enabled    = $this->debug;
         $this->invoice_prefix = $this->get_option('invoice_prefix');
+        $this->icon = $this->get_option('card_icon', plugins_url('/assets/images/paypal-credit-card-logos.png', plugin_basename(dirname(__FILE__))));
+        if ( is_ssl()) {
+            $this->icon = preg_replace("/^http:/i", "https:", $this->icon);
+        }
+        $this->icon = apply_filters('woocommerce_paypal_plus_icon', $this->icon);
         $cancel_page_id = $this->get_option('cancel_url', wc_get_page_id( 'checkout' ));
         $this->cancel_url = $this->angelleye_paypal_plus_cancel_page_url($cancel_page_id);
         $this->allowed_currencies = apply_filters('woocommerce_paypal_plus_allowed_currencies', array('EUR', 'CAD', 'BRL', 'MXN'));
@@ -59,9 +64,9 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         $this->checkout_logo = $this->get_option('checkout_logo', false);
         $this->order_cancellations = $this->get_option('order_cancellations', 'disabled');
         $this->supportedLocale = array(
-		'da_DK', 'de_DE', 'en_AU', 'en_GB', 'en_US', 'es_ES', 'fr_CA', 'fr_FR', 'es_MX',
+		'da_DK', 'de_DE', 'en_AU', 'en_GB', 'en_US', 'es_ES', 'fr_CA', 'fr_FR',
 		'he_IL', 'id_ID', 'it_IT', 'ja_JP', 'nl_NL', 'no_NO', 'pl_PL', 'pt_BR',
-		'pt_PT', 'ru_RU', 'sv_SE', 'th_TH', 'tr_TR', 'zh_CN', 'zh_HK', 'zh_TW',
+		'pt_PT', 'ru_RU', 'sv_SE', 'th_TH', 'tr_TR', 'zh_CN', 'zh_HK', 'zh_TW','es_MX'
 	);
         $this->countryLocale = array('BR' => 'pt_BR', 'MX' => 'es_MX', 'DE' => 'de_DE');
         $this->country = apply_filters( 'woocommerce_paypal_plus_country', $this->get_option('country', 'DE'));
@@ -69,25 +74,19 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         $legal_note = __('Händler hat die Forderung gegen Sie im Rahmen eines laufenden Factoringvertrages an die PayPal (Europe) S.àr.l. et Cie, S.C.A. abgetreten. Zahlungen mit schuldbefreiender Wirkung können nur an die PayPal (Europe) S.àr.l. et Cie, S.C.A. geleistet werden.', 'woo-paypal-plus');
         $this->legal_note = $this->get_option('legal_note', $legal_note);
         $this->email_notify_order_cancellations = isset($this->settings['email_notify_order_cancellations']) && $this->settings['email_notify_order_cancellations'] == 'yes' ? true : false;
-        $this->experience_profile_id = $this->angelleye_paypal_plus_get_experience_profile_id();
         $thirdPartyPaymentMethods = $this->get_option('thirdPartyPaymentMethods', 'no');
         $this->thirdPartyPaymentMethods = ($thirdPartyPaymentMethods == 'no') ? false : true;
-        $this->disable_shipping = 'yes' === $this->get_option( 'disable_shipping', 'no' );
-        $this->no_shipping = ( $this->disable_shipping == true) ? 1 : 0;
-        if( $this->country != 'DE' ) {
-            $this->no_shipping == 1;
-        }
         $this->pay_upon_invoice_instructions = $this->get_option( 'pay_upon_invoice_instructions', __('Please transfere the complete amount to the bank account provided below.', 'woo-paypal-plus') );
+	add_action('woocommerce_checkout_order_processed', array($this, 'angelleye_direct_to_do_checkout_wall'), 0, 3);
         $this->disable_instant_order_confirmation = 'yes' === $this->get_option( 'disable_instant_order_confirmation', 'no' );
         if ( $this->country == 'US' || $this->country == 'DE') {
-            
             add_action('woocommerce_receipt_paypal_plus', array($this, 'receipt_page_for_us_de')); // Payment form hook
         } else {
-            $this->order_button_text = apply_filters('paypal_plus_order_button_text', __('Pasar a Pagar', 'woo-paypal-plus'), $this->country, $this->language);
+            $this->order_button_text = apply_filters('paypal_plus_order_button_text', __('Enter payment details', 'woo-paypal-plus'), $this->country, $this->language);
             add_action('woocommerce_receipt_paypal_plus', array($this, 'receipt_page_for_br_mx')); // Payment form hook
         }
         add_action('woocommerce_api_' . strtolower(get_class()), array($this, 'executepay'), 12);
-        include_once( 'lib/autoload.php' ); //include PayPal SDK
+        include_once( PIWF_PLUGIN_PATH . '/includes/lib/autoload.php' ); //include PayPal SDK
         if (!defined("PP_CONFIG_PATH")) {
             define("PP_CONFIG_PATH", __DIR__);
         }
@@ -96,6 +95,7 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         
         add_action('woocommerce_email_before_order_table', array($this, 'email_instructions'), 10, 3);
         add_action('woocommerce_email_customer_details', array($this, 'angelleye_paypal_plus_legal_note'), 30, 3);
+        add_filter('angelleye_application_context_filter', array($this, 'angelleye_application_context_filter'), 10, 1);
         if ($this->is_available()) {
             if( $this->thirdPartyPaymentMethods == true && ($this->country == 'US' || $this->country == 'DE')) {
                 add_filter('woocommerce_update_order_review_fragments', array($this, 'angelleye_woocommerce_update_order_review_fragments'));
@@ -109,13 +109,14 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             new Woo_Paypal_Plus_Paypal_IPN_Handler( $mode );
             $this->calculation = new PayPal_Plus_Gateway_Calculation_AngellEYE();
         }
-        add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'angelleye_paypal_plus_web_profile'), 10);
         add_action('woocommerce_update_options_payment_gateways_' . $this->id, array($this, 'process_admin_options'), 9999);
         if ( in_array( 'woocommerce-germanized/woocommerce-germanized.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
             add_filter( 'woocommerce_germanized_send_instant_order_confirmation', array($this, 'angelleye_woocommerce_germanized_send_instant_order_confirmation'), 10, 2 );
             add_filter( 'woocommerce_gzd_instant_order_confirmation', array($this, 'angelleye_woocommerce_gzd_instant_order_confirmation'), 10, 1 );
         }
         add_action('angelleye_paypal_plus_pay_by_invoice_instructions', array($this, 'angelleye_paypal_plus_pay_by_invoice_instructions'), 10, 1);
+        add_filter( 'woocommerce_gateway_title', array($this, 'woocommerce_gateway_title'), 10, 1);
+        add_filter('woocommerce_get_order_item_totals', array($this, 'angelleye_woocommerce_get_order_item_totals'), 10, 2);
     }
 
     /**
@@ -125,11 +126,7 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
      */
     public function is_available() {
         if ($this->enabled === "yes") {
-            
             if (!$this->rest_client_id || !$this->rest_secret_id) {
-                return false;
-            }
-            if ($this->is_web_profile_created() == false) {
                 return false;
             }
             return true;
@@ -150,14 +147,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         return false;
     }
 
-    public function is_web_profile_created() {
-        if (empty($this->experience_profile_id)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
     /**
      * Admin Panel Options
      * - Settings
@@ -171,15 +160,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         <p><?php _e('PayPal PLUS is a solution where PayPal offers PayPal, Credit Card and ELV as individual payment options on the payment selection page. The available payment methods are provided in a PayPal hosted iFrame.', 'woo-paypal-plus'); ?></p>
         <table class="form-table">
             <?php
-            if ($this->is_web_profile_created() == false && $this->angelleye_paypal_plus_is_credentials_set()) {
-                ?>
-                <div class="error inline">
-                    <p><strong><?php _e('PayPal PLUS Disabled', 'woo-paypal-plus'); ?></strong>: <?php _e('No experience profile id. Check Client ID and Secret ID and then save settings to create a new experience profile.', 'woo-paypal-plus'); ?></p>
-                </div>
-                <?php
-            }
-            ?>
-            <?php
             if (!in_array(get_option('woocommerce_currency'), $this->allowed_currencies)) {
                 ?>
                 <div class="inline error"><p><strong><?php _e('PayPal Plus Notice', 'woo-paypal-plus'); ?></strong>: <?php _e('PayPal Plus only supports for the following currencies: EUR, CAD, BRL, MXN.  You will need to use a currency conversion plugin if you have your site setup with an unsupported currency.', 'woo-paypal-plus'); ?></p></div>
@@ -187,13 +167,12 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 
             }
                 $this->generate_settings_html();
+                wp_enqueue_media();
                 ?>
                 <script type="text/javascript">
                     jQuery('#woocommerce_paypal_plus_testmode').change(function () {
-                        jQuery("#woocommerce_paypal_plus_live_experience_profile_id").prop("readonly", true);
-                        jQuery("#woocommerce_paypal_plus_sandbox_experience_profile_id").prop("readonly", true);
-                        sandbox = jQuery('#woocommerce_paypal_plus_rest_client_id_sandbox, #woocommerce_paypal_plus_rest_secret_id_sandbox, #woocommerce_paypal_plus_sandbox_experience_profile_id').closest('tr'),
-                        production = jQuery('#woocommerce_paypal_plus_rest_client_id, #woocommerce_paypal_plus_rest_secret_id, #woocommerce_paypal_plus_live_experience_profile_id').closest('tr');
+                        sandbox = jQuery('#woocommerce_paypal_plus_rest_client_id_sandbox, #woocommerce_paypal_plus_rest_secret_id_sandbox').closest('tr'),
+                        production = jQuery('#woocommerce_paypal_plus_rest_client_id, #woocommerce_paypal_plus_rest_secret_id').closest('tr');
                         if (jQuery(this).is(':checked')) {
                             sandbox.show();
                             production.hide();
@@ -202,9 +181,42 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                             production.show();
                         }
                     }).change();
+                    var custom_uploader;
+                    jQuery("#woocommerce_paypal_plus_card_icon").after('<a href="#" id="checkout_logo" class="button_upload button button-secondary-plus">Upload</a>');
+                    jQuery('.button_upload').click(function (e) {
+                        var BTthis = jQuery(this);
+                        e.preventDefault();
+                        //Extend the wp.media object
+                        custom_uploader = wp.media.frames.file_frame = wp.media({
+                            
+                            multiple: false
+                        });
+                        //When a file is selected, grab the URL and set it as the text field's value
+                        custom_uploader.on('select', function () {
+                            var attachment = custom_uploader.state().get('selection').first().toJSON();
+                            var pre_input = BTthis.prev();
+                            var url = attachment.url;
+                            pre_input.val(url);
+                        });
+                        //Open the uploader dialog
+                        custom_uploader.open();
+                    });
                 </script>
+                <style type="text/css">
+                    .button-secondary-plus {
+                        line-height: 32px !important;
+                        height: 32px !important;
+                    }
+                </style>
                 <?php
-           
+                if( $this->is_available() ) {
+                    $this->payment_scripts();
+                    if($this->country == 'US' || $this->country == 'DE'){
+                        echo $this->angelleye_paypal_plus_render_iframe();
+                    }else{
+                        echo $this->angelleye_paypal_plus_br_mx_ui('admin');
+                    }
+                }
             ?>
         </table>
         <?php
@@ -243,6 +255,7 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             'country' => array(
                 'title' => __('PayPal Account Country', 'woo-paypal-plus'),
                 'type' => 'select',
+                'class'    => 'wc-enhanced-select',
                 'description' => __('Set this to the country your PayPal account is based in.', 'woo-paypal-plus'),
                 'default' => 'DE',
                 'options' => array(
@@ -272,13 +285,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 'default' => '',
                 'class' => 'credential_field'
             ),
-            'sandbox_experience_profile_id' => array(
-                'title'       => __( 'Sandbox Experience Profile ID', 'woo-paypal-plus' ),
-                'type'        => 'text',
-                'description' => __( "This value will be automatically generated and populated here when you save your settings.", 'woo-paypal-plus' ),
-                'default'     => '',
-                'class' => 'credential_field readonly'
-            ),
             'rest_client_id' => array(
                 'title' => __('Live Client ID', 'woo-paypal-plus'),
                 'type' => 'password',
@@ -293,13 +299,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 'default' => '',
                 'class' => 'credential_field'
             ),
-            'live_experience_profile_id' => array(
-                'title'       => __( 'Experience Profile ID', 'woo-paypal-plus' ),
-                'type'        => 'text',
-                'description' => __( "This value will be automatically generated and populated here when you save your settings.", 'woo-paypal-plus' ),
-                'default'     => '',
-                'class' => 'credential_field readonly'
-            ),
             'invoice_prefix' => array(
                 'title' => __('Invoice Prefix', 'woo-paypal-plus'),
                 'type' => 'text',
@@ -307,10 +306,17 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 'default' => 'WC-PP-PLUS-',
                 'desc_tip' => true,
             ),
+            'card_icon' => array(
+                'title' => __('Card Icon', 'woo-paypal-plus'),
+                'type' => 'text',
+                'default' => plugins_url('/assets/images/cards.png', plugin_basename(dirname(__FILE__))),
+                'class' => 'paypal_plus_button_upload',
+            ),
             'cancel_url' => array(
                 'title' => __('Cancel Page', 'woo-paypal-plus'),
                 'description' => __('Sets the page users will be returned to if they click the Cancel link on the PayPal checkout pages.', 'woo-paypal-plus'),
                 'type' => 'select',
+                'class'    => 'wc-enhanced-select',
                 'options' => $this->angelleye_paypal_plus_cancel_page_urls(),
                 'default' => wc_get_page_id( 'checkout' )
             ),
@@ -326,19 +332,12 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 'description' => __('Set the URL for a logo to be displayed on the PayPal checkout pages.', 'woo-paypal-plus') . $require_ssl,
                 'default' => ''
             ),
-            'disable_shipping' => array(
-                'title' => __('Disable Shipping Requirements', 'woo-paypal-plus'),
-                'type' => 'checkbox',
-                'label' => __('Disable Shipping Requirements', 'woo-paypal-plus'),
-                'default' => 'no',
-                'description' => __('Check this option to remove shipping options during checkout. This is typically used when selling digital goods that do not require shipping', 'woo-paypal-plus')
-            ),
             'order_cancellations' => array(
                 'title' => __('Auto Cancel / Refund Orders ', 'woo-paypal-plus'),
                 'label' => '',
                 'description' => __('Allows you to cancel and refund orders that do not meet PayPal\'s Seller Protection criteria.', 'woo-paypal-plus'),
                 'type' => 'select',
-                'class' => 'paypal_plus_order_cancellations',
+                'class' => 'paypal_plus_order_cancellations wc-enhanced-select',
                 'options' => array(
                     'no_seller_protection' => __('Do *not* have PayPal Seller Protection', 'woo-paypal-plus'),
                     'no_unauthorized_payment_protection' => __('Do *not* have PayPal Unauthorized Payment Protection', 'woo-paypal-plus'),
@@ -454,7 +453,7 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
     }
 
     public function add_log($message) {
-       if ( $this->log_enabled && $this->mode == 'LIVE') {
+       if ( $this->log_enabled) {
             if ( empty( $this->add_log ) ) {
                 $this->add_log = new WC_Logger();
             }
@@ -469,116 +468,163 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
     }
 
     public function get_approvalurl() {
-        global $woocommerce;
-	if( !empty(WC()->session->approvalurl) ) {
-	    return WC()->session->approvalurl;
-	}
-        if (!empty($_GET['key'])) {
-            $order_key = $_GET['key'];
-            $order_id = wc_get_order_id_by_order_key($order_key);
-            $order = new WC_Order($order_id);
-            WC()->session->ppp_order_id = $order_id;
-        } else {
-            $order = null;
-            $order_id = null;
-        }
-        try {
-            try {
-                if(is_null($order_id)) {
-                    $PaymentData = $this->calculation->cart_calculation();
-                } else {
-                    $PaymentData = $this->calculation->order_calculation($order_id);
-                }
-                $OrderItems = array();
-                $items_list = new ItemList();
-                foreach ($PaymentData['order_items'] as $item) {
-                    $item_object = new Item();
-                    $item_object->setName($item['name'])
-                            ->setCurrency(get_woocommerce_currency())
-                            ->setQuantity($item['qty'])
-                            ->setPrice($item['amt']);
-                    //array_push($OrderItems, $item);
-                    $items_list->addItem($item_object);
-                 }
+        if(is_admin()){
+            try{
+                $payer = new Payer();
+                $payer->setPaymentMethod("paypal");
+                $item1 = new Item();
+                $item1->setName('Pay Wall Demo item')
+                    ->setCurrency(get_woocommerce_currency())
+                    ->setQuantity(1)
+                    ->setSku("123123")
+                    ->setPrice(1);
+                $itemList = new ItemList();
+                $itemList->setItems(array($item1));
+                $details = new Details();
+                $details->setShipping('1.00')
+                    ->setTax('1.00')
+                    ->setSubtotal('1.00');
+                $amount = new Amount();
+                $amount->setCurrency(get_woocommerce_currency())
+                    ->setTotal('3.00')
+                    ->setDetails($details);
+                $transaction = new Transaction();
+                $transaction->setAmount($amount)
+                    ->setItemList($itemList)
+                    ->setDescription("Payment description")
+                    ->setInvoiceNumber(uniqid());
+
                 $redirectUrls = new RedirectUrls();
                 $redirectUrls->setReturnUrl($this->relay_response_url);
                 $redirectUrls->setCancelUrl($this->cancel_url);
-                $payer = new Payer();
-                $payer->setPaymentMethod("paypal");
-                $details = new Details();
-                $details->setShipping($PaymentData['shippingamt']);
-                $details->setTax($PaymentData['taxamt']);
-                $details->setSubtotal($PaymentData['itemamt']); 
-                $amount = new Amount();
-                $amount->setCurrency(get_woocommerce_currency());
-                $amount->setTotal(paypal_plus_number_format($this->get_order_total()));
-                $amount->setDetails($details);
-                
-                if( $order_id != null) { 
-                    $billing_first_name = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_first_name : $order->get_billing_first_name();
-                    $billing_last_name = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_last_name : $order->get_billing_last_name();
-                    $billing_address_1 = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_address_1 : $order->get_billing_address_1();
-                    $billing_address_2 = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_address_2 : $order->get_billing_address_2();
-                    $billing_city = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_city : $order->get_billing_city();
-                    $billing_state = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_state : $order->get_billing_state();
-                    $billing_postcode = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_postcode : $order->get_billing_postcode();
-                    $billing_country = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_country : $order->get_billing_country();
-                    $items_list->setShippingAddress(json_decode('{
-                        "recipient_name": "' . $billing_first_name . ' ' . $billing_last_name . '",
-                        "line1": "' . $billing_address_1 . '",
-                        "line2": "' . $billing_address_2 . '",
-                        "city": "' . $billing_city . '",
-                        "state": "' . $billing_state . '",
-                        "postal_code": "' . $billing_postcode . '",
-                        "country_code": "' . $billing_country . '"
-                    }'));
-                }
-               
-                $transaction = new Transaction();
-                if( $this->country != 'DE' ) {
-                    $payment_options = new PaymentOptions();
-                    $payment_options->setAllowedPaymentMethod('IMMEDIATE_PAY');
-                    $transaction->setPaymentOptions($payment_options);
-                }
-                $transaction->setAmount($amount);
-                $transaction->setDescription('This is the payment transaction description');
-                if( $order_id != null) {
-                    $order_key = version_compare(WC_VERSION, '3.0', '<') ? $order->order_key : $order->get_order_key();
-                    $transaction->setCustom(json_encode(array('order_id' => $order_id, 'order_key' => $order_key)));
-                }
-                $transaction->setItemList($items_list);
-                $transaction->setNotifyUrl( apply_filters('angelleye_paypal_plus_ipn_url', WC()->api_request_url( 'Woo_Paypal_Plus_Gateway' )));
                 $payment = new Payment();
-                $payment->setExperienceProfileId($this->experience_profile_id);
-                $payment->setRedirectUrls($redirectUrls);
-                $payment->setIntent("sale");
-                $payment->setPayer($payer);
-                $payment->setTransactions(array($transaction));
-                try {
+                $payment->setIntent("sale")
+                    ->setPayer($payer)
+                    ->setRedirectUrls($redirectUrls)
+                    ->setTransactions(array($transaction));
+                try{
                     $payment->create($this->getAuth());
-                } catch (PayPal\Exception\PayPalConnectionException $ex) {
-                    wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
-                    $this->angelleye_paypal_plus_redirect();
-                } catch (Exception $ex) {
-                    wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
-                    $this->angelleye_paypal_plus_redirect();
+                }catch (Exception $ex){
+                    return '';
                 }
-                $this->add_log(print_r($payment, true));
-                if ($payment->state == "created" && $payment->payer->payment_method == "paypal") {
-                    WC()->session->paymentId = $payment->id;
-                    WC()->session->approvalurl = isset($payment->links[1]->href) ? $payment->links[1]->href : false;
-                    return isset($payment->links[1]->href) ? $payment->links[1]->href : false;
-                } else {
+                return $payment->getApprovalLink();
+            }catch (Exception $ex){
+                return '';
+            }
+
+        } else {
+            if( !empty(WC()->session->approvalurl) ) {
+                return WC()->session->approvalurl;
+            }
+            if (!empty($_GET['key'])) {
+                $order_key = $_GET['key'];
+                $order_id = wc_get_order_id_by_order_key($order_key);
+                $order = new WC_Order($order_id);
+                WC()->session->ppp_order_id = $order_id;
+            } else {
+                $order = null;
+                $order_id = null;
+            }
+            try {
+                try {
+                    if(is_null($order_id)) {
+                        $PaymentData = $this->calculation->cart_calculation();
+                    } else {
+                        $PaymentData = $this->calculation->order_calculation($order_id);
+                    }
+                    $OrderItems = array();
+                    $items_list = new ItemList();
+                    foreach ($PaymentData['order_items'] as $item) {
+                        $item_object = new Item();
+                        $item_object->setName($item['name'])
+                                ->setCurrency(get_woocommerce_currency())
+                                ->setQuantity($item['qty'])
+                                ->setPrice($item['amt']);
+                        //array_push($OrderItems, $item);
+                        $items_list->addItem($item_object);
+                     }
+                    $redirectUrls = new RedirectUrls();
+                    $redirectUrls->setReturnUrl($this->relay_response_url);
+                    $redirectUrls->setCancelUrl($this->cancel_url);
+                    $payer = new Payer();
+                    $payer->setPaymentMethod("paypal");
+                    $details = new Details();
+                    $details->setShipping($PaymentData['shippingamt']);
+                    $details->setTax($PaymentData['taxamt']);
+                    $details->setSubtotal($PaymentData['itemamt']); 
+                    $amount = new Amount();
+                    $amount->setCurrency(get_woocommerce_currency());
+                    $amount->setTotal(paypal_plus_number_format($this->get_order_total()));
+                    $amount->setDetails($details);
+
+                    if( $order_id != null) { 
+                        $billing_first_name = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_first_name : $order->get_billing_first_name();
+                        $billing_last_name = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_last_name : $order->get_billing_last_name();
+                        $billing_address_1 = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_address_1 : $order->get_billing_address_1();
+                        $billing_address_2 = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_address_2 : $order->get_billing_address_2();
+                        $billing_city = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_city : $order->get_billing_city();
+                        $billing_state = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_state : $order->get_billing_state();
+                        $billing_postcode = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_postcode : $order->get_billing_postcode();
+                        $billing_country = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_country : $order->get_billing_country();
+                        $items_list->setShippingAddress(json_decode('{
+                            "recipient_name": "' . $billing_first_name . ' ' . $billing_last_name . '",
+                            "line1": "' . $billing_address_1 . '",
+                            "line2": "' . $billing_address_2 . '",
+                            "city": "' . $billing_city . '",
+                            "state": "' . $billing_state . '",
+                            "postal_code": "' . $billing_postcode . '",
+                            "country_code": "' . $billing_country . '"
+                        }'));
+                    }
+
+                    $transaction = new Transaction();
+                    if( $this->country != 'DE' ) {
+                        $payment_options = new PaymentOptions();
+                        $payment_options->setAllowedPaymentMethod('IMMEDIATE_PAY');
+                        $transaction->setPaymentOptions($payment_options);
+                    }
+                    $transaction->setAmount($amount);
+                    if( $order_id != null) {
+                        $order_key = version_compare(WC_VERSION, '3.0', '<') ? $order->order_key : $order->get_order_key();
+                        $transaction->setCustom(json_encode(array('order_id' => $order_id, 'order_key' => $order_key)));
+                    }
+                    $transaction->setItemList($items_list);
+                    $transaction->setNotifyUrl( apply_filters('angelleye_paypal_plus_ipn_url', WC()->api_request_url( 'Woo_Paypal_Plus_Gateway' )));
+                    $payment = new Payment();
+                    $payment->setRedirectUrls($redirectUrls);
+                    $payment->setIntent("sale");
+                    $payment->setPayer($payer);
+                    $payment->setTransactions(array($transaction));
+                    try {
+                        $payment->create($this->getAuth());
+                    } catch (PayPal\Exception\PayPalConnectionException $ex) {
+                        $this->add_log(print_r($ex->getMessage(), true));
+                        wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
+                        $this->angelleye_paypal_plus_redirect();
+                    } catch (Exception $ex) {
+                        $this->add_log(print_r($ex->getMessage(), true));
+                        wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
+                        $this->angelleye_paypal_plus_redirect();
+                    }
+                    if ($payment->state == "created" && $payment->payer->payment_method == "paypal") {
+                        WC()->session->paymentId = $payment->id;
+                        WC()->session->approvalurl = isset($payment->links[1]->href) ? $payment->links[1]->href : false;
+                        return isset($payment->links[1]->href) ? $payment->links[1]->href : false;
+                    } else {
+                        $this->add_log(print_r($ex->getMessage(), true));
+                        wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
+                        $this->angelleye_paypal_plus_redirect();
+                    }
+                } catch (Exception $ex) {
+                    $this->add_log(print_r($ex->getMessage(), true));
                     wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
                     $this->angelleye_paypal_plus_redirect();
                 }
             } catch (Exception $ex) {
+                $this->add_log(print_r($ex->getMessage(), true));
                 wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
                 $this->angelleye_paypal_plus_redirect();
             }
-        } catch (Exception $ex) {
-            wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
-            $this->angelleye_paypal_plus_redirect();
         }
     }
 
@@ -607,7 +653,8 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         $invoice_number = preg_replace("/[^a-zA-Z0-9]/", "", $order->get_order_number());
         $patchAdd_custom = new \PayPal\Api\Patch();
         $patchAdd_custom->setOp('add')->setPath('/transactions/0/custom')->setValue(json_encode(array('order_id' => $order_id, 'order_key' => $order_key)));
-        
+        $patchAdd_tran_details = new \PayPal\Api\Patch();
+        $patchAdd_tran_details->setOp('add')->setPath('/transactions/0/description')->setValue(sprintf( __( '%1$s - Order #%2$s', 'woocommerce' ), esc_html( get_bloginfo( 'name', 'display' ) ), $order->get_order_number() ));
         $billing_first_name = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_first_name : $order->get_billing_first_name();
         $billing_last_name = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_last_name : $order->get_billing_last_name();
         $billing_address_1 = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_address_1 : $order->get_billing_address_1();
@@ -616,6 +663,18 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         $billing_state = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_state : $order->get_billing_state();
         $billing_postcode = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_postcode : $order->get_billing_postcode();
         $billing_country = version_compare(WC_VERSION, '3.0', '<') ? $order->billing_country : $order->get_billing_country();
+        
+        $item_lists = array();
+        foreach ($PaymentData['order_items'] as $key => $item) {
+            $item_lists[$key]['name'] = $item['name'];
+            $item_lists[$key]['currency'] = version_compare(WC_VERSION, '3.0', '<') ? $order->get_order_currency() : $order->get_currency();
+            $item_lists[$key]['quantity'] = $item['qty'];
+            $item_lists[$key]['price'] = $item['amt'];
+        }
+        $patchupdateitem = new \PayPal\Api\Patch();
+        $patchupdateitem->setOp('replace')
+                ->setPath('/transactions/0/item_list/items')
+                ->setValue(json_decode(json_encode($item_lists)));
                 
         if (!empty($billing_country)) {
             $patchAdd = new \PayPal\Api\Patch();
@@ -632,11 +691,11 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 }'));
             $patchAddone = new \PayPal\Api\Patch();
             $patchAddone->setOp('add')->setPath('/transactions/0/invoice_number')->setValue($this->invoice_prefix . $invoice_number);
-            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAddone, $patchAdd_custom));
+            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAddone, $patchAdd_custom, $patchupdateitem, $patchAdd_tran_details));
         } else {
             $patchAdd = new \PayPal\Api\Patch();
             $patchAdd->setOp('add')->setPath('/transactions/0/invoice_number')->setValue($this->invoice_prefix . $invoice_number);
-            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAdd_custom));
+            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAdd_custom, $patchupdateitem, $patchAdd_tran_details));
         }
          
         
@@ -683,10 +742,12 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 <?php
             }
         } catch (PayPal\Exception\PayPalConnectionException $ex) {
+            $this->add_log(print_r($ex->getMessage(), true));
             wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
             wp_redirect($woocommerce->cart->get_cart_url());
             exit;
         } catch (Exception $ex) {
+            $this->add_log(print_r($ex->getMessage(), true));
             wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
             wp_redirect($woocommerce->cart->get_cart_url());
             exit;
@@ -737,7 +798,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                     }
                     global $wpdb;
                     $instruction_type = '';
-                    $this->add_log(sprintf(__('Response: %s', 'woo-paypal-plus'), print_r($payment, true)));
                     if( $this->disable_instant_order_confirmation == true ) {
                         do_action( 'woocommerce_before_pay_action', $order );
                     }
@@ -768,6 +828,8 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                             $payment_instruction['recipient_banking_instruction']['international_bank_account_number'] = $international_bank_account_number;
                             $payment_instruction['recipient_banking_instruction']['bank_identifier_code'] = $bank_identifier_code;
                             update_post_meta($order_id, '_payment_instruction_result', $payment_instruction);
+                            update_post_meta($order_id, '_payment_method_title', 'PayPal Plus - Pay by Invoice');
+                            
                         }
                     }
                     $this->angelleye_paypal_plus_update_billing_address($order, $payment);
@@ -792,6 +854,13 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                             update_user_meta($current_user->ID, 'rememberedCards', $_POST['rememberedCards']);
                         }
                     }
+                    if ( in_array( 'woocommerce-germanized/woocommerce-germanized.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
+                        $result = array(
+                            'result'    => 'success',
+                            'redirect'  => $this->get_return_url( $order ),
+                        );
+                        $result = apply_filters( 'woocommerce_payment_successful_result', $result, $order_id );
+                    } 
                     WC()->cart->empty_cart();
                     if (method_exists($order, 'get_checkout_order_received_url')) {
                         $redirect = $order->get_checkout_order_received_url();
@@ -806,10 +875,12 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                     exit;
                 }
             } catch (PayPal\Exception\PayPalConnectionException $ex) {
+                $this->add_log(print_r($ex->getMessage(), true));
                 wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
                 wp_redirect($woocommerce->cart->get_cart_url());
                 exit;
             } catch (Exception $ex) {
+                $this->add_log(print_r($ex->getMessage(), true));
                 wc_add_notice(__("Error processing checkout. Please try again.", 'woo-paypal-plus'), 'error');
                 wp_redirect($woocommerce->cart->get_cart_url());
                 exit;
@@ -866,79 +937,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         }
     }
     
-    public function angelleye_paypal_plus_web_profile() {
-        $this->load_setting = new Woo_Paypal_Plus_Gateway();
-        $comparison = $this->angelleye_paypal_plus_setting_comparison();
-        $testmode = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('testmode'), 'no');
-        if( $comparison == false ) {
-            $sandbox_experience_profile_id = $this->angelleye_paypal_plus_get_option('sandbox_experience_profile_id', '');
-            if ( !empty($sandbox_experience_profile_id) ) {
-                $this->angelleye_paypal_plus_delete_option('sandbox_experience_profile_id');
-            }
-            $live_experience_profile_id = $this->angelleye_paypal_plus_get_option('live_experience_profile_id', '');
-            if ( !empty($live_experience_profile_id) ) {
-                $this->angelleye_paypal_plus_update_option('live_experience_profile_id');
-            }
-            $experience_profile_id = get_option('_experience_profile_id', '');
-            if( !empty($experience_profile_id) ) {
-                delete_option('_experience_profile_id');
-            }
-            $this->create_web_experience_profile();
-        } else {
-            if( $testmode == 'yes' ) {
-                $sandbox_experience_profile_id = $this->angelleye_paypal_plus_get_option('sandbox_experience_profile_id', '');
-                if ( empty($sandbox_experience_profile_id) ) {
-                    $this->create_web_experience_profile();
-                } elseif( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_client_id_sandbox'), 'null') != $this->get_option('rest_client_id_sandbox') ) {
-                    $sandbox_experience_profile_id = $this->angelleye_paypal_plus_get_option('sandbox_experience_profile_id', '');
-                    if ( !empty($sandbox_experience_profile_id) ) {
-                        $this->angelleye_paypal_plus_delete_option('sandbox_experience_profile_id');
-                    }
-                    $experience_profile_id = get_option('_experience_profile_id', '');
-                    if( !empty($experience_profile_id) ) {
-                        delete_option('_experience_profile_id');
-                    }
-                    $this->create_web_experience_profile();
-                } elseif( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_secret_id_sandbox'), null) != $this->get_option('rest_secret_id_sandbox') ) {
-                    $sandbox_experience_profile_id = $this->angelleye_paypal_plus_get_option('sandbox_experience_profile_id', '');
-                    if ( !empty($sandbox_experience_profile_id) ) {
-                        $this->angelleye_paypal_plus_delete_option('sandbox_experience_profile_id');
-                    }
-                    $experience_profile_id = get_option('_experience_profile_id', '');
-                    if( !empty($experience_profile_id) ) {
-                        delete_option('_experience_profile_id');
-                    }
-                    $this->create_web_experience_profile();
-                }
-            } else {
-                $live_experience_profile_id = $this->angelleye_paypal_plus_get_option('live_experience_profile_id', '');
-                if ( empty($live_experience_profile_id) ) {
-                    $this->create_web_experience_profile();
-                } elseif( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_client_id'), null) != $this->get_option('rest_client_id') ) {
-                    $live_experience_profile_id = $this->angelleye_paypal_plus_get_option('live_experience_profile_id', '');
-                    if ( !empty($live_experience_profile_id) ) {
-                        $this->angelleye_paypal_plus_update_option('live_experience_profile_id');
-                    }
-                    $experience_profile_id = get_option('_experience_profile_id', '');
-                    if( !empty($experience_profile_id) ) {
-                        delete_option('_experience_profile_id');
-                    }
-                    $this->create_web_experience_profile();
-                } elseif( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_secret_id'), null) != $this->get_option('rest_secret_id') ) {
-                    $live_experience_profile_id = $this->angelleye_paypal_plus_get_option('live_experience_profile_id', '');
-                    if ( !empty($live_experience_profile_id) ) {
-                        $this->angelleye_paypal_plus_update_option('live_experience_profile_id');
-                    }
-                    $experience_profile_id = get_option('_experience_profile_id', '');
-                    if( !empty($experience_profile_id) ) {
-                        delete_option('_experience_profile_id');
-                    }
-                    $this->create_web_experience_profile();
-                }
-            }
-        }
-    }
-
     public function paypal_plus_frontend_scripts() {
         if (is_checkout()) {
             if (wp_script_is('storefront-sticky-payment', 'enqueued') && $this->is_available()) {
@@ -1062,13 +1060,27 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             $current_user = wp_get_current_user();
             $rememberedCards = get_user_meta($current_user->ID, 'rememberedCards', true);
         }
-        $is_mobile = 'false';
-        if (wp_is_mobile()) {
-            $is_mobile = 'true';
-        }
-        $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $order->id : $order->get_id();
-        $cpf_cnpj_meta = get_post_meta($order_id, '_billing_cpf_cnpj', true);
-        $cpf_cnpj = ( !empty($cpf_cnpj_meta) ) ? $cpf_cnpj_meta : '';
+        if( is_admin() ) {
+            $payerEmail = 'braziltestingpaypalplus@gmail.com';
+            $payerPhone = '9978800036';
+            $payerFirstName = 'test';
+            $payerLastName = 'test';
+            $cpf_cnpj = '';
+            $billing_cpf_cnpj = '';
+            if( $paypal_plus_country == 'BR' ) {
+                $billing_cpf_cnpj = 'BR_CNPJ';
+                $cpf_cnpj = '10878448000166';
+            }
+            $this->angelleye_admin_paypal_payment_wall();
+        } else {
+            $payerEmail = version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_email : $order->get_billing_email();
+            $payerPhone = version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_phone : $order->get_billing_phone();
+            $payerFirstName = version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_first_name : $order->get_billing_first_name();
+            $payerLastName = version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_last_name : $order->get_billing_last_name();
+        
+            $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $order->id : $order->get_id();
+            $cpf_cnpj_meta = get_post_meta($order_id, '_billing_cpf_cnpj', true);
+            $cpf_cnpj = ( !empty($cpf_cnpj_meta) ) ? $cpf_cnpj_meta : '';
         
         $billing_cpf_cnpj = '';
         $person_type = get_post_meta( $order_id, '_billing_persontype', true );
@@ -1080,6 +1092,7 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             }
         }
         $order_button_text = apply_filters('woocommerce_order_button_text', __('Pagar', 'woo-paypal-plus'));
+        
         ?>
         <div id="payment" class="woocommerce-checkout-payment">
             <ul class="wc_payment_methods payment_methods methods"><li><div id="ppplus"> </div></li></ul>
@@ -1095,9 +1108,12 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             </div>
 
         </div>
-
+        <?php } ?>
     <script type="application/javascript">
-            var ppp = PAYPAL.apps.PPP({
+        var ppp;
+        var initPAYPLUS = function(){
+                if(typeof PAYPAL != "undefined") {
+            ppp = PAYPAL.apps.PPP({
             "approvalUrl": "<?php echo $location; ?>",
             "placeholder": "ppplus",
             "useraction": "commit",
@@ -1105,16 +1121,17 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             "country":  "<?php echo $paypal_plus_country; ?>",
             "language": "<?php echo $this->language; ?>",
             "mode": "<?php echo strtolower($this->mode); ?>",
-            "payerEmail": "<?php echo version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_email : $order->get_billing_email(); ?>",
-            "payerPhone": "<?php echo version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_phone : $order->get_billing_phone(); ?>",
-            "payerFirstName": "<?php echo version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_first_name : $order->get_billing_first_name(); ?>",
-            "payerLastName": "<?php echo version_compare( WC_VERSION, '3.0', '<' ) ? $order->billing_last_name : $order->get_billing_last_name(); ?>",
+            "payerEmail": "<?php echo $payerEmail; ?>",
+            "payerPhone": "<?php echo $payerPhone; ?>",
+            "payerFirstName": "<?php echo $payerFirstName; ?>",
+            "payerLastName": "<?php echo $payerLastName; ?>",
             "payerTaxId": "<?php echo $cpf_cnpj; ?>", //blank for MX, but required
             "payerTaxIdType": "<?php echo $billing_cpf_cnpj; ?>", //blank for MX, but required
             "iframeHeight": "500",
+            <?php if( !is_admin() ) { ?>
             "disableContinue": "place_order",
             "enableContinue": "place_order",
-            "miniBrowser": "0",
+            <?php } ?>
             "rememberedCards": "<?php echo $rememberedCards; ?>",
             "onContinue": function (rememberedcards, payerid, token, term) {
                 return true; 
@@ -1123,6 +1140,11 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 jQuery( ".woocommerce" ).unblock();
             }
             });
+            } else {
+                setTimeout(initPAYPLUS, 500);
+            }
+            }
+            initPAYPLUS();
             if (window.addEventListener) { 
                 window.addEventListener("message", messageListener, false);
             } else if (window.attachEvent) {
@@ -1233,6 +1255,22 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
         $shipping_postcode = version_compare(WC_VERSION, '3.0', '<') ? $order->shipping_postcode : $order->get_shipping_postcode();
         $shipping_country = version_compare(WC_VERSION, '3.0', '<') ? $order->shipping_country : $order->get_shipping_country();
         
+        $order_key = version_compare(WC_VERSION, '3.0', '<') ? $order->order_key : $order->get_order_key();
+        $patchAdd_custom = new \PayPal\Api\Patch();
+        $patchAdd_custom->setOp('add')->setPath('/transactions/0/custom')->setValue(json_encode(array('order_id' => $order_id, 'order_key' => $order_key)));
+        
+        $item_lists = array();
+        foreach ($PaymentData['order_items'] as $key => $item) {
+            $item_lists[$key]['name'] = $item['name'];
+            $item_lists[$key]['currency'] = version_compare(WC_VERSION, '3.0', '<') ? $order->get_order_currency() : $order->get_currency();
+            $item_lists[$key]['quantity'] = $item['qty'];
+            $item_lists[$key]['price'] = $item['amt'];
+        }
+        $patchupdateitem = new \PayPal\Api\Patch();
+        $patchupdateitem->setOp('replace')
+                ->setPath('/transactions/0/item_list/items')
+                ->setValue(json_decode(json_encode($item_lists)));
+        
         if (!empty($shipping_country)) {
             $patchAdd = new \PayPal\Api\Patch();
             $patchAdd->setOp('add')
@@ -1248,11 +1286,11 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 }'));
             $patchAddone = new \PayPal\Api\Patch();
             $patchAddone->setOp('add')->setPath('/transactions/0/invoice_number')->setValue($this->invoice_prefix . $invoice_number);
-            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAddone));
+            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAddone, $patchAdd_custom, $patchupdateitem));
         } else {
             $patchAdd = new \PayPal\Api\Patch();
             $patchAdd->setOp('add')->setPath('/transactions/0/invoice_number')->setValue($this->invoice_prefix . $invoice_number);
-            $patchRequest->setPatches(array($patchAdd, $patchReplace));
+            $patchRequest->setPatches(array($patchAdd, $patchReplace, $patchAdd_custom, $patchupdateitem));
         }
         try {
             $result = $payment->update($patchRequest, $this->getAuth());
@@ -1262,10 +1300,12 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
                 return false;
             }
         } catch (PayPal\Exception\PayPalConnectionException $ex) {
+            $this->add_log(print_r($ex->getMessage(), true));
             wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
             wp_redirect($woocommerce->cart->get_cart_url());
             exit;
         } catch (Exception $ex) {
+            $this->add_log(print_r($ex->getMessage(), true));
             wc_add_notice(__("Error processing checkout. Please try again. ", 'woo-paypal-plus'), 'error');
             wp_redirect($woocommerce->cart->get_cart_url());
             exit;
@@ -1336,13 +1376,16 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
     }
 
     public function email_instructions($order, $sent_to_admin, $plain_text = false) {
-        $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $order->id : $order->get_id();
-        $payment_method = version_compare( WC_VERSION, '3.0', '<' ) ? $order->payment_method : $order->get_payment_method();
-        $instruction_type = get_post_meta($order_id, 'instruction_type', true);
-        if ( !empty($instruction_type) &&  $instruction_type == 'PAY_UPON_INVOICE' && $this->pay_upon_invoice_instructions && ! $sent_to_admin && 'paypal_plus' === $payment_method ) {
-          echo wpautop( wptexturize( $this->pay_upon_invoice_instructions ) ) . PHP_EOL;
-          $this->bank_details($order_id);
+        $order_id = version_compare(WC_VERSION, '3.0', '<') ? $order->id : $order->get_id();
+        $payment_method = get_post_meta($order_id, '_payment_method', true);
+        if( !empty($payment_method) && 'paypal_plus' == $payment_method ) {
+            $instruction_type = get_post_meta($order_id, 'instruction_type', true);
+            if ( !empty($instruction_type) &&  $instruction_type == 'PAY_UPON_INVOICE' && $this->pay_upon_invoice_instructions && ! $sent_to_admin ) {
+              echo wpautop( wptexturize( $this->pay_upon_invoice_instructions ) ) . PHP_EOL;
+              $this->bank_details($order_id);
+            }
         }
+        
     }
 
     /**
@@ -1403,15 +1446,18 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
 
     public function angelleye_paypal_plus_legal_note($order, $sent_to_admin, $plain_text = false) {
         $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $order->id : $order->get_id();
-        $payment_method = version_compare( WC_VERSION, '3.0', '<' ) ? $order->payment_method : $order->get_payment_method();
-        $instruction_type = get_post_meta($order_id, 'instruction_type', true);
-        if (!empty($instruction_type) && $instruction_type == 'PAY_UPON_INVOICE') {
-            if (!$sent_to_admin && 'paypal_plus' === $payment_method) {
-                if ($this->legal_note) {
-                    echo wpautop(wptexturize($this->legal_note)) . PHP_EOL;
+        $payment_method = get_post_meta($order_id, '_payment_method', true);
+        if( !empty($payment_method) && 'paypal_plus' == $payment_method ) {
+            $instruction_type = get_post_meta($order_id, 'instruction_type', true);
+            if (!empty($instruction_type) && $instruction_type == 'PAY_UPON_INVOICE') {
+                if (!$sent_to_admin) {
+                    if ($this->legal_note) {
+                        echo wpautop(wptexturize($this->legal_note)) . PHP_EOL;
+                    }
                 }
             }
         }
+        
     }
     
     public function angelleye_get_ec_token_from_approval_url($url){
@@ -1477,8 +1523,10 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
     }
     
     public function angelleye_paypal_plus_render_iframe() {
-        if (!$this->is_available() || WC()->cart->total <= 0) {
-            return;
+        if(!is_admin()) {
+            if (!$this->is_available() || WC()->cart->total <= 0) {
+                return;
+            }
         }
         $paypal_plus_country = $this->angelleye_paypal_plus_get_country();
         $location = $this->get_approvalurl();
@@ -1497,9 +1545,13 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             }
         }
         $third_party = apply_filters('angelleye_paypal_plus_third_party_payment_gateways', $third_party, $is_general_list = false);
+        if(is_admin()) {
+            $this->angelleye_admin_paypal_payment_wall();
+        } else {
         ?>
         <div id="paypal_plus_container">
         <div id="ppplus"></div>
+        <?php } ?>
         <script type="application/javascript">
              var initPAYPLUS = function(){
                 if(typeof PAYPAL != "undefined") {
@@ -1589,117 +1641,6 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
             $locale = substr(get_locale(), 0, 5);
         }
         return $locale;
-    }
-    
-    public function create_web_experience_profile() {
-        $this->debug = 'yes' === $this->angelleye_paypal_plus_get_field_value($this->get_field_key('debug'), 'no');
-        $this->log_enabled    = $this->debug;
-        $this->disable_shipping = 'yes' === $this->angelleye_paypal_plus_get_field_value($this->get_field_key('disable_shipping'), 'no');
-        $testmode = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('testmode'), 'no');
-        $this->mode = ($testmode == 'yes') ? 'SANDBOX' : 'LIVE';
-        $this->checkout_logo = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('checkout_logo'), false);
-        $this->brand_name = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('brand_name'), get_bloginfo('name'));
-        $this->country = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('country'), 'DE');
-        
-        if ( $this->mode == 'SANDBOX') {
-            $this->rest_client_id = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_client_id_sandbox'), ''); 
-            $this->rest_secret_id = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_secret_id_sandbox'), ''); 
-        } else {
-            $this->rest_client_id = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_client_id'), '');
-            $this->rest_secret_id = $this->angelleye_paypal_plus_get_field_value($this->get_field_key('rest_secret_id'), '');
-        }
-        if( empty($this->rest_client_id) && empty($this->rest_secret_id) ) {
-            return false;
-        }
-        $presentation = new \PayPal\Api\Presentation();
-        if ($this->checkout_logo) {
-            $presentation->setLogoImage($this->checkout_logo);
-        }
-        if ( !empty($this->brand_name) ) {
-            $presentation->setBrandName($this->brand_name);
-        }
-        if ( !empty($this->country) ) {
-            $presentation->setLocaleCode($this->country);
-        }
-        $inputFields = new \PayPal\Api\InputFields();
-        $inputFields->setNoShipping($this->no_shipping)->setAddressOverride(1);
-        $webProfile = new \PayPal\Api\WebProfile();
-        $webProfile->setName(substr($this->brand_name . uniqid(), 0, 50))
-                ->setInputFields($inputFields)
-                ->setPresentation($presentation);
-        try {
-            $createProfileResponse = $webProfile->create($this->getAuth());
-            if (!empty($createProfileResponse->id)) {
-                if ( $this->mode == 'SANDBOX') {
-                    $this->angelleye_paypal_plus_update_option('sandbox_experience_profile_id', $createProfileResponse->id);
-                } else {
-                    $this->angelleye_paypal_plus_update_option('live_experience_profile_id', $createProfileResponse->id);
-                }
-                $this->experience_profile_id = $createProfileResponse->id;
-                return false;
-            }
-        } catch (\PayPal\Exception\PayPalConnectionException $ex) {
-           ?>
-            <div class="error inline">
-		<p><?php echo __( 'Error trying to create experience profile ID.', 'woo-paypal-plus' ); ?></p>
-            </div>
-          <?php
-          return false;
-        } catch (Exception $ex) {
-            ?>
-            <div class="error inline">
-		<p><?php echo __( 'Error trying to create experience profile ID.', 'woo-paypal-plus' ); ?></p>
-            </div>
-          <?php
-          return false;
-        }
-    }
-    
-    public function angelleye_paypal_plus_setting_comparison() {
-        $comparison = true;
-        
-        if( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('checkout_logo'), null) != $this->checkout_logo ) {
-            return $comparison = false;
-        }
-        if( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('brand_name'), null) != $this->brand_name ) {
-            return $comparison = false;
-        }
-        if( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('country'), null) != $this->country ) {
-            return $comparison = false;
-        }
-        if( $this->angelleye_paypal_plus_get_field_value($this->get_field_key('disable_shipping'), 'no') != $this->get_option( 'disable_shipping', 'no' ) ) {
-            return $comparison = false;
-        }
-        return $comparison;
-    }
-    
-    public function angelleye_paypal_plus_get_experience_profile_id() {
-        $experience_profile_id = '';
-        if ($this->mode == "LIVE") {
-            $live_experience_profile_id = $this->get_option('live_experience_profile_id', '');
-            if( !empty($live_experience_profile_id) ) {
-                return $live_experience_profile_id;
-            } else {
-                $experience_profile_id = get_option('_experience_profile_id', '');
-                if( !empty($experience_profile_id) ) {
-                    $this->angelleye_paypal_plus_gateway_setting_update('live_experience_profile_id', $experience_profile_id);
-                    return $experience_profile_id;
-                }
-            }
-        }
-        if ($this->mode == 'SANDBOX') {
-            $sandbox_experience_profile_id = $this->get_option('sandbox_experience_profile_id', '');
-            if( !empty($sandbox_experience_profile_id) ) {
-                return $sandbox_experience_profile_id;
-            } else {
-                $experience_profile_id = get_option('_experience_profile_id', '');
-                if( !empty($experience_profile_id) ) {
-                    $this->angelleye_paypal_plus_gateway_setting_update('sandbox_experience_profile_id', $experience_profile_id);
-                    return $experience_profile_id;
-                }
-            }
-        }
-        return $experience_profile_id;
     }
     
     public function angelleye_paypal_plus_get_field_value($key, $default = false) {
@@ -1793,8 +1734,9 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
     }
     
     public function angelleye_woocommerce_germanized_send_instant_order_confirmation($do_send, $order) {
-        $payment_method = version_compare( WC_VERSION, '3.0', '<' ) ? $order->payment_method : $order->get_payment_method();
-        if ($this->disable_instant_order_confirmation == true && $payment_method === 'paypal_plus') {
+        $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $order->id : $order->get_id();
+        $payment_method = get_post_meta($order_id, '_payment_method', true);
+        if ($this->disable_instant_order_confirmation == true && !empty($payment_method) && $payment_method === 'paypal_plus') {
             return false;
         }
         return $do_send;
@@ -1816,15 +1758,110 @@ class Woo_Paypal_Plus_Gateway extends WC_Payment_Gateway {
     }
     
     public function angelleye_paypal_plus_pay_by_invoice_instructions($order) {
-        $payment_method = version_compare( WC_VERSION, '3.0', '<' ) ? $order->payment_method : $order->get_payment_method();
         $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $order->id : $order->get_id();
-        if($payment_method == 'paypal_plus') {
-            $payment_method = version_compare( WC_VERSION, '3.0', '<' ) ? $order->payment_method : $order->get_payment_method();
+        $payment_method = get_post_meta($order_id, '_payment_method', true);
+        if( !empty($payment_method) && $payment_method == 'paypal_plus') {
             $instruction_type = get_post_meta($order_id, 'instruction_type', true);
-            if ( !empty($instruction_type) &&  $instruction_type == 'PAY_UPON_INVOICE' && 'paypal_plus' === $payment_method ) {
+            if ( !empty($instruction_type) &&  $instruction_type == 'PAY_UPON_INVOICE' ) {
                 echo wpautop( wptexturize( $this->pay_upon_invoice_instructions ) ) . PHP_EOL;
                 $this->bank_details($order_id);
             }
         }
+        
+    }
+    
+    public function angelleye_admin_paypal_payment_wall() {
+        ?>
+        <tr valign="top">
+                <th scope="row" class="titledesc">
+                    <label for="paypal_plus_container">Pay Wall Preview</label>
+                </th>
+                <td class="forminp">
+                    <fieldset>
+                        <div id="paypal_plus_container">
+                            <div id="ppplus"></div>
+                        </div>
+                    </fieldset>
+                </td>
+        </tr>
+        
+        <?php
+    }
+    
+    public function woocommerce_gateway_title($title) {
+        global $post, $theorder;
+        if (function_exists('get_current_screen')) {
+            if ( ! $screen = get_current_screen() ) {
+                return $title;
+            }
+            $screen = get_current_screen();
+            if ('shop_order' == $screen->post_type && 'post' == $screen->base && $title == 'PayPal Plus') {
+                if ( ! is_object( $theorder ) ) {
+			$theorder = wc_get_order( $post->ID );
+		}
+                $order_id = version_compare( WC_VERSION, '3.0', '<' ) ? $theorder->id : $theorder->get_id();
+                $_instruction_type = get_post_meta($order_id, 'instruction_type', true);
+                if( $_instruction_type == 'PAY_UPON_INVOICE') {
+                    $title = __('PayPal Plus - Pay by Invoice', 'woo-paypal-plus');
+                }
+            }
+        }
+        return $title;
+    }
+    
+    public function angelleye_woocommerce_get_order_item_totals( $total_rows, $order) {
+        $order_id = version_compare(WC_VERSION, '3.0', '<') ? $order->id : $order->get_id();
+        $payment_method = get_post_meta($order_id, '_payment_method', true);
+         if( !empty($payment_method) && 'paypal_plus' == $payment_method ) {
+             $transaction_id = get_post_meta($order_id, '_transaction_id', true);
+             $new_total_rows = array();
+             if( !empty($transaction_id) ) {
+                 foreach ($total_rows as $key => $value) {
+                     if('payment_method' == $key) {
+                         $new_total_rows[$key] = $value;
+                         $new_total_rows['payment_transaction_id'] = array('label' => 'Transaction ID', 'value' => $transaction_id);
+                     } else {
+                         $new_total_rows[$key] = $value;
+                     }
+                 }
+                 return $new_total_rows;
+             }
+         }
+         return $total_rows;
+    }
+    
+    public function angelleye_direct_to_do_checkout_wall($order_id = null, $posted_data = null, $order = null) {
+         if (isset(WC()->session->token)) {
+            unset(WC()->session->paymentId);
+            unset(WC()->session->PayerID);
+        }
+        $payment_method = get_post_meta($order_id, '_payment_method', true);
+         if( !empty($payment_method) && 'paypal_plus' == $payment_method ) {
+             echo json_encode( array(
+                'result' => 'success',
+                'redirect' => $order->get_checkout_payment_url(true)
+            ));
+            exit();
+         }
+    }
+
+    public function angelleye_application_context_filter($payLoad) {
+        if( !empty($payLoad)) {
+            $payLoad_array = json_decode($payLoad, true);
+            $payLoad_array = $this->array_insert_after($payLoad_array, 'intent', array('application_context' => array('shipping_preference' => 'SET_PROVIDED_ADDRESS', 'brand_name' => $this->brand_name)));
+            $payLoad_array['application_context'] = array('shipping_preference' => 'SET_PROVIDED_ADDRESS');
+            $payLoad_array = (object) $payLoad_array;
+            $payLoad_array = json_encode($payLoad_array);
+            $payLoad = str_replace('\\/', '/', $payLoad_array);
+        }
+        return $payLoad;
+        
+    }
+    
+    public function array_insert_after( array $array, $key, array $new ) {
+	$keys = array_keys( $array );
+	$index = array_search( $key, $keys );
+	$pos = false === $index ? count( $array ) : $index + 1;
+	return array_merge( array_slice( $array, 0, $pos ), $new, array_slice( $array, $pos ) );
     }
 }

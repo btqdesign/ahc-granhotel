@@ -185,5 +185,23 @@ class Woo_Paypal_Plus_Admin {
         }
         return $value;
     }
+    
+    public function angelleye_email_subject_customer_paid_for_order($subject, $order) {
+        $order_id = version_compare(WC_VERSION, '3.0', '<') ? $order->id : $order->get_id();
+        $_instruction_type = get_post_meta($order_id, 'instruction_type', true);
+        if ($_instruction_type == 'PAY_UPON_INVOICE') {
+            $subject = str_replace("Payment received", "Order Received - Payment Instructions Included", $subject);
+        }
+        return $subject;
+    }
+
+    public function angelleye_email_heading_customer_paid_for_order($heading, $order) {
+        $order_id = version_compare(WC_VERSION, '3.0', '<') ? $order->id : $order->get_id();
+        $_instruction_type = get_post_meta($order_id, 'instruction_type', true);
+        if ($_instruction_type == 'PAY_UPON_INVOICE') {
+            $heading = str_replace("Payment received", "Order Received - Payment Instructions Included", $heading);
+        }
+        return $heading;
+    }
 
 }

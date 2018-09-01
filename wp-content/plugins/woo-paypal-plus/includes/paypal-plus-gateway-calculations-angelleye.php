@@ -59,28 +59,32 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                     'name' => $name,
                     'desc' => '',
                     'qty' => $values['quantity'],
-                    'amt' => $amount,
+                    'amt' => paypal_plus_number_format($amount),
                     'number' => $product_sku
                 );
                 $this->order_items[] = $item;
                 $roundedPayPalTotal += round($amount * $values['quantity'], $this->decimals);
             }
+            
+            $this->taxamt = round(WC()->cart->tax_total + WC()->cart->shipping_tax_total, $this->decimals);
+            $this->shippingamt = round(WC()->cart->shipping_total, $this->decimals);
+            $this->itemamt = round(WC()->cart->cart_contents_total, $this->decimals) + $this->discount_amount;
+            
             foreach (WC()->cart->get_fees() as $cart_item_key => $fee_values) {
                  $fee_item = array(
                     'name' => html_entity_decode( wc_trim_string( $fee_values->name ? $fee_values->name : __( 'Fee', 'paypal-for-woocommerce' ), 127 ), ENT_NOQUOTES, 'UTF-8' ),
                     'desc' => '',
                     'qty' => 1,
-                    'amt' => $fee_values->amount,
+                    'amt' => paypal_plus_number_format($fee_values->amount),
                     'number' => ''
                 );
                 $this->order_items[] = $fee_item;
-                $roundedPayPalTotal += round($amount * 1, $this->decimals);
-                
+                $roundedPayPalTotal += round($fee_values->amount * 1, $this->decimals);
+                $this->itemamt += $fee_values->amount;
             }
-            $this->taxamt = round(WC()->cart->tax_total + WC()->cart->shipping_tax_total, $this->decimals);
-            $this->shippingamt = round(WC()->cart->shipping_total, $this->decimals);
-            $this->itemamt = round(WC()->cart->cart_contents_total, $this->decimals) + $this->discount_amount;
+            
             $this->order_total = round($this->itemamt + $this->taxamt + $this->shippingamt, $this->decimals);
+            
             if ($this->itemamt == $this->discount_amount) {
                 unset($this->order_items);
                 $this->itemamt -= $this->discount_amount;
@@ -92,7 +96,7 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                         'desc' => 'Discount Amount',
                         'qty' => 1,
                         'number' => '',
-                        'amt' => '-' . $this->discount_amount
+                        'amt' => '-' . paypal_plus_number_format($this->discount_amount)
                     );
                     $this->order_items[] = $discLineItem;
                 }
@@ -103,11 +107,11 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                 $this->shippingamt = 0;
             }
             $this->cart_re_calculate();
-            $this->payment['itemamt'] = round($this->itemamt, $this->decimals);
-            $this->payment['taxamt'] = round($this->taxamt, $this->decimals);
+            $this->payment['itemamt'] = paypal_plus_number_format(round($this->itemamt, $this->decimals));
+            $this->payment['taxamt'] = paypal_plus_number_format(round($this->taxamt, $this->decimals));
             $this->payment['shippingamt'] = paypal_plus_number_format(round($this->shippingamt, $this->decimals));
             $this->payment['order_items'] = $this->order_items;
-            $this->payment['discount_amount'] = round($this->discount_amount, $this->decimals);
+            $this->payment['discount_amount'] = paypal_plus_number_format(round($this->discount_amount, $this->decimals));
             return $this->payment;
         }
 
@@ -130,7 +134,7 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                     'name' => $values['name'],
                     'desc' => '',
                     'qty' => $values['qty'],
-                    'amt' => $amount,
+                    'amt' => paypal_plus_number_format($amount),
                     'number' => $product_sku,
                 );
                 $this->order_items[] = $item;
@@ -143,7 +147,7 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                     'name' => html_entity_decode( wc_trim_string( $fee_item_name ? $fee_item_name : __( 'Fee', 'paypal-for-woocommerce' ), 127 ), ENT_NOQUOTES, 'UTF-8' ),
                     'desc' => '',
                     'qty' => 1,
-                    'amt' => $amount,
+                    'amt' => paypal_plus_number_format($amount),
                     'number' => ''
                 );
                 $this->order_items[] = $fee_item;
@@ -164,7 +168,7 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                         'desc' => 'Discount Amount',
                         'number' => '',
                         'qty' => 1,
-                        'amt' => '-' . $this->discount_amount
+                        'amt' => '-' . paypal_plus_number_format($this->discount_amount)
                     );
                     $this->order_items[] = $discLineItem;
                     $this->itemamt -= $this->discount_amount;
@@ -175,11 +179,11 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                 $this->shippingamt = 0;
             }
             $this->order_re_calculate($order);
-            $this->payment['itemamt'] = round($this->itemamt, $this->decimals);
-            $this->payment['taxamt'] = round($this->taxamt, $this->decimals);
+            $this->payment['itemamt'] = paypal_plus_number_format(round($this->itemamt, $this->decimals));
+            $this->payment['taxamt'] = paypal_plus_number_format(round($this->taxamt, $this->decimals));
             $this->payment['shippingamt'] = round($this->shippingamt, $this->decimals);
             $this->payment['order_items'] = $this->order_items;
-            $this->payment['discount_amount'] = round($this->discount_amount, $this->decimals);
+            $this->payment['discount_amount'] = paypal_plus_number_format(round($this->discount_amount, $this->decimals));
             return $this->payment;
         }
 
@@ -204,7 +208,7 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                         $this->itemamt = WC()->cart->total;
                     } else {
                         foreach ($this->order_items as $key => $value) {
-                            if ($value['qty'] == 1) {
+                            if ($value['qty'] == 1 && $this->is_adjust == false) {
                                 $this->order_items[$key]['amt'] = $this->order_items[$key]['amt'] + round($cartItemAmountDifference, $this->decimals);
                                 $this->order_total += round($cartItemAmountDifference, $this->decimals);
                                 $this->itemamt += round($cartItemAmountDifference, $this->decimals);
@@ -242,7 +246,7 @@ if (!class_exists('PayPal_Plus_Gateway_Calculation_AngellEYE')) :
                         $this->itemamt = WC()->cart->total;
                     } else {
                         foreach ($this->order_items as $key => $value) {
-                            if ($value['qty'] == 1) {
+                            if ($value['qty'] == 1 && $this->is_adjust == false) {
                                 $this->order_items[$key]['amt'] = $this->order_items[$key]['amt'] + round($cartItemAmountDifference, $this->decimals);
                                 $this->order_total += round($cartItemAmountDifference, $this->decimals);
                                 $this->itemamt += round($cartItemAmountDifference, $this->decimals);
