@@ -51,7 +51,7 @@ $solaz_settings = solaz_check_theme_options();
 			                ?>
 			                <div class="menu-main_menu-container btq-book-now">
 				                <ul id="menu-main_menu" class="mega-menu">
-					                <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6362"><a href="https://hotel.idevol.net/es/">Book Now</a></li>
+					                <li id="menu-item-6362" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home menu-item-6362"><a href="https://reservations.travelclick.com/95698?hotelid=95698&ratePlanId=3059105#/guestsandrooms">Book Now</a></li>
 								</ul>
 							</div>
 			            </div>
@@ -222,7 +222,7 @@ $solaz_settings = solaz_check_theme_options();
 							<?php if ($language == 'es'):?>	
 							<a class="" target="_blank" href="https://reservations.travelclick.com/131328?themeid=13670#/guestsandrooms">Reservar Ahora</a>
 							<?php else:?>
-							<a class="" target="_blank" href="https://reservations.travelclick.com/95698?themeid=13671#/guestsandrooms">Book Now</a>					
+							<a class="" target="_blank" href="https://reservations.travelclick.com/95698?hotelid=95698&ratePlanId=3059105#/guestsandrooms">Book Now</a>					
 							<?php endif;?>
 						</div>
 					<?php endif;?>	
