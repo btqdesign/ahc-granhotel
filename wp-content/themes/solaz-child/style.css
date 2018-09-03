@@ -119,7 +119,7 @@ textarea.wpcf7-form-control.wpcf7-textarea.form-control.placeholder{
 
 @media only screen and (max-width: 765px){
 .num_hide_desktop{
-	display: none;
+	display: block;
 	}
 }
 
