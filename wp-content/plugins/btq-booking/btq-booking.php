@@ -2120,8 +2120,9 @@ function btq_booking_grid_form($language = 'es') {
 					
 				<article class="col-xs-12 col-md-4">
 					<div class="row">
-						<input type="text" autocomplete="off" class="btq-input" id="btq-date-range" name="btq-date-range" placeholder="<?php echo _e('Select dates', 'btq-booking'); ?>">
 						<!--
+						<input type="text" autocomplete="off" class="btq-input" id="btq-date-range" name="btq-date-range" placeholder="<?php echo _e('Select dates', 'btq-booking'); ?>">
+						-->
 						<div class="col-xs-6">
 							<div class="form-group">
 								<input type="text" autocomplete="off" class="btq-input" id="btq-date-start" name="btq-date-start" placeholder="<?php echo _e('Check-in', 'btq-booking'); ?>">
@@ -2132,7 +2133,6 @@ function btq_booking_grid_form($language = 'es') {
 								<input type="text" autocomplete="off" class="btq-input" id="btq-date-end" name="btq-date-end" placeholder="<?php echo _e('Check-out', 'btq-booking'); ?>">
 							</div>		
 						</div>
-						-->
 					</div>
 				</article>
 				
