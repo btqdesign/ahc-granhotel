@@ -14,7 +14,6 @@
         width: 100%;
         margin: 0px auto;
         padding: 20px;
-        display: none;
       }
       
       .main-div input {
@@ -97,10 +96,18 @@
         border: 1px solid #c69807;
         cursor: pointer;
       }
-ul{
-  text-decoration-color: #c69807; 
-  color: #c69807
-}
+      u, .Footer_Text{
+        cursor: pointer;
+        text-decoration: underline;
+        text-decoration-color: #c69807;
+        color: #c69807;
+      }
+
+      #registro_completado, #contraseña_restaurada, #email_void, #pass_invalid, #user_non_exist, #user_already_exist, #internal_error, #user_already_exist_register, #email_void_register, #passwords_dont_match, #internal_error_register, #register_success, #password_length, #recover_success, #recover_fail, #user_already_exist_fb, #user_already_exist_google{
+        display: none;
+      }
+      
+
 
 /* estilo nuevos botones
 .btq-login-btns {
