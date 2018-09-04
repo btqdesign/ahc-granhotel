@@ -6,3 +6,7 @@ jQuery(document).ready(function(){
 		}
 	},9000);
 });
+
+function btq_windows_size(){
+	var isMobile = navigator.userAgent.toLowerCase().match(/android|ipad|ipod|iphone|windows phone/i) !== null ? navigator.userAgent.toLowerCase().match(/android|ipad|ipod|iphone|windows phone/i)[0] : false;
+}
