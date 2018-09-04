@@ -54,16 +54,11 @@ function btq_popup() {
 		<div class="modal-dialog modal-dialog-centered btq-popup" role="document">
 			<div class="modal-content">
 				<div class="modal-header">
-					<?php if ($language == 'es'): ?> 
-					<h5 class="modal-title" id="exampleModalLongTitle">RAZONES PARA RESERVAR CON NOSOTROS</h5>
-					<?php else: ?>
-					<h5 class="modal-title" id="exampleModalLongTitle">REASONS TO BOOK WITH US</h5>
-					<?php endif; ?>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
+					<span aria-hidden="true">&times;</span>
 					</button>
 				</div>
 				<div style="padding: 0px;" class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 					<?php if ($language == 'es'): ?>
 					<img src="<?php echo plugins_url( 'imagenes/header_web.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
 					<?php else: ?>
