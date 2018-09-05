@@ -59,16 +59,33 @@ function btq_popup() {
 					</button>
 				</div>
 				<div style="padding: 0px;" class="modal-body">
-					<?php if ($language == 'es'): ?>
-					<img src="<?php echo plugins_url( 'imagenes/header_web.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
-					<?php else: ?>
-					<img src="<?php echo plugins_url( 'imagenes/header_web_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book.">
-					<?php endif; ?>
-					<?php if ($language == 'es'): ?>
-					<a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/body_web.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
-					<?php else: ?>
-					<a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/body_web_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
-					<?php endif; ?>
+					<?php if (isMobile == true) ?>{
+
+						<?php if ($language == 'es'): ?>
+						<img src="<?php echo plugins_url( 'imagenes/header_mob.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
+						<?php else: ?>
+						<img src="<?php echo plugins_url( 'imagenes/header_mob_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book.">
+						<?php endif; ?>
+						<?php if ($language == 'es'): ?>
+						<a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/body_mob.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
+						<?php else: ?>
+						<a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/body_mob_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
+						<?php endif; ?>
+
+					}else{
+						<?php if ($language == 'es'): ?>
+						<img src="<?php echo plugins_url( 'imagenes/header_web.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
+						<?php else: ?>
+						<img src="<?php echo plugins_url( 'imagenes/header_web_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book.">
+						<?php endif; ?>
+						<?php if ($language == 'es'): ?>
+						<a href="https://granhoteldelaciudaddemexico.com.mx/es/conoce-los-beneficios-de-reservar-con-nosotros/"><img src="<?php echo plugins_url( 'imagenes/body_web.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar."></a>
+						<?php else: ?>
+						<a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/body_web_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
+						<?php endif; ?>
+					}
+
+
 				</div>
 			</div>
 		</div>
