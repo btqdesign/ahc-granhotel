@@ -2,5 +2,5 @@
     width: 90%;
     max-width: 500px;
     align-self: auto;
-    z-index: 10 !important;
+    z-index: -10 !important;
 }
