@@ -1,6 +1,6 @@
 .btq-popup{
+    left: 4%;
     width: 90%;
     max-width: 500px;
-    align-self: auto;
-    z-index: 100 !important;
+    z-index: 1000000000 !important;
 }
