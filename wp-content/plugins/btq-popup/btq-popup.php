@@ -59,7 +59,7 @@ function btq_popup() {
 					</button>
 				</div>
 				<div style="padding: 0px;" class="modal-body">
-					<?php if (isMobile == true): ?>
+					<?php if (isMobile == false): ?>
 
 						<?php if ($language == 'es'): ?>
 						<img src="<?php echo plugins_url( 'imagenes/header_mob.jpg', __FILE__ ); ?>" alt="Top 5 razones por las que conviene reservar.">
@@ -83,8 +83,8 @@ function btq_popup() {
 						<?php else: ?>
 						<a href="https://granhoteldelaciudaddemexico.com.mx/en/learn-about-the-benefits-of-booking-with-us/"><img src="<?php echo plugins_url( 'imagenes/body_web_en.jpg', __FILE__ ); ?>" alt="Top 5 reasons why you should book."></a>
 						<?php endif; ?>
-					
-						<?php endif; ?>
+
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>
