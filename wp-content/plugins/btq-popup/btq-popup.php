@@ -50,7 +50,7 @@ function btq_popup() {
 	$language = btq_popup_current_language_code();
 	?>
 	<!-- BTQ Popup -->
-	<div class="modal fade btq-popup" id="Top5razones" tabindex="1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<div class="modal fade btq-popup" id="Top5razones" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered" role="document">
 			<div class="modal-content">
 				<div class="modal-header">			
