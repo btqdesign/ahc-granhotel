@@ -360,10 +360,11 @@ MYMAP.init = function(selector, latLng, zoom) {
 var infoWindow;
 jQuery(document).ready(function() {
 	
-	if(!window.WPGMZA || !window.WPGMZA.googleAPIStatus || window.WPGMZA.googleAPIStatus.code != "ENQUEUED")
+	if(!window.WPGMZA)
 		return;
 	
 	infoWindow = WPGMZA.InfoWindow.createInstance();
+	
 	if (typeof wpgmaps_localize_global_settings['wpgmza_settings_infowindow_width'] !== "undefined" && wpgmaps_localize_global_settings['wpgmza_settings_infowindow_width'] !== "") { infoWindow.setOptions({maxWidth:wpgmaps_localize_global_settings['wpgmza_settings_infowindow_width']}); }
 });
 
