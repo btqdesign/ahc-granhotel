@@ -1,4 +1,4 @@
-=== Cliengo ===
+=== Cliengo - chatbot amistoso que te ayuda a vender más ===
 Contributors: cliengo
 Donate link: https://www/cliengo.com/
 Tags: cliengo, chatbot, leads

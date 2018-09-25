@@ -13,10 +13,10 @@
  * @package           Cliengo
  *
  * @wordpress-plugin
- * Plugin Name:       Cliengo
+ * Plugin Name:       Cliengo - chatbot amistoso que te ayuda a vender más
  * Plugin URI:        http://cliengo.com/?utm_source=wordpress_plugin&utm_medium=wordpress
  * Description:       Cliengo es un chatbot amistoso que convierte tus visitantes en clientes potenciales, de forma automática las 24 horas.
- * Version:           0.0.1
+ * Version:           0.0.3
  * Author:            Cliengo
  * Author URI:        http://cliengo.com/?utm_source=wordpress_plugin&utm_medium=wordpress
  * License:           GPL-2.0+
