@@ -3,7 +3,7 @@
  * @module MapSettings
  * @requires WPGMZA
  */
-(function($) {
+jQuery(function($) {
 	
 	WPGMZA.MapSettings = function(element)
 	{
@@ -143,7 +143,7 @@
         options.disableDoubleClickZoom	= !(this.wpgmza_settings_map_clickzoom == 'yes');
         options.scrollwheel				= !(this.wpgmza_settings_map_scroll == 'yes');
 		
-		if(this.wpgmza_force_greedy_gestures == "greedy")
+		if(this.wpgmza_force_greedy_gestures == "greedy" || this.wpgmza_force_greedy_gestures == "yes")
 			options.gestureHandling = "greedy";
 		else
 			options.gestureHandling = "cooperative";
@@ -178,4 +178,4 @@
 		
 		return options;
 	}
-})(jQuery);
+});

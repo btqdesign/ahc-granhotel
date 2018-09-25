@@ -3,7 +3,7 @@
 Plugin Name: WP Google Maps
 Plugin URI: https://www.wpgmaps.com
 Description: The easiest to use Google Maps plugin! Create custom Google Maps with high quality markers containing locations, descriptions, images and links. Add your customized map to your WordPress posts and/or pages quickly and easily with the supplied shortcode. No fuss.
-Version: 7.10.33
+Version: 7.10.36
 Author: WP Google Maps
 Author URI: https://www.wpgmaps.com
 Text Domain: wp-google-maps
@@ -11,6 +11,28 @@ Domain Path: /languages
 */
 
 /*
+ * 7.10.36 :- 2018-09-25 :- Medium Priority
+ * Fixed change in 7.10.35 causing problems with OLMarker click event, preventing infowindow opening
+ * Dropped .gitignore which was causing deployment issues, now using .gitattributes to ignore minified files
+ *
+ * 7.10.35 :- 2018-09-20 :- Medium priority
+ * Added links to new API troubleshooting documentation to Google Maps API Error dialog
+ * Fixed marker dispatching click event after drag when using OpenLayers
+ * Fixed map dispatching click event after drag when using OpenLayers
+ * Fixed map editor right click marker appearing multiple times
+ * Fixed map editor right click marker disappearing after map drag
+ * Fixed modern store locator circle crashing some iOS devices by disabling this feature on iOS devices
+ * Fixed gesture handling setting not respected when theme data is set in
+ *
+ * 7.10.34 :- 2018-09-17 :- Low priority
+ * Added descriptive error messages when Google API is required but not loaded
+ * Added "I agree" translation to German files
+ * Added getPluginScripts to Scriptloader module
+ * jQuery 3.x document ready compatibility
+ * Changed wpgmza_google_api_status to be passed via wp_localize_script to prevent redirection issues in some circumstances
+ * Prevented UGM e-mail address being transmitted in WPGMZA_localized_data
+ * Removed redundant locationSelect dropdown
+ *
  * 7.10.33 :- 2018-09-05 :- Medium priority
  * Fixed OpenLayers InfoWindow not opening
  *
@@ -520,7 +542,7 @@ if(!function_exists('wpgmza_show_php_version_error'))
 		<div class="notice notice-error">
 			<p>
 				<?php
-				_e('WP Google Maps: This plugin does not support PHP version 5.2 or below. Please use your cPanel or speak to your host to switch version.', 'wp-google-maps');
+				_e('<strong>WP Google Maps:</strong> This plugin does not support PHP version 5.2 or below. Please use your cPanel or contact your host to switch version.', 'wp-google-maps');
 				?>
 			</p>
 		</div>
@@ -1265,7 +1287,7 @@ function wpgmaps_admin_edit_marker_javascript() {
     <link rel="stylesheet" type="text/css" media="all" href="<?php echo wpgmaps_get_plugin_url(); ?>css/data_table.css" />
     <script type="text/javascript" src="<?php echo wpgmaps_get_plugin_url(); ?>js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" >
-        jQuery(document).ready(function(){
+        jQuery(function($) {
             function wpgmza_InitMap() {
                 var myLatLng = new WPGMZA.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
                 MYMAP.init('#wpgmza_map', myLatLng, 15);
@@ -2871,7 +2893,16 @@ function wpgmaps_tag_basic( $atts ) {
 		$googleMapsAPILoader->loadGoogleMaps();
 	});*/
 
-	$core_dependencies = array('wpgmza');
+	//$core_dependencies = array('wpgmza');
+	
+	$core_dependencies = array();
+	$scriptLoader = new WPGMZA\ScriptLoader($wpgmza->isProVersion());
+	$v8Scripts = $scriptLoader->getPluginScripts();
+	
+	foreach($v8Scripts as $handle => $script)
+	{
+		$core_dependencies[] = $handle;
+	}
 	
 	$apiLoader = new WPGMZA\GoogleMapsAPILoader();
 	// if(!empty($wpgmza_settings['wpgmza_settings_remove_api']))
@@ -3122,7 +3153,7 @@ function wpgmaps_sl_user_output_basic($map_id) {
 	
 	$ret_msg .= "       <div class='wpgmza-not-found-msg js-not-found-msg'><p>" . $sl_not_found_message . "</p></div>";
 	$ret_msg .= "    </div>";
-    $ret_msg .= "    <div><select id=\"locationSelect\" style=\"width:100%;visibility:hidden\"></select></div>";
+    //$ret_msg .= "    <div><select id=\"locationSelect\" style=\"width:100%;visibility:hidden\"></select></div>";
     
     return $ret_msg;
     
@@ -3683,7 +3714,7 @@ function wpgmaps_head() {
 		?>
 		<script type='text/javascript'>
 		
-		jQuery(document).ready(function() {
+		jQuery(function($) {
 			window.location.reload();
 		});
 		
@@ -3747,7 +3778,7 @@ function wpgmaps_head() {
 		?>
 		<script type='text/javascript'>
 		
-		jQuery(document).ready(function() {
+		jQuery(function($) {
 			window.location.reload();
 		});
 		
@@ -4728,7 +4759,7 @@ function wpgmaps_settings_page_basic() {
             $ret .= "               <tr>";
             $ret .= "                        <td width='200' valign='top'>".__("Disable Two-Finger Pan","wp-google-maps").":</td>";
             $ret .= "                     <td>";
-            $ret .= "                           <div class='switch'><input name='wpgmza_force_greedy_gestures' type='checkbox' class='cmn-toggle cmn-toggle-yes-no' id='wpgmza_force_greedy_gestures' value='yes' $wpgmza_force_greedy_gestures_checked /> <label for='wpgmza_force_greedy_gestures' data-on='".__("Yes", "wp-google-maps")."' data-off='".__("No", "wp-google-maps")."'></label></div> " . __("Removes the need to use two fingers to move the map on mobile devices", "wp-google-maps");
+            $ret .= "                           <div class='switch wpgmza-open-layers-feature-unavailable'><input name='wpgmza_force_greedy_gestures' type='checkbox' class='cmn-toggle cmn-toggle-yes-no' id='wpgmza_force_greedy_gestures' value='yes' $wpgmza_force_greedy_gestures_checked /> <label for='wpgmza_force_greedy_gestures' data-on='".__("Yes", "wp-google-maps")."' data-off='".__("No", "wp-google-maps")."'></label></div> " . __("Removes the need to use two fingers to move the map on mobile devices", "wp-google-maps");
             $ret .= "                    </td>";
             $ret .= "                </tr>";
 			
@@ -7892,7 +7923,7 @@ function wpgmaps_b_admin_add_circle_javascript()
 					bounds: null
 				};
 				
-				$(document).ready(function(){
+				jQuery(function($) {
 					function wpgmza_InitMap() {
 						
 						MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
@@ -8312,7 +8343,7 @@ function wpgmaps_b_admin_add_rectangle_javascript()
 		
 				var myLatLng = new google.maps.LatLng(<?php echo $wpgmza_lat; ?>,<?php echo $wpgmza_lng; ?>);
 				
-				$(document).ready(function(){
+				jQuery(function($) {
 					function wpgmza_InitMap() {
 						
 						MYMAP.init('#wpgmza_map', myLatLng, <?php echo $start_zoom; ?>);
