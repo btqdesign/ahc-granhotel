@@ -5,7 +5,7 @@ Donate link: https://www.paypal.me/tijmensmit
 Tags: google maps, store locator, business locations, geocoding, stores, geo, zipcode locator, dealer locater, geocode, gmaps, google map, google map plugin, location finder, map tools, shop locator, wp google map
 Requires at least: 3.7
 Tested up to: 4.9.8
-Stable tag: 2.2.16
+Stable tag: 2.2.17
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl.html
 
@@ -125,6 +125,9 @@ If you find a plugin or theme that causes a conflict, please report it on the [s
 4. The plugin settings
 
 == Changelog ==
+
+= 2.2.17, September 16, 2018 =
+* Changed: Truncated the used coordinates to 5 decimals in the JS script to workaround this [https://issuetracker.google.com/issues/115484101#comment3](reverse geocoding bug). This bug resulted in a 'No results found' error ( based on the used WPSL settings ) if you searched for major cities like Los Angeles.
 
 = 2.2.16, August 14, 2018 =
 * Changed: Set the Google Maps API version to 3.33 to prevent [weekly API updates](https://developers.google.com/maps/documentation/javascript/versions) from suddenly breaking the map. You can overwrite the version number with the wpsl_gmap_api_version filter.
