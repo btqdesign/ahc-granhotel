@@ -1136,7 +1136,17 @@ function prepareStoreSearch( latLng, infoWindow ) {
  * @returns {object} response The address components if the stats add-on is active.
  */
 function reverseGeocode( latLng, callback ) {
+    var lat = latLng.lat().toFixed( 5 ),
+		lng = latLng.lng().toFixed( 5 );
 
+    latLng.lat = function() {
+        return parseFloat( lat );
+    };
+
+    latLng.lng = function() {
+        return parseFloat( lng );
+    };
+    
     geocoder.geocode( {'latLng': latLng}, function( response, status ) {
 		if ( status == google.maps.GeocoderStatus.OK ) {
 
