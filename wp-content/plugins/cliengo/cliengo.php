@@ -13,10 +13,10 @@
  * @package           Cliengo
  *
  * @wordpress-plugin
- * Plugin Name:       Cliengo - chatbot amistoso que te ayuda a vender más
+ * Plugin Name:       Cliengo - Free Chatbot for lead generation that boosts Sales. Multi-language: English/Spanish/Portuguese
  * Plugin URI:        http://cliengo.com/?utm_source=wordpress_plugin&utm_medium=wordpress
- * Description:       Cliengo es un chatbot amistoso que convierte tus visitantes en clientes potenciales, de forma automática las 24 horas.
- * Version:           0.0.3
+ * Description:       Cliengo is a friendly chatbot that turns your visitors into leads, automatically 24/7.
+ * Version:           1.0.1
  * Author:            Cliengo
  * Author URI:        http://cliengo.com/?utm_source=wordpress_plugin&utm_medium=wordpress
  * License:           GPL-2.0+
@@ -35,11 +35,11 @@ if ( !defined('ABSPATH') ) {
 }
 
 /**
- * Currently plugin version.
+ * Current plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'CLIENGO_VERSION', '1.0.0' );
+define( 'CLIENGO_VERSION', '1.0.1' );
 
 /**
  * The code that runs during plugin activation.
