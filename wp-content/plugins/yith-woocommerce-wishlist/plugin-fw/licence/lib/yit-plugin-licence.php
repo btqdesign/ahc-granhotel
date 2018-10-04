@@ -63,7 +63,7 @@ if ( !class_exists( 'YIT_Plugin_Licence' ) ) {
             }
 
             $this->_settings = array(
-                'parent_page' => 'yit_plugin_panel',
+                'parent_page' => 'yith_plugin_panel',
                 'page_title'  => __( 'License Activation', 'yith-plugin-fw' ),
                 'menu_title'  => __( 'License Activation', 'yith-plugin-fw' ),
                 'capability'  => 'manage_options',
@@ -126,7 +126,7 @@ if ( !class_exists( 'YIT_Plugin_Licence' ) ) {
                         $start          = '<span style="display:inline-block; padding:3px 10px; margin: 0 10px 10px 0; background: #f1f1f1; border-radius: 4px;">';
                         $end            = '</span>';
                         $product_list   = '<div>' . $start . implode( $end . $start, $product_names ) . $end . '</div>';
-                        $activation_url = add_query_arg( array( 'page' => 'yith_plugins_activation' ), admin_url( 'admin.php' ) );
+                        $activation_url = self::get_license_activation_url();
                         ?>
                         <div class="notice notice-error">
                             <p><strong>Warning!</strong> You didn't set license key for the following products:
@@ -138,7 +138,6 @@ if ( !class_exists( 'YIT_Plugin_Licence' ) ) {
                 }
             }
         }
-
 
         public function licence_after_check() {
             /* === Regenerate Update Plugins Transient === */
@@ -205,6 +204,16 @@ if ( !class_exists( 'YIT_Plugin_Licence' ) ) {
 
         public function get_product_type() {
             return $this->_product_type;
+        }
+
+        /**
+         * Get license activation URL
+         *
+         * @author Andrea Grillo <andrea.grillo@yithemes.com>
+         * @since 3.0.17
+         */
+        public static function get_license_activation_url(){
+            return add_query_arg( array( 'page' => 'yith_plugins_activation' ), admin_url( 'admin.php' ) );
         }
     }
 }
