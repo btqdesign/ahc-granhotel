@@ -3345,7 +3345,7 @@ jQuery(function($) {
 		
 		if(WPGMZA.RestAPI.URL.match(/\/$/))
 			route = route.replace(/^\//, "");
-		
+    
 		$.ajax(WPGMZA.RestAPI.URL + route, params);
 	}
 	
