@@ -27,7 +27,7 @@ class WPSEO_Premium {
 	const OPTION_CURRENT_VERSION = 'wpseo_current_version';
 
 	/** @var string */
-	const PLUGIN_VERSION_NAME = '8.3';
+	const PLUGIN_VERSION_NAME = '8.4';
 
 	/** @var string */
 	const PLUGIN_VERSION_CODE = '16';
@@ -112,6 +112,7 @@ class WPSEO_Premium {
 			'orphaned-post-notifier'                 => new WPSEO_Premium_Orphaned_Post_Notifier( array( 'post', 'page' ), Yoast_Notification_Center::get() ),
 			'request-free-translations'              => new WPSEO_Premium_Free_Translations(),
 			'expose-javascript-shortlinks'           => new WPSEO_Premium_Expose_Shortlinks(),
+			'multi_keyword'                          => new WPSEO_Multi_Keyword(),
 		);
 
 		$this->setup();
@@ -245,7 +246,6 @@ class WPSEO_Premium {
 			add_filter( 'redirect_canonical', array( $this, 'redirect_canonical_fix' ), 1, 2 );
 		}
 
-		add_action( 'admin_init', array( $this, 'enqueue_multi_keyword' ) );
 		add_action( 'admin_init', array( $this, 'enqueue_social_previews' ) );
 
 		add_action( 'wpseo_premium_indicator_classes', array( $this, 'change_premium_indicator' ) );
@@ -331,17 +331,6 @@ class WPSEO_Premium {
 
 		// The Term Watcher.
 		new WPSEO_Term_Watcher();
-	}
-
-	/**
-	 * Adds multi keyword functionality if we are on the correct pages
-	 */
-	public function enqueue_multi_keyword() {
-		global $pagenow;
-
-		if ( WPSEO_Metabox::is_post_edit( $pagenow ) ) {
-			new WPSEO_Multi_Keyword();
-		}
 	}
 
 	/**
@@ -610,5 +599,14 @@ class WPSEO_Premium {
 
 		$tracker = new WPSEO_Tracking( 'https://search-yoast-poc-gdaxpa7udbwtvpgxqaufa3dejm.eu-central-1.es.amazonaws.com/yoast/tracking', ( WEEK_IN_SECONDS * 2 ) );
 		$tracker->send();
+	}
+
+	/**
+	 * Adds multi keyword functionality if we are on the correct pages.
+	 *
+	 * @deprecated 8.4
+	 */
+	public function enqueue_multi_keyword() {
+		_deprecated_function( 'WPSEO_Premium::enqueue_multi_keyword', '8.4' );
 	}
 }
