@@ -282,7 +282,7 @@ if ( !function_exists( 'yit_plugin_get_attachment_id' ) ) {
                 continue;
             }
 
-            foreach ( (array)$meta[ 'sizes' ] as $size => $values ) {
+            foreach ( (array) $meta[ 'sizes' ] as $size => $values ) {
                 if ( $values[ 'file' ] == $file && $url == str_replace( 'https://', 'http://', array_shift( wp_get_attachment_image_src( $id, $size ) ) ) ) {
 
                     return $id;
@@ -484,7 +484,7 @@ if ( !function_exists( 'yit_registered_sidebars' ) ) {
             $return = array( '' => '' );
         }
 
-        foreach ( ( array )$wp_registered_sidebars as $the_ ) {
+        foreach ( ( array ) $wp_registered_sidebars as $the_ ) {
             $return[ $the_[ 'name' ] ] = $the_[ 'name' ];
         }
 
@@ -1137,5 +1137,27 @@ if ( !function_exists( 'yith_plugin_fw_get_version' ) ) {
     function yith_plugin_fw_get_version() {
         $plugin_fw_data = get_file_data( trailingslashit( YIT_CORE_PLUGIN_PATH ) . 'init.php', array( 'Version' => 'Version' ) );
         return $plugin_fw_data[ 'Version' ];
+    }
+}
+
+if ( !function_exists( 'yith_get_premium_support_url' ) ) {
+    //@TODO: To Remove
+    /**
+     * Return the url for My Account > Support dashboard
+     *
+     * @return string The complete string, if the main string is not empty or null
+     * @since 2.0.0
+     */
+    function yith_get_premium_support_url() {
+        return 'https://yithemes.com/my-account/support/dashboard/';
+    }
+}
+
+if ( !function_exists( 'yith_plugin_fw_is_panel' ) ) {
+    function yith_plugin_fw_is_panel() {
+        $panel_screen_id = 'yith-plugins_page';
+        $screen          = function_exists( 'get_current_screen' ) ? get_current_screen() : null;
+
+        return $screen instanceof WP_Screen && strpos( $screen->id, $panel_screen_id ) !== false;
     }
 }

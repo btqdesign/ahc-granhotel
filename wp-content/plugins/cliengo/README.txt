@@ -1,17 +1,28 @@
-=== Cliengo - chatbot amistoso que te ayuda a vender más ===
+=== Cliengo - Free Chatbot for lead generation that boosts Sales. Multi-language: English/Spanish/Portuguese ===
 Contributors: cliengo
 Donate link: https://www/cliengo.com/
 Tags: cliengo, chatbot, leads
 Requires at least: 4.4
 Tested up to: 4.9.4
-Stable tag: 0.0.3
+Stable tag: 1.0.1
 Requires PHP: 5.2.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Cliengo es un chatbot amistoso que convierte tus visitantes en clientes potenciales, de forma automática las 24 horas.
+Cliengo is a friendly chatbot that turns your visitors into leads, automatically 24/7.
 
 == Description ==
+ENGLISH
+Cliengo’s chatbot starts instantly chatting with your website visitors, aiming to obtain their contact information (name, email, phone, etc).
+
+Cliengo takes care of your business, giving an instant response to your website visitors and turning them into potential customers by obtaining their contact information in a friendly way. Undoubtedly this results in a more enhancing experience for your leads, making it easier to later convert those leads into sales.
+
+Cliengo is the ideal tool to speed up your sales by bringing a better experience to people interested in your product or service.
+
+
+
+ESPAÑOL
+Cliengo es un chatbot amistoso que convierte tus visitantes en clientes potenciales, de forma automática las 24 horas.
 
 El chatbot de Cliengo es un sistema automático que se enciende automáticamente e inicia una conversación por chat cuando un visitante ingresa en tu web y transcurren determinados segundos observando tu sitio. Su objetivo es obtener los datos del visitante interesado, principalmente su consulta, nombre, mail y/o teléfono.
 
@@ -19,13 +30,6 @@ Cliengo atiende tu negocio, dándole una respuesta al instante a los visitantes 
 
 Cliengo es la herramienta ideal para acelerar las ventas de tu sitio web y brindar una mejor atención a los interesados en tu negocio. 
 
-Para comenzar, regístrate en cliengo.com y crea una cuenta. Luego podrás ir al menú Chatbots - Instalación y obtener el código de instalación de Cliengo.
-
-== Installation ==
-
-1. Copiar los archivos del plugin al directorio `/wp-content/plugins/cliengo` , o instalar directamente desde el directorio de plugins de WordPress.
-2. Activar el plugin de cliengo en la sección de 'Plugins' en WordPress.
-3. Usar la sección de Cliengo en el menú lateral de WordPress.
 
 == Frequently Asked Questions ==
 
@@ -34,7 +38,7 @@ Para comenzar, regístrate en cliengo.com y crea una cuenta. Luego podrás ir al
 https://help.cliengo.com/hc/es
 
 == Screenshots ==
-1. Carga del chatbot en la pantalla inicial del sitio `/assets/screenshot-1.png`
+`/assets/iphone-en.png`
 
 == Changelog ==
 
@@ -44,10 +48,14 @@ https://help.cliengo.com/hc/es
 * Agregada configuración para posicionar a la izquierda de la pantalla.
 = 0.0.3 =
 * Corregido bug de configuración de token.
+= 1.0.0 =
+* Bump de versión mayor, pero no hay breaking changes
+* Identificación del chatbot instalado como instalado desde WordPress
+= 1.0.1 =
+* Textos en inglés
+* New images and typo fix.
 
 == Upgrade Notice ==
-* Actualización inicial del plugin
-* Agregada configuración para posicionar a la izquierda de la pantalla.
-* Corregido errores de configuración de token.
 
-`<?php code(); // goes in backticks ?>`
+= 1.0 =
+No hay breaking changes

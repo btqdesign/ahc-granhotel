@@ -112,7 +112,10 @@ class Cliengo_Form {
     $install_code_cliengo = '(function(){var ldk=document.createElement("script"); ldk.type="text/javascript";';
     $install_code_cliengo .= 'ldk.async=true; ldk.src="https://s.cliengo.com/weboptimizer/' . $array_chatbot_token[0] . '/';
     $install_code_cliengo .= $array_chatbot_token[1];
-    $install_code_cliengo .= '.js"; var s=document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ldk, s);})();';
+    $install_code_cliengo .= '.js?platform=wordpress"; var s=document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ldk, s);})();';
+
+    // Eliminamos cualquier salto de línea posible
+    $install_code_cliengo = str_replace(array("\r", "\n"), '', $install_code_cliengo);
 
     $this->write_to_file_install_code_cliengo_js($install_code_cliengo);
   }
